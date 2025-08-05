@@ -1,0 +1,530 @@
+
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>SchabeAntimonfeld</title>
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap">
+
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- 代码高亮 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/github.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.9.0/highlightjs-line-numbers.min.js"></script>
+
+    <script src="/static/js/use_hl.js"></script>
+
+    <!-- MathJax 支持 LaTeX -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6" defer></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- 邮箱弹窗 -->
+    <script>
+        function toggleEmailPopup() {
+            const popup = document.getElementById("email-popup");
+            popup.style.display = (popup.style.display === "block") ? "none" : "block";
+        }
+
+        document.addEventListener("click", function (event) {
+            const popup = document.getElementById("email-popup");
+            const icon = event.target.closest('.nav-item');
+            if (!icon || !icon.contains(event.target)) {
+                popup.style.display = "none";
+            }
+        });
+    </script>
+
+    <!-- LaTeX行内公式支持 -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border fixed-top">
+        <!-- 导航栏名称 -->
+        <a class="navbar-brand ms-5" href="/">
+            SchabeAntimonfeld</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarCollapse" aria-controls="navbarCollapse"
+                aria-expanded="false" aria-label="切换导航">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/topics/">主题</a>
+                </li>
+            </ul>
+            <!-- 右侧图标区域 -->
+            <ul class="navbar-nav ms-auto mx-5">
+                <!-- 邮箱图标 + 弹窗 -->
+                <li class="nav-item position-relative">
+                    <a class="nav-link" href="javascript:void(0);" onclick="toggleEmailPopup()"
+                        data-toggle="tooltip" data-placement="bottom" title="我的GMAIL邮箱">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <!-- 自定义浮层 -->
+                    <div id="email-popup" class="email-popup shadow-sm">
+                        <b>Email:</b> schabeantimonyfield@gmail.com
+                    </div>
+                </li>
+
+                <!-- GitHub 图标 -->
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/Schabe-Antimonfeld" target="_blank"
+                       data-toggle="tooltip" data-placement="bottom" title="前往 GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container" style="margin-top: 70px;">
+        <div class="row">
+            <!-- 侧边栏资料卡 -->
+            <div class="position-fixed d-none d-md-block" style="top: 70px; left: 50px; width: 23%; max-width: 300px;">
+                    
+
+
+<!--个人资料卡-->
+<div class="card mb-4 text-center">
+    <img src="/static/images/avatar.jpg" class="card-img-top rounded-circle mx-auto mt-3" style="width: 120px; height: 120px; object-fit: cover;" alt="avatar">
+    <div class="card-body text-center">
+        <h5 class="card-title">Schabe Antimonfeld</h5>
+        <p class="card-text text-muted">AI × Coding × Minecraft</p>
+        <hr>
+        <p>在读大学生</p>
+        <p></p>
+        <p><i class="fab fa-github"></i> <a href="https://github.com/Schabe-Antimonfeld" target="_blank">GitHub</a></p>
+    </div>
+</div>
+            </div>
+
+            <!-- 主体内容 -->
+            <div class="col-md-9 offset-md-3">
+                
+<h2>ACM-ICPC基础 动态规划方法</h2>
+
+<!-- 主题标签 -->
+<p class="text-muted mb-1">
+    <i class="bi bi-tags text-primary"></i>
+    
+        <a href="/topics/2/" class="btn btn-sm btn-outline-primary text-decoration-none">代码</a>
+    
+        <a href="/topics/3/" class="btn btn-sm btn-outline-primary text-decoration-none">算法</a>
+    
+</p>
+
+<p class="card-text text-muted">
+    发布于 2025年08月04日 11:33
+</p>
+<hr>
+
+                
+<!-- 博客内容 -->
+<div class="card mb-3 shadow-sm">
+    <div class="card-body">
+        <h2>DP</h2>
+<p>将大问题分为小问题进行解决，从而一步步获取最优解</p>
+<ul>
+<li>刻画一个最优解的特征结构</li>
+<li>递归定义最优解的值</li>
+<li>计算最优解的值，通常采用自底而上的方法</li>
+<li>利用计算出的信息构造一个最优解</li>
+</ul>
+<p>数字三角形搜索树</p>
+<ul>
+<li>定义状态$(i, j)$的函数$f(x, y)$为从格子$(i, j)$出发时能得到的最大和，包括$(i, j)$本身</li>
+<li>原问题的解是$(i, j)$</li>
+<li>状态转移方程：$f(i, j) = a(i, j) +max(f(i + 1, j), f(i + 1, j + 1))$</li>
+</ul>
+<pre class="highlight"><code class="language-cpp">int i, j;
+for (j = 1; j &lt;=n; j++) f[n][j] = a[n][j];
+for (i = n - 1; i &gt;= 1; i--) for (j = 1; j &lt;= i; j ++) f[i][j] = a[i][j] + max(f[i + 1][j], f[i + 1][j + 1])
+</code></pre>
+
+<p><a href="https://vjudge.net/contest/703263#problem/A">例题：POJ3176</a></p>
+<pre class="highlight"><code class="language-cpp">#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#define MAXN 351
+using namespace std;
+int way[MAXN][MAXN], dp[MAXN][MAXN];
+int N;
+
+int main(){
+    cin &gt;&gt; N;
+    for (int i = 1; i &lt;= N; i++) for (int j = 1; j &lt;= i; j++) cin &gt;&gt; way[i][j];
+    for (int j = 1; j &lt;= N; j++) dp[N][j] = way[N][j];
+    for (int i = N - 1; i &gt;= 1; i--) {
+        for (int j = 1; j &lt;= i; j ++) dp[i][j] = way[i][j] + max(dp[i + 1][j], dp[i + 1][j + 1]);
+    }
+    cout &lt;&lt; dp[1][1] &lt;&lt; endl;
+    return 0;
+}
+</code></pre>
+
+<h2>01背包</h2>
+<p>n个重量价值为$w_i, v_i$的物品，选出总重量不超过W的物品，求价值总和最大值</p>
+<p>状态转移方程（正推）：
+$$
+dp[i][j] = 
+\begin{cases}
+    0, i = n;\
+    dp[i + 1][j], i &lt; w[i];\
+    max(dp[i + 1][j], dp[i + 1][j - w[i]] + v[i]), else;
+\end{cases}
+$$</p>
+<p>状态转移方程（正推）：
+$$
+dp[i + 1][j] = 
+\begin{cases}
+    0, i = 0;\
+    dp[i][j], i &lt; w[i];\
+    max(dp[i][j], dp[i][j - w[i]] + v[i]), else;
+\end{cases}
+$$</p>
+<pre class="highlight"><code class="language-cpp">int n, w;
+int w[MAX_N], v[MAX_N];
+int mem[MAX_N + 1][MAX_W + 1], dp[MAX_N + 1][MAX_W + 1], dp1[MAX_W + 1];
+
+//暴搜
+int rec(int i, int j){
+    if (i == n) return 0;
+    else if (j &lt; w[i]) return rec(i + 1, j);
+    else return max(rec(i + 1, j), rec(i + 1, j - w[i]) + v[i]);
+}
+
+//记忆化搜索
+int rec_mem(int i, int j){
+    if (mem[i][j] &gt;= 0) return mem[i][j]
+    if (i == n) return 0;
+    else if (j &lt; w[i]) return rec(i + 1, j);
+    else return max(rec(i + 1, j), rec(i + 1, j - w[i]) + v[i]);
+}
+
+void solve(){
+    memset(mem, -1, sizeof(mem));
+    printf(&quot;%d\n&quot;, rec(0, w));
+    printf(&quot;%d\n&quot;, rec_mem(0, w));
+    //dp反推
+    for (int i = n - 1; i &gt;= 0; i--){
+        for (int j = 0; j &lt; W; j++){
+            if (j &lt; w[i]) dp[i][j] = dp[i + 1][j];
+            else dp[i][j] = max(dp[i + 1][j], dp[i + 1][j - w[i]] + v[i]);
+        }
+    }
+    printf(&quot;%d\n&quot;, dp[n][W]);
+
+    memset(dp, 0, sizeof(dp));
+    //dp正推
+    for (int i = 0; i &lt; n; i++){
+        for (int j = 0; j &lt; W; j++){
+            if (j &lt; w[i]) dp[i + 1][j] = dp[i][j];
+            else dp[i + 1][j] = max(dp[i][j], dp[i][j - w[i]] + v[i]);
+        }
+    }
+    printf(&quot;%d\n&quot;, dp[n][W]);
+    //一维dp
+    for (int i = 0; i &lt; n; i) for (int j = W; j &gt;= w[i]; j--) dp1[j] = max(dp1[j], dp1[j - w[i]] + v[i]);
+    printf(&quot;%d\n&quot;, dp[W]);
+}
+</code></pre>
+
+<p><a href="https://vjudge.net/contest/703263#problem/B">例题：POJ3624</a></p>
+<pre class="highlight"><code class="language-cpp">#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+#include&lt;cstdio&gt;
+#define N 3410
+#define M 13000
+using namespace std;
+
+int dp[M];
+
+int main(){
+    int n, m;
+    int v[M], w[N];
+    while (~scanf(&quot;%d%d&quot;, &amp;n, &amp;m)) {
+        memset(dp, 0, sizeof(dp));
+        for (int i = 1; i &lt;= n; i++) scanf(&quot;%d%d&quot;, &amp;w[i], &amp;v[i]);
+        for (int i = 1; i &lt;= n; i++) for (int j = m; j &gt;= w[i]; j--) dp[j] = max(dp[j - w[i]] + v[i], dp[j]);
+        printf(&quot;%d\n&quot;, dp[m]);
+    }
+    return 0;
+}
+</code></pre>
+
+<p><a href="https://vjudge.net/contest/703263#problem/C">例题：POJ1837</a></p>
+<pre class="highlight"><code class="language-cpp">#include&lt;iostream&gt;
+using namespace std;
+int C, G;
+int dp[21][15001];
+int loc[21];
+int w[21];
+
+int main(){
+    cin &gt;&gt; C &gt;&gt; G;
+    for (int i = 1; i &lt;= C; i++) cin &gt;&gt; loc[i];
+    for (int i = 1; i &lt;= G; i++) cin &gt;&gt; w[i];
+    dp[0][7500] = 1;
+    for (int i = 1; i &lt;= G; i++){
+        for (int j = 1; j &lt;= 15000; j++){
+            for (int k = 1; k &lt;= C; k++) dp[i][j] += dp[i - 1][j - w[i] * loc[k]];
+        }
+    }
+    cout &lt;&lt; dp[G][7500] &lt;&lt; endl;
+}
+</code></pre>
+
+<h2>完全背包</h2>
+<p>递推关系：$dp[i + 1][j]$：从前i种物品中挑选总重量不超过j时总价值的最大值
+$$
+dp[i + 1][j] = 
+\begin{cases}
+    0, i = 0;\
+    max(dp[i][j], dp[i][j - k \cdot w[i]] + k \cdot v[i]), else
+\end{cases}
+$$</p>
+<pre class="highlight"><code class="language-cpp">int dp[MAX_N + 1][MAX_W + 1];
+
+void solve(){
+    for (int j = 0; i &lt; n; i++){
+        for (int j = 0; j &lt;= W; j++){
+            for (int k = 0; k * w[i] &lt;= j; k++) dp[i + 1][j] = max(dp[i][j], dp[i][j - k * w[i]] + k * v[i]);
+        }
+    }
+    printf(&quot;%d\n&quot;, dp[n][W]);
+}
+</code></pre>
+
+<p>当$j &gt; w[i]$时， $dp[i + 1][j] = dp[i + 1][j - w[i]] + v[i]$</p>
+<pre class="highlight"><code class="language-cpp">void solve(){
+    for (int j = 0; i &lt; n; i++){
+        for (int j = 0; j &lt;= W; j++){
+            if (j &lt; w[i]) dp[i + 1][j] = dp[i][j];
+            else dp[i + 1][j] = max(dp[i][j], dp[i][j - w[i]] + v[i]);
+        }
+    }
+    printf(&quot;%d\n&quot;, dp[n][W]);
+}
+//一维
+void solve(){
+    for (int i = 0; i &lt; n; i++) for (int j = w[i]; j &lt;= W; j++) dp[j] = max(dp[j], dp[j - w[i]] + v[i]);
+    printf(&quot;%d\n&quot;, dp[W]);
+}
+</code></pre>
+
+<p>使用同一数组实现时，01背包：从后往前推；完全背包：从前往后推</p>
+<p><a href="">例题：POJ1384</a></p>
+<pre class="highlight"><code class="language-cpp">#include&lt;stdio.h&gt;
+#include&lt;algorithm&gt;
+#define inf 100000000   
+using namespace std;
+
+int dp[11000];
+int p[600];
+int w[600];
+
+int main(){
+    int k, n, e, f;
+    scanf(&quot;%d&quot;, &amp;k);
+    while (k--){
+        scanf(&quot;%d&quot;, &amp;e);
+        scanf(&quot;%d&quot;, &amp;f);
+        int diff = f - e;
+        scanf(&quot;%d&quot;, &amp;n);
+        for (int i = 1; i &lt;= n; i++){
+            scanf(&quot;%d&quot;, &amp;p[i]);
+            scanf(&quot;%d&quot;, &amp;w[i]);
+        }
+        for(int i = 0; i &lt;= diff; i++) dp[i] = inf;
+        dp[0] = 0;
+        for (int i = 1; i &lt;= n; i++) for (int j = w[i]; j &lt;= diff; j++) dp[j] = min(dp[j], dp[j - w[i]] + p[i]);
+        if (dp[diff] == inf) printf(&quot;This is impossible.\n&quot;);
+        else printf(&quot;The minimum amount of money in the piggy-bank is %d.\n&quot;,dp[diff]);
+    }
+}
+</code></pre>
+
+<p>以w为dp对象：</p>
+<p>$dp[i + 1][j]$表示前i个物品中挑出总价值为j时总重量的最小值</p>
+<pre class="highlight"><code class="language-cpp">int dp[MAX_N + 1][MAX_N * MAX_V + 1];
+const int INF = 0xffffff
+
+void solve(){
+    fill(dp[0], dp[0] + MAX_N * MAX_V + 1, INF);
+    dp[0][0] = 0;
+    for (int j = 0; i &lt; n; i++){
+        for (int j = 0; j &lt;= MAX_N * MAX_V; j++){
+            if (j &lt; v[i]) dp[i + 1][j] = dp[i][j];
+            else dp[i + 1][j] = min(dp[i][j], dp[i][j - v[i]] + w[i]);
+        }
+    }
+    int res = 0;
+    for (int i = 0; i &lt;= MAX_N * MAX_V; i++) if (dp[n][i] &lt;= W) res = i;
+    printf(&quot;%d&quot;, res);
+}
+</code></pre>
+
+<h2>最长公共子序列</h2>
+<p>$dp[i][j] = s_1, ... , S_i, t_1, ... , t_j$对应LCS长度</p>
+<ol>
+<li>$s_{i + 1} = t_{j + 1}$, 末尾dp</li>
+</ol>
+<p>$$
+dp[i + 1][j + 1] = 
+\begin{cases}
+    dp[i][j] + 1, s1[i] = s2[j];\
+    max(dp[i + 1][j], dp[i][j + 1]), else
+\end{cases}
+$$</p>
+<p><a href="">例题：POJ1458</a></p>
+<pre class="highlight"><code class="language-cpp">#include&lt;cstdio&gt;
+#include&lt;algorithm&gt;
+#include&lt;cstring&gt;
+using namespace std;
+const int maxn = 1000 + 5;
+int n, m;
+int dp[maxn][maxn];
+char s1[maxn], s2[maxn];
+
+int main(){
+    while (scanf(&quot;%s%s&quot;, s1, s2) == 2){
+        n = strlen(s1);
+        m = strlen(s2);
+        memset(dp, 0, sizeof(dp));
+        for (int i = 0; i &lt;= n; i++){
+            for (int j = 0; j &lt;=m; j++){
+                if (s1[i] == s2[j]) dp[i + 1][j + 1] = dp[i][j] + 1;
+                else dp[i + 1][j + 1] = max(dp[i + 1][j], dp[i][j + 1]);
+            }
+        }
+        printf(&quot;%d\n&quot;, dp[n][m]);
+    }
+    return 0;
+}
+</code></pre>
+
+<h2>最长上升子序列</h2>
+<p>$dp[i] = max(1, dp[i - 1])$</p>
+<p><a href="">例题：POJ3903</a></p>
+<pre class="highlight"><code class="language-cpp">#include&lt;cstdio&gt;
+#include&lt;algorithm&gt;
+using namespace std;
+
+int dp[100010];
+int a[100010];
+
+int main(){
+    int N;
+    while (scanf(&quot;%d&quot;, &amp;N) != EOF){
+        int ans = 0;
+        for (int i = 0; i &lt; N; i++) scanf(&quot;%d&quot;, &amp;a[i]);
+        for (int i = 0; i &lt; N; i++){
+            dp[i] = 1;
+            for (int j = 0; j &lt; i; j++) if (a[i] &gt; a[j]) dp[i] = max(dp[i], dp[j] + 1);
+            ans = max(ans, dp[i])
+        }
+        printf(&quot;%d\n&quot;, ans);
+    }
+}
+</code></pre>
+
+<h2>多重部分和</h2>
+<pre class="highlight"><code class="language-cpp">int n; 
+int K;
+int a[MAX_N];
+int m[MAX_N];
+bool dp[MAX_N + 1][MAX_K + 1];
+void solve(){
+    dp[0][0] = 1;
+    for (int i = 0; i &lt; n; i++){
+        for (int j = 0; j &lt; K; j++){
+            for (int k = 0; k &lt;= m[i] &amp;&amp; k * a[i] &lt;= j; K++) dp[i + 1][j] |= dp[i][j - k * a[i]];
+        } 
+    }
+    if (dp[n][k]) printf(&quot;yes\n&quot;);
+    else printf(&quot;no\n&quot;);
+}
+</code></pre>
+
+<pre class="highlight"><code class="language-cpp">int n; 
+int a[MAX_N];
+int m[MAX_N];
+bool dp[MAX_K + 1];
+void solve(){
+    memset(dp, -1, sizeof(dp));
+    dp[0] = 1;
+    for (int i = 0; i &lt; n; i++){
+        for (int j = 0; j &lt; K; j++){
+            if (dp[j] &gt;= 0) dp[j] = m[i];
+            else if (j &lt; a[i] || dp[j - a[i]] &lt;= 0) dp[j] = 0;
+            else dp[j = dp[j - a[i]]] - 1;
+        } 
+    }
+    if (dp[k] &gt;= 0) printf(&quot;yes\n&quot;);
+    else printf(&quot;no\n&quot;);
+}
+</code></pre>
+
+<p><a href="">例题：POJ1742</a></p>
+<pre class="highlight"><code class="language-cpp">#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+using namespace std;
+
+int num[105]; 
+int price[105];
+int dp[100005];
+
+int main(){
+    int n, m;
+    while (cin &gt;&gt; n &gt;&gt; m &amp;&amp; (n || m)){
+        memset(dp, -1, sizeof(dp));
+        for (int i = 0; i &lt; n; i++) cin &gt;&gt; price[i];
+        for (int i = 0; i &lt; n; i++) cin &gt;&gt; num[i];
+        dp[0] = 0;
+        for (int i = 0; i &lt; n; i++){
+            for (int j = 0; j &lt;= m; j++){
+                if (dp[j] &gt;= 0) dp[j] = num[i];
+                else if (j &lt; price[i] || dp[j - price[i]] &lt;= 0) dp[j] = -1;
+                else dp[j] = dp[j - price[i]] - 1;
+            }
+        }
+        int sum = 0;
+        for (int i = 1; i &lt;= m; i++) if (dp[i] &gt;= 0) sum++;
+        cout &lt;&lt; sum &lt;&lt; endl;
+    }
+    return 0;
+}
+</code></pre>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

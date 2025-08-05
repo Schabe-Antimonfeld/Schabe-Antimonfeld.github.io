@@ -1,0 +1,388 @@
+
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>SchabeAntimonfeld</title>
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap">
+
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- 代码高亮 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/github.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.9.0/highlightjs-line-numbers.min.js"></script>
+
+    <script src="/static/js/use_hl.js"></script>
+
+    <!-- MathJax 支持 LaTeX -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6" defer></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+    <!-- 邮箱弹窗 -->
+    <script>
+        function toggleEmailPopup() {
+            const popup = document.getElementById("email-popup");
+            popup.style.display = (popup.style.display === "block") ? "none" : "block";
+        }
+
+        document.addEventListener("click", function (event) {
+            const popup = document.getElementById("email-popup");
+            const icon = event.target.closest('.nav-item');
+            if (!icon || !icon.contains(event.target)) {
+                popup.style.display = "none";
+            }
+        });
+    </script>
+
+    <!-- LaTeX行内公式支持 -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border fixed-top">
+        <!-- 导航栏名称 -->
+        <a class="navbar-brand ms-5" href="/">
+            SchabeAntimonfeld</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarCollapse" aria-controls="navbarCollapse"
+                aria-expanded="false" aria-label="切换导航">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/topics/">主题</a>
+                </li>
+            </ul>
+            <!-- 右侧图标区域 -->
+            <ul class="navbar-nav ms-auto mx-5">
+                <!-- 邮箱图标 + 弹窗 -->
+                <li class="nav-item position-relative">
+                    <a class="nav-link" href="javascript:void(0);" onclick="toggleEmailPopup()"
+                        data-toggle="tooltip" data-placement="bottom" title="我的GMAIL邮箱">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <!-- 自定义浮层 -->
+                    <div id="email-popup" class="email-popup shadow-sm">
+                        <b>Email:</b> schabeantimonyfield@gmail.com
+                    </div>
+                </li>
+
+                <!-- GitHub 图标 -->
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/Schabe-Antimonfeld" target="_blank"
+                       data-toggle="tooltip" data-placement="bottom" title="前往 GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container" style="margin-top: 70px;">
+        <div class="row">
+            <!-- 侧边栏资料卡 -->
+            <div class="position-fixed d-none d-md-block" style="top: 70px; left: 50px; width: 23%; max-width: 300px;">
+                    
+
+
+<!--个人资料卡-->
+<div class="card mb-4 text-center">
+    <img src="/static/images/avatar.jpg" class="card-img-top rounded-circle mx-auto mt-3" style="width: 120px; height: 120px; object-fit: cover;" alt="avatar">
+    <div class="card-body text-center">
+        <h5 class="card-title">Schabe Antimonfeld</h5>
+        <p class="card-text text-muted">AI × Coding × Minecraft</p>
+        <hr>
+        <p>在读大学生</p>
+        <p></p>
+        <p><i class="fab fa-github"></i> <a href="https://github.com/Schabe-Antimonfeld" target="_blank">GitHub</a></p>
+    </div>
+</div>
+            </div>
+
+            <!-- 主体内容 -->
+            <div class="col-md-9 offset-md-3">
+                
+<h2>ACM-ICPC基础 搜索算法的解空间</h2>
+
+<!-- 主题标签 -->
+<p class="text-muted mb-1">
+    <i class="bi bi-tags text-primary"></i>
+    
+        <a href="/topics/2/" class="btn btn-sm btn-outline-primary text-decoration-none">代码</a>
+    
+        <a href="/topics/3/" class="btn btn-sm btn-outline-primary text-decoration-none">算法</a>
+    
+</p>
+
+<p class="card-text text-muted">
+    发布于 2025年08月04日 11:32
+</p>
+<hr>
+
+                
+<!-- 博客内容 -->
+<div class="card mb-3 shadow-sm">
+    <div class="card-body">
+        <h2>BFS</h2>
+<p>从初态S，利用规则生成所有可能的状态，构成下一层节点，检查是否出现目标状态G</p>
+<p>若未出现，对该层再次生成、检查，直到出现目标节点</p>
+<ol>
+<li>
+<p>将初始节点添加到队列Q</p>
+</li>
+<li>
+<p>if Q的第一个节点q是目标节点，Then 停止</p>
+</li>
+<li>
+<p>从Q中删除q，把q的尚未访问的子节点加入Q的末尾</p>
+</li>
+<li>
+<p>if Q为空 Then 失败，Else goto 步骤2</p>
+</li>
+</ol>
+<p><a href="https://vjudge.net/contest/701114#problem/A">例题：POJ3984</a></p>
+<pre class="highlight"><code class="language-cpp">#include&lt;cstdio&gt;
+#include&lt;queue&gt;
+using namespace std;
+
+int mp[5][5], vis[5][5];
+int dir[4][2] = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
+struct node{
+    int x, y;
+}; 
+node pre[10][10];
+
+void bfs(){
+    queue&lt;node&gt; que;
+    node str;
+    str.x = str.y = 0;
+    que.push(str);
+    vis[0][0] = 1;
+    while (!que.empty()){
+        node now = que.front();
+        que.pop();
+        if (now.x == 4 &amp;&amp; now.y == 4) return;
+        for (int i = 0; i &lt; 4; i++){
+            node next ;
+            next.x = now.x + dir[i][0];
+            next.y = now.y + dir[i][1];
+            if (next.x &gt;= 0 &amp;&amp; next.x &lt; 5 &amp;&amp;
+                next.y &gt;= 0 &amp;&amp; next.y &lt; 5 &amp;&amp;
+                !mp[next.x][next.y] &amp;&amp; !vis[next.x][next.y]){
+                vis[next.x][next.y] = 1;
+                que.push(next);
+                pre[next.x][next.y] = now;
+            }
+        }
+    } 
+}
+
+void print(node cur){
+    if (cur.x == 0 &amp;&amp; cur.y == 0){
+        printf(&quot;(0, 0)\n&quot;);
+        return;
+    }
+    print(pre[cur.x][cur.y]);
+    printf(&quot;(%d, %d)\n&quot;, cur.x, cur.y);
+}
+
+int main(){
+    for (int i = 0; i &lt; 5; i++) for (int j = 0; j &lt; 5; j++) scanf(&quot;%d&quot;, &amp;mp[i][j]);
+    bfs();
+    node ed;
+    ed.x = ed.y = 4;
+    print(ed);
+    return 0;
+}
+</code></pre>
+
+<p><a href="https://vjudge.net/contest/701114#problem/B">例题：POJ1915</a></p>
+<pre class="highlight"><code class="language-cpp">#include&lt;cstdio&gt;
+#include&lt;queue&gt;
+#include&lt;string.h&gt;
+using namespace std;
+
+int length, sx, dx, sy, dy;
+struct node{
+    int x, y, step;
+}; 
+int visit[310][310];
+int po[8][2] = {2, 1, 2, -1, 1, 2, 1, -2, -2, 1, -2, -1, -1, 2, -1, -2};
+
+int check(int x, int y){
+    if (x &lt; 0 || x &gt;= length || y &lt; 0 || y &gt;= length) return 1;
+    return visit[x][y];
+}
+
+void bfs(){
+    memset(visit, 0, sizeof(visit));
+    node a, b;
+    queue&lt;node&gt; Q;
+    a.x = sx;
+    a.y = sy;
+    a.step = 0;
+    visit[sx][sy] = 1;
+    Q.push(a);
+    while (!Q.empty()){
+        a = Q.front();
+        Q.pop();
+        if (a.x == dx &amp;&amp; a.y == dy){
+            printf(&quot;%d\n&quot;, a.step);
+            return;
+        }
+        for (int i = 0; i &lt; 8; i++){
+            b.x = a.x + po[i][0];
+            b.y = a.y + po[i][1];
+            if (check(b.x, b.y)) continue;
+            b.step = a.step + 1;
+            visit[b.x][b.y] = 1;
+            Q.push(b);
+        }
+    } 
+}
+
+int main(){
+    int T;
+    scanf(&quot;%d&quot;, &amp;T);
+    while (T--){
+        scanf(&quot;%d&quot;, &amp;length);
+        scanf(&quot;%d%d%d%d&quot;, &amp;sx, &amp;sy, &amp;dx, &amp;dy);
+        bfs();
+    }
+    return 0;
+}
+</code></pre>
+
+<h2>DFS</h2>
+<p>对每一个可能的分支深入到不能再转移为止，然后回溯到前一步的状态，继续转移到前一步的状态，直到找到最终的解</p>
+<ol>
+<li>把起始点放入stack </li>
+<li>重复下述3步骤，直到stack为空为止：</li>
+<li>从stack中访问栈顶的点</li>
+<li>找出与此点邻接的且尚未遍历的点，进行标记，然后全部放入stack中</li>
+<li>如果此点没有尚未遍历的邻接点，则将此点从stack中弹出。</li>
+</ol>
+<p><a href="https://vjudge.net/contest/701114#problem/C">例题：POJ2386</a></p>
+<pre class="highlight"><code class="language-cpp">#include&lt;iostream&gt;
+using namespace std;
+
+int N, M;
+const int  MAX_N = 103;
+char field[MAX_N][MAX_N];
+
+void dfs(int x, int y){
+    field[x][y] = '.';
+    for (int dx = -1; dx &lt;= 1; dx++){
+        for (int dy = -1; dy &lt;= 1; dy++){
+            int nx = x + dx, ny = y + dy;
+            if (0 &lt;= nx &amp;&amp; nx &lt; N &amp;&amp; 0 &lt;= ny &amp;&amp; ny &lt; M &amp;&amp; field[nx][ny] == 'W') dfs(nx, ny);
+        } 
+    }
+    return;
+}
+
+void solve(){
+    int res = 0;
+    for (int i = 0; i &lt; N; i++){
+        for (int j = 0; j &lt; M; j++){
+            if (field[i][j] == 'W'){
+                dfs(i, j);
+                res++;
+            }
+        }
+    }
+    cout &lt;&lt; res;
+}
+
+int main(){
+    cin &gt;&gt; N &gt;&gt; M;
+    for (int i = 0; i &lt; N; i++) for (int j = 0; j &lt; M; j++) cin &gt;&gt; field[i][j];
+    solve();
+} 
+</code></pre>
+
+<p><a href="https://vjudge.net/contest/701114#problem/D">例题：POJ2488</a></p>
+<pre class="highlight"><code class="language-cpp">#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+using namespace std;
+
+const int DN = 8;
+const int dx[] = {-1, 1, -2, 2, -2, 2, -1, 1};
+const int dy[] = {-2, -2, -1, -1, 1, 1, 2, 2};
+const int N = 27;
+bool visit[N][N];
+struct Step{
+    char x, y;
+} path[N];
+int p, q, success;
+
+void dfs(int x, int y, int step){
+    path[step].y = y + 'A' - 1;
+    path[step].x = x + '0';
+    if (step == p * q) success = true;
+    else {
+        for (int i = 0; i &lt; DN &amp;&amp; !success; i++){
+            int nx = x + dx[i];
+            int ny = y + dy[i];
+            if (0 &lt; nx &amp;&amp; nx &lt;= p &amp;&amp; 0 &lt; ny &amp;&amp; ny &lt;= q &amp;&amp; !visit[nx][ny] &amp;&amp; !success){
+                visit[nx][ny] = true;
+                dfs(nx, ny, step + 1);
+                visit[nx][ny] = false;
+            }
+        }
+    }
+}
+
+int main(){
+    int t;
+    scanf(&quot;%d&quot;, &amp;t);
+    for (int k = 1; k &lt;= t; k++){
+        scanf(&quot;%d%d&quot;, &amp;p, &amp;q);
+        memset(visit, false, sizeof(visit));
+        visit[1][1] = true;
+        success = false;
+        dfs(1, 1, 1);
+        printf(&quot;Scenario #%d:\n&quot;, k);
+        if (success){
+            for (int i = 1; i &lt;= p * q; i++) printf(&quot;%c%c&quot;, path[i].y, path[i].x);
+            printf(&quot;\n&quot;);
+        } else printf(&quot;impossible\n&quot;);
+        if (k != t) printf(&quot;\n&quot;);
+    }
+    return 0;
+}
+</code></pre>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
