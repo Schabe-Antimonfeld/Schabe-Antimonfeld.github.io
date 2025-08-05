@@ -28,7 +28,7 @@
 
     <!-- MathJax 支持 LaTeX -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6" defer></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 
     <!-- 邮箱弹窗 -->
     <script>
@@ -59,7 +59,6 @@
             }
         };
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
 </head>
 
 <body>
@@ -193,8 +192,8 @@ int main(){
 $$
 dp[i][j] = 
 \begin{cases}
-    0, i = n;\
-    dp[i + 1][j], i &lt; w[i];\
+    0, i = n;\cr
+    dp[i + 1][j], i &lt; w[i];\cr
     max(dp[i + 1][j], dp[i + 1][j - w[i]] + v[i]), else;
 \end{cases}
 $$</p>
@@ -202,8 +201,8 @@ $$</p>
 $$
 dp[i + 1][j] = 
 \begin{cases}
-    0, i = 0;\
-    dp[i][j], i &lt; w[i];\
+    0, i = 0;\cr
+    dp[i][j], i &lt; w[i];\cr
     max(dp[i][j], dp[i][j - w[i]] + v[i]), else;
 \end{cases}
 $$</p>
@@ -304,7 +303,7 @@ int main(){
 $$
 dp[i + 1][j] = 
 \begin{cases}
-    0, i = 0;\
+    0, i = 0;\cr
     max(dp[i][j], dp[i][j - k \cdot w[i]] + k \cdot v[i]), else
 \end{cases}
 $$</p>
@@ -397,7 +396,7 @@ void solve(){
 <p>$$
 dp[i + 1][j + 1] = 
 \begin{cases}
-    dp[i][j] + 1, s1[i] = s2[j];\
+    dp[i][j] + 1, s1[i] = s2[j];\cr
     max(dp[i + 1][j], dp[i][j + 1]), else
 \end{cases}
 $$</p>
