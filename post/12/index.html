@@ -126,42 +126,74 @@
             <!-- 主体内容 -->
             <div class="col-md-9 offset-md-3">
                 
-<h2>日常</h2>
+<h2>PyTorch学习笔记01（数据集）</h2>
+
+<!-- 主题标签 -->
+<p class="text-muted mb-1">
+    <i class="bi bi-tags text-primary"></i>
+    
+        <a href="/topics/2/" class="btn btn-sm btn-outline-primary text-decoration-none">代码</a>
+    
+        <a href="/topics/5/" class="btn btn-sm btn-outline-primary text-decoration-none">深度学习</a>
+    
+</p>
+
+<p class="card-text text-muted">
+    发布于 2025年09月09日 12:46
+</p>
 <hr>
 
                 
-<!-- 博客列表 -->
+<!-- 博客内容 -->
+<div class="card mb-3 shadow-sm">
+    <div class="card-body">
+        <h2>数据集处理</h2>
+<pre class="highlight"><code class="language-python">import pandas as pd
+import torch
 
+# 读取数据集
+train_data = pd.read_csv('./data/train.csv')
+test_data = pd.read_csv('./data/test.csv')  # 此处test没有SalePrice
 
-    <div class="card mb-3 shadow-sm">
-        <div class="card-body">
-            <h5 class="card-title">Latex速查表</h5>
-            <p class="card-text text-muted">
-                发布于 2025年09月09日 12:42
-            </p>
-            <a href="/post/11/" class="stretched-link link-primary link-offset-3 link-underline-opacity-0 icon-link icon-link-hover">
-                <span class="pt-2 lead">阅读更多</span>
-                <i class="fs-5 bi bi-chevron-double-right"></i>
-            </a>
-        </div>
+# 拼接以预处理数据
+all_features = pd.concat((train_data.iloc[:, 1:-1], test_data.iloc[:, 1:]))
+
+# 处理数字特征
+numeric_features = all_features.dtypes[all_features.dtypes != 'object'].index
+all_features[numeric_features] = all_features[numeric_features].apply(
+    lambda x: (x - x.mean()) / (x.std()))   # 正则化
+all_features[numeric_features] = all_features[numeric_features].fillna(0)   # 处理nan
+
+# 处理字符串特征（自动创建OneHot编码）
+all_features = pd.get_dummies(all_features, dummy_na=True, dtype=int)
+
+# 重新划分数据集
+n_train = train_data.shape[0]
+train_features = torch.tensor(all_features[:n_train].values, dtype=torch.float32)
+test_features = torch.tensor(all_features[n_train:].values, dtype=torch.float32)
+train_labels = torch.tensor(train_data.SalePrice.values.reshape(-1, 1), dtype=torch.float32)
+</code></pre>
+
+<h2>K折交叉验证</h2>
+<p>当训练数据稀缺时，我们甚至可能无法提供足够的数据来构成一个合适的验证集。 这个问题的一个流行的解决方案是采用$K$折交叉验证。 这里，原始训练数据被分成K个不重叠的子集。 然后执行$K$次模型训练和验证，每次在$K - 1$个子集上进行训练， 并在剩余的一个子集（在该轮中没有用于训练的子集）上进行验证。 最后，通过对$K$次实验的结果取平均来估计训练和验证误差。</p>
+<pre class="highlight"><code class="language-python">def get_k_fold_data(k, i, X, y):
+    assert k &gt; 1
+    fold_size = X.shape[0] // k
+    X_train, y_train = None, None
+    for j in range(k):
+        idx = slice(j * fold_size, (j + 1) * fold_size)
+        X_part, y_part = X[idx, :], y[idx]
+        if j == i:
+            X_valid, y_valid = X_part, y_part
+        elif X_train is None:
+            X_train, y_train = X_part, y_part
+        else:
+            X_train = torch.cat([X_train, X_part], 0)
+            y_train = torch.cat([y_train, y_part], 0)
+    return X_train, y_train, X_valid, y_valid
+</code></pre>
     </div>
-
-
-
-    <div class="card mb-3 shadow-sm">
-        <div class="card-body">
-            <h5 class="card-title">Blog开发日志1</h5>
-            <p class="card-text text-muted">
-                发布于 2025年08月04日 11:29
-            </p>
-            <a href="/post/7/" class="stretched-link link-primary link-offset-3 link-underline-opacity-0 icon-link icon-link-hover">
-                <span class="pt-2 lead">阅读更多</span>
-                <i class="fs-5 bi bi-chevron-double-right"></i>
-            </a>
-        </div>
-    </div>
-
-
+</div>
 
             </div>
         </div>

@@ -1,0 +1,1756 @@
+
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>SchabeAntimonfeld</title>
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap">
+
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- 代码高亮 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/github.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.9.0/highlightjs-line-numbers.min.js"></script>
+
+    <script src="/static/js/use_hl.js"></script>
+
+    <!-- MathJax 支持 LaTeX -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6" defer></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+    <!-- 邮箱弹窗 -->
+    <script>
+        function toggleEmailPopup() {
+            const popup = document.getElementById("email-popup");
+            popup.style.display = (popup.style.display === "block") ? "none" : "block";
+        }
+
+        document.addEventListener("click", function (event) {
+            const popup = document.getElementById("email-popup");
+            const icon = event.target.closest('.nav-item');
+            if (!icon || !icon.contains(event.target)) {
+                popup.style.display = "none";
+            }
+        });
+    </script>
+
+    <!-- LaTeX行内公式支持 -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border fixed-top">
+        <!-- 导航栏名称 -->
+        <a class="navbar-brand ms-5" href="/">
+            SchabeAntimonfeld</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarCollapse" aria-controls="navbarCollapse"
+                aria-expanded="false" aria-label="切换导航">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/topics/">主题</a>
+                </li>
+            </ul>
+            <!-- 右侧图标区域 -->
+            <ul class="navbar-nav ms-auto mx-5">
+                <!-- 邮箱图标 + 弹窗 -->
+                <li class="nav-item position-relative">
+                    <a class="nav-link" href="javascript:void(0);" onclick="toggleEmailPopup()"
+                        data-toggle="tooltip" data-placement="bottom" title="我的GMAIL邮箱">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <!-- 自定义浮层 -->
+                    <div id="email-popup" class="email-popup shadow-sm">
+                        <b>Email:</b> schabeantimonyfield@gmail.com
+                    </div>
+                </li>
+
+                <!-- GitHub 图标 -->
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/Schabe-Antimonfeld" target="_blank"
+                       data-toggle="tooltip" data-placement="bottom" title="前往 GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container" style="margin-top: 70px;">
+        <div class="row">
+            <!-- 侧边栏资料卡 -->
+            <div class="position-fixed d-none d-md-block" style="top: 70px; left: 50px; width: 23%; max-width: 300px;">
+                    
+
+
+<!--个人资料卡-->
+<div class="card mb-4 text-center">
+    <img src="/static/images/avatar.jpg" class="card-img-top rounded-circle mx-auto mt-3" style="width: 120px; height: 120px; object-fit: cover;" alt="avatar">
+    <div class="card-body text-center">
+        <h5 class="card-title">Schabe Antimonfeld</h5>
+        <p class="card-text text-muted">AI × Coding × Minecraft</p>
+        <hr>
+        <p>在读大学生</p>
+        <p></p>
+        <p><i class="fab fa-github"></i> <a href="https://github.com/Schabe-Antimonfeld" target="_blank">GitHub</a></p>
+    </div>
+</div>
+            </div>
+
+            <!-- 主体内容 -->
+            <div class="col-md-9 offset-md-3">
+                
+<h2>Latex速查表</h2>
+
+<!-- 主题标签 -->
+<p class="text-muted mb-1">
+    <i class="bi bi-tags text-primary"></i>
+    
+        <a href="/topics/1/" class="btn btn-sm btn-outline-primary text-decoration-none">日常</a>
+    
+</p>
+
+<p class="card-text text-muted">
+    发布于 2025年09月09日 12:42
+</p>
+<hr>
+
+                
+<!-- 博客内容 -->
+<div class="card mb-3 shadow-sm">
+    <div class="card-body">
+        <h2>Table 3.1: Math Mode Accents</h2>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>命令</th>
+<th>符号</th>
+<th>命令</th>
+<th>符号</th>
+<th>命令</th>
+<th>符号</th>
+<th>命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>â</td>
+<td><code>\hat{a}</code></td>
+<td>á</td>
+<td><code>\check{a}</code></td>
+<td>ã</td>
+<td><code>\tilde{a}</code></td>
+<td>ā</td>
+<td><code>\acute{a}</code></td>
+</tr>
+<tr>
+<td>à</td>
+<td><code>\grave{a}</code></td>
+<td>ȧ</td>
+<td><code>\dot{a}</code></td>
+<td>ä</td>
+<td><code>\ddot{a}</code></td>
+<td>ă</td>
+<td><code>\breve{a}</code></td>
+</tr>
+<tr>
+<td>ā</td>
+<td><code>\bar{a}</code></td>
+<td>ā</td>
+<td><code>\vec{a}</code></td>
+<td>Â</td>
+<td><code>\widehat{A}</code></td>
+<td>Ã</td>
+<td><code>\widetilde{A}</code></td>
+</tr>
+</tbody>
+</table>
+<h2>Table 3.2: Lowercase Greek Letters</h2>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>命令</th>
+<th>符号</th>
+<th>命令</th>
+<th>符号</th>
+<th>命令</th>
+<th>符号</th>
+<th>命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>α</td>
+<td><code>\alpha</code></td>
+<td>θ</td>
+<td><code>\theta</code></td>
+<td>o</td>
+<td>o</td>
+<td>v</td>
+<td><code>\upsilon</code></td>
+</tr>
+<tr>
+<td>β</td>
+<td><code>\beta</code></td>
+<td>ϑ</td>
+<td><code>\vartheta</code></td>
+<td>π</td>
+<td><code>\pi</code></td>
+<td>φ</td>
+<td><code>\phi</code></td>
+</tr>
+<tr>
+<td>γ</td>
+<td><code>\gamma</code></td>
+<td>ι</td>
+<td><code>\iota</code></td>
+<td>ϖ</td>
+<td><code>\varpi</code></td>
+<td>φ</td>
+<td><code>\varphi</code></td>
+</tr>
+<tr>
+<td>δ</td>
+<td><code>\delta</code></td>
+<td>κ</td>
+<td><code>\kappa</code></td>
+<td>ρ</td>
+<td><code>\rho</code></td>
+<td>χ</td>
+<td><code>\chi</code></td>
+</tr>
+<tr>
+<td>ε</td>
+<td><code>\epsilon</code></td>
+<td>λ</td>
+<td><code>\lambda</code></td>
+<td>ϱ</td>
+<td><code>\varrho</code></td>
+<td>ψ</td>
+<td><code>\psi</code></td>
+</tr>
+<tr>
+<td>ε</td>
+<td><code>\varepsilon</code></td>
+<td>μ</td>
+<td><code>\mu</code></td>
+<td>σ</td>
+<td><code>\sigma</code></td>
+<td>ω</td>
+<td><code>\omega</code></td>
+</tr>
+<tr>
+<td>ζ</td>
+<td><code>\zeta</code></td>
+<td>ν</td>
+<td><code>\nu</code></td>
+<td>ς</td>
+<td><code>\varsigma</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>η</td>
+<td><code>\eta</code></td>
+<td>ξ</td>
+<td><code>\xi</code></td>
+<td>τ</td>
+<td><code>\tau</code></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Table 3.3: Uppercase Greek Letters</h2>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>命令</th>
+<th>符号</th>
+<th>命令</th>
+<th>符号</th>
+<th>命令</th>
+<th>符号</th>
+<th>命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Γ</td>
+<td><code>\Gamma</code></td>
+<td>Λ</td>
+<td><code>\Lambda</code></td>
+<td>Σ</td>
+<td><code>\Sigma</code></td>
+<td>Ψ</td>
+<td><code>\Psi</code></td>
+</tr>
+<tr>
+<td>Δ</td>
+<td><code>\Delta</code></td>
+<td>Ξ</td>
+<td><code>\Xi</code></td>
+<td>Υ</td>
+<td><code>\Upsilon</code></td>
+<td>Ω</td>
+<td><code>\Omega</code></td>
+</tr>
+<tr>
+<td>Θ</td>
+<td><code>\Theta</code></td>
+<td>Π</td>
+<td><code>\Pi</code></td>
+<td>Φ</td>
+<td><code>\Phi</code></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Table 3.4: Binary Relations</h2>
+<p><em>可以通过在以下符号前添加 <code>\not</code> 命令来产生相应的否定形式。</em></p>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>命令</th>
+<th>符号</th>
+<th>命令</th>
+<th>符号</th>
+<th>命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&lt;</td>
+<td>&lt;</td>
+<td>&gt;</td>
+<td>&gt;</td>
+<td>=</td>
+<td>=</td>
+</tr>
+<tr>
+<td>≤</td>
+<td><code>\leq</code> 或 <code>\le</code></td>
+<td>≥</td>
+<td><code>\geq</code> 或 <code>\ge</code></td>
+<td>≡</td>
+<td><code>\equiv</code></td>
+</tr>
+<tr>
+<td>≪</td>
+<td><code>\ll</code></td>
+<td>≫</td>
+<td><code>\gg</code></td>
+<td>≐</td>
+<td><code>\doteq</code></td>
+</tr>
+<tr>
+<td>≺</td>
+<td><code>\prec</code></td>
+<td>≻</td>
+<td><code>\succ</code></td>
+<td>∼</td>
+<td><code>\sim</code></td>
+</tr>
+<tr>
+<td>⪯</td>
+<td><code>\preceq</code></td>
+<td>⪰</td>
+<td><code>\succeq</code></td>
+<td>≃</td>
+<td><code>\simeq</code></td>
+</tr>
+<tr>
+<td>⊂</td>
+<td><code>\subset</code></td>
+<td>⊃</td>
+<td><code>\supset</code></td>
+<td>≈</td>
+<td><code>\approx</code></td>
+</tr>
+<tr>
+<td>⊆</td>
+<td><code>\subseteq</code></td>
+<td>⊇</td>
+<td><code>\supseteq</code></td>
+<td>≅</td>
+<td><code>\cong</code></td>
+</tr>
+<tr>
+<td>⊏</td>
+<td><code>\sqsubset</code>ᵃ</td>
+<td>⊐</td>
+<td><code>\sqsupset</code>ᵃ</td>
+<td>⋈</td>
+<td><code>\Join</code>ᵃ</td>
+</tr>
+<tr>
+<td>⊑</td>
+<td><code>\sqsubseteq</code></td>
+<td>⊒</td>
+<td><code>\sqsupseteq</code></td>
+<td>⋈</td>
+<td><code>\bowtie</code></td>
+</tr>
+<tr>
+<td>∈</td>
+<td><code>\in</code></td>
+<td>∋</td>
+<td><code>\ni</code>, <code>\owns</code></td>
+<td>∝</td>
+<td><code>\propto</code></td>
+</tr>
+<tr>
+<td>⊢</td>
+<td><code>\vdash</code></td>
+<td>⊣</td>
+<td><code>\dashv</code></td>
+<td>⊨</td>
+<td><code>\models</code></td>
+</tr>
+<tr>
+<td>∣</td>
+<td><code>\mid</code></td>
+<td>∥</td>
+<td><code>\parallel</code></td>
+<td>⊥</td>
+<td><code>\perp</code></td>
+</tr>
+<tr>
+<td>⌣</td>
+<td><code>\smile</code></td>
+<td>⌢</td>
+<td><code>\frown</code></td>
+<td>≍</td>
+<td><code>\asymp</code></td>
+</tr>
+<tr>
+<td>:</td>
+<td>:</td>
+<td>∉</td>
+<td><code>\notin</code></td>
+<td>≠</td>
+<td><code>\neq</code> 或 <code>\ne</code></td>
+</tr>
+</tbody>
+</table>
+<p><em>ᵃ 使用 latexsym 包来访问此符号</em></p>
+<h2>Table 3.5: Binary Operators</h2>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>命令</th>
+<th>符号</th>
+<th>命令</th>
+<th>符号</th>
+<th>命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+</td>
+<td>+</td>
+<td>-</td>
+<td>-</td>
+<td>◁</td>
+<td><code>\triangleleft</code></td>
+</tr>
+<tr>
+<td>±</td>
+<td><code>\pm</code></td>
+<td>∓</td>
+<td><code>\mp</code></td>
+<td>▷</td>
+<td><code>\triangleright</code></td>
+</tr>
+<tr>
+<td>+</td>
+<td><code>\cdot</code></td>
+<td>÷</td>
+<td><code>\div</code></td>
+<td>⋆</td>
+<td><code>\star</code></td>
+</tr>
+<tr>
+<td>×</td>
+<td><code>\times</code></td>
+<td>\</td>
+<td><code>\setminus</code></td>
+<td>∗</td>
+<td><code>\ast</code></td>
+</tr>
+<tr>
+<td>∪</td>
+<td><code>\cup</code></td>
+<td>∩</td>
+<td><code>\cap</code></td>
+<td>∘</td>
+<td><code>\circ</code></td>
+</tr>
+<tr>
+<td>⊔</td>
+<td><code>\sqcup</code></td>
+<td>⊓</td>
+<td><code>\sqcap</code></td>
+<td>•</td>
+<td><code>\bullet</code></td>
+</tr>
+<tr>
+<td>∨</td>
+<td><code>\vee</code>, <code>\lor</code></td>
+<td>∧</td>
+<td><code>\wedge</code>, <code>\land</code></td>
+<td>⋄</td>
+<td><code>\diamond</code></td>
+</tr>
+<tr>
+<td>⊕</td>
+<td><code>\oplus</code></td>
+<td>⊖</td>
+<td><code>\ominus</code></td>
+<td>⊎</td>
+<td><code>\uplus</code></td>
+</tr>
+<tr>
+<td>⊙</td>
+<td><code>\odot</code></td>
+<td>⊘</td>
+<td><code>\oslash</code></td>
+<td>Π</td>
+<td><code>\amalg</code></td>
+</tr>
+<tr>
+<td>⊗</td>
+<td><code>\otimes</code></td>
+<td>○</td>
+<td><code>\bigcirc</code></td>
+<td>†</td>
+<td><code>\dagger</code></td>
+</tr>
+<tr>
+<td>△</td>
+<td><code>\bigtriangleup</code></td>
+<td>▽</td>
+<td><code>\bigtriangledown</code></td>
+<td>‡</td>
+<td><code>\ddagger</code></td>
+</tr>
+<tr>
+<td>◁</td>
+<td><code>\lhd</code>ᵃ</td>
+<td>▷</td>
+<td><code>\rhd</code>ᵃ</td>
+<td>℘</td>
+<td><code>\wr</code></td>
+</tr>
+<tr>
+<td>⊲</td>
+<td><code>\unlhd</code>ᵃ</td>
+<td>⊳</td>
+<td><code>\unrhd</code>ᵃ</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Table 3.6: BIG Operators</h2>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>命令</th>
+<th>符号</th>
+<th>命令</th>
+<th>符号</th>
+<th>命令</th>
+<th>符号</th>
+<th>命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>∑</td>
+<td><code>\sum</code></td>
+<td>⋃</td>
+<td><code>\bigcup</code></td>
+<td>⋁</td>
+<td><code>\bigvee</code></td>
+<td>⊕</td>
+<td><code>\bigoplus</code></td>
+</tr>
+<tr>
+<td>∏</td>
+<td><code>\prod</code></td>
+<td>⋂</td>
+<td><code>\bigcap</code></td>
+<td>⋀</td>
+<td><code>\bigwedge</code></td>
+<td>⊗</td>
+<td><code>\bigotimes</code></td>
+</tr>
+<tr>
+<td>∐</td>
+<td><code>\coprod</code></td>
+<td>⊔</td>
+<td><code>\bigsqcup</code></td>
+<td></td>
+<td></td>
+<td>⊙</td>
+<td><code>\bigodot</code></td>
+</tr>
+<tr>
+<td>∫</td>
+<td><code>\int</code></td>
+<td>∮</td>
+<td><code>\oint</code></td>
+<td></td>
+<td></td>
+<td>⊎</td>
+<td><code>\biguplus</code></td>
+</tr>
+</tbody>
+</table>
+<h2>Table 3.7: Arrows</h2>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>命令</th>
+<th>符号</th>
+<th>命令</th>
+<th>符号</th>
+<th>命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>←</td>
+<td><code>\leftarrow</code> 或 <code>\gets</code></td>
+<td>⟵</td>
+<td><code>\longleftarrow</code></td>
+<td>↑</td>
+<td><code>\uparrow</code></td>
+</tr>
+<tr>
+<td>→</td>
+<td><code>\rightarrow</code> 或 <code>\to</code></td>
+<td>⟶</td>
+<td><code>\longrightarrow</code></td>
+<td>↓</td>
+<td><code>\downarrow</code></td>
+</tr>
+<tr>
+<td>↔</td>
+<td><code>\leftrightarrow</code></td>
+<td>⟷</td>
+<td><code>\longleftrightarrow</code></td>
+<td>↕</td>
+<td><code>\updownarrow</code></td>
+</tr>
+<tr>
+<td>⇐</td>
+<td><code>\Leftarrow</code></td>
+<td>⟸</td>
+<td><code>\Longleftarrow</code></td>
+<td>⇑</td>
+<td><code>\Uparrow</code></td>
+</tr>
+<tr>
+<td>⇒</td>
+<td><code>\Rightarrow</code></td>
+<td>⟹</td>
+<td><code>\Longrightarrow</code></td>
+<td>⇓</td>
+<td><code>\Downarrow</code></td>
+</tr>
+<tr>
+<td>⇔</td>
+<td><code>\Leftrightarrow</code></td>
+<td>⟺</td>
+<td><code>\Longleftrightarrow</code></td>
+<td>⇕</td>
+<td><code>\Updownarrow</code></td>
+</tr>
+<tr>
+<td>↦</td>
+<td><code>\mapsto</code></td>
+<td>⟼</td>
+<td><code>\longmapsto</code></td>
+<td>$\nearrow$</td>
+<td><code>\nearrow</code></td>
+</tr>
+<tr>
+<td>$\hookleftarrow$</td>
+<td><code>\hookleftarrow</code></td>
+<td>$\hookrightarrow$</td>
+<td><code>\hookrightarrow</code></td>
+<td>$\searrow$</td>
+<td><code>\searrow</code></td>
+</tr>
+<tr>
+<td>↼</td>
+<td><code>\leftharpoonup</code></td>
+<td>⇀</td>
+<td><code>\rightharpoonup</code></td>
+<td>$\swarrow$</td>
+<td><code>\swarrow</code></td>
+</tr>
+<tr>
+<td>↽</td>
+<td><code>\leftharpoondown</code></td>
+<td>⇁</td>
+<td><code>\rightharpoondown</code></td>
+<td>$\nwarrow$</td>
+<td><code>\nwarrow</code></td>
+</tr>
+<tr>
+<td>⇌</td>
+<td><code>\rightleftharpoons</code></td>
+<td>⟷</td>
+<td><code>\iff</code> (bigger spaces)</td>
+<td>∼</td>
+<td><code>\leadsto</code>ᵃ</td>
+</tr>
+</tbody>
+</table>
+<p><em>ᵃ 使用 latexsym 包来访问此符号</em></p>
+<h2>Table 3.8: Delimiters</h2>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>命令</th>
+<th>符号</th>
+<th>命令</th>
+<th>符号</th>
+<th>命令</th>
+<th>符号</th>
+<th>命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(</td>
+<td>(</td>
+<td>)</td>
+<td>)</td>
+<td>↑</td>
+<td><code>\uparrow</code></td>
+<td>⇑</td>
+<td><code>\Uparrow</code></td>
+</tr>
+<tr>
+<td>[</td>
+<td>[ 或 <code>\lbrack</code></td>
+<td>]</td>
+<td>] 或 <code>\rbrack</code></td>
+<td>↓</td>
+<td><code>\downarrow</code></td>
+<td>⇓</td>
+<td><code>\Downarrow</code></td>
+</tr>
+<tr>
+<td>{</td>
+<td><code>\{</code> 或 <code>\lbrace</code></td>
+<td>}</td>
+<td><code>\}</code> 或 <code>\rbrace</code></td>
+<td>↕</td>
+<td><code>\updownarrow</code></td>
+<td>⇕</td>
+<td><code>\Updownarrow</code></td>
+</tr>
+<tr>
+<td>⟨</td>
+<td><code>\langle</code></td>
+<td>⟩</td>
+<td><code>\rangle</code></td>
+<td>∣</td>
+<td>∣ 或 <code>\vert</code></td>
+<td>∥</td>
+<td><code>\|</code> 或 <code>\Vert</code></td>
+</tr>
+<tr>
+<td>⌊</td>
+<td><code>\lfloor</code></td>
+<td>⌋</td>
+<td><code>\rfloor</code></td>
+<td>⌈</td>
+<td><code>\lceil</code></td>
+<td>⌉</td>
+<td><code>\rceil</code></td>
+</tr>
+<tr>
+<td>/</td>
+<td>/</td>
+<td>\</td>
+<td><code>\backslash</code></td>
+<td>.</td>
+<td>. (dual. empty)</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Table 3.9: Large Delimiters</h2>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>命令</th>
+<th>符号</th>
+<th>命令</th>
+<th>符号</th>
+<th>命令</th>
+<th>符号</th>
+<th>命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{</td>
+<td><code>\lgroup</code></td>
+<td>}</td>
+<td><code>\rgroup</code></td>
+<td>{</td>
+<td><code>\lmoustache</code></td>
+<td>}</td>
+<td><code>\rmoustache</code></td>
+</tr>
+<tr>
+<td>∣</td>
+<td><code>\arrowvert</code></td>
+<td>∣∣</td>
+<td><code>\Arrowvert</code></td>
+<td>∣</td>
+<td><code>\bracevert</code></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Table 3.10: Miscellaneous Symbols</h2>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>命令</th>
+<th>符号</th>
+<th>命令</th>
+<th>符号</th>
+<th>命令</th>
+<th>符号</th>
+<th>命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>⋯</td>
+<td><code>\dots</code></td>
+<td>⋯</td>
+<td><code>\cdots</code></td>
+<td>⋮</td>
+<td><code>\vdots</code></td>
+<td>⋱</td>
+<td><code>\ddots</code></td>
+</tr>
+<tr>
+<td>ℏ</td>
+<td><code>\hbar</code></td>
+<td>ι</td>
+<td><code>\imath</code></td>
+<td>j</td>
+<td><code>\jmath</code></td>
+<td>ℓ</td>
+<td><code>\ell</code></td>
+</tr>
+<tr>
+<td>ℜ</td>
+<td><code>\Re</code></td>
+<td>ℑ</td>
+<td><code>\Im</code></td>
+<td>ℵ</td>
+<td><code>\aleph</code></td>
+<td>℘</td>
+<td><code>\wp</code></td>
+</tr>
+<tr>
+<td>∀</td>
+<td><code>\forall</code></td>
+<td>∃</td>
+<td><code>\exists</code></td>
+<td>℧</td>
+<td><code>\mho</code>ᵃ</td>
+<td>∂</td>
+<td><code>\partial</code></td>
+</tr>
+<tr>
+<td>'</td>
+<td>'</td>
+<td>'</td>
+<td><code>\prime</code></td>
+<td>∅</td>
+<td><code>\emptyset</code></td>
+<td>∞</td>
+<td><code>\infty</code></td>
+</tr>
+<tr>
+<td>∇</td>
+<td><code>\nabla</code></td>
+<td>△</td>
+<td><code>\triangle</code></td>
+<td>□</td>
+<td><code>\Box</code>ᵃ</td>
+<td>◊</td>
+<td><code>\Diamond</code>ᵃ</td>
+</tr>
+<tr>
+<td>⊥</td>
+<td><code>\bot</code></td>
+<td>⊤</td>
+<td><code>\top</code></td>
+<td>∠</td>
+<td><code>\angle</code></td>
+<td>√</td>
+<td><code>\surd</code></td>
+</tr>
+<tr>
+<td>♢</td>
+<td><code>\diamondsuit</code></td>
+<td>♡</td>
+<td><code>\heartsuit</code></td>
+<td>♣</td>
+<td><code>\clubsuit</code></td>
+<td>♠</td>
+<td><code>\spadesuit</code></td>
+</tr>
+<tr>
+<td>¬</td>
+<td><code>\neg</code> 或 <code>\lnot</code></td>
+<td>♭</td>
+<td><code>\flat</code></td>
+<td>♮</td>
+<td><code>\natural</code></td>
+<td>♯</td>
+<td><code>\sharp</code></td>
+</tr>
+</tbody>
+</table>
+<p><em>ᵃ 使用 latexsym 包来访问此符号</em></p>
+<h2>Table 3.11: Non-Mathematical Symbols</h2>
+<p><em>这些符号也可以在文本模式中使用。</em></p>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>命令</th>
+<th>符号</th>
+<th>命令</th>
+<th>符号</th>
+<th>命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>†</td>
+<td><code>\dag</code></td>
+<td>§</td>
+<td><code>\S</code></td>
+<td>©</td>
+<td><code>\copyright</code></td>
+</tr>
+<tr>
+<td>‡</td>
+<td><code>\ddag</code></td>
+<td>¶</td>
+<td><code>\P</code></td>
+<td>£</td>
+<td><code>\pounds</code></td>
+</tr>
+</tbody>
+</table>
+<h2>Table 3.12: AMS Delimiters</h2>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>命令</th>
+<th>符号</th>
+<th>命令</th>
+<th>符号</th>
+<th>命令</th>
+<th>符号</th>
+<th>命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>⌜</td>
+<td><code>\ulcorner</code></td>
+<td>⌝</td>
+<td><code>\urcorner</code></td>
+<td>⌞</td>
+<td><code>\llcorner</code></td>
+<td>⌟</td>
+<td><code>\lrcorner</code></td>
+</tr>
+</tbody>
+</table>
+<h2>Table 3.13: AMS Greek and Hebrew</h2>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>命令</th>
+<th>符号</th>
+<th>命令</th>
+<th>符号</th>
+<th>命令</th>
+<th>符号</th>
+<th>命令</th>
+<th>符号</th>
+<th>命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ϝ</td>
+<td><code>\digamma</code></td>
+<td>ϰ</td>
+<td><code>\varkappa</code></td>
+<td>ב</td>
+<td><code>\beth</code></td>
+<td>ד</td>
+<td><code>\daleth</code></td>
+<td>ג</td>
+<td><code>\gimel</code></td>
+</tr>
+</tbody>
+</table>
+<h2>Table 3.14: AMS Binary Relations</h2>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>命令</th>
+<th>符号</th>
+<th>命令</th>
+<th>符号</th>
+<th>命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>⋖</td>
+<td><code>\lessdot</code></td>
+<td>⋗</td>
+<td><code>\gtrdot</code></td>
+<td>≐</td>
+<td><code>\doteqdot</code> 或 <code>\Doteq</code></td>
+</tr>
+<tr>
+<td>⋘</td>
+<td><code>\leqslant</code></td>
+<td>⋙</td>
+<td><code>\geqslant</code></td>
+<td>≑</td>
+<td><code>\risingdotseq</code></td>
+</tr>
+<tr>
+<td>⋖</td>
+<td><code>\eqslantless</code></td>
+<td>⋗</td>
+<td><code>\eqslantgtr</code></td>
+<td>≒</td>
+<td><code>\fallingdotseq</code></td>
+</tr>
+<tr>
+<td>⋜</td>
+<td><code>\leqq</code></td>
+<td>⋝</td>
+<td><code>\geqq</code></td>
+<td>≖</td>
+<td><code>\eqcirc</code></td>
+</tr>
+<tr>
+<td>≪</td>
+<td><code>\lll</code> 或 <code>\llless</code></td>
+<td>≫</td>
+<td><code>\ggg</code> 或 <code>\gggtr</code></td>
+<td>≗</td>
+<td><code>\circeq</code></td>
+</tr>
+<tr>
+<td>≲</td>
+<td><code>\lesssim</code></td>
+<td>≳</td>
+<td><code>\gtrsim</code></td>
+<td>≜</td>
+<td><code>\triangleq</code></td>
+</tr>
+<tr>
+<td>≶</td>
+<td><code>\lessapprox</code></td>
+<td>≷</td>
+<td><code>\gtrapprox</code></td>
+<td>≏</td>
+<td><code>\bumpeq</code></td>
+</tr>
+<tr>
+<td>≶</td>
+<td><code>\lessgtr</code></td>
+<td>≷</td>
+<td><code>\gtrless</code></td>
+<td>≎</td>
+<td><code>\Bumpeq</code></td>
+</tr>
+<tr>
+<td>≲</td>
+<td><code>\lesseqgtr</code></td>
+<td>≳</td>
+<td><code>\gtreqless</code></td>
+<td>∼</td>
+<td><code>\thicksim</code></td>
+</tr>
+<tr>
+<td>⋚</td>
+<td><code>\lesseqqgtr</code></td>
+<td>⋛</td>
+<td><code>\gtreqqless</code></td>
+<td>≈</td>
+<td><code>\thickapprox</code></td>
+</tr>
+<tr>
+<td>≼</td>
+<td><code>\preccurlyeq</code></td>
+<td>≽</td>
+<td><code>\succcurlyeq</code></td>
+<td>≊</td>
+<td><code>\approxeq</code></td>
+</tr>
+<tr>
+<td>≾</td>
+<td><code>\curlyeqprec</code></td>
+<td>≿</td>
+<td><code>\curlyeqsucc</code></td>
+<td>∽</td>
+<td><code>\backsim</code></td>
+</tr>
+<tr>
+<td>⪯</td>
+<td><code>\precsim</code></td>
+<td>⪰</td>
+<td><code>\succsim</code></td>
+<td>≋</td>
+<td><code>\backsimeq</code></td>
+</tr>
+<tr>
+<td>≾</td>
+<td><code>\precapprox</code></td>
+<td>≿</td>
+<td><code>\succapprox</code></td>
+<td>⫽</td>
+<td><code>\vDash</code></td>
+</tr>
+<tr>
+<td>⊊</td>
+<td><code>\subseteqq</code></td>
+<td>⊋</td>
+<td><code>\supseteqq</code></td>
+<td>⊨</td>
+<td><code>\Vdash</code></td>
+</tr>
+<tr>
+<td>⫅</td>
+<td><code>\Subset</code></td>
+<td>⫆</td>
+<td><code>\Supset</code></td>
+<td>⊩</td>
+<td><code>\Vvdash</code></td>
+</tr>
+<tr>
+<td>⊏</td>
+<td><code>\sqsubset</code></td>
+<td>⊐</td>
+<td><code>\sqsupset</code></td>
+<td>∍</td>
+<td><code>\backepsilon</code></td>
+</tr>
+<tr>
+<td>∴</td>
+<td><code>\therefore</code></td>
+<td>∵</td>
+<td><code>\because</code></td>
+<td>∝</td>
+<td><code>\varpropto</code></td>
+</tr>
+<tr>
+<td>∣</td>
+<td><code>\shortmid</code></td>
+<td>∥</td>
+<td><code>\shortparallel</code></td>
+<td>≬</td>
+<td><code>\between</code></td>
+</tr>
+<tr>
+<td>⌣</td>
+<td><code>\smallsmile</code></td>
+<td>⌢</td>
+<td><code>\smallfrown</code></td>
+<td>⋔</td>
+<td><code>\pitchfork</code></td>
+</tr>
+<tr>
+<td>⊲</td>
+<td><code>\vartriangleleft</code></td>
+<td>⊳</td>
+<td><code>\vartriangleright</code></td>
+<td>$\blacktriangleleft$</td>
+<td><code>\blacktriangleleft</code></td>
+</tr>
+<tr>
+<td>⊴</td>
+<td><code>\trianglelefteq</code></td>
+<td>⊵</td>
+<td><code>\trianglerighteq</code></td>
+<td>$\blacktriangleright$</td>
+<td><code>\blacktriangleright</code></td>
+</tr>
+</tbody>
+</table>
+<h2>Table 3.15: AMS Arrows</h2>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>命令</th>
+<th>符号</th>
+<th>命令</th>
+<th>符号</th>
+<th>命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>⇇</td>
+<td><code>\dashleftarrow</code></td>
+<td>⇉</td>
+<td><code>\dashrightarrow</code></td>
+<td>⊸</td>
+<td><code>\multimap</code></td>
+</tr>
+<tr>
+<td>⇇</td>
+<td><code>\leftleftarrows</code></td>
+<td>⇉</td>
+<td><code>\rightrightarrows</code></td>
+<td>⇈</td>
+<td><code>\upuparrows</code></td>
+</tr>
+<tr>
+<td>⇆</td>
+<td><code>\leftrightarrows</code></td>
+<td>⇄</td>
+<td><code>\rightleftarrows</code></td>
+<td>⇊</td>
+<td><code>\downdownarrows</code></td>
+</tr>
+<tr>
+<td>⇐</td>
+<td><code>\Lleftarrow</code></td>
+<td>⇒</td>
+<td><code>\Rrightarrow</code></td>
+<td>↾</td>
+<td><code>\upharpoonleft</code></td>
+</tr>
+<tr>
+<td>←</td>
+<td><code>\twoheadleftarrow</code></td>
+<td>→</td>
+<td><code>\twoheadrightarrow</code></td>
+<td>⇂</td>
+<td><code>\upharpoonright</code></td>
+</tr>
+<tr>
+<td>↢</td>
+<td><code>\leftarrowtail</code></td>
+<td>↣</td>
+<td><code>\rightarrowtail</code></td>
+<td>↿</td>
+<td><code>\downharpoonleft</code></td>
+</tr>
+<tr>
+<td>⇋</td>
+<td><code>\leftrightharpoons</code></td>
+<td>⇌</td>
+<td><code>\rightleftharpoons</code></td>
+<td>⇃</td>
+<td><code>\downharpoonright</code></td>
+</tr>
+<tr>
+<td>↶</td>
+<td><code>\Lsh</code></td>
+<td>↷</td>
+<td><code>\Rsh</code></td>
+<td>↝</td>
+<td><code>\rightsquigarrow</code></td>
+</tr>
+<tr>
+<td>↫</td>
+<td><code>\looparrowleft</code></td>
+<td>↬</td>
+<td><code>\looparrowright</code></td>
+<td>↜</td>
+<td><code>\leftrightsquigarrow</code></td>
+</tr>
+<tr>
+<td>↶</td>
+<td><code>\curvearrowleft</code></td>
+<td>↷</td>
+<td><code>\curvearrowright</code></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>↺</td>
+<td><code>\circlearrowleft</code></td>
+<td>↻</td>
+<td><code>\circlearrowright</code></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Table 3.16: AMS Negated Binary Relations and Arrows</h2>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>命令</th>
+<th>符号</th>
+<th>命令</th>
+<th>符号</th>
+<th>命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>≮</td>
+<td><code>\nless</code></td>
+<td>≯</td>
+<td><code>\ngtr</code></td>
+<td>⊈</td>
+<td><code>\varsubsetneq</code></td>
+</tr>
+<tr>
+<td>≰</td>
+<td><code>\nleq</code></td>
+<td>≱</td>
+<td><code>\ngeq</code></td>
+<td>⊉</td>
+<td><code>\varsupsetneq</code></td>
+</tr>
+<tr>
+<td>≨</td>
+<td><code>\nleqq</code></td>
+<td>≩</td>
+<td><code>\ngeqq</code></td>
+<td>⊊</td>
+<td><code>\nsubseteqq</code></td>
+</tr>
+<tr>
+<td>≴</td>
+<td><code>\nleqslant</code></td>
+<td>≵</td>
+<td><code>\ngeqslant</code></td>
+<td>⊋</td>
+<td><code>\nsupseteqq</code></td>
+</tr>
+<tr>
+<td>≰</td>
+<td><code>\nleqq</code></td>
+<td>≱</td>
+<td><code>\ngeqq</code></td>
+<td>∤</td>
+<td><code>\nmid</code></td>
+</tr>
+<tr>
+<td>≱</td>
+<td><code>\lvertneqq</code></td>
+<td>≰</td>
+<td><code>\gvertneqq</code></td>
+<td>∦</td>
+<td><code>\nparallel</code></td>
+</tr>
+<tr>
+<td>≴</td>
+<td><code>\nleqq</code></td>
+<td>≵</td>
+<td><code>\ngeqq</code></td>
+<td>∤</td>
+<td><code>\nshortmid</code></td>
+</tr>
+<tr>
+<td>≵</td>
+<td><code>\lnsim</code></td>
+<td>≴</td>
+<td><code>\gnsim</code></td>
+<td>∦</td>
+<td><code>\nshortparallel</code></td>
+</tr>
+<tr>
+<td>⋦</td>
+<td><code>\lnapprox</code></td>
+<td>⋧</td>
+<td><code>\gnapprox</code></td>
+<td>≁</td>
+<td><code>\nsim</code></td>
+</tr>
+<tr>
+<td>⋨</td>
+<td><code>\nprec</code></td>
+<td>⋩</td>
+<td><code>\nsucc</code></td>
+<td>≇</td>
+<td><code>\ncong</code></td>
+</tr>
+<tr>
+<td>⋠</td>
+<td><code>\npreceq</code></td>
+<td>⋡</td>
+<td><code>\nsucceq</code></td>
+<td>≢</td>
+<td><code>\nvdash</code></td>
+</tr>
+<tr>
+<td>⋠</td>
+<td><code>\precneqq</code></td>
+<td>⋡</td>
+<td><code>\succneqq</code></td>
+<td>≠</td>
+<td><code>\nvDash</code></td>
+</tr>
+<tr>
+<td>⋨</td>
+<td><code>\precnsim</code></td>
+<td>⋩</td>
+<td><code>\succnsim</code></td>
+<td>⊭</td>
+<td><code>\nVdash</code></td>
+</tr>
+<tr>
+<td>⋦</td>
+<td><code>\precnapprox</code></td>
+<td>⋧</td>
+<td><code>\succnapprox</code></td>
+<td>⊯</td>
+<td><code>\nVDash</code></td>
+</tr>
+<tr>
+<td>⊄</td>
+<td><code>\subsetneq</code></td>
+<td>⊅</td>
+<td><code>\supsetneq</code></td>
+<td>⊲</td>
+<td><code>\ntriangleleft</code></td>
+</tr>
+<tr>
+<td>⊊</td>
+<td><code>\varsubsetneq</code></td>
+<td>⊋</td>
+<td><code>\varsupsetneq</code></td>
+<td>⊳</td>
+<td><code>\ntriangleright</code></td>
+</tr>
+<tr>
+<td>⊈</td>
+<td><code>\nsubseteq</code></td>
+<td>⊉</td>
+<td><code>\nsupseteq</code></td>
+<td>⋪</td>
+<td><code>\ntrianglelefteq</code></td>
+</tr>
+<tr>
+<td>⊊</td>
+<td><code>\subsetneqq</code></td>
+<td>⊋</td>
+<td><code>\supsetneqq</code></td>
+<td>⋫</td>
+<td><code>\ntrianglerighteq</code></td>
+</tr>
+<tr>
+<td>↚</td>
+<td><code>\nleftarrow</code></td>
+<td>↛</td>
+<td><code>\nrightarrow</code></td>
+<td>↮</td>
+<td><code>\nleftrightarrow</code></td>
+</tr>
+<tr>
+<td>⇍</td>
+<td><code>\nLeftarrow</code></td>
+<td>⇏</td>
+<td><code>\nRightarrow</code></td>
+<td>⇎</td>
+<td><code>\nLeftrightarrow</code></td>
+</tr>
+</tbody>
+</table>
+<h2>Table 3.17: AMS Binary Operators</h2>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>命令</th>
+<th>符号</th>
+<th>命令</th>
+<th>符号</th>
+<th>命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>∔</td>
+<td><code>\dotplus</code></td>
+<td>∙</td>
+<td><code>\centerdot</code></td>
+<td>⋆</td>
+<td><code>\intercal</code></td>
+</tr>
+<tr>
+<td>⋉</td>
+<td><code>\ltimes</code></td>
+<td>⋊</td>
+<td><code>\rtimes</code></td>
+<td>✱</td>
+<td><code>\divideontimes</code></td>
+</tr>
+<tr>
+<td>⊎</td>
+<td><code>\Cup</code> 或 <code>\doublecup</code></td>
+<td>⊓</td>
+<td><code>\Cap</code> 或 <code>\doublecap</code></td>
+<td>∖</td>
+<td><code>\smallsetminus</code></td>
+</tr>
+<tr>
+<td>⋎</td>
+<td><code>\veebar</code></td>
+<td>⋏</td>
+<td><code>\barwedge</code></td>
+<td>⋀</td>
+<td><code>\doublebarwedge</code></td>
+</tr>
+<tr>
+<td>⊞</td>
+<td><code>\boxplus</code></td>
+<td>⊟</td>
+<td><code>\boxminus</code></td>
+<td>⊖</td>
+<td><code>\circleddash</code></td>
+</tr>
+<tr>
+<td>⊠</td>
+<td><code>\boxtimes</code></td>
+<td>⊡</td>
+<td><code>\boxdot</code></td>
+<td>⊙</td>
+<td><code>\circledcirc</code></td>
+</tr>
+<tr>
+<td>⋉</td>
+<td><code>\leftthreetimes</code></td>
+<td>⋊</td>
+<td><code>\rightthreetimes</code></td>
+<td>⊛</td>
+<td><code>\circledast</code></td>
+</tr>
+<tr>
+<td>⋎</td>
+<td><code>\curlyvee</code></td>
+<td>⋏</td>
+<td><code>\curlywedge</code></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Table 3.18: AMS Miscellaneous</h2>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>命令</th>
+<th>符号</th>
+<th>命令</th>
+<th>符号</th>
+<th>命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ℏ</td>
+<td><code>\hbar</code></td>
+<td>ℏ</td>
+<td><code>\hslash</code></td>
+<td>𝕜</td>
+<td><code>\Bbbk</code></td>
+</tr>
+<tr>
+<td>□</td>
+<td><code>\square</code></td>
+<td>■</td>
+<td><code>\blacksquare</code></td>
+<td>Ⓢ</td>
+<td><code>\circledS</code></td>
+</tr>
+<tr>
+<td>△</td>
+<td><code>\vartriangle</code></td>
+<td>▲</td>
+<td><code>\blacktriangle</code></td>
+<td>ℭ</td>
+<td><code>\complement</code></td>
+</tr>
+<tr>
+<td>▽</td>
+<td><code>\triangledown</code></td>
+<td>▼</td>
+<td><code>\blacktriangledown</code></td>
+<td>ℷ</td>
+<td><code>\Game</code></td>
+</tr>
+<tr>
+<td>◊</td>
+<td><code>\lozenge</code></td>
+<td>♦</td>
+<td><code>\blacklozenge</code></td>
+<td>★</td>
+<td><code>\bigstar</code></td>
+</tr>
+<tr>
+<td>∠</td>
+<td><code>\angle</code></td>
+<td>∡</td>
+<td><code>\measuredangle</code></td>
+<td>∢</td>
+<td><code>\sphericalangle</code></td>
+</tr>
+<tr>
+<td>∡</td>
+<td><code>\diagup</code></td>
+<td>∡</td>
+<td><code>\diagdown</code></td>
+<td>\</td>
+<td><code>\backprime</code></td>
+</tr>
+<tr>
+<td>∄</td>
+<td><code>\nexists</code></td>
+<td>∄</td>
+<td><code>\Finv</code></td>
+<td>∅</td>
+<td><code>\varnothing</code></td>
+</tr>
+<tr>
+<td>ð</td>
+<td><code>\eth</code></td>
+<td>℧</td>
+<td><code>\mho</code></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Table 3.19: Math Alphabets</h2>
+<table>
+<thead>
+<tr>
+<th>示例</th>
+<th>命令</th>
+<th>所需包</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ABCdef</td>
+<td><code>\mathrm{ABCdef}</code></td>
+<td></td>
+</tr>
+<tr>
+<td><em>ABCdef</em></td>
+<td><code>\mathit{ABCdef}</code></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>ABCdef</strong></td>
+<td><code>\mathnormal{ABCdef}</code></td>
+<td></td>
+</tr>
+<tr>
+<td>𝒜ℬ𝒞</td>
+<td><code>\mathcal{ABC}</code></td>
+<td></td>
+</tr>
+<tr>
+<td>𝔸𝔹ℂ</td>
+<td><code>\mathcal{ABC}</code></td>
+<td>eucal with option: mathcal 或</td>
+</tr>
+<tr>
+<td></td>
+<td><code>\mathscr{ABC}</code></td>
+<td>eucal with option: mathscr</td>
+</tr>
+<tr>
+<td>𝔄𝔅ℭ𝔡𝔢𝔣</td>
+<td><code>\mathfrak{ABCdef}</code></td>
+<td>eufrak</td>
+</tr>
+<tr>
+<td>𝐀𝐁𝐂</td>
+<td><code>\mathbb{ABC}</code></td>
+<td>amsfonts 或 amssymb</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>注：部分符号需要特定的包支持，如 latexsym、amsmath、amssymb 等。</em></p>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
