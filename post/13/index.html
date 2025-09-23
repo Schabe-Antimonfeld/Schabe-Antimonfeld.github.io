@@ -1,0 +1,588 @@
+
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>SchabeAntimonfeld</title>
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap">
+
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- 代码高亮 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/github.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.9.0/highlightjs-line-numbers.min.js"></script>
+
+    <script src="/static/js/use_hl.js"></script>
+
+    <!-- MathJax 支持 LaTeX -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6" defer></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+    <!-- 邮箱弹窗 -->
+    <script>
+        function toggleEmailPopup() {
+            const popup = document.getElementById("email-popup");
+            popup.style.display = (popup.style.display === "block") ? "none" : "block";
+        }
+
+        document.addEventListener("click", function (event) {
+            const popup = document.getElementById("email-popup");
+            const icon = event.target.closest('.nav-item');
+            if (!icon || !icon.contains(event.target)) {
+                popup.style.display = "none";
+            }
+        });
+    </script>
+
+    <!-- LaTeX行内公式支持 -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border fixed-top">
+        <!-- 导航栏名称 -->
+        <a class="navbar-brand ms-5" href="/">
+            SchabeAntimonfeld</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarCollapse" aria-controls="navbarCollapse"
+                aria-expanded="false" aria-label="切换导航">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/topics/">主题</a>
+                </li>
+            </ul>
+            <!-- 右侧图标区域 -->
+            <ul class="navbar-nav ms-auto mx-5">
+                <!-- 邮箱图标 + 弹窗 -->
+                <li class="nav-item position-relative">
+                    <a class="nav-link" href="javascript:void(0);" onclick="toggleEmailPopup()"
+                        data-toggle="tooltip" data-placement="bottom" title="我的GMAIL邮箱">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <!-- 自定义浮层 -->
+                    <div id="email-popup" class="email-popup shadow-sm">
+                        <b>Email:</b> schabeantimonyfield@gmail.com
+                    </div>
+                </li>
+
+                <!-- GitHub 图标 -->
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/Schabe-Antimonfeld" target="_blank"
+                       data-toggle="tooltip" data-placement="bottom" title="前往 GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container" style="margin-top: 70px;">
+        <div class="row">
+            <!-- 侧边栏资料卡 -->
+            <div class="position-fixed d-none d-md-block" style="top: 70px; left: 50px; width: 23%; max-width: 300px;">
+                    
+
+
+<!--个人资料卡-->
+<div class="card mb-4 text-center">
+    <img src="/static/images/avatar.jpg" class="card-img-top rounded-circle mx-auto mt-3" style="width: 120px; height: 120px; object-fit: cover;" alt="avatar">
+    <div class="card-body text-center">
+        <h5 class="card-title">Schabe Antimonfeld</h5>
+        <p class="card-text text-muted">AI × Coding × Minecraft</p>
+        <hr>
+        <p>在读大学生</p>
+        <p></p>
+        <p><i class="fab fa-github"></i> <a href="https://github.com/Schabe-Antimonfeld" target="_blank">GitHub</a></p>
+    </div>
+</div>
+            </div>
+
+            <!-- 主体内容 -->
+            <div class="col-md-9 offset-md-3">
+                
+<h2>PyTorch学习笔记02（CNN）</h2>
+
+<!-- 主题标签 -->
+<p class="text-muted mb-1">
+    <i class="bi bi-tags text-primary"></i>
+    
+        <a href="/topics/2/" class="btn btn-sm btn-outline-primary text-decoration-none">代码</a>
+    
+        <a href="/topics/5/" class="btn btn-sm btn-outline-primary text-decoration-none">深度学习</a>
+    
+</p>
+
+<p class="card-text text-muted">
+    发布于 2025年09月23日 09:30
+</p>
+<hr>
+
+                
+<!-- 博客内容 -->
+<div class="card mb-3 shadow-sm">
+    <div class="card-body">
+        <h2>卷积</h2>
+<p>全连接层输入输出变为矩阵$(h, w)$，权重变为四维张量$(h, w)\rightarrow(h', w')$
+$$
+h_{i, j} = \sum_{k, l}W_{i, j, k, l}x_{k, l} = \sum_{a, b}V_{i, j, a, b}x_{i + a, j + b}
+$$
+其中$V_{i, j, k, l} = W_{i, j, i + a, j + b}$</p>
+<h3>原则1：平移不变性</h3>
+<p>$x$的平移导致$h$的平移，而$V$不应依赖于$i, j$</p>
+<p>因此，$V_{i, j, a, b}\rightarrow V_{a, b}$使V具有平移的不变性</p>
+<p>从而得到二维卷积（交叉相关）：
+$$
+h_{i, j} = \sum_{a, b}V_{a, b}x_{i + a, j + b}
+$$</p>
+<h3>原则2：局部性</h3>
+<p>当评估$h_{i, j}$时，不应使用远离$x_{i, j}$的数据</p>
+<p>因此，规定一个$\Delta$，当$|a|, |b| &gt; \Delta$时，使得$V_{a, b} = 0$
+$$
+h_{i, j} = \sum_{a = -\Delta}^{\Delta}\sum_{b = -\Delta}^{\Delta}V_{a, b}x_{i + a, y + b}
+$$</p>
+<h2>二维卷积层</h2>
+<p>输入$X: n_h \times n_w$</p>
+<p>卷积核$W: k_h \times k_w$</p>
+<p>偏差$b \in \mathbb{R}$</p>
+<p>输出$Y = X \cdot W + b: (n_h - k_h + 1) \times (n_w - k_w + 1)$</p>
+<p>核矩阵和偏差为可学习参数，核矩阵的大小为超参数</p>
+<h3>实现</h3>
+<pre class="highlight"><code class="language-python">import torch
+from torch import nn
+
+# 2D互相关
+def corr2d(X, K):
+    h, w = K.shape
+    Y = torch.zeros((X.shape[0] - h + 1, X.shape[1] - w + 1))
+    for i in range(Y.shape[0]):
+        for j in range(Y.shape[1]):
+            Y[i, j] = (X[i:i + h, j:j + w] * K).sum()
+    return Y
+
+class Conv2D(nn.Module):
+    def __init__(self, kernel_size):
+        super().__init__()
+        self.weight = nn.Parameter(torch.rand(kernel_size))
+        self.bias = nn.Parameter(torch.zeros(1))
+
+    def forward(self, x):
+        return corr2d(x, self.weight) + self.bias
+
+# 此处为torch.nn的Conv2d
+# class torch.nn.Conv2d(in_channels, out_channels, kernel_size, stride=1, padding=0, dilation=1, groups=1, bias=True, padding_mode='zeros', device=None, dtype=None)
+
+conv2d = nn.Conv2d(1,1, kernel_size=(1, 2), bias=False)
+optimizer = torch.optim.SGD(conv2d.parameters(), lr=3e-2)
+
+# 这个二维卷积层使用四维输入和输出格式（批量大小、通道、高度、宽度），
+# 其中批量大小和通道数都为1
+X = X.reshape((1, 1, 6, 8))
+Y = Y.reshape((1, 1, 6, 7))
+
+for i in range(10):
+    Y_hat = conv2d(X)
+    l = (Y_hat - Y) ** 2
+    conv2d.zero_grad()
+    l.sum().backward()
+    optimizer.step()
+    if (i + 1) % 2 == 0:
+        print(f'epoch {i+1}, loss {l.sum():.3f}')
+</code></pre>
+
+<h2>填充</h2>
+<p>求卷积后$Y: (n_h - k_h + 1) \times (n_w - k_w + 1)$形状每次都会变小</p>
+<p>填充$p_h$行$p_W$列，输出形状为$(n_h - k_h + p_h + 1) \times (n_w - k_w + p_w + 1)$</p>
+<p>通常取$p_h = k_h - 1, p_w = k_w - 1$</p>
+<ul>
+<li>$k_h$为偶数：上下两侧各填充$p_h / 2$</li>
+<li>$k_h$为奇数：上侧填充$\lceil k_h / 2 \rceil$，下侧填充$\lfloor k_h / 2 \rfloor$</li>
+</ul>
+<h2>步幅</h2>
+<p>填充减小的输出大小与层数线性相关</p>
+<p>给定高度$s_h$宽度$s_w$的步幅，输出形状为$\lfloor (n_h - k_h + p_h + s_h) / s_h \rfloor \times \lfloor (n_w - k_w + p_w + s_w) / s_w \rfloor$</p>
+<p>若$p_h = k_h - 1, p_w = k_w - 1$，则输出形状为$\lfloor (n_h + s_h - 1) / s_h \rfloor \times \lfloor (n_w + s_w - 1) / s_w \rfloor$</p>
+<p>若输入高度和宽度可以被步长整除，则输出形状为$(n_h / s_h) \times (n_w / s_w)$</p>
+<h2>输入输出通道</h2>
+<h3>多输入通道</h3>
+<p>每个通道都有一个卷积核，结果是所有通道卷积结果的和</p>
+<p>输入$X: c_i \times n_h \times n_w$</p>
+<p>核$W: c_i \times k_h \times k_w$</p>
+<p>输出$Y: m_h \times m_w$</p>
+<h3>多输出通道</h3>
+<p>多个三维卷积核，每个核生成一个输出通道</p>
+<p>输入$X: c_i \times n_h \times n_w$</p>
+<p>核$W: c_o \times c_i \times k_h \times k_w$</p>
+<p>输出$Y: c_o \times m_h \times m_w$</p>
+<h2>1x1卷积层</h2>
+<p>$k_h = k_w = 1$不识别空间模式，只是融合通道</p>
+<p>相当于输入形状$n_h n_w \times c_i$，权重为$c_o \times c_i$的全连接层</p>
+<h2>池化层</h2>
+<p>卷积对位置敏感。需要一定程度的平移不变性</p>
+<h3>二维最大池化</h3>
+<p>返回滑动窗口中的最大值</p>
+<p>具有填充步幅，没有可学习参数，在每个通道应用池化层获得对应输出通道，输出通道数=输入通道数</p>
+<h3>平均池化层</h3>
+<p>将最大池化层中的最大操作替换为平均</p>
+<h2>LeNet</h2>
+<pre class="highlight"><code class="language-python">import torch
+from torch import nn
+
+class Reshape(nn.Module):
+    def foward(self, x):
+        return x.view(-1, 1, 28, 28)
+
+net = nn.Sequential(
+    Reshape(),
+    nn.Conv2d(1, 6, kernel_size=5, padding=2), nn.Sigmoid(),
+    nn.AvgPool2d(kernel_size=2, stride=2),
+    nn.Conv2d(6, 16, kernel_size=5), nn.Sigmoid(),
+    nn.AvgPoll2d(kernel_size=2, stride=2), nn.Flatten(),
+    nn.Linear(16 * 5 * 5, 120), nn.Sigmoid(),
+    nn.Linear(120, 84), nn.Sigmoid(),
+    nn.Linear(84, 10))
+</code></pre>
+
+<h2>AlexNet</h2>
+<p>更深更大的LeNet</p>
+<p>主要改进：丢弃法，ReLU，MaxPooling</p>
+<pre class="highlight"><code class="language-python">import torch
+from torch import nn
+
+net = nn.Sequential(
+    nn.Conv2d(3, 96, kernel_size=11, stride=4, padding=1), nn.ReLU(),
+    nn.MaxPool2d(kernel_size=3, stride=2),
+    nn.Conv2d(96, 256, kernel_size=5, padding=2), nn.ReLU(),
+    nn.MaxPool2d(kernel_size=3, stride=2),
+    nn.Conv2d(256, 384, kernel_size=3, padding=1), nn.ReLU(),
+    nn.Conv2d(384, 384, kernel_size=3, padding=1), nn.ReLU(),
+    nn.Conv2d(384, 384, kernel_size=3, padding=1), nn.ReLU(),
+    nn.MaxPool2d(kernel_size=3, stride=2),
+    nn.Flatten(),
+    nn.Linear(6400, 4096), nn.ReLU(),
+    nn.Dropout(p=0.5),
+    nn.Linear(4096, 4096), nn.ReLU(),
+    nn.Dropout(p=0.5),
+    nn.Linear(4096, 1000))
+</code></pre>
+
+<h2>VGG</h2>
+<h3>VGG块</h3>
+<p>3 x 3卷积，填充1，n层m通道</p>
+<p>2 x 2最大池化层，步幅2</p>
+<h3>VGG架构</h3>
+<p>多个VGG块后接全连接层</p>
+<p>不同的重复次数得到不同的架构，VGG-16，VGG-19，……</p>
+<pre class="highlight"><code class="language-python">import torch
+from torch import nn
+
+def vgg_block(num_convs, in_channels, out_channels):
+    layers = []
+    for _ in range(num_convs):
+        layers.append(nn.Conv2d(in_channels, out_channels,
+                                kernel_size=3, padding=1))
+        layers.append(nn.ReLU())
+        in_channels = out_channels
+    layers.append(nn.MaxPool2d(kernel_size=2,stride=2))
+    return nn.Sequential(*layers)
+
+conv_arch = ((1, 64), (1, 128), (2, 256), (2, 512), (2, 512))
+
+def vgg(conv_arch):
+    conv_blks = []
+    in_channels = 1
+    # 卷积层部分
+    for (num_convs, out_channels) in conv_arch:
+        conv_blks.append(vgg_block(num_convs, in_channels, out_channels))
+        in_channels = out_channels
+
+    return nn.Sequential(
+        *conv_blks, nn.Flatten(),
+        # 全连接层部分
+        nn.Linear(out_channels * 7 * 7, 4096), nn.ReLU(), nn.Dropout(0.5),
+        nn.Linear(4096, 4096), nn.ReLU(), nn.Dropout(0.5),
+        nn.Linear(4096, 10))
+
+net = vgg(conv_arch)
+</code></pre>
+
+<h2>NiN</h2>
+<p>卷积层参数较少$c_i \times c_o \times k ^ 2$，但是卷积层后第一个全连接层参数巨大</p>
+<h3>NiN块</h3>
+<p>一个卷积层后跟两个1 x 1卷积层，步幅1，无填充，输出形状与卷积层输出一致，起到全连接层的作用</p>
+<h3>NiN架构</h3>
+<p>无全连接层</p>
+<p>交替使用NiN块和步幅为2的最大池化层，最后用全局平均池化层得到输出</p>
+<pre class="highlight"><code class="language-python">import torch
+from torch import nn
+
+def nin_block(in_channels, out_channels, kernel_size, strides, padding):
+    return nn.Sequential(
+        nn.Conv2d(in_channels, out_channels, kernel_size, strides, padding),
+        nn.ReLU(),
+        nn.Conv2d(out_channels, out_channels, kernel_size=1), nn.ReLU(),
+        nn.Conv2d(out_channels, out_channels, kernel_size=1), nn.ReLU())
+
+net = nn.Sequential(
+    nin_block(1, 96, kernel_size=11, strides=4, padding=0),
+    nn.MaxPool2d(3, stride=2),
+    nin_block(96, 256, kernel_size=5, strides=1, padding=2),
+    nn.MaxPool2d(3, stride=2),
+    nin_block(256, 384, kernel_size=3, strides=1, padding=1),
+    nn.MaxPool2d(3, stride=2),
+    nn.Dropout(0.5),
+    # 标签类别数是10
+    nin_block(384, 10, kernel_size=3, strides=1, padding=1),
+    nn.AdaptiveAvgPool2d((1, 1)),
+    # 将四维的输出转成二维的输出，其形状为(批量大小,10)
+    nn.Flatten())
+</code></pre>
+
+<h2>GoogLeNet</h2>
+<h3>Inception块</h3>
+<p>4个路径从不同层面抽取信息，然后在输出通道合并</p>
+<p>跟单3 x 3和5 x 5卷积层，Inception块有更少的参数个数和计算复杂度</p>
+<h3>架构</h3>
+<p>5段，9个Inception块</p>
+<pre class="highlight"><code class="language-python">import torch
+from torch import nn
+from torch.nn import functional as F
+
+class Inception(nn.Module):
+    # c1--c4是每条路径的输出通道数
+    def __init__(self, in_channels, c1, c2, c3, c4, **kwargs):
+        super(Inception, self).__init__(**kwargs)
+        # 线路1，单1x1卷积层
+        self.p1_1 = nn.Conv2d(in_channels, c1, kernel_size=1)
+        # 线路2，1x1卷积层后接3x3卷积层
+        self.p2_1 = nn.Conv2d(in_channels, c2[0], kernel_size=1)
+        self.p2_2 = nn.Conv2d(c2[0], c2[1], kernel_size=3, padding=1)
+        # 线路3，1x1卷积层后接5x5卷积层
+        self.p3_1 = nn.Conv2d(in_channels, c3[0], kernel_size=1)
+        self.p3_2 = nn.Conv2d(c3[0], c3[1], kernel_size=5, padding=2)
+        # 线路4，3x3最大汇聚层后接1x1卷积层
+        self.p4_1 = nn.MaxPool2d(kernel_size=3, stride=1, padding=1)
+        self.p4_2 = nn.Conv2d(in_channels, c4, kernel_size=1)
+
+    def forward(self, x):
+        p1 = F.relu(self.p1_1(x))
+        p2 = F.relu(self.p2_2(F.relu(self.p2_1(x))))
+        p3 = F.relu(self.p3_2(F.relu(self.p3_1(x))))
+        p4 = F.relu(self.p4_2(self.p4_1(x)))
+        # 在通道维度上连结输出
+        return torch.cat((p1, p2, p3, p4), dim=1)
+
+b1 = nn.Sequential(nn.Conv2d(1, 64, kernel_size=7, stride=2, padding=3),
+                   nn.ReLU(),
+                   nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
+
+b2 = nn.Sequential(nn.Conv2d(64, 64, kernel_size=1),
+                   nn.ReLU(),
+                   nn.Conv2d(64, 192, kernel_size=3, padding=1),
+                   nn.ReLU(),
+                   nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
+
+b3 = nn.Sequential(Inception(192, 64, (96, 128), (16, 32), 32),
+                   Inception(256, 128, (128, 192), (32, 96), 64),
+                   nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
+
+b4 = nn.Sequential(Inception(480, 192, (96, 208), (16, 48), 64),
+                   Inception(512, 160, (112, 224), (24, 64), 64),
+                   Inception(512, 128, (128, 256), (24, 64), 64),
+                   Inception(512, 112, (144, 288), (32, 64), 64),
+                   Inception(528, 256, (160, 320), (32, 128), 128),
+                   nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
+
+b5 = nn.Sequential(Inception(832, 256, (160, 320), (32, 128), 128),
+                   Inception(832, 384, (192, 384), (48, 128), 128),
+                   nn.AdaptiveAvgPool2d((1,1)),
+                   nn.Flatten())
+
+net = nn.Sequential(b1, b2, b3, b4, b5, nn.Linear(1024, 10))
+</code></pre>
+
+<h2>批量归一化</h2>
+<p>损失出现在最后，后面的层训练较快</p>
+<p>数据在最底部，底部的层训练较慢，底部层一变所有都得跟着变，最后的层多次学习，导致收敛变慢</p>
+<p>固定小批量里面的均值和方差
+$$
+\mu_B = \frac{1}{|B|} \sum_{i \in B}x_i, \sigma_B^2 = \frac{1}{|B|} \sum_{i \in B}(x_i - \mu_B)^2 + \epsilon
+$$
+然后做额外的调整
+$$
+x_{i + 1} = \gamma \frac{x_i - \mu_B}{\sigma_B}+\beta
+$$
+可学习参数为$\gamma, \beta$</p>
+<p>作用在全连接层和卷积输出上，激活函数前，以及全连接层和卷积层输入上</p>
+<p>对于全连接层，作用在特征维</p>
+<p>对于卷积层，作用在通道维</p>
+<p>最初论文是想用其减少内部协变量转移，后续有论文指出它可能就是通过在每个小批量里加入噪音来控制模型复杂度</p>
+<p>因此没必要和丢弃法混合使用</p>
+<pre class="highlight"><code class="language-python">import torch
+from torch import nn
+
+def batch_norm(X, gamma, beta, moving_mean, moving_var, eps, momentum):
+    # 通过is_grad_enabled来判断当前模式是训练模式还是预测模式
+    if not torch.is_grad_enabled():
+        # 如果是在预测模式下，直接使用传入的移动平均所得的均值和方差
+        X_hat = (X - moving_mean) / torch.sqrt(moving_var + eps)
+    else:
+        assert len(X.shape) in (2, 4)
+        if len(X.shape) == 2:
+            # 使用全连接层的情况，计算特征维上的均值和方差
+            mean = X.mean(dim=0)
+            var = ((X - mean) ** 2).mean(dim=0)
+        else:
+            # 使用二维卷积层的情况，计算通道维上（axis=1）的均值和方差。
+            # 这里我们需要保持X的形状以便后面可以做广播运算
+            mean = X.mean(dim=(0, 2, 3), keepdim=True)
+            var = ((X - mean) ** 2).mean(dim=(0, 2, 3), keepdim=True)
+        # 训练模式下，用当前的均值和方差做标准化
+        X_hat = (X - mean) / torch.sqrt(var + eps)
+        # 更新移动平均的均值和方差
+        moving_mean = momentum * moving_mean + (1.0 - momentum) * mean
+        moving_var = momentum * moving_var + (1.0 - momentum) * var
+    Y = gamma * X_hat + beta  # 缩放和移位
+    return Y, moving_mean.data, moving_var.data
+
+class BatchNorm(nn.Module):
+    # num_features：完全连接层的输出数量或卷积层的输出通道数。
+    # num_dims：2表示完全连接层，4表示卷积层
+    def __init__(self, num_features, num_dims):
+        super().__init__()
+        if num_dims == 2:
+            shape = (1, num_features)
+        else:
+            shape = (1, num_features, 1, 1)
+        # 参与求梯度和迭代的拉伸和偏移参数，分别初始化成1和0
+        self.gamma = nn.Parameter(torch.ones(shape))
+        self.beta = nn.Parameter(torch.zeros(shape))
+        # 非模型参数的变量初始化为0和1
+        self.moving_mean = torch.zeros(shape)
+        self.moving_var = torch.ones(shape)
+
+    def forward(self, X):
+        # 如果X不在内存上，将moving_mean和moving_var
+        # 复制到X所在显存上
+        if self.moving_mean.device != X.device:
+            self.moving_mean = self.moving_mean.to(X.device)
+            self.moving_var = self.moving_var.to(X.device)
+        # 保存更新过的moving_mean和moving_var
+        Y, self.moving_mean, self.moving_var = batch_norm(
+            X, self.gamma, self.beta, self.moving_mean,
+            self.moving_var, eps=1e-5, momentum=0.9)
+        return Y
+
+# 使用BatchNorm的LeNet
+net = nn.Sequential(
+    nn.Conv2d(1, 6, kernel_size=5), BatchNorm(6, num_dims=4), nn.Sigmoid(),
+    nn.AvgPool2d(kernel_size=2, stride=2),
+    nn.Conv2d(6, 16, kernel_size=5), BatchNorm(16, num_dims=4), nn.Sigmoid(),
+    nn.AvgPool2d(kernel_size=2, stride=2), nn.Flatten(),
+    nn.Linear(16*4*4, 120), BatchNorm(120, num_dims=2), nn.Sigmoid(),
+    nn.Linear(120, 84), BatchNorm(84, num_dims=2), nn.Sigmoid(),
+    nn.Linear(84, 10))
+
+# 使用torch.nn.BatchNorm2d与torch.nn.BatchNorm1d
+net = nn.Sequential(
+    nn.Conv2d(1, 6, kernel_size=5), nn.BatchNorm2d(6), nn.Sigmoid(),
+    nn.AvgPool2d(kernel_size=2, stride=2),
+    nn.Conv2d(6, 16, kernel_size=5), nn.BatchNorm2d(16), nn.Sigmoid(),
+    nn.AvgPool2d(kernel_size=2, stride=2), nn.Flatten(),
+    nn.Linear(256, 120), nn.BatchNorm1d(120), nn.Sigmoid(),
+    nn.Linear(120, 84), nn.BatchNorm1d(84), nn.Sigmoid(),
+    nn.Linear(84, 10))
+</code></pre>
+
+<h2>ResNet</h2>
+<h3>ResNet块</h3>
+<p>串联一个层改变函数类，我们希望能扩大函数类</p>
+<p>残差块加入快速通道来得到$f(x) = x + g(x)$的结构</p>
+<h3>ResNet架构</h3>
+<p>高宽减半的ResNet块，后接多个高宽不变的ResNet块</p>
+<p>类似VGG和GoogLeNet的总架构，但是替换成了ResNet块</p>
+<pre class="highlight"><code class="language-python">import torch
+from torch import nn
+from torch.nn import functional as F
+
+class Residual(nn.Module):
+    def __init__(self, input_channels, num_channels,
+                 use_1x1conv=False, strides=1):
+        super().__init__()
+        self.conv1 = nn.Conv2d(input_channels, num_channels,
+                               kernel_size=3, padding=1, stride=strides)
+        self.conv2 = nn.Conv2d(num_channels, num_channels,
+                               kernel_size=3, padding=1)
+        if use_1x1conv:
+            self.conv3 = nn.Conv2d(input_channels, num_channels,
+                                   kernel_size=1, stride=strides)
+        else:
+            self.conv3 = None
+        self.bn1 = nn.BatchNorm2d(num_channels)
+        self.bn2 = nn.BatchNorm2d(num_channels)
+
+    def forward(self, X):
+        Y = F.relu(self.bn1(self.conv1(X)))
+        Y = self.bn2(self.conv2(Y))
+        if self.conv3:
+            X = self.conv3(X)
+        Y += X
+        return F.relu(Y)
+
+b1 = nn.Sequential(nn.Conv2d(1, 64, kernel_size=7, stride=2, padding=3),
+                   nn.BatchNorm2d(64), nn.ReLU(),
+                   nn.MaxPool2d(kernel_size=3, stride=2, padding=1))
+
+def resnet_block(input_channels, num_channels, num_residuals,
+                 first_block=False):
+    blk = []
+    for i in range(num_residuals):
+        if i == 0 and not first_block:
+            blk.append(Residual(input_channels, num_channels,
+                                use_1x1conv=True, strides=2))
+        else:
+            blk.append(Residual(num_channels, num_channels))
+    return blk
+
+b2 = nn.Sequential(*resnet_block(64, 64, 2, first_block=True))
+b3 = nn.Sequential(*resnet_block(64, 128, 2))
+b4 = nn.Sequential(*resnet_block(128, 256, 2))
+b5 = nn.Sequential(*resnet_block(256, 512, 2))
+
+net = nn.Sequential(b1, b2, b3, b4, b5,
+                    nn.AdaptiveAvgPool2d((1,1)),
+                    nn.Flatten(), nn.Linear(512, 10))
+</code></pre>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
