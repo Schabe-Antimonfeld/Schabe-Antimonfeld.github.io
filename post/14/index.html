@@ -126,43 +126,132 @@
             <!-- 主体内容 -->
             <div class="col-md-9 offset-md-3">
                 
-                
-<!-- 主题列表 -->
-<h2>主题</h2>
+<h2>常用Fourier变换速查</h2>
+
+<!-- 主题标签 -->
+<p class="text-muted mb-1">
+    <i class="bi bi-tags text-primary"></i>
+    
+        <a href="/topics/6/" class="btn btn-sm btn-outline-primary text-decoration-none">数学</a>
+    
+</p>
+
+<p class="card-text text-muted">
+    发布于 2025年11月04日 12:27
+</p>
 <hr>
-<ul>
-  <div class="col-md-6">
-    <div class="overflow-auto" style="max-height: calc(100vh - 90px);">
-      <div class="list-group">
-        
-          <a href="/topics/1/" class="list-group-item list-group-item-action">
-            <h5 class="mb-1">日常</h5>
-          </a>
-        
-          <a href="/topics/2/" class="list-group-item list-group-item-action">
-            <h5 class="mb-1">代码</h5>
-          </a>
-        
-          <a href="/topics/3/" class="list-group-item list-group-item-action">
-            <h5 class="mb-1">算法</h5>
-          </a>
-        
-          <a href="/topics/4/" class="list-group-item list-group-item-action">
-            <h5 class="mb-1">开发</h5>
-          </a>
-        
-          <a href="/topics/5/" class="list-group-item list-group-item-action">
-            <h5 class="mb-1">深度学习</h5>
-          </a>
-        
-          <a href="/topics/6/" class="list-group-item list-group-item-action">
-            <h5 class="mb-1">数学</h5>
-          </a>
-        
-      </div>
+
+                
+<!-- 博客内容 -->
+<div class="card mb-3 shadow-sm">
+    <div class="card-body">
+        <h2>Fourier变换性质</h2>
+<p><strong>对偶性 (Duality)</strong>：如果 $\mathcal{F}[f(t)] = F(\omega)$，那么 $\mathcal{F}[F(t)] = 2\pi f(-\omega)$。</p>
+<p><strong>线性性 (Linearity)</strong>：$\mathcal{F}[af_1(t) + bf_2(t)] = aF_1(\omega) + bF_2(\omega)$。</p>
+<p><strong>时移性 (Time Shifting)</strong>：$\mathcal{F}[f(t - t_0)] = F(\omega) e^{-j\omega t_0}$。</p>
+<p><strong>频移性 (Frequency Shifting)</strong>：$\mathcal{F}[f(t) e^{j\omega_0 t}] = F(\omega - \omega_0)$。</p>
+<p><strong>微分性 (Differentiation)</strong>：$\mathcal{F}[\frac{d}{dt} f(t)] = j\omega F(\omega)$。</p>
+<p><strong>卷积定理 (Convolution Theorem)</strong>：
+$$
+\mathcal{F}[f_1(t) * f_2(t)] = F_1(\omega) \cdot F_2(\omega)
+$$</p>
+<p>$$
+\mathcal{F}[f_1(t) \cdot f_2(t)] = \frac{1}{2\pi}F_1(\omega) * F_2(\omega)
+$$</p>
+<p>$$
+\mathcal{F^{-1}}[F_1(\omega) * F_2(\omega)] = 2\pi f_1(t) \cdot f_2(t)
+$$</p>
+<p>$$
+\mathcal{F^{-1}}[F_1(\omega) \cdot F_2(\omega)] = f_1(t) * f_2(t)
+$$</p>
+<table class="table table-bordered table-striped table-hover">
+<thead>
+<tr>
+<th style="text-align: center;">$f(t)$</th>
+<th style="text-align: center;">$ \mathcal{F}[f(t)]$</th>
+<th style="text-align: center;">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">$\delta(t)$</td>
+<td style="text-align: center;">$1$</td>
+<td style="text-align: center;">狄拉克$\delta$函数</td>
+</tr>
+<tr>
+<td style="text-align: center;">$\delta(t-t_0)$</td>
+<td style="text-align: center;">$e^{-j\omega t}$</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">$1$</td>
+<td style="text-align: center;">$2\pi \delta(\omega)$</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">$e^{j\omega_0 t}$</td>
+<td style="text-align: center;">$2\pi \delta(\omega-\omega_0)$</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">$cos(\omega_0t)$</td>
+<td style="text-align: center;">$\pi[\delta(\omega+\omega_0)+\delta(\omega-\omega_0)]$</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">$sin(\omega_0t)$</td>
+<td style="text-align: center;">$j\pi[\delta(\omega+\omega_0)-\delta(\omega-\omega_0)]$</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">$e^{-a\vert t \vert}, a&gt;0$</td>
+<td style="text-align: center;">$\frac{2a}{a^2+\omega^2}$</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">$e^{-at} \cdot H(t), a&gt;0$</td>
+<td style="text-align: center;">$\frac{1}{a+j\omega}$</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">$H(t)=\begin{cases}1, &amp; t\ge0 \cr0, &amp; t&lt; 0\end{cases}$</td>
+<td style="text-align: center;">$\pi \delta(\omega) + \frac{1}{j\omega}$</td>
+<td style="text-align: center;">$Heaviside$函数(单位越阶函数)</td>
+</tr>
+<tr>
+<td style="text-align: center;">$rect(\frac{t}{T})=\begin{cases}1, &amp; \vert t \vert\le \dfrac{T}{2} \cr0, &amp; \vert t \vert&gt; \dfrac{T}{2}\end{cases}$</td>
+<td style="text-align: center;">$Tsinc(\frac{\omega T}{2})$</td>
+<td style="text-align: center;">矩形脉冲</td>
+</tr>
+<tr>
+<td style="text-align: center;">$sinc(t) = \frac{sin\pi t}{\pi t}$</td>
+<td style="text-align: center;">$rect(\frac{\omega}{2\pi})$</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">$Ae^{-at^2}, a&gt;0$</td>
+<td style="text-align: center;">$\sqrt{\frac{\pi}{a}}Ae^{-\frac{\omega^2}{4a}}$</td>
+<td style="text-align: center;">高斯函数</td>
+</tr>
+<tr>
+<td style="text-align: center;">$te^{-a\vert t \vert}, a&gt;0$</td>
+<td style="text-align: center;">$\frac{2ja\omega}{(a^2+\omega^2)^2}$</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">$\frac{1}{t^2+a^2}$</td>
+<td style="text-align: center;">$\frac{\pi}{a}e^{-a\vert \omega \vert}$</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: center;">$sgn(x)=\begin{cases}1, &amp; x&gt;0 \cr 0, &amp; x=0 \cr -1, &amp; x&lt;0 \end{cases}$</td>
+<td style="text-align: center;">$\frac{2}{j\omega}$</td>
+<td style="text-align: center;">符号函数</td>
+</tr>
+</tbody>
+</table>
     </div>
-  </div>
-</ul>
+</div>
 
             </div>
         </div>
