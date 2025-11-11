@@ -1,0 +1,516 @@
+
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>SchabeAntimonfeld</title>
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap">
+
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- 看板娘 -->
+    <script src="https://raw.githack.com/Schabe-Antimonfeld/live2d-widget/master/dist/autoload.js"></script>
+
+    <!-- 代码高亮 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/github.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.9.0/highlightjs-line-numbers.min.js"></script>
+
+    <script src="/static/js/use_hl.js"></script>
+
+    <!-- MathJax 支持 LaTeX -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6" defer></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+    <!-- 邮箱弹窗 -->
+    <script>
+        function toggleEmailPopup() {
+            const popup = document.getElementById("email-popup");
+            popup.style.display = (popup.style.display === "block") ? "none" : "block";
+        }
+
+        document.addEventListener("click", function (event) {
+            const popup = document.getElementById("email-popup");
+            const icon = event.target.closest('.nav-item');
+            if (!icon || !icon.contains(event.target)) {
+                popup.style.display = "none";
+            }
+        });
+    </script>
+
+    <!-- LaTeX行内公式支持 -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border fixed-top">
+        <!-- 导航栏名称 -->
+        <a class="navbar-brand ms-5" href="/">
+            SchabeAntimonfeld</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarCollapse" aria-controls="navbarCollapse"
+                aria-expanded="false" aria-label="切换导航">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/topics/">主题</a>
+                </li>
+            </ul>
+            <!-- 右侧图标区域 -->
+            <ul class="navbar-nav ms-auto mx-5">
+                <!-- 邮箱图标 + 弹窗 -->
+                <li class="nav-item position-relative">
+                    <a class="nav-link" href="javascript:void(0);" onclick="toggleEmailPopup()"
+                        data-toggle="tooltip" data-placement="bottom" title="我的GMAIL邮箱">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <!-- 自定义浮层 -->
+                    <div id="email-popup" class="email-popup shadow-sm">
+                        <b>Email:</b> schabeantimonyfield@gmail.com
+                    </div>
+                </li>
+
+                <!-- GitHub 图标 -->
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/Schabe-Antimonfeld" target="_blank"
+                       data-toggle="tooltip" data-placement="bottom" title="前往 GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container" style="margin-top: 70px;">
+        <div class="row">
+            <!-- 侧边栏资料卡 -->
+            <div class="position-fixed d-none d-md-block" style="top: 70px; left: 50px; width: 23%; max-width: 300px;">
+                    
+
+
+<!--个人资料卡-->
+<div class="card mb-4 text-center">
+    <img src="/static/images/avatar.jpg" class="card-img-top rounded-circle mx-auto mt-3" style="width: 120px; height: 120px; object-fit: cover;" alt="avatar">
+    <div class="card-body text-center">
+        <h5 class="card-title">Schabe Antimonfeld</h5>
+        <p class="card-text text-muted">AI × Coding × Minecraft</p>
+        <hr>
+        <p>在读大学生</p>
+        <p></p>
+        <p><i class="fab fa-github"></i> <a href="https://github.com/Schabe-Antimonfeld" target="_blank">GitHub</a></p>
+        <hr>
+        <p>友情链接</p>
+        <p>
+            <img src="/static/images/lonion.png" alt="图标" style="width:32px;height:32px;vertical-align:middle;margin-right:4px;">
+            <a href="https://lonion1124.github.io/" target="_blank">洋葱菌的博客</a>
+        </p>
+        <p>
+            <img src="/static/images/aaaaa.png" alt="图标" style="width:32px;height:32px;vertical-align:middle;margin-right:4px;">
+            <a href="https://aaaaa114514-1.github.io/" target="_blank">aaaaa online</a>
+        </p>
+    </div>
+</div>
+            </div>
+
+            <!-- 主体内容 -->
+            <div class="col-md-9 offset-md-3">
+                
+<h2>离散数学概念整理（一）：数理逻辑</h2>
+
+<!-- 主题标签 -->
+<p class="text-muted mb-1">
+    <i class="bi bi-tags text-primary"></i>
+    
+        <a href="/topics/6/" class="btn btn-sm btn-outline-primary text-decoration-none">数学</a>
+    
+</p>
+
+<p class="card-text text-muted">
+    发布于 2025年11月11日 14:49
+</p>
+<hr>
+
+                
+<!-- 博客内容 -->
+<div class="card mb-3 shadow-sm">
+    <div class="card-body">
+        <h2>命题逻辑</h2>
+<h3>基本等价式</h3>
+<table class="table table-bordered table-striped table-hover">
+<thead>
+<tr>
+<th>编号</th>
+<th>等价式</th>
+<th>名称</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>$\neg \neg A \Leftrightarrow A$</td>
+<td>双重否定</td>
+</tr>
+<tr>
+<td>2</td>
+<td>$A \land B \Leftrightarrow B \land A$</td>
+<td>交换律</td>
+</tr>
+<tr>
+<td></td>
+<td>$A \lor B \Leftrightarrow B \lor A $</td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>$ (A \land B) \land C \Leftrightarrow A \land (B \land C)$</td>
+<td>结合律</td>
+</tr>
+<tr>
+<td></td>
+<td>$(A \lor B) \lor C \Leftrightarrow A \lor (B \lor C) $</td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>$A \land (B \lor C) \Leftrightarrow (A \land B) \lor (A \land C)$</td>
+<td>分配律</td>
+</tr>
+<tr>
+<td></td>
+<td>$A \lor (B \land C) \Leftrightarrow (A \lor B) \land (A \lor C) $</td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>$\neg(A \land B) \Leftrightarrow \neg A \lor \neg B$</td>
+<td>德·摩根定律</td>
+</tr>
+<tr>
+<td></td>
+<td>$\neg(A \lor B) \Leftrightarrow \neg A \land \neg B $</td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>$ A \Leftrightarrow A \lor A$</td>
+<td>等幂律</td>
+</tr>
+<tr>
+<td></td>
+<td>$A \Leftrightarrow A \land A$</td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td>$A \land T \Leftrightarrow A$</td>
+<td>同一律</td>
+</tr>
+<tr>
+<td></td>
+<td>$A \lor F \Leftrightarrow A$</td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td>$A \land F \Leftrightarrow F$</td>
+<td>零律</td>
+</tr>
+<tr>
+<td></td>
+<td>$A \lor T \Leftrightarrow T$</td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>$A \land (A \lor B) \Leftrightarrow A$</td>
+<td>吸收律</td>
+</tr>
+<tr>
+<td></td>
+<td>$A \lor (A \land B) \Leftrightarrow A$</td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>$ A \lor \neg A \Leftrightarrow T$</td>
+<td>互补律</td>
+</tr>
+<tr>
+<td></td>
+<td>$A \land \neg A \Leftrightarrow F $</td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td>$A \rightarrow B \Leftrightarrow \neg A \lor B$</td>
+<td>条件式转换律</td>
+</tr>
+<tr>
+<td>12</td>
+<td>$A \leftrightarrow B \Leftrightarrow (A \rightarrow B) \land (B \rightarrow A) \Leftrightarrow (A \land B) \lor (\neg A \land \neg B)$</td>
+<td>双条件式转化律</td>
+</tr>
+<tr>
+<td></td>
+<td>$\lnot A \leftrightarrow B \Leftrightarrow \lnot (A \leftrightarrow B)$</td>
+<td></td>
+</tr>
+<tr>
+<td>13</td>
+<td>$(A \land B) \rightarrow C \Leftrightarrow A \rightarrow (B \rightarrow C) $</td>
+<td>输出律</td>
+</tr>
+<tr>
+<td>14</td>
+<td>$ (A \rightarrow B) \land (A \rightarrow \lnot B) \Leftrightarrow \lnot A$</td>
+<td>归谬律</td>
+</tr>
+</tbody>
+</table>
+<h3>基本蕴含式</h3>
+<table class="table table-bordered table-striped table-hover">
+<thead>
+<tr>
+<th>编号</th>
+<th>蕴含式</th>
+<th>名称</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>$A \land B \Rightarrow A$</td>
+<td>化简式</td>
+</tr>
+<tr>
+<td>2</td>
+<td>$A \land B \Rightarrow B$</td>
+<td>化简式</td>
+</tr>
+<tr>
+<td>3</td>
+<td>$A \Rightarrow A \lor B$</td>
+<td>附加式</td>
+</tr>
+<tr>
+<td>4</td>
+<td>$ A \Rightarrow B \rightarrow A$</td>
+<td>附加式变形</td>
+</tr>
+<tr>
+<td>5</td>
+<td>$B \Rightarrow A \rightarrow B$</td>
+<td>附加式变形</td>
+</tr>
+<tr>
+<td>6</td>
+<td>$\neg(A \rightarrow B) \Rightarrow A$</td>
+<td>化简式变形</td>
+</tr>
+<tr>
+<td>7</td>
+<td>$\neg(A \rightarrow B) \Rightarrow \neg B$</td>
+<td>化简式变形</td>
+</tr>
+<tr>
+<td>8</td>
+<td>$A \land (A \rightarrow B) \Rightarrow B$</td>
+<td>假言推论</td>
+</tr>
+<tr>
+<td>9</td>
+<td>$\lnot B \land (A \rightarrow B) \Rightarrow \neg A$</td>
+<td>拒取式</td>
+</tr>
+<tr>
+<td>10</td>
+<td>$\lnot A \land (A \lor B) \Rightarrow B$</td>
+<td>析取三段论</td>
+</tr>
+<tr>
+<td>11</td>
+<td>$ (A \rightarrow B) \land (B \rightarrow C) \Rightarrow A \rightarrow C$</td>
+<td>条件三段论</td>
+</tr>
+<tr>
+<td>12</td>
+<td>$ (A \leftrightarrow B) \land (B \leftrightarrow C) \Rightarrow A \leftrightarrow C$</td>
+<td>双条件三段论</td>
+</tr>
+<tr>
+<td>13</td>
+<td>$(A \rightarrow B) \land (C \rightarrow D) \land (A \land C) \Rightarrow B \land D$</td>
+<td>合取构造二难</td>
+</tr>
+<tr>
+<td>14</td>
+<td>$(A \rightarrow B) \land (C \rightarrow D) \land (A \lor C) \Rightarrow B \lor D$</td>
+<td>析取构造二难</td>
+</tr>
+<tr>
+<td></td>
+<td>$(A \rightarrow B) \land (C \rightarrow B) \land (A \land C) \Rightarrow B$</td>
+<td>二难推论</td>
+</tr>
+<tr>
+<td></td>
+<td>$(A \rightarrow B) \land (C \rightarrow B) \land (A \lor C) \Rightarrow B$</td>
+<td>二难推论</td>
+</tr>
+<tr>
+<td>15</td>
+<td>$A \rightarrow B \Rightarrow (A \lor C) \rightarrow (B \lor C)$</td>
+<td>前后件附加</td>
+</tr>
+<tr>
+<td></td>
+<td>$A \rightarrow B \Rightarrow (A \land C) \rightarrow (B \land C)$</td>
+<td></td>
+</tr>
+<tr>
+<td>16</td>
+<td>$A, B \Rightarrow A \land B$</td>
+<td>合取引入</td>
+</tr>
+</tbody>
+</table>
+<h3>对偶式</h3>
+<p>在给定的仅使用联结词$\lnot, \land, \lor$的命题公式$A$中，若把$\land$和$\lor$互换，$F$与$T$互换而得到一个命题公式$A^<em>$,则称$A^</em>$为$A$的对偶式</p>
+<h3>对偶定理</h3>
+<p>$$
+\lnot A(P_1, P_2, \cdots, P_n) \Leftrightarrow A^*(\lnot P_1, \lnot P_2, \cdots, \lnot P_n)
+$$</p>
+<p>$$
+A(\lnot P_1, \lnot P_2, \cdots, \lnot P_n) \Leftrightarrow \lnot A^*(P_1, P_2, \cdots, P_n)
+$$</p>
+<h3>范式</h3>
+<ul>
+<li>
+<p><strong>析取泛式：</strong>设$A_1, A_2, \cdots, A_m$为简单合取式，称$A_1 \lor A_2 \lor \cdots \lor A_m$为析取范式</p>
+</li>
+<li>
+<p><strong>合取范式：</strong>设$B_1, B_2, \cdots, B_n$为简单析取式，称$B_1 \land B_2 \land \cdots \land B_n$为析取范式</p>
+</li>
+</ul>
+<h3>主析取范式</h3>
+<ul>
+<li><strong>小项：</strong>在含有$n$个命题变元的简单合取式中，若每个命题变元与其否定不同时存在，而二者之一出现一次且仅出现一次，则称该简单合取式为小项</li>
+<li><strong>小项的编码：</strong>1为真0为假，转换为十进制</li>
+<li><strong>小项的性质</strong></li>
+<li>没有两个小项是等价的</li>
+<li>$m_i \land m_j \Leftrightarrow F, i \neq j$</li>
+<li>$\bigvee_{i=0}^{2^n-1}m_i \Leftrightarrow T$</li>
+<li>每个小项只有一个成真指派</li>
+<li><strong>主析取范式：</strong>在给定公式的析取范式中，若简单合取式都是小项，则称该范式为主析取范式</li>
+</ul>
+<h3>主合取范式</h3>
+<ul>
+<li><strong>大项：</strong>在含有$n$个命题变元的简单析取式中，若每个命题变元与其否定不同时存在，而二者之一出现一次且仅出现一次，则称该简单析取式为大项</li>
+<li><strong>大项的编码：</strong>1为假0为真，转换为十进制</li>
+<li><strong>大项的性质</strong></li>
+<li>没有两个大项是等价的</li>
+<li>$M_i \land M_j \Leftrightarrow T, i \neq j$</li>
+<li>$\bigwedge_{i=0}^{2^n-1}M_i \Leftrightarrow F$</li>
+<li>每个大项只有一个成假指派</li>
+<li><strong>主析取范式：</strong>在给定公式的合取范式中，若简单析取式都是大项，则称该范式为主合取范式</li>
+</ul>
+<h3>归结推理</h3>
+<ul>
+<li>采用以下步骤证明$A_1, A_2, \cdots, A_n \vdash C$</li>
+<li>将$A_1, A_2, \cdots, A_n, \lnot C$化为合取范式</li>
+<li>取S为上述各合取范式中所有简单析取式对应的子句的集合</li>
+<li>寻找S的一个反驳，若能找到，则$A_1, A_2, \cdots, A_n \vdash C$，否则$A_1, A_2, \cdots, A_n \not\vdash C$</li>
+</ul>
+<h2>谓词逻辑</h2>
+<h3>等价式</h3>
+<ol>
+<li>$\lnot (\forall x)A \Leftrightarrow (\exists x) \lnot A$</li>
+<li>$\lnot (\exists x)A \Leftrightarrow (\forall x) \lnot A$</li>
+<li>$(\forall x)(A(x) \lor B) \Leftrightarrow (\forall x)A(x) \lor B$</li>
+<li>$(\forall x)(A(x) \land B) \Leftrightarrow (\forall x)A(x) \land B$</li>
+<li>$(\forall x)(A(x) \rightarrow B) \Leftrightarrow (\exists x)A(x) \rightarrow B$</li>
+<li>$(\forall x)(B \rightarrow A(x)) \Leftrightarrow B \rightarrow (\forall x)A(x)$</li>
+<li>$(\exists x)(A(x) \lor B) \Leftrightarrow (\exists x)A(x) \lor B$</li>
+<li>$(\exists x)(A(x) \land B) \Leftrightarrow (\exists x)A(x) \land B$</li>
+<li>$(\exists x)(A(x) \rightarrow B) \Leftrightarrow (\forall x)A(x) \rightarrow B$</li>
+<li>$(\exists x)(B \rightarrow A(x)) \Leftrightarrow B \rightarrow (\exists x)A(x)$</li>
+<li>$(\forall x)(A(x) \land B(x)) \Leftrightarrow (\forall x)A(x) \land (\forall x)B(x)$</li>
+<li>$(\exists x)(A(x) \lor B(x)) \Leftrightarrow (\exists x)A(x) \lor (\exists x)B(x)$</li>
+</ol>
+<h3>变换规则</h3>
+<ul>
+<li><strong>约束变元改名定理：</strong>令$x$在$A(x)$中是自由出现，$y$是不出现在$A(x)$中的个体变元，则有：</li>
+<li>$(\forall x)A(x) \Leftrightarrow (\forall y)A(y)$</li>
+<li>$(\exists x)A(x) \Leftrightarrow (\exists y)A(y)$</li>
+<li><strong>置换定理：</strong>令$A$为含有子公式$A_1$的公式，用公式$B_1$置换$A_1$得到公式$A'$若$A_1 \Leftrightarrow B_1$，则$A \Leftrightarrow A'$</li>
+</ul>
+<h3>蕴含式</h3>
+<ol>
+<li>$(\forall x)A(x) \lor (\forall x)B(x) \Rightarrow (\forall x)(A(x) \lor B(x))$</li>
+<li>$(\exists x)(A(x) \land B(x)) \Rightarrow (\exists x)A(x) \land (\exists x)B(x)$</li>
+<li>$(\forall x)(A(x) \rightarrow B(x)) \Rightarrow (\forall x)A(x) \rightarrow (\forall x)B(x)$</li>
+<li>$(\forall x)(A(x) \rightarrow B(x)) \Rightarrow (\exists x)A(x) \rightarrow (\exists x)B(x)$</li>
+<li>$(\forall x)(\forall y)A(x, y) \Rightarrow (\forall x)A(x. x)$</li>
+<li>$(\exists x)A(x, x) \Rightarrow (\exists x)(\exists y)A(x, y)$</li>
+<li>$(\exists x)(\forall y)A(x, y) \Rightarrow (\forall y)(\exists x)A(x, y)$</li>
+</ol>
+<h3>公式范式</h3>
+<ul>
+<li>
+<p><strong>前束范式：</strong>一个公式称为前束范式，如果它有如下形式：
+  $$
+  (Q_1x_1)(Q_2x_2)\cdots(Q_nx_n)B
+  $$
+  其中$Q_i (1 \leq i \leq k)$为$\forall$或$\exists$，$B$为不含有量词的公式</p>
+</li>
+<li>
+<p><strong>斯科伦范式：</strong>每个存在量词均在全称量词之前，这样的范式称为斯科伦范式</p>
+</li>
+<li>
+<p><strong>$AI$型斯科伦范式：</strong>设$A$是一公式，$(Q_1x_1)(Q_2x_2)\cdots(Q_nx_n)M$是与$A$等价的前束范式，其中$M$为合取范式</p>
+</li>
+<li>
+<p>若$Q_k$是存在量词，且它左边没有全称量词，则取异于出现在$M$中所有个体常元的个体常元$c$，并用$c$代替$M$中中所有的$x_i$，然后在首标中删除$(Q_kx_k)$</p>
+</li>
+<li>若$Q_{s_1}, Q_{s_2}, \cdots, Q_{s_m}$是所有出现在存在量词$(Q_rx_r)$左边的全称量词$(m \geq 1, 1 \leq s_1 &lt; s_2 &lt; \cdots &lt; s_m &lt; s_r)$，则取异于出现在$M$中所有函数的$m$元函数$f(x_{s_1}, x_{s_2}, \cdots, x_{s_m})$，用$f(x_{s_1}, x_{s_2}, \cdots, x_{s_m})$代替出现在$M$中的所有$x_r$，然后在首标中删除$(Q_rx_r)$</li>
+</ul>
+<p>对首标中的所有存在量词做上述处理后，得到一个在首标中没有存在量词的前束范式，称该范式为公式$A$的$AI$型斯科伦范式，其中用来代替$x_k$和$x_r$的那些个体常元和函数统称为公式$A$的斯科伦函数</p>
+<h3>归结推理</h3>
+<ul>
+<li>采用以下步骤证明$A_1, A_2, \cdots, A_n \vdash C$</li>
+<li>将$A_1, A_2, \cdots, A_n, \lnot C$化为$AI$型斯科伦范式$B$</li>
+<li>由$B$的母式找出相应的子句集$S={C_1, C_2, \cdots， C_m}$</li>
+<li>寻找S的一个反驳，若能找到，则$A_1, A_2, \cdots, A_n \vdash C$，否则$A_1, A_2, \cdots, A_n \not\vdash C$</li>
+</ul>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
