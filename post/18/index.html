@@ -1,0 +1,273 @@
+
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>SchabeAntimonfeld</title>
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap">
+
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- 看板娘 -->
+    <script src="https://raw.githack.com/Schabe-Antimonfeld/live2d-widget/master/dist/autoload.js"></script>
+
+    <!-- 代码高亮 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/github.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.9.0/highlightjs-line-numbers.min.js"></script>
+
+    <script src="/static/js/use_hl.js"></script>
+
+    <!-- MathJax 支持 LaTeX -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6" defer></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+    <!-- 邮箱弹窗 -->
+    <script>
+        function toggleEmailPopup() {
+            const popup = document.getElementById("email-popup");
+            popup.style.display = (popup.style.display === "block") ? "none" : "block";
+        }
+
+        document.addEventListener("click", function (event) {
+            const popup = document.getElementById("email-popup");
+            const icon = event.target.closest('.nav-item');
+            if (!icon || !icon.contains(event.target)) {
+                popup.style.display = "none";
+            }
+        });
+    </script>
+
+    <!-- LaTeX行内公式支持 -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border fixed-top">
+        <!-- 导航栏名称 -->
+        <a class="navbar-brand ms-5" href="/">
+            SchabeAntimonfeld</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarCollapse" aria-controls="navbarCollapse"
+                aria-expanded="false" aria-label="切换导航">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/topics/">主题</a>
+                </li>
+            </ul>
+            <!-- 右侧图标区域 -->
+            <ul class="navbar-nav ms-auto mx-5">
+                <!-- 邮箱图标 + 弹窗 -->
+                <li class="nav-item position-relative">
+                    <a class="nav-link" href="javascript:void(0);" onclick="toggleEmailPopup()"
+                        data-toggle="tooltip" data-placement="bottom" title="我的GMAIL邮箱">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <!-- 自定义浮层 -->
+                    <div id="email-popup" class="email-popup shadow-sm">
+                        <b>Email:</b> schabeantimonyfield@gmail.com
+                    </div>
+                </li>
+
+                <!-- GitHub 图标 -->
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/Schabe-Antimonfeld" target="_blank"
+                       data-toggle="tooltip" data-placement="bottom" title="前往 GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container" style="margin-top: 70px;">
+        <div class="row">
+            <!-- 侧边栏资料卡 -->
+            <div class="position-fixed d-none d-md-block" style="top: 70px; left: 50px; width: 23%; max-width: 300px;">
+                    
+
+
+<!--个人资料卡-->
+<div class="card mb-4 text-center">
+    <img src="/static/images/avatar.jpg" class="card-img-top rounded-circle mx-auto mt-3" style="width: 120px; height: 120px; object-fit: cover;" alt="avatar">
+    <div class="card-body text-center">
+        <h5 class="card-title">Schabe Antimonfeld</h5>
+        <p class="card-text text-muted">AI × Coding × Minecraft</p>
+        <hr>
+        <p>在读大学生</p>
+        <p></p>
+        <p><i class="fab fa-github"></i> <a href="https://github.com/Schabe-Antimonfeld" target="_blank">GitHub</a></p>
+        <hr>
+        <p>友情链接</p>
+        <p>
+            <img src="/static/images/lonion.png" alt="图标" style="width:32px;height:32px;vertical-align:middle;margin-right:4px;">
+            <a href="https://lonion1124.github.io/" target="_blank">洋葱菌的博客</a>
+        </p>
+        <p>
+            <img src="/static/images/aaaaa.png" alt="图标" style="width:32px;height:32px;vertical-align:middle;margin-right:4px;">
+            <a href="https://aaaaa114514-1.github.io/" target="_blank">aaaaa online</a>
+        </p>
+    </div>
+</div>
+            </div>
+
+            <!-- 主体内容 -->
+            <div class="col-md-9 offset-md-3">
+                
+<h2>离散数学概念整理（四）：图论</h2>
+
+<!-- 主题标签 -->
+<p class="text-muted mb-1">
+    <i class="bi bi-tags text-primary"></i>
+    
+        <a href="/topics/6/" class="btn btn-sm btn-outline-primary text-decoration-none">数学</a>
+    
+</p>
+
+<p class="card-text text-muted">
+    发布于 2025年11月25日 11:25
+</p>
+<hr>
+
+                
+<!-- 博客内容 -->
+<div class="card mb-3 shadow-sm">
+    <div class="card-body">
+        <h2>图的基本概念及其矩阵表示</h2>
+<h3>基本概念</h3>
+<ul>
+<li>一个图$G$定义为一个二元组$\langle V, E \rangle$，记作$G=\langle V, E \rangle$，其中$V$是个非空有限集合，它的元素称为结点，$E$也是个有限集合，其元素为边，若$\vert V \vert = n$，则称$G=\langle V, E \rangle$是$n$阶图</li>
+<li>在图$G=\langle V, E \rangle$中，如果每条边都是弧，该图称为有向图，若每条边都是无向边，该图称为无向图，如果有些边是有向边，另一些边是无向边，该图称为混合图</li>
+<li>在图$\langle V, E \rangle$中，如果任何两节点间不多于一条边，并且任何节点无环，则称图$G$为简单图，若两结点间多于一条边，图$G$称为多重图，并把连接两节点之间的多条边称为平行边，平行边或弧的条数称为重数</li>
+<li>每条边都赋予权的图$G=\langle V, E \rangle$，称为加权图，记为$G=\langle V, E, W \rangle$，其中$W$表示各边之权的集合</li>
+<li>在简单无向图中，$G=\langle V, E \rangle$中，如果$V$中的每一个节点都与其他所有节点邻接，即$(\forall v_i)(\forall v_j)(v_i, v_j \in V \rightarrow [v_i, v_j] \in E)$，则该图称为完全无向图，记作$K_{|V|}$，若$|V|=n$，该图记作$K_n$</li>
+<li>在有向图$G=\langle V，E \rangle$中，任意结点$v\in V$，以$v$为始结点的弧的条数, 称为结点$v$的出度，记为$d^+(v)$，以$v$为终结点的弧的条数, 称为结点$v$的入度，记作$d^-(v)$，结点$v$的出度与入度之和, 称为结点的度数，记为$d($v$)$，显然$d(v)=d^+(v)+d^-(v)$</li>
+<li>对于无向图$G=\langle V，E \rangle$，结点$v \in V$的度数等于联结它的边数，也记为 $d(v)$。若结点$v$有环，规定该点度因环而增加2</li>
+<li>显然，对于孤立结点的度数为零</li>
+<li>对于无向图$G=\langle V，E \rangle$，记</li>
+</ul>
+<p>$$
+\Delta(G)或\Delta=max{d(v) \mid v \in V}
+$$</p>
+<p>$$
+\delta(G)或\delta=min{d(v) \mid v \in V}
+$$</p>
+<ul>
+<li>它们分别称为图G的最大度和最小度</li>
+<li>在任何无向图中，奇度结点的数目为偶数</li>
+<li>在无向图$G=\langle V, E \rangle$中，如果每个节点的度是$k$，即$(\forall v)(v \in V \rightarrow d(v)=k)$，则图$G$称为$k$度正则图</li>
+<li>
+<p>给定无向图 $G_1=\langle V_1, E_1 \rangle$ 和 $G_2=\langle  V_2, E_2 \rangle$，</p>
+</li>
+<li>
+<p>如果 $V_2 \subseteq V_1$ 和 $E_2 \subseteq E_1$，则称 $G_2$ 为 $G_1$ 的子图，记为 $G_2 \subseteq G_1$</p>
+</li>
+<li>如果 $V_2 \subseteq V_1,\; E_2 \subseteq E_1$ 且 $E_2 \neq E_1$，则称 $G_2$ 为 $G_1$ 的真子图，记为 $G_2 \subset G_1$</li>
+<li>
+<p>如果 $V_2 = V_1$，$E_2 \subseteq E_1$，则称 $G_2$ 为 $G_1$ 的生成子图，记为 $G_1 \subseteq G_2$</p>
+</li>
+<li>
+<p>设图$G_2=\langle V_2, E_2 \rangle$是图$G_1=\langle V_1, E_2 \rangle$的子图，若对$V_2$任意结点$u$和$v$，如果$[u, v] \in E_1$，有$[u,v] \in E_2$，则$G_2$由$V_2$唯一确定，并称$G_2$是结点集合$V_2$的诱导子图，记作$\langle V_2 \rangle$或$G[V_2]$，如果$G_2$无孤立结点，且由$E_2$唯一确定，则称$G_2$是边集$E_2$的诱导子图，记为$\langle E_2 \rangle$或$G[E_2]$</p>
+</li>
+<li>设图 $G_1=\langle  V_1, E_1 \rangle$ 和图 $G_2=\langle  V_2, E_2 \rangle$ 是图 $G=\langle  V, E \rangle$ 的子图，如果 $E_2 = E - E_1$ 且 $G_2=\langle  V, E_2 \rangle$ ，则称图 $G_2$ 是相对于图 $G$ 的子图 $G_1$ 的补图</li>
+<li>给定图 $G=\langle V, E \rangle$，若存在图 $G_1=\langle V, E_1 \rangle$，并且 $E_1 \cap E = \varnothing$ 且图 $\langle V, E_1 \cup E \rangle$ 是完全图，则称 $G_1$ 为相对于完全图的 $G$ 的补图，简称 $G_1$ 是 $G$ 的补图，并记为 $G_1=\overline{G}$</li>
+<li>给定无向图（或有向图） $G_1=\langle V_1, E_1 \rangle$ 和 $G_2=\langle V_2, E_2 \rangle$，若存在双射 $f : V_2^{V_1}$，使得对任意 $u, v \in V_1$，有$[u, v] \in E_1 \Leftrightarrow [f(u), f(v)] \in E_2$或$\langle u, v \rangle \in E_1 \Leftrightarrow \langle f(u), f(v) \rangle \in E_2$，则称 $G_1$ 同构于 $G_2$，记为 $G_1 \cong G_2$</li>
+</ul>
+<h3>链（或路）与圈（或回路）</h3>
+<ul>
+<li>给定无向图（或有向图） $G=\langle V, E \rangle$，若 $v_0, v_1, \ldots, v_m \in V$，边（或弧） $e_1, e_2, \ldots, e_m \in E$，其中 $v_{i-1}$、$v_i$ 是 $e_i$ 的结点，则交替序列$v_0 e_1 v_1 e_2 v_2 \cdots e_m v_m$称为连接 $v_0$ 到 $v_m$ 的链（或路），$v_0$ 和 $v_m$ 分别称为链（或路）的始结点和终结点，边（或弧）的数目称为链（或路）的长度，若 $v_0 = v_m$，该链（或路）称为 圈（或回路）</li>
+<li>一条链中，若出现的边都是不相同的，称该链为简单链，若出现的结点都是不相同的，称该链为基本链，显然每条基本链(或基本路)必定是简单链</li>
+<li>圈中，若出现的每条边恰好一次，称该圈为简单圈，若出现的每个结点恰好一次，称该圈为基本圈，可以看出，对于简单图，链和圈能够仅用结点序列表示</li>
+<li>在一个图中，若从结点$v_i$到结点$v_j$存在一条链，则必有一条从$v_i$到$v_j$ 的基本链</li>
+<li>
+<p>在一个具有$n$个结点的图中，则</p>
+</li>
+<li>
+<p>任何基本链的长度均不大于$n-1$</p>
+</li>
+<li>
+<p>任何基本圈的长度均不大于$n$</p>
+</li>
+<li>
+<p>在一个图中，若从 $v_i$ 到 $v_j$ 存在任何一条链，则称从 $v_i$ 到 $v_j$ 是可达的，或简称 $v_i$ 可达 $v_j$，为完全起见，规定每个结点到其自身是可达的</p>
+</li>
+<li>对于无向图 $G$ 来说，不难证明结点间的可达性是结点集合上的等价关系，因此，它将结点集合给出一个划分，并且划分中的每个元素形成一个诱导子图，两结点之间是可达的，当且仅当它们属于同一个子图，称这种子图为图 $G$ 的连通分图，图 $G$ 的连通分图的个数记为 $\omega(G)$</li>
+<li>若图$G$只有一个连通分图，则称$G$是连通图；否则称图$G$为非连通图或分离图</li>
+<li>从图 $G=\langle V, E \rangle$ 中删去结点集 $S$，是指取结点集 $V-S$，并从 $E$ 中删去所有与 $S$ 中结点相连接的边，从而得到的子图，记作 $G-S$，特别地，当 $S={v}$ 时，简记为 $G-v$</li>
+<li>从图 $G=\langle V, E \rangle$ 中删去边集 $T$，是指取边集 $E-T$，且 $T$ 中全部边所关联的结点仍在 $V$ 中，从而得到的子图，记作 $G-T$，特别地，当 $T={e}$ 时，简记为 $G-e$</li>
+<li>边 $e=(u, v)$ 的收缩，记为 $G \circ e$，是指从图 $G$ 中把 $e$ 删除，再令其两个端点重合为一个结点，并使其与 $e$ 的两端点所关联的边相关联</li>
+<li>若 $u, v \in V$，$u$ 和 $v$ 可能相邻，也可能不相邻，在 $u$ 和 $v$ 之间加入一条边 $(u, v)$ 称为加入新边，记为 $G + (u, v)$，或 $G \cup (u, v)$</li>
+<li>给定连通无向图 $G=\langle V, E \rangle$，$S \subseteq V$，若 $\omega(G - S) &gt; \omega(G)$，但对任意 $T \subset S$，均有 $\omega(G - T) = \omega(G)$，则称子集 $S$ 是图 $G$ 的一个分离结点集，若图 $G$ 的分离结点集 $S={v}$，则称 $v$ 是 $G$ 的割点，类似地，可定义图 $G$ 的分离边集 $T$，若图 $G$ 的分离边集 $T={e}$，则称边 $e$ 是 $G$ 的割边或桥</li>
+<li>连通非平凡图 $G$，称$\gamma(G)=\min_{S \subseteq V} {\, |S| \mid S是G 的分离结点集}$为图 $G$ 的结点连通度，它表明产生不连通图所需删去结点的最少数目，对于分离图 $G$，有 $\gamma(G)=0$，对于存在割点的连通图 $G$，有 $\gamma(G)=1$</li>
+<li>类似地，定义边连通度$\lambda(G)=\min_{T \subseteq E} {|T| \mid T是G的分离边集}$，它表明产生不连通图所需删去边的最少数目，可见，对于分离图 $G$，有$\lambda(G)=0$，对于图 $K_1$，有$\lambda(K_1)=0$，对于存在割边的连通图 $G$，有$\lambda(G)=1$，对于完全图 $K_n$，有 $\lambda(K_n)=n-1$</li>
+<li>对于任何一个无向图$G$，有  $\gamma(G) ≤ \lambda(G) ≤ \delta(G)$</li>
+<li>一个连通无向图$G$中的结点$v$是割点$\Leftrightarrow$存在两个结点$u$和$w$，使得联结$u$和$w$的每条链都经过$v$</li>
+<li>一个连通无向图$G$中的边$e$是割边$\Leftrightarrow$存在两个结点$u$和$w$，使得联结$u$与$w$的每条链都经过$e$</li>
+<li>连通无向图$G$中的一条边$e$是割边$\Leftrightarrow e$不包含在图的任何基本圈中</li>
+<li>简单有向图$G$中，若$G$中任何两个结点间都是可达的，则称$G$是强连通的，若任何两个结点间至少是从一个结点可达另一个结点，则称$G$是单向连通的，若有向图$G$不是单向连通的，但其基础图是连通的，则称$G$是弱连通的</li>
+<li>令$G$是简单有向图，对于某种性质而言，若$G$中再没有其它包含子图$G_1$的真子图，具有这种性质，则称$G_1$是$G$的关于这种性质的极大子图</li>
+<li>在简单有向图中，具有强连通性质的极大子图，称为强分图，具有单向连通性质的极大子图，称为单向分图，具有弱连通性质的极大子图，称为弱分图</li>
+<li>简单有向图中的任一个结点恰位于一个强分图中</li>
+<li>简单有向图中的每个结点和每条弧至少位于一个单向分图中</li>
+<li>简单有向图中的每个结点和每条弧恰位于一个弱分图中</li>
+</ul>
+<h2>几类重要的图</h2>
+<h3>欧拉图</h3>
+<ul>
+<li>图$G$中的一个圈，若它通过图$G$中的每一条边恰好一次，则称该圈为欧拉圈，具有这种圈的图称为欧拉图</li>
+<li>给定连通无向图$G$，$G$有欧拉圈$\Leftrightarrow G$中每个结点都是偶度结点</li>
+<li>图$G$中的一条链，若它通过$G$中的每条边恰好一次，则称该链为欧拉链</li>
+<li>给定连通无向图$G=\langle V，E \rangle，u，v∈V$且$u \neq v$，$u$与$v$间存在欧拉链$\Leftrightarrow G$中仅有$u$和$v$为奇度结点</li>
+</ul>
+<h3>哈密顿图</h3>
+<ul>
+<li>图$G$中的一个圈，若它通过$G$中每个结点恰好一次，则该圈称为哈密顿圈，具有哈密顿圈的图称为哈密顿图</li>
+<li>图G中的一条链，若它通过$G$中的每个结点恰好一次，则该链称为哈密顿链</li>
+<li>若连通图$G=\langle V，E \rangle$是哈密尔顿图，$S$是$V$的任意真子集，则$\omega(G-S) \leq |S|$ (必要条件)</li>
+<li>设$G=\langle V，E \rangle$是$|V|=n \geq 3$阶简单图。若$u,v \in V$有$d(u)+d(v) \geq n-1$，则在$G$中存在一条哈密顿链，若$d(u)+d(v) \geq n$，则$G$是哈密顿图</li>
+<li>给定简单图$G=\langle V，E \rangle$，若$|V| \geq 3，d \geq |V|/2$，则$G$是哈密顿图</li>
+<li>给定连通图 $G=\langle V, E \rangle$，$|V| = n \ge 3$。若 $u, v \in V$，$u$ 与 $v$ 不邻接且$d(u) + d(v) \ge n$，则 $G$ 是哈密顿图当且仅当 $G + [u, v]$ 是哈密顿图</li>
+<li>给定连通图$G=\langle V，E \rangle，|V|=n$，图$G$的闭包是由$G$通过相继地用边连接两个其度之和至少为$n$的不邻接结点，直到不能如此进行为止得到的图，用$C(G)$表示图$G$的闭包</li>
+<li>图$G$的闭包$C(G)$是惟一确定的</li>
+<li>简单连通无向图$G$是哈密尔顿图当且仅当$C(G)$是哈密顿图</li>
+<li>给定简单无向图$G= \langle V，E \rangle，|V|≥3$，若$C(G)$是完全图，则图$G$是哈密顿图</li>
+</ul>
+<h3>二部图</h3>
+<ul>
+<li>给定简单无向图 $G=\langle V, E \rangle$，且 $V = V_1 \cup V_2$，$V_1 \cap V_2 = \emptyset$，若 $V_1$ 和 $V_2$ 的诱导子图 $\langle V_1 \rangle$ 和 $\langle V_2 \rangle$ 都是零图，则称 $G$ 是二部图或偶图，并将二部图记作 $G=\langle V_1, E, V_2 \rangle$，并称 $V_1, V_2$ 是 $V$ 的划分</li>
+<li>在二部图 $G=\langle V_1, E, V_2 \rangle$ 中，若 $|V_1| = m$，$|V_2| = n$，且对任意 $u \in V_1$、$v \in V_2$ 均有$[u, v] \in E$，则称图 $G$ 为完全二部图，记为 $K_{m,n}$</li>
+<li>简单图$G$为二部图当且仅当$G$中无奇圈</li>
+</ul>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

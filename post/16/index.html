@@ -1,0 +1,460 @@
+
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>SchabeAntimonfeld</title>
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap">
+
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- 看板娘 -->
+    <script src="https://raw.githack.com/Schabe-Antimonfeld/live2d-widget/master/dist/autoload.js"></script>
+
+    <!-- 代码高亮 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/github.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.9.0/highlightjs-line-numbers.min.js"></script>
+
+    <script src="/static/js/use_hl.js"></script>
+
+    <!-- MathJax 支持 LaTeX -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6" defer></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+    <!-- 邮箱弹窗 -->
+    <script>
+        function toggleEmailPopup() {
+            const popup = document.getElementById("email-popup");
+            popup.style.display = (popup.style.display === "block") ? "none" : "block";
+        }
+
+        document.addEventListener("click", function (event) {
+            const popup = document.getElementById("email-popup");
+            const icon = event.target.closest('.nav-item');
+            if (!icon || !icon.contains(event.target)) {
+                popup.style.display = "none";
+            }
+        });
+    </script>
+
+    <!-- LaTeX行内公式支持 -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border fixed-top">
+        <!-- 导航栏名称 -->
+        <a class="navbar-brand ms-5" href="/">
+            SchabeAntimonfeld</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarCollapse" aria-controls="navbarCollapse"
+                aria-expanded="false" aria-label="切换导航">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/topics/">主题</a>
+                </li>
+            </ul>
+            <!-- 右侧图标区域 -->
+            <ul class="navbar-nav ms-auto mx-5">
+                <!-- 邮箱图标 + 弹窗 -->
+                <li class="nav-item position-relative">
+                    <a class="nav-link" href="javascript:void(0);" onclick="toggleEmailPopup()"
+                        data-toggle="tooltip" data-placement="bottom" title="我的GMAIL邮箱">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <!-- 自定义浮层 -->
+                    <div id="email-popup" class="email-popup shadow-sm">
+                        <b>Email:</b> schabeantimonyfield@gmail.com
+                    </div>
+                </li>
+
+                <!-- GitHub 图标 -->
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/Schabe-Antimonfeld" target="_blank"
+                       data-toggle="tooltip" data-placement="bottom" title="前往 GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container" style="margin-top: 70px;">
+        <div class="row">
+            <!-- 侧边栏资料卡 -->
+            <div class="position-fixed d-none d-md-block" style="top: 70px; left: 50px; width: 23%; max-width: 300px;">
+                    
+
+
+<!--个人资料卡-->
+<div class="card mb-4 text-center">
+    <img src="/static/images/avatar.jpg" class="card-img-top rounded-circle mx-auto mt-3" style="width: 120px; height: 120px; object-fit: cover;" alt="avatar">
+    <div class="card-body text-center">
+        <h5 class="card-title">Schabe Antimonfeld</h5>
+        <p class="card-text text-muted">AI × Coding × Minecraft</p>
+        <hr>
+        <p>在读大学生</p>
+        <p></p>
+        <p><i class="fab fa-github"></i> <a href="https://github.com/Schabe-Antimonfeld" target="_blank">GitHub</a></p>
+        <hr>
+        <p>友情链接</p>
+        <p>
+            <img src="/static/images/lonion.png" alt="图标" style="width:32px;height:32px;vertical-align:middle;margin-right:4px;">
+            <a href="https://lonion1124.github.io/" target="_blank">洋葱菌的博客</a>
+        </p>
+        <p>
+            <img src="/static/images/aaaaa.png" alt="图标" style="width:32px;height:32px;vertical-align:middle;margin-right:4px;">
+            <a href="https://aaaaa114514-1.github.io/" target="_blank">aaaaa online</a>
+        </p>
+    </div>
+</div>
+            </div>
+
+            <!-- 主体内容 -->
+            <div class="col-md-9 offset-md-3">
+                
+<h2>离散数学概念整理（二）：集合论</h2>
+
+<!-- 主题标签 -->
+<p class="text-muted mb-1">
+    <i class="bi bi-tags text-primary"></i>
+    
+        <a href="/topics/6/" class="btn btn-sm btn-outline-primary text-decoration-none">数学</a>
+    
+</p>
+
+<p class="card-text text-muted">
+    发布于 2025年11月25日 11:03
+</p>
+<hr>
+
+                
+<!-- 博客内容 -->
+<div class="card mb-3 shadow-sm">
+    <div class="card-body">
+        <h2>公理体系</h2>
+<h3>外延公理</h3>
+<ul>
+<li>具有相同元素的集合是相等的</li>
+</ul>
+<p>$$
+(\forall x)(x \in A \leftrightarrow x \in B) \Rightarrow A=B
+$$</p>
+<h3>子集公理模式</h3>
+<ul>
+<li>对于任给一个集合$A$和集合的每一项性质$\phi$，存在一个集合$B$，它的成员恰是$A$中那些具有性质$\phi$的成员</li>
+</ul>
+<p>$$
+(\exists B)(\forall x)(x \in B \leftrightarrow x \in A \land \phi(x))
+$$</p>
+<ul>
+<li>其中，$B$不可在$\phi$中出现</li>
+</ul>
+<h3>偶集公理</h3>
+<ul>
+<li>对于给定的任何两个集合$A, B$，存在一个集合$C$，其成员恰是$A$和$B$</li>
+</ul>
+<p>$$
+(\exists C)(\forall x)(x \in C \leftrightarrow x=A \lor x=B)
+$$</p>
+<ul>
+<li>由外延公理知，$C$是唯一的</li>
+</ul>
+<h3>联集公理</h3>
+<ul>
+<li>对于任何一个集合$A$，存在一个集合$C$，$C$的成员恰是$A$的成员的成员</li>
+</ul>
+<p>$$
+(\exists C)(\forall x)(x \in C \leftrightarrow (\exists B)(B \in A \land x \in B))
+$$</p>
+<ul>
+<li>由外延公理知，$C$是唯一的</li>
+</ul>
+<p>$$
+C=\cup A := {x \vert (\exists B)(B \in A \land x \in B)}
+$$</p>
+<p>$$
+A \cup B := \cup {A, B} = {x \mid x \in A \lor x \in B}
+$$</p>
+<ul>
+<li>类似定义交</li>
+</ul>
+<p>$$
+\cap A := {x \mid (\forall B)(B \in A \rightarrow x \in B)}
+$$</p>
+<p>$$
+A \cap B := {x \mid x \in A \land x \in B}
+$$</p>
+<ul>
+<li>
+<p><strong>重要定理：</strong></p>
+</li>
+<li>
+<p>$x \in \cup A \Leftrightarrow (\exists B)(B \in A \land x \in B)$</p>
+</li>
+<li>$x \in A \cup B \Leftrightarrow x \in A \lor x \in B$</li>
+<li>$\cup(A \cup B) = (\cup A) \cup (\cup B)$</li>
+<li>$A \in B \Rightarrow A \subseteq \cup B$</li>
+<li>$A \cup B = B \cup A$</li>
+<li>$A \cup (B \cup C) = (A \cup B) \cup C$</li>
+<li>$A \subseteq C \land B \subseteq C \Leftrightarrow A \cup B \subseteq C$</li>
+<li>$x \in \cap A \Leftrightarrow (\forall B)(B \in A \rightarrow x \in B) \land (\exists B)(B \in A)$</li>
+<li>$\cap(A \cup B) = (\cap A) \cap (\cap B)$</li>
+<li>$(A \cup B) \cap C = (A \cap C) \cup (B \cap C)$</li>
+<li>$(A \cap B) \cup C = (A \cup C) \cap (B \cup C)$</li>
+<li>$x \in A-B \Leftrightarrow x \in A \land x \not \in B$</li>
+<li>$(A \cup B)-B=A-B$</li>
+<li>$A-(B \cup C)=(A-B) \cap (A-C)$</li>
+<li>$A-(B \cap C)=(A-B) \cup (A-C)$</li>
+</ul>
+<h3>极小元</h3>
+<ul>
+<li>对于任何集合$S_1$与$S_2$，当$S_1 \in S_2$且$S_1 \cap S_2=\emptyset$时，则称$S_1$为$S_2$的一极小元</li>
+</ul>
+<h3>正则公理</h3>
+<ul>
+<li>每个不空的集合都有一极小元</li>
+</ul>
+<p>$$
+A \neq \emptyset \Rightarrow (\exists x \in A \land x \cap A = \emptyset)
+$$</p>
+<h3>后继</h3>
+<ul>
+<li>对任意集合$S$，其后继记为$S^+$，定义为$S \cup {S}$</li>
+<li>$0:=\emptyset, 1:=0^+, 2:=1^+$，一般地，$n+1:=n^+$</li>
+<li>若集合$A$有性质$\emptyset \in A \land (\forall x)(x \in A \rightarrow x^+ \in A)$，则称$A$是一个归纳集</li>
+</ul>
+<h3>无穷公理</h3>
+<ul>
+<li>有一个归纳集的存在</li>
+</ul>
+<p>$$
+(\exists A)(\emptyset \in A \land (\forall x)(x \in A \rightarrow x^+ \in A))
+$$</p>
+<ul>
+<li>若用$Ind(A)$表示$A$是一个归纳集，则$(\exists A)(Ind(A))$</li>
+<li>$(\exists A)(Ind(A) \land (\forall B)(Ind(B) \rightarrow A \subseteq B))$</li>
+<li>称最小归纳集</li>
+</ul>
+<p>$$
+\omega := {x \mid (\forall B)(Ind(B) \rightarrow x \in B)}
+$$</p>
+<ul>
+<li>是自然数集合，$\omega$的元称为自然数</li>
+</ul>
+<h3>幂集公理</h3>
+<ul>
+<li>对于任意一个集合$A$，存在一个集合$B$，它的元恰好是$A$的各个子集</li>
+</ul>
+<p>$$
+(\exists B)(\forall x)(x \in B \leftrightarrow (\forall y)(y \in x \rightarrow y \in A))
+$$</p>
+<ul>
+<li>集合$B$是集合$A$的一个幂集，当且仅当$(\forall x)(x \in B \leftrightarrow x \subseteq A)$，$A$的幂集$B$记作$P(A)$</li>
+<li>对于一个集合$A$，如果存在自然数$n$，使得$A$恰有$n$个元，则称$A$是有限的</li>
+<li>若$A$是一个有限集合，且$B \not \in A$，令$C=A \cup {B}$，则$C$的所有子集的个数恰是$A$的所以子集的个数的两倍</li>
+<li>对于自然数$n$，如果集合$A$恰有$n$个元，则$P(A)$恰有$2^n$个元</li>
+<li>
+<p><strong>幂集的一般性质：</strong></p>
+</li>
+<li>
+<p>$B \in P(A) \Leftrightarrow B \subseteq A$</p>
+</li>
+<li>$A \in P(A)$</li>
+<li>$A \subseteq B \Leftrightarrow P(A) \subseteq B$</li>
+<li>$P(A-B) \subseteq (P(A)-P(B)) \cup {\emptyset}$</li>
+<li>
+<p>$P(A) \in P(B) \Rightarrow A \in B$</p>
+</li>
+<li>
+<p>给定集合$A$，对于任何集合$x$和$y$，若$x \in y$且$y \in A$，则$x \in A$，称$A$为传递集</p>
+</li>
+<li>对于传递集$A$，有$\cup(A^+)=A$</li>
+<li>集合$A$是传递集当且仅当$A \subseteq P(A)$</li>
+<li>集合$A$是传递集当且仅当$P(A)$是传递集</li>
+<li>每个自然数是个传递集</li>
+<li>$\omega$是个传递集</li>
+</ul>
+<h2>关系与函数</h2>
+<h3>关系的性质</h3>
+<ul>
+<li>$R$在$A$中自反$:=(\forall x)(x \in A \rightarrow xRx)$</li>
+<li>$R$在$A$中非自反$:=(\forall x)(x \in A \rightarrow \lnot (xRx))$</li>
+<li>$R$在$A$中对称$:=(\forall x)(\forall y)(x, y \in A \land xRy \rightarrow yRx)$</li>
+<li>$R$在$A$中非对称$:=(\forall x)(\forall y)(x, y \in A \land xRy \rightarrow \lnot (yRx)$</li>
+<li>$R$在$A$中反对称$:=(\forall x)(\forall y)(x, y \in A \land xRy \land x \neq y \rightarrow \lnot (yRx)$</li>
+<li>$R$在$A$中传递$:= (\forall x)(\forall y)(\forall z)(x, y, z \in A \land xRy \land yRz \rightarrow xRz)$</li>
+<li>$I_A={<x, x> \mid x \in A}$</li>
+<li>$xI_Ax \Leftrightarrow x \in A$</li>
+<li>$I_A * I_A = I_A$</li>
+<li>$R$为关系$\Leftrightarrow I_{dm}(R) * R = R$</li>
+<li>$R$自反$\Leftrightarrow I_{fl(R)} \subseteq R$</li>
+<li>$R$非自反$\Leftrightarrow R \cap I_{fl(R)} = \emptyset$</li>
+<li>$R$对称$\Leftrightarrow R^{-1} = R$</li>
+<li>$R$非对称$\Leftrightarrow R \cap R^{-1} = \emptyset$</li>
+<li>$R$反对称$\Leftrightarrow  R \cap R^{-1} \subseteq I_{dm(R)}$</li>
+<li>$R$传递$\Leftrightarrow R * R \subseteq R$</li>
+<li><strong>闭包：</strong>通过添加最少数量的有序对，使原关系具备自反性、对称性或传递性而形成的新集合</li>
+<li>自反闭包：$r(R)$，对称闭包$s(R)$，传递闭包：$t(R)$</li>
+<li>
+<p><strong>构造性定理：</strong></p>
+</li>
+<li>
+<p>$r(R) = R \cup I_{fl(R)}$</p>
+</li>
+<li>$s(R) = R \cup R^{-1}$</li>
+<li>$t(R) = \bigcup^{\infty}_{i=1}R^i$</li>
+<li>
+<p>$t(R) = \bigcup^k_{i=1}R^i$，其中$k \leq \vert fl(R) \vert$</p>
+</li>
+<li>
+<p>$R$为自反$\Rightarrow s(R), t(R)$ 是自反的</p>
+</li>
+<li>$R$为对称$\Rightarrow r(R), t(R)$是对称的</li>
+<li>$R$为传递$\Rightarrow r(R)$是传递的</li>
+<li>$rs(R) = sr(R)$</li>
+<li>$rt(R) = tr(R)$</li>
+<li>$st(r) \subseteq ts(R)$</li>
+</ul>
+<h3>等价关系与划分</h3>
+<ul>
+<li>$R$为等价关系$:= R$为关系且$R$自反、对称和传递</li>
+<li>$R$为$A$上等价关系$:= R$为等价关系且$A=fl(R)$</li>
+<li>若$R$为$fl(R)$上的关系，则$R$为等价关系$\Leftrightarrow R * R^{-1} = R$</li>
+<li>设$R$是$A$上的等价关系，由$A$中元$x$产生$R$的等价类，记为$[x]_R$，它是由$A$中那些使$xRy$成立的所有$y \in A$组成的子集</li>
+</ul>
+<p>$$
+[x]_R := {y \mid xRy}
+$$</p>
+<ul>
+<li>并且称$x$是等价类$[x]_R$的一个代表，有时也记作$x/R$</li>
+<li>$y \in [x]_R \Leftrightarrow xRy$</li>
+<li>若$x, y \in fl(R)$且$R$为等价关系，则$[x]_R = [y]_R \Leftrightarrow xRy$</li>
+<li>$R$为等价关系$\Leftrightarrow [x]_R = [y]_R \lor [x]_R \cap [y]_R = \emptyset$</li>
+</ul>
+<h3>函数</h3>
+<ul>
+<li>
+<p>$f$为函数$:= f$为关系$\land (\forall x)(\forall y)(\forall z)(xfy \land xfz \rightarrow y=z)$</p>
+</li>
+<li>
+<p>$f \circ g = g*f$</p>
+</li>
+<li>
+<p>$f$为$1-1$函数$:= f$和$f^{-1}$皆为函数</p>
+</li>
+<li>
+<p>若$f$为$1-1$函数且$x_1, x_2 \in dm(f)$，则$f(x_1)=f(x_2) \Leftrightarrow x_1=x_2$</p>
+</li>
+<li>
+<p>若$f$为$1-1$函数，则称$f^{-1}$为反函数</p>
+</li>
+<li>
+<p>若$f$为$1-1$函数，则$f^{-1}(y)=x \Leftrightarrow f(x)=y$</p>
+</li>
+<li>
+<p>$f$为$1-1$函数$\land x \in dm(f) \Rightarrow f^{-1}(f(x))=x$</p>
+</li>
+<li>
+<p>$f, g$为$1-1$函数$\Rightarrow f \cap g$为$1-1$函数</p>
+</li>
+<li>
+<p>$f$为从$A$到$B$的函数$:=f$为函数 $\land$ $dm(f) = A \land rn(f) \subseteq B$</p>
+</li>
+<li>
+<p>$f$为从$A$到$B$中的函数$:=f$为函数 $\land$ $dm(f) = A \land rn(f) \subset B$</p>
+</li>
+<li>
+<p>$f$为从$A$到$B$上的函数或$f$为满射$:=f$为函数 $\land$ $dm(f) = A \land rn(f) = B$</p>
+</li>
+<li>
+<p>$f$为单射或$f$为一对一映射$:=f$为函数 $\land$ $(\forall x)(\forall y)(x, y \in A \land x \neq y \rightarrow f(x) \neq f(y))$</p>
+</li>
+<li>
+<p>$f$为双射或$f$为一一对应$:=f$既为单射又为满射或$f$为1-1函数</p>
+</li>
+<li>
+<p>实数$x$的底函数，记为$\lfloor x \rfloor$，指的是小于或等于$x$的最大整数</p>
+</li>
+<li>
+<p>实数$x$的顶函数，记为$\lceil x \rceil$，指的是大于或等于$x$的最小整数</p>
+</li>
+<li>
+<p>散列函数$h: K \rightarrow D$，$h(k) = d$，其中$K$为大键码集合，$D$为地址集合。常用幂列函数是用除法求余、中平方方法和折叠叠方法得到</p>
+</li>
+<li>
+<p>恒等函数，设$A \subseteq B$，若$id_A: A \rightarrow B$，使$id_A(x) = x$，则称$id_A$为$A$上的一个恒等函数。恒等函数自然是个单射函数，而且仅当$A = B$时，恒等函数才是满射，并且$id_A = I_A$</p>
+</li>
+<li>
+<p>特征函数，设$A \subseteq B$，函数$f_A: B \rightarrow {0, 1}$定义为
+  $$
+  f_A(x) = \begin{cases} 1, &amp; 若 x \in A \cr 0, &amp; 若 x \notin A \end{cases}
+  $$</p>
+</li>
+<li>
+<p>则称$f_A: B \rightarrow {0, 1}$是集合$A$的一个特征函数</p>
+</li>
+<li>
+<p>$B^A := {f \mid f$为函数 $\land$ $dm(f) = A \land rn(f) \subseteq B}$，并称$B^A$是由集合$A$到集合$B$的幂集</p>
+</li>
+<li>
+<p>$f \in B^A \Leftrightarrow f$为函数 $\land$ $dm(f) = A \land rn(f) \subseteq B$</p>
+</li>
+<li>
+<p>$B^{(A)} = {\,(x, y) \mid y \in B\,}$</p>
+</li>
+<li>
+<p>$B \subseteq C \Rightarrow B^A \subseteq C^A$</p>
+</li>
+<li>
+<p>设$F, P(B) \rightarrow {0, 1}^A$，并令$F(A) := f_A$，其中$A \in P(B)$，则$F$是双射。</p>
+</li>
+<li>
+<p>一个集合$A$与其上的一个二元关系$R$（即$R \subseteq A \times A$）组成的有序对$<A, R>$称为一个结构</p>
+</li>
+<li>
+<p>若两个给定的结构$<A, R>$和$<B, S>$，存在一个双射函数$f:A \rightarrow B$，对于$x, y \in A$有$xRy  \Leftrightarrow f(x)SF(y)$，则称$f$是从结构$<A, R>$到结构$<B, S>$的同构映射，记作$<A, R> \cong <B, S>$</p>
+</li>
+<li>
+<p>设$<A, R>, <B, S>, <C, T>$是任意三个结构则它们满足自反、对称和传递，即</p>
+</li>
+<li>
+<p>$<A, R> \cong <A, R>$</p>
+</li>
+<li>$<A, R> \cong <B, S> \Rightarrow <B, S> \cong <A, R>$</li>
+<li>$<A, R> \cong <B, S>, <B, S> \cong <C, T> \Rightarrow <A, R> \cong <C, T>$</li>
+</ul>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,463 @@
+
+
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>SchabeAntimonfeld</title>
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap">
+
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- 看板娘 -->
+    <script src="https://raw.githack.com/Schabe-Antimonfeld/live2d-widget/master/dist/autoload.js"></script>
+
+    <!-- 代码高亮 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/github.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.9.0/highlightjs-line-numbers.min.js"></script>
+
+    <script src="/static/js/use_hl.js"></script>
+
+    <!-- MathJax 支持 LaTeX -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6" defer></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+    <!-- 邮箱弹窗 -->
+    <script>
+        function toggleEmailPopup() {
+            const popup = document.getElementById("email-popup");
+            popup.style.display = (popup.style.display === "block") ? "none" : "block";
+        }
+
+        document.addEventListener("click", function (event) {
+            const popup = document.getElementById("email-popup");
+            const icon = event.target.closest('.nav-item');
+            if (!icon || !icon.contains(event.target)) {
+                popup.style.display = "none";
+            }
+        });
+    </script>
+
+    <!-- LaTeX行内公式支持 -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border fixed-top">
+        <!-- 导航栏名称 -->
+        <a class="navbar-brand ms-5" href="/">
+            SchabeAntimonfeld</a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarCollapse" aria-controls="navbarCollapse"
+                aria-expanded="false" aria-label="切换导航">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/topics/">主题</a>
+                </li>
+            </ul>
+            <!-- 右侧图标区域 -->
+            <ul class="navbar-nav ms-auto mx-5">
+                <!-- 邮箱图标 + 弹窗 -->
+                <li class="nav-item position-relative">
+                    <a class="nav-link" href="javascript:void(0);" onclick="toggleEmailPopup()"
+                        data-toggle="tooltip" data-placement="bottom" title="我的GMAIL邮箱">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <!-- 自定义浮层 -->
+                    <div id="email-popup" class="email-popup shadow-sm">
+                        <b>Email:</b> schabeantimonyfield@gmail.com
+                    </div>
+                </li>
+
+                <!-- GitHub 图标 -->
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/Schabe-Antimonfeld" target="_blank"
+                       data-toggle="tooltip" data-placement="bottom" title="前往 GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container" style="margin-top: 70px;">
+        <div class="row">
+            <!-- 侧边栏资料卡 -->
+            <div class="position-fixed d-none d-md-block" style="top: 70px; left: 50px; width: 23%; max-width: 300px;">
+                    
+
+
+<!--个人资料卡-->
+<div class="card mb-4 text-center">
+    <img src="/static/images/avatar.jpg" class="card-img-top rounded-circle mx-auto mt-3" style="width: 120px; height: 120px; object-fit: cover;" alt="avatar">
+    <div class="card-body text-center">
+        <h5 class="card-title">Schabe Antimonfeld</h5>
+        <p class="card-text text-muted">AI × Coding × Minecraft</p>
+        <hr>
+        <p>在读大学生</p>
+        <p></p>
+        <p><i class="fab fa-github"></i> <a href="https://github.com/Schabe-Antimonfeld" target="_blank">GitHub</a></p>
+        <hr>
+        <p>友情链接</p>
+        <p>
+            <img src="/static/images/lonion.png" alt="图标" style="width:32px;height:32px;vertical-align:middle;margin-right:4px;">
+            <a href="https://lonion1124.github.io/" target="_blank">洋葱菌的博客</a>
+        </p>
+        <p>
+            <img src="/static/images/aaaaa.png" alt="图标" style="width:32px;height:32px;vertical-align:middle;margin-right:4px;">
+            <a href="https://aaaaa114514-1.github.io/" target="_blank">aaaaa online</a>
+        </p>
+    </div>
+</div>
+            </div>
+
+            <!-- 主体内容 -->
+            <div class="col-md-9 offset-md-3">
+                
+<h2>离散数学概念整理（三）：代数结构</h2>
+
+<!-- 主题标签 -->
+<p class="text-muted mb-1">
+    <i class="bi bi-tags text-primary"></i>
+    
+        <a href="/topics/6/" class="btn btn-sm btn-outline-primary text-decoration-none">数学</a>
+    
+</p>
+
+<p class="card-text text-muted">
+    发布于 2025年11月25日 11:08
+</p>
+<hr>
+
+                
+<!-- 博客内容 -->
+<div class="card mb-3 shadow-sm">
+    <div class="card-body">
+        <h2>代数结构</h2>
+<h3>定义</h3>
+<ul>
+<li>设$S$是个非空集合且$f_i$是$S$上的$n_i$元运算，其中$i = 1, 2, \cdots , m$，由$S$及$f_1, f_2, \cdots , f_m$组成的结构，称为代数结构，记作$\langle S, f_1, f_2, \cdots, f_m \rangle$</li>
+<li>设两个代数结构$\langle S, f_1, f_2, \cdots, f_m \rangle$和$\langle T, g_1, g_2, \cdots, g_m \rangle$，如果$f_i$和$g_i(1 \leq i \leq m)$具有相同的元数，则称这两个代数结构是同类型的</li>
+<li>设$\langle S, f_1, f_2, \cdots, f_m \rangle$是一代数结构，且非空集$T \subseteq S$在运算$f_1, f_2, \cdots, f_m$作用下是封闭的，且$T$通常含有与$S$中相同的特异元，则称$\langle T, f_1, f_2, \cdots, f_m \rangle$为代数结构$\langle S, f_1, f_2, \cdots, f_m \rangle$的子代数，记为$\langle T, f_1, f_2, \cdots, f_m \rangle \subseteq \langle S, f_1, f_2, \cdots, f_m \rangle$</li>
+</ul>
+<h3>基本性质</h3>
+<ul>
+<li><strong>结合律：</strong>给定$\langle S, \odot \rangle$，运算$\odot$满足结合律$:= (\forall x)(\forall y)(\forall z)(x, y, z \in S \rightarrow (x \odot y) \odot z = x \odot (y \odot z))$</li>
+<li><strong>交换律：</strong>给定$\langle S, \odot \rangle$，运算$\odot$满足交换律$:= (\forall x)(\forall y)(x, y \in S \rightarrow x \odot y = y \odot x)$</li>
+<li><strong>分配律：</strong>给定$\langle S, \odot, \circledast \rangle$</li>
+<li>运算$\odot$对于$\circledast$满足左分配律$:=(\forall x)(\forall y)(\forall z)(x, y, z \in S \rightarrow x \odot (y \circledast z) = (x \odot y) \circledast (x \odot z))$</li>
+<li>运算$\odot$对于$\circledast$满足右分配律$:=(\forall x)(\forall y)(\forall z)(x, y, z \in S \rightarrow (y \circledast z) \odot x = (y \odot x) \circledast (z \odot x))$</li>
+<li>若$\odot$对于$\circledast$既满足左分配律又满足右分配律，则称$\odot$对于$\circledast$满足分配律</li>
+<li>给定$\langle S, \odot, \circledast \rangle$且$\odot$是可交换的，如果$\odot$对于$\circledast$满足左或右分配律，则$\odot$对于$\circledast$满足分配律</li>
+<li><strong>吸收律：</strong>给定$\langle S, \odot, \circledast \rangle$</li>
+<li>运算$\odot$对于$\circledast$满足左吸收律$:=(\forall x)(\forall y)(x, y \in S \rightarrow x \odot (x \circledast y) = x)$</li>
+<li>运算$\odot$对于$\circledast$满足右吸收律$:=(\forall x)(\forall y)(x, y \in S \rightarrow (x \circledast y) \odot x = x)$</li>
+<li>若$\odot$对于$\circledast$既满足左吸收律又满足右吸收律，则称$\odot$对于$\circledast$满足吸收律</li>
+<li><strong>等幂律：</strong>给定$\langle S, \odot \rangle$，则$\odot$满足等幂律$:=(\forall x)(x \in S \rightarrow x \odot x = x)$</li>
+<li><strong>等幂元：</strong>给定$\langle S, \odot \rangle$且$x \in S$，则$x$是关于$\odot$的等幂元$:= x \odot x = x$</li>
+<li>若$x$是$\langle S, \odot \rangle$中关于$\odot$的等幂元，对于任意正整数$n$，则$x^n=x$</li>
+<li><strong>幺元：</strong>给定$\langle S, \odot \rangle$且$e_l, e_r, e \in S$</li>
+<li>$e_l$为关于$\odot$的左幺元$:= (\forall x)(x \in S \rightarrow e_l \odot x = x)$</li>
+<li>$e_r$为关于$\odot$的右幺元$:= (\forall x)(x \in S \rightarrow x \odot e_r = x)$</li>
+<li>若$e$既为$\odot$的左幺元又为$\odot$的右幺元，称$e$为关于$\odot$的幺元</li>
+<li>给定$\langle S, \odot \rangle$且$e_l$和$e_r$分别关于$\odot$的左右幺元，则$e_l=e_r=e$且幺元$e$唯一</li>
+<li><strong>零元：</strong>给定$\langle S, \odot \rangle$且$\theta_l, \theta_r, \theta \in S$</li>
+<li>$\theta_l$为关于$\odot$的左零元$:= (\forall x)(x \in S \rightarrow \theta_l \odot x = \theta_l)$</li>
+<li>$\theta_r$为关于$\odot$的右零元$:= (\forall x)(x \in S \rightarrow x \odot \theta_r = \theta_r)$</li>
+<li>若$\theta$既为$\odot$的左零元又为$\odot$的右零元，称$\theta$为关于$\odot$的零元</li>
+<li>给定$\langle S, \odot \rangle$且$\theta_l$和$\theta_r$分别关于$\odot$的左右零元，则$\theta_l=\theta_r=e$且零元$\theta$唯一</li>
+<li><strong>逆元：</strong>给定$\langle S, \odot \rangle$且幺元$e, x \in S$</li>
+<li>$x$为关于$\odot$的左逆元$:= (\exists y)(y \in S \land x \odot y = e)$</li>
+<li>$x$为关于$\odot$的右逆元$:= (\exists y)(y \in S \land y \odot x = e)$</li>
+<li>$x$为关于$\odot$可逆的$:= (\exists y)(y \in S \land x \odot y = y \odot x = e)$</li>
+<li>给定$\langle S, \odot \rangle$及幺元$e \in S$，如果$\odot$是可结合的并且一个元素$x$的左逆元$x_l^{-1}$和右逆元$x_r^{-1}$存在，则$x_l^{-1}=x_r^{-1}$</li>
+<li>给定$\langle S, \odot \rangle$及幺元$e \in S$，如果$\odot$是可结合的并且一个元素$x$的逆元$x^{-1}$存在，则$x^{-1}$是唯一的</li>
+<li><strong>可约律：</strong>给定$\langle S, \odot \rangle$且零元$\theta \in S$</li>
+<li>$\odot$满足左可约律$:=(\forall x)(\forall y)(\forall z)((x, y, z \in S \land x \neq \theta \land x \odot y = x \odot z) \rightarrow y=z)$，并称$x$是关于$\odot$的左可约元</li>
+<li>$\odot$满足右可约律$:=(\forall x)(\forall y)(\forall z)((x, y, z \in S \land x \neq \theta \land y \odot x = z \odot x) \rightarrow y=z)$，并称$x$是关于$\odot$的右可约元</li>
+<li>给定$\langle S, \circledast \rangle$且$\circledast$是可结合的，如果$x$是关于$\circledast$可逆的，则$x$也是关于$\circledast$的可约元</li>
+</ul>
+<h3>同态与同构</h3>
+<ul>
+<li>设$\langle X, \odot \rangle$与$\langle Y, \circledast \rangle$是同类型的，称$\langle X, \odot \rangle$同态于$\langle Y, \circledast \rangle$，记为$\langle X, \odot \rangle \simeq \langle Y, \circledast \rangle$，其定义如下</li>
+</ul>
+<p>$$
+\langle X, \odot \rangle \simeq \langle Y, \circledast \rangle := (\exists f)(f \in Y^X \land (\forall x_1)(\forall x_2)(x_1, x_2 \in X \rightarrow f(x_1 \odot x_2) = f(x_1) \circledast f(x_2)))
+$$</p>
+<ul>
+<li>如果$\langle X, \odot \rangle \simeq \langle Y, \circledast \rangle$且$f$为其同态映射，则$\langle rn(f), \circledast \rangle \subseteq \langle Y, \circledast \rangle$</li>
+<li>
+<p>设$\langle X, \odot \rangle \simeq \langle Y, \circledast \rangle$且$f$为其同态映射</p>
+</li>
+<li>
+<p>如果$f$为满射，则称为满同态映射</p>
+</li>
+<li>如果$f$为单射，则称为单一同态映射</li>
+<li>
+<p>如果$f$为双射，则称为同构映射</p>
+</li>
+<li>
+<p>满同态映射可以保持结合律、交换律、分配律、吸收率、等幂律、幺元、零元、逆元</p>
+</li>
+<li>设$\langle X, \odot \rangle$与$\langle Y, \circledast \rangle$是同类型的，称$\langle X, \odot \rangle$同构于$\langle Y, \circledast \rangle$，记为$\langle X, \odot \rangle \cong \langle Y, \circledast \rangle$，其定义如下</li>
+</ul>
+<p>$$
+\langle X, \odot \rangle \cong \langle Y, \circledast \rangle := (\exists f)(f为从\langle X, \odot \rangle到\langle Y, \circledast \rangle的同构映射)
+$$</p>
+<ul>
+<li>代数系统间的同构关系是等价关系</li>
+</ul>
+<h3>同余关系</h3>
+<ul>
+<li>给定$\langle S, \odot \rangle$且$E$为$S$中的等价关系</li>
+<li>$E$有代换性质$:=(\forall x_1)(\forall x_2)(\forall y_1)(\forall y_2)((x_1, x_2, y_1, y_2 \in S \land x_1Ex_2 \land y_1Ey_2) \rightarrow (x_1 \odot y_1)E(x_2 \odot y_2))$</li>
+<li>$E$为$\langle S, \odot \rangle$中的同余关系$:= E$有代换性质</li>
+<li>设$\langle S, \odot \rangle$与$\langle T, \circledast \rangle$是同类型的且$f$为其同态映射，对应于$f$，定义关系$E_f$如下</li>
+</ul>
+<p>$$
+xE_fy := f(x) = f(y), 其中x, y \in S
+$$</p>
+<ul>
+<li>则$E_f$是$\langle S, \odot \rangle$中的同余关系，并且称$E_f$为同态映射$f$诱导的同余关系</li>
+</ul>
+<h2>半群与群</h2>
+<h3>半群和独异点</h3>
+<ul>
+<li>给定$\langle S, \odot \rangle$，若$\odot$满足结合律，则称$\langle S, \odot \rangle$为半群</li>
+<li>给定$\langle M, \odot \rangle$，若$\langle M, \odot \rangle$是半群且$\odot$有幺元，则称$\langle M, \odot \rangle$为独异点</li>
+<li>$\langle S, \odot \rangle$为有限半群$\Leftrightarrow(\exists x)(x \in S \land x \odot x = x)$</li>
+<li>给定半群$\langle S, \odot \rangle$，若$\odot$是可交换的，则称$\langle S, \odot \rangle$为可交换半群，类似定义可交换独异点$\langle M, \odot, e \rangle$</li>
+<li>给定半群$\langle S, \odot \rangle$和$g \in S$，以及自然数集合$N$，$g$为$\langle S, \odot \rangle$生成元$:=(\forall x)(x \in S \rightarrow (n \in N \land x = g^n))$，元素$g$生成半群$\langle S, \odot \rangle$，而且称该半群为循环半群，类似定义独异点$\langle M, \odot, e \rangle$的生成元$g$和循环独异点，并且规定$g^0=e$</li>
+<li>每个循环独异点都是可交换的</li>
+<li>给定半群$\langle S, \odot \rangle$及$G \subseteq S$，$G$为生成集$:=(\forall a)(s \in S \rightarrow a = \odot (G)) \land min_{G \subseteq S}\vert G \vert$，这里$\odot G$表示用$G$中的元素经$\odot$的复合而生成的元素，类似定义独异点$\langle M, \odot, e \rangle$的生成集</li>
+<li>给定半群$\langle S, \odot \rangle$及非空集$T \subseteq S$，若$T$对$\odot$封闭，则称$\langle T, \odot \rangle$为$\langle S, \odot \rangle$的子半群，类似定义独异点$\langle M, \odot, e \rangle$的子独异点$\langle P, \odot, e \rangle$，应注意的是$e \in P$</li>
+<li>给定半群$\langle S, \odot \rangle$及任意$a \in S$，则$\langle {a, a^2, a^3, \cdots}, \odot \rangle$是循环子半群</li>
+<li>给定可交换独异点$\langle M,\odot, e \rangle$，若$P$为其等幂元集合，则$\langle P, \odot, e \rangle$为子独异点</li>
+<li>设$\langle M, \odot, e \rangle$为独异点，则关于$\odot$的运算表中任两列或任两行均不相同</li>
+<li>
+<p>给定独异点$\langle M, \odot, e \rangle$，对任意$a, b \in M$且$a, b$有逆元</p>
+</li>
+<li>
+<p>$(a^{-1})^{-1}=a$</p>
+</li>
+<li>$a \odot b$有逆元且$(a \odot b)^{-1} = b^{-1} \odot a^{-1}$</li>
+</ul>
+<h3>同态与同构</h3>
+<ul>
+<li>给定两个半群$\langle S, \odot \rangle$与$\langle T, \circledast \rangle$</li>
+</ul>
+<p>$$
+\langle S, \odot \rangle \simeq \langle T, \circledast \rangle:=(\exists f)(f \in T^S \land (\forall x)(\forall y)(x, y \in S \rightarrow f(x \odot y) = f(x) \circledast f(y))
+$$</p>
+<ul>
+<li>并称$f$为从$\langle S,\odot \rangle$到$\langle T, \circledast \rangle$的半群同态映射</li>
+<li>如果$f$为从$\langle S, \odot \rangle$到$\langle T, \circledast \rangle$的半群同态映射，对任意$a \in S$且$a \odot a = a$，则$f(a) \odot f(a) = f(a)$</li>
+<li>如果$g$是从$\langle S, \odot \rangle$到$\langle T, \star \rangle$的半群同态映射，$h$是从$\langle T, \star \rangle$到$\langle U, \circledast \rangle$的半群同态映射，则$h \circ g$是从$\langle S, \odot \rangle$到$\langle U, \circledast \rangle$的半群同态映射</li>
+<li>若$g$是从$\langle S,\odot \rangle$到$\langle S, \odot \rangle$的半群同态映射，则称$g$为半群自同态映射</li>
+<li>给定半群$\langle S, \odot \rangle$，如果$A = {g \mid g为\langle S, \odot \rangle到\langle S, \odot \rangle的半群自同态映射}$，且$\circ$是函数复合运算，则$\langle A, \circ \rangle$为半群</li>
+<li>给定半群$\langle S, \odot \rangle$，若$B = {h \mid h为\langle S, \odot \rangle到\langle S,\odot \rangle的半群自同构映射}$，$\circ$为函数符号运算，则$\langle B, \circ, id_A \rangle$是独异点，$id_A$为恒等映射</li>
+<li>给定半群$\langle S,\odot \rangle$，又$\langle S^S, \circ \rangle$是从$S$到$S$的所有函数在复合运算$\circ$的函数半群，则存在从$\langle S, \odot \rangle$到$\langle S^S, \circ \rangle$的半群同态映射$g$</li>
+<li>给定独异点$\langle M, \odot, e_M \rangle$和$\langle T, \circledast, e_T \rangle$</li>
+</ul>
+<p>$$
+\langle M, \odot, e_M \rangle \simeq \langle T, \circledast, e_T \rangle := (\exists g)(g \in T^M \land (\forall x)(\forall y)(x, y \in M \rightarrow g(x \odot y) = g(x) \circledast g(y)) \land g(e_M) = e_T)
+$$</p>
+<ul>
+<li>并称$g$为从$\langle M, \odot, e_M \rangle$到$\langle T, \circledast, e_T \rangle$的独异点同态映射</li>
+<li>给定独异点$\langle M, \odot \rangle$，则存在$T \subseteq M^M$，使$\langle M, \odot \rangle \simeq \langle T, \circ \rangle$</li>
+</ul>
+<h3>群</h3>
+<ul>
+<li>给定$\langle G, \odot \rangle$，若$\langle G, \odot \rangle$是独异点且每个元素存在逆元，则称$\langle G, \odot \rangle$是群</li>
+<li>给定群$\langle G, \odot \rangle$，若$G$是有限集，则称$\langle G, \odot \rangle$是有限群，并且把$G$的基数称为该有限群的阶数，若集合$G$是无穷的，则称$\langle G, \odot \rangle$为无穷群，若$\vert G \vert = 1$，则称$\langle G, \odot \rangle$为平凡群</li>
+<li>$\langle G, \odot \rangle$是群$\land \vert G \vert &gt; 1 \Rightarrow \langle G, \odot \rangle$无零元</li>
+<li>$\langle G, \odot \rangle$是群$\Rightarrow \langle G, \odot \rangle$中的唯一等幂元的幺元</li>
+<li>给定群$\langle G, \odot \rangle$</li>
+</ul>
+<p>$$
+(\forall a)(\forall b)(\forall c)(a, b, c \in G \land ((a \odot b = a \odot c \lor b \odot a = c \odot a) \rightarrow b=c))
+$$</p>
+<ul>
+<li>即群满足可约律</li>
+<li>给定群$\langle G, \odot \rangle$</li>
+</ul>
+<p>$$
+(\forall a)(\forall b)(a, b \in G \rightarrow (\exists !x)(x \in G \land a \odot x = b) \lor (\exists !y)(y \in G \land y \odot a = b))
+$$</p>
+<ul>
+<li>或</li>
+</ul>
+<p>$$
+(\forall a)(\forall b)(a, b \in G \rightarrow (\exists !x)(\exists y)(x, y \in G) \land (a \odot x = b \lor y \odot a = b))
+$$</p>
+<ul>
+<li>即群中方程解是唯一的</li>
+<li>设$\langle G, \odot \rangle$为群，$a \in G, n \in Z$，则$a$的$n$次幂为</li>
+</ul>
+<p>$$
+a^n = \begin{cases}
+e, &amp; n=0 \cr
+a^{n-1}, &amp; n &gt; 0 \cr
+(a^{-1})^m, &amp; n \langle  0, n = -m, m  \rangle 0
+\end{cases}
+$$</p>
+<ul>
+<li>
+<p>设$\langle G, \odot \rangle$为群</p>
+</li>
+<li>
+<p>$\forall a \in G, (a^{-1})^{-1}=a$</p>
+</li>
+<li>$\forall a, b \in G, (a \odot b)^{-1} = b^{-1} \odot a^{-1}$</li>
+<li>$\forall a \in G, m, n \in Z$，有$a^m \odot a^n = a^{m+n}$</li>
+<li>$\forall a \in G, m, n \in Z$，有$(a^m)^n=a^{mn}$</li>
+<li>
+<p>若$\langle G, \odot \rangle$为$Abel$群，则$(a \odot b)^n = a^n \odot b^n$</p>
+</li>
+<li>
+<p>给定群$\langle G, \odot \rangle$，若$\odot$是可交换的，则称$\langle G, \odot \rangle$是$Abel$群</p>
+</li>
+<li>给定群$\langle G, \odot \rangle$，且$a \in G$，幺元$e \in G$，则$a$的阶或周期为$n := (\exists k)(k \in Z_+ \land min_k{a^k=e}=n)$，并称$a$的阶是有限的，并记作$\vert a \vert = n$，否则$a$的阶为无穷</li>
+<li>给定群$\langle G, \odot \rangle, a \in G$，且$\vert a \vert = k, p$为整数，则$a^p = e \Leftrightarrow k \vert p$</li>
+<li>如果$a^n=e$且没有$n$ 的因子$d(1 \langle  d &lt; n)$使$a^d=e$，则$n$为$a$的阶</li>
+<li>给定群$&lt;G, \odot \rangle$及$a \in G$，则$a$与$a^{-1}$具有相同的阶</li>
+</ul>
+<h3>置换群与循环群</h3>
+<ul>
+<li>令$X$是非空有穷集合，从$X$到$X$的双射$p$，称为集合$X$中的置换，并称$\vert X \vert$为置换$p$的阶</li>
+<li>若$X = {x_1, x_2, \cdots, x_n}$，则$n$阶置换$p$表示为</li>
+</ul>
+<p>$$
+p=\begin{bmatrix}
+x_1 &amp; x_2 &amp; \cdots &amp; x_n \cr
+p(x_1) &amp; p(x_2) &amp; \cdots &amp; p(x_n)
+\end{bmatrix}
+$$</p>
+<ul>
+<li>并称</li>
+</ul>
+<p>$$
+\begin{bmatrix}
+p(x_1) &amp; p(x_2) &amp; \cdots &amp; p(x_n) \cr
+x_1 &amp; x_2 &amp; \cdots &amp; x_n
+\end{bmatrix}
+$$</p>
+<ul>
+<li>为$p$的反置换，记为$p^{-1}$，特别把置换</li>
+</ul>
+<p>$$
+\begin{bmatrix}
+x_1 &amp; x_2 &amp; \cdots &amp; x_n \cr
+x_1 &amp; x_2 &amp; \cdots &amp; x_n
+\end{bmatrix}
+$$</p>
+<ul>
+<li>称为$X$中的幺置换或恒等置换，记为$p_e$</li>
+<li>此外，用$P_X$表示集合$X$中的所有置换的集合</li>
+<li>若$X={x_1, x_2, \cdots, x_n}$，则$\vert P_X \vert = n!$</li>
+<li>给定集合$X$且$p_i, p_j \in P_X$，由$X$的元素先进行置换$p_i$后再做置换$p_j$所得到的置换 ，表示为$p_i \diamond p_j$，称$p_i \diamond p_j$是置换$p_i$和$p_j$的复合，$\diamond$是复合置换运算</li>
+<li>
+<p><strong>置换的性质：</strong></p>
+</li>
+<li>
+<p>$(\forall p_1)(\forall p_2)(p_1, p_2 \in P_X \rightarrow p_1 \diamond p_2 \in P_X \land p_2 \diamond p_1 \in P_X)$</p>
+</li>
+<li>$o(\forall p_1)(\forall p_2)(\forall p_3)(p_1, p_2, p_3 \in P_X \rightarrow (p_1 \diamond p_2) \diamond p_3 = p_1 \diamond (p_2 \diamond p_3))$</li>
+<li>$(\exists p_e)(p_e \in P_X \land (\forall p)(p \in P_X \rightarrow p_e \diamond p = p \diamond p_e = p))$</li>
+<li>
+<p>$(\forall p)(p \in P_X \rightarrow (\exists p^{-1})(p^{-1} \in P_X \land p \diamond p^{-1} = p^{-1} \diamond p = p_e))$</p>
+</li>
+<li>
+<p>$\langle P_X, \diamond \rangle$是一个群，并称它为对称群，习惯上记为$\langle S_{\vert X \vert}, \diamond \rangle$，若$Q \subseteq P_X = S_{\vert X \vert}$，则称由$Q$和 $\diamond$构成的群$\langle Q,\diamond \rangle$为置换群</p>
+</li>
+<li>令$\langle Q, \diamond \rangle$是一置换群且$Q \subseteq S_{\vert X \vert}$，称$R = {\langle a, b \rangle \mid a, b \in X \land p \in Q \land p(a)=b}$为由$\langle Q, \diamond \rangle$所诱导的$X$上的二元关系</li>
+<li>由$\langle Q, \diamond \rangle$诱导的$X$上的二元关系是一等价关系</li>
+<li>在有限群$\langle G, \odot \rangle$中，每行或每列都是$G$中元素的置换</li>
+<li>设$p$是集合$X = {x_1, x_2, \cdots, x_n }$上的$n$阶置换，若$p(x_1)=x_2, p(x_2)=x_3, \cdots, p(x_{k-1})=x_k, p(x_k)=x_1$，并且$X$中其余元素保持不变，则称$p$为$X$上的$k$阶轮换，记为$(x_1 x_2 \cdots x_k)$，若$k=2$时，称$p$为$X$上的对换</li>
+<li>设$X$上两个轮换$p_i$和$p_j$，若它们没有公共元，则称$p_i$与$p_j$不相交</li>
+<li>每个置换均可表示成不相交轮换的复合，并且在不计复合次序的情况下，其表示是唯一的</li>
+<li>任何置换都可以表示成对换的复合，但表示不唯一</li>
+<li>设$\langle G, \odot \rangle$是群，若$\exists g \in G$，对$\forall x \in G, \exists k \in Z$，有$x=g^k$，称$\langle G, \odot \rangle$是循环群，记作$G=\langle g \rangle$，称$g$是群$\langle G, \odot \rangle$的生成元</li>
+<li>
+<p>设$\langle G, \odot \rangle$是以$g$为生成元的循环群</p>
+</li>
+<li>
+<p>若$\langle G, \odot \rangle$是无限循环群，则群$\langle G, \odot \rangle$只有两个生成元，即$g$和$g^{-1}$</p>
+</li>
+<li>若$\langle G, \odot \rangle$是$n$阶循环群，则群$\langle G, \odot \rangle$含有$\phi(n)$个生成元，对于任何小于等于$n$且与$n$互素的正整数$p$，$g^p$是生产元，其中$\phi(n)$是欧拉函数（小于等于$n$与$n$互速度正整数数量）</li>
+</ul>
+<h3>子群与陪集</h3>
+<ul>
+<li>给定群$\langle G, \odot \rangle$及非空集合$H \subseteq G$，若$\langle H, \odot \rangle$是群，则称$\langle H, \odot \rangle$是群$\langle G, \odot \rangle$的子群，$\langle {e}, \odot \rangle, \langle G, \odot \rangle$为平凡子群，其余子群称为真子群</li>
+<li>$\langle H, \odot \rangle$是群$\langle G, \odot \rangle$的子群$\Rightarrow e_H=e_G$，其中$e_H$和$e_G$分别是$\langle H, \odot \rangle$和$\langle G, \odot \rangle$的幺元，即群与其子群具有相同幺元</li>
+<li>给定群$\langle G, \odot \rangle$及非空$H \subseteq G$，$\langle H, \odot \rangle$是$\langle G, \odot \rangle$的子群$\Leftrightarrow (\forall a)(\forall b)(a, b \in H \rightarrow a \odot b \in H) \land (\forall a)(a \in H \rightarrow a^{-1} \in H)$</li>
+<li>给定群$\langle G, \odot \rangle$及非空$H \subseteq G$，$\langle H, \odot \rangle$是$\langle G, \odot \rangle$的子群$(\forall a)(\forall b)(a, b \in H \rightarrow a \odot b^{-1} \in H)$</li>
+<li>给定群$\langle G, \odot \rangle$及非空有限集$H \subseteq G$，$\langle H, \odot \rangle$是$\langle G, \odot \rangle$的子群$\Leftrightarrow (\forall a)(\forall b)(a, b \in H \rightarrow a \odot b \in H)$</li>
+<li>群$\langle G, \odot \rangle$的中心为一集合，记作$cent(G):={a \mid a \in G \land (\forall x)(x \in G \rightarrow a \odot x = x \odot a)}$</li>
+<li>若$\langle G_1, \odot \rangle$和$\langle G_2, \odot \rangle$都是群$\langle G, \odot \rangle$的子群，则$\langle G_1 \cap G_2, \odot \rangle$也是群$\langle G, \odot \rangle$的子群</li>
+<li>循环群$\langle G, \odot \rangle$的任何子群都是循环群</li>
+<li>令$\langle H, \odot \rangle$是群$\langle G, \odot \rangle$的子群且$a \in G$，则把集合$a \odot H = {a \odot h \mid h \in H}$称为由元素$a$所确定的群$\langle G, \odot \rangle$中的$H$的左陪集，称$a$是左陪集$aH$的代表元素，类似定义右陪集$Ha$</li>
+<li>给定群$\langle G, \odot \rangle$子群$\langle H, \odot \rangle$的左陪集关系，记作$C_{H_l}:={\langle a, b \rangle \mid a, b \in G \land b^{-1} \odot a \in H}$</li>
+<li>若$\langle H, \odot \rangle$是群$\langle G, \odot \rangle$的子群，则$aH=H \Leftrightarrow a \in H$</li>
+<li>若$\langle H, \odot \rangle$是群$\langle G,\odot \rangle$的子群，则$aH=bH \Leftrightarrow b^{-1} \odot a \in H$</li>
+<li>左陪集$aH$中的任何元素$a_1$均可决定该陪集</li>
+<li>若$\langle H, \odot \rangle$是群$\langle G, \odot \rangle$的子群，则或者$aH \cap bH = \emptyset$或者$aH=bH$</li>
+<li>若$\langle H, \odot \rangle$的有限群$\langle G,\odot \rangle$的子群，$\vert G \vert = n, \vert H \vert = m$，则$n=mk, k \in Z_+$</li>
+<li>设群$\langle H, \odot \rangle$是群$\langle G, \odot \rangle$的子群，若对于$G$中任意元$a$，有$aH=Ha$，则称$\langle H, \odot \rangle$是群$\langle G, \odot \rangle$的正规子群</li>
+<li>给定群$\langle G, \odot \rangle$的子群$\langle H, \odot \rangle$，它是群$\langle G, \odot \rangle$的正规子群$\Leftrightarrow (\forall a)(a \in G \rightarrow aHa^{-1} \subseteq H)$</li>
+<li>群$\langle G, \odot \rangle$的正规子群$\langle H, \odot \rangle$所确定的左（或右）陪集关系$C_{H_l}$（或$C_{H_r}$）是同余关系</li>
+</ul>
+<h3>同态与同构</h3>
+<ul>
+<li>给定群$\langle G, \odot \rangle$和群$\langle H, \circledast \rangle$，则$\langle G, \odot \rangle \simeq \langle H, \circledast \rangle:=(\exists g)(g \in H^G \land (\forall a)(\forall b)(a, b \in G \rightarrow g(a \odot b)=g(a) \circledast g(b)))$，并称$g$是从群$\langle G, \odot \rangle$到群$\langle H, \circledast \rangle$的群同态映射</li>
+<li>
+<p>设$g$为从群$\langle G, \odot \rangle$到群$\langle H, \circledast \rangle$的群同态映射</p>
+</li>
+<li>
+<p>若$e_G$和$e_H$分别为两群的幺元，那么$g(e_G)=e_H$</p>
+</li>
+<li>若$a \in G$，那么$g(a^{-1})=(g(a))^{-1}$</li>
+<li>
+<p>若$\langle S, \odot \rangle$是群$\langle G, \odot \rangle$的子群且$g(S)={g(a) \mid a \in S}$，那么$\langle g(S), \circledast \rangle$为群$\langle H, \circledast \rangle$的子群</p>
+</li>
+<li>
+<p>给定群$\langle G, \odot \rangle$和代数系统$\langle H, \circledast \rangle$，若$g$是从群$\langle G, \odot \rangle$到$\langle H, \circledast \rangle$的满同态映射，则$\langle H, \circledast \rangle$是群</p>
+</li>
+<li>设$f$是从群$\langle G, \odot \rangle$到群$\langle H, \circledast \rangle$的群同态映射，$e_H$为$\langle H, \circledast \rangle$的幺元，记$K_f={k \mid f(k)=e_H \land k \in G}$，称$K_f$为群同态映射$f$的核</li>
+<li>若$f$是从$\langle G, \odot \rangle$到$\langle H, \circledast \rangle$的群同态映射，则$\langle K_f, \odot \rangle$是群$\langle G, \odot \rangle$的正规子群</li>
+<li>若$f$是从$\langle G, \odot \rangle$到$\langle H, \circledast \rangle$的群同态映射，则$f$是一对一的$\Leftrightarrow K_f={e_G}$</li>
+<li>若$f$是从$\langle G, \odot \rangle$到$\langle H, \circledast \rangle$的群同态映射,$C_{f_l}$为同态$f$的核$K_f$所确定的陪集关系，则$aC_{f_l}b \Leftrightarrow f(a)=f(b), a, b \in G$</li>
+</ul>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
