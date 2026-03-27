@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap">
-
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+    
     <link rel="stylesheet" href="/static/css/style.css">
     <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
 
@@ -26,12 +27,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/github.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.9.0/highlightjs-line-numbers.min.js"></script>
+    
+    <!-- Markdown-it -->
+    <script src="https://cdn.jsdelivr.net/npm/markdown-it@14.1.0/dist/markdown-it.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/markdown-it-texmath@1.0.0/texmath.min.js"></script>
 
     <script src="/static/js/use_hl.js"></script>
 
-    <!-- MathJax 支持 LaTeX -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6" defer></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <!-- KaTeX 支持 LaTeX -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
 
     <!-- 邮箱弹窗 -->
     <script>
@@ -49,23 +54,26 @@
         });
     </script>
 
-    <!-- LaTeX行内公式支持 -->
-    <script>
-        window.MathJax = {
-            tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']],
-                displayMath: [['$$', '$$'], ['\\[', '\\]']],
-                processEscapes: true
-            },
-            svg: {
-                fontCache: 'global'
-            }
-        };
-    </script>
 </head>
 
+<style>
+    .background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("/static/images/background.png");
+        background-size: cover;
+        background-position: center;
+        z-index: -1;
+        opacity: 0.7;
+    }
+</style>
+
 <body>
-    <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border fixed-top">
+    <div class="background"></div>
+    <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border fixed-top" style="opacity: 0.85;">
         <!-- 导航栏名称 -->
         <a class="navbar-brand ms-5" href="/">
             SchabeAntimonfeld</a>
@@ -113,158 +121,105 @@
 
 
 <!--个人资料卡-->
-<div class="card mb-4 text-center">
+<div class="card mb-4 text-center shadow">
     <img src="/static/images/avatar.jpg" class="card-img-top rounded-circle mx-auto mt-3" style="width: 120px; height: 120px; object-fit: cover;" alt="avatar">
     <div class="card-body text-center">
         <h5 class="card-title">Schabe Antimonfeld</h5>
-        <p class="card-text text-muted">AI × Coding × Minecraft</p>
+        
         <hr>
         <p>在读大学生</p>
         <p></p>
-        <p><i class="fab fa-github"></i> <a href="https://github.com/Schabe-Antimonfeld" target="_blank">GitHub</a></p>
+        <p><i class="fab fa-github"></i> <a href="https://github.com/Schabe-Antimonfeld" target="_blank" style="text-decoration: none;">GitHub</a></p>
         <hr>
         <p>友情链接</p>
         <p>
             <img src="/static/images/lonion.png" alt="图标" style="width:32px;height:32px;vertical-align:middle;margin-right:4px;">
-            <a href="https://lonion1124.github.io/" target="_blank">洋葱菌的博客</a>
+            <a href="https://lonion1124.github.io/" target="_blank" style="text-decoration: none;">洋葱菌的博客</a>
         </p>
         <p>
             <img src="/static/images/aaaaa.png" alt="图标" style="width:32px;height:32px;vertical-align:middle;margin-right:4px;">
-            <a href="https://aaaaa114514-1.github.io/" target="_blank">aaaaa online</a>
+            <a href="https://aaaaa114514-1.github.io/" target="_blank" style="text-decoration: none;">aaaaa online</a>
         </p>
     </div>
+</div>
 </div>
             </div>
 
             <!-- 主体内容 -->
             <div class="col-md-9 offset-md-3">
                 
-<h2>离散数学概念整理（四）：图论</h2>
+<div class="card mb-3 shadow">
+    <div class="card-body">
+        <h2>离散数学概念整理（四）：图论</h2>
 
-<!-- 主题标签 -->
-<p class="text-muted mb-1">
-    <i class="bi bi-tags text-primary"></i>
-    
-        <a href="/topics/6/" class="btn btn-sm btn-outline-primary text-decoration-none">数学</a>
-    
-</p>
+        <!-- 主题标签 -->
+        <p class="text-muted mb-1">
+            <i class="bi bi-tags text-primary"></i>
+            
+                <a href="/topics/6/" class="btn btn-sm btn-outline-primary text-decoration-none">数学</a>
+            
+        </p>
 
-<p class="card-text text-muted">
-    发布于 2025年11月25日 11:25
-</p>
+        <p class="card-text text-muted">
+            发布于 2025年11月25日 11:25
+        </p>
+    </div>
+</div>
 <hr>
 
                 
 <!-- 博客内容 -->
-<div class="card mb-3 shadow-sm">
+<div class="card mb-3 shadow">
     <div class="card-body">
-        <h2>图的基本概念及其矩阵表示</h2>
-<h3>基本概念</h3>
-<ul>
-<li>一个图$G$定义为一个二元组$\langle V, E \rangle$，记作$G=\langle V, E \rangle$，其中$V$是个非空有限集合，它的元素称为结点，$E$也是个有限集合，其元素为边，若$\vert V \vert = n$，则称$G=\langle V, E \rangle$是$n$阶图</li>
-<li>在图$G=\langle V, E \rangle$中，如果每条边都是弧，该图称为有向图，若每条边都是无向边，该图称为无向图，如果有些边是有向边，另一些边是无向边，该图称为混合图</li>
-<li>在图$\langle V, E \rangle$中，如果任何两节点间不多于一条边，并且任何节点无环，则称图$G$为简单图，若两结点间多于一条边，图$G$称为多重图，并把连接两节点之间的多条边称为平行边，平行边或弧的条数称为重数</li>
-<li>每条边都赋予权的图$G=\langle V, E \rangle$，称为加权图，记为$G=\langle V, E, W \rangle$，其中$W$表示各边之权的集合</li>
-<li>在简单无向图中，$G=\langle V, E \rangle$中，如果$V$中的每一个节点都与其他所有节点邻接，即$(\forall v_i)(\forall v_j)(v_i, v_j \in V \rightarrow [v_i, v_j] \in E)$，则该图称为完全无向图，记作$K_{|V|}$，若$|V|=n$，该图记作$K_n$</li>
-<li>在有向图$G=\langle V，E \rangle$中，任意结点$v\in V$，以$v$为始结点的弧的条数, 称为结点$v$的出度，记为$d^+(v)$，以$v$为终结点的弧的条数, 称为结点$v$的入度，记作$d^-(v)$，结点$v$的出度与入度之和, 称为结点的度数，记为$d($v$)$，显然$d(v)=d^+(v)+d^-(v)$</li>
-<li>对于无向图$G=\langle V，E \rangle$，结点$v \in V$的度数等于联结它的边数，也记为 $d(v)$。若结点$v$有环，规定该点度因环而增加2</li>
-<li>显然，对于孤立结点的度数为零</li>
-<li>对于无向图$G=\langle V，E \rangle$，记</li>
-</ul>
-<p>$$
-\Delta(G)或\Delta=max{d(v) \mid v \in V}
-$$</p>
-<p>$$
-\delta(G)或\delta=min{d(v) \mid v \in V}
-$$</p>
-<ul>
-<li>它们分别称为图G的最大度和最小度</li>
-<li>在任何无向图中，奇度结点的数目为偶数</li>
-<li>在无向图$G=\langle V, E \rangle$中，如果每个节点的度是$k$，即$(\forall v)(v \in V \rightarrow d(v)=k)$，则图$G$称为$k$度正则图</li>
-<li>
-<p>给定无向图 $G_1=\langle V_1, E_1 \rangle$ 和 $G_2=\langle  V_2, E_2 \rangle$，</p>
-</li>
-<li>
-<p>如果 $V_2 \subseteq V_1$ 和 $E_2 \subseteq E_1$，则称 $G_2$ 为 $G_1$ 的子图，记为 $G_2 \subseteq G_1$</p>
-</li>
-<li>如果 $V_2 \subseteq V_1,\; E_2 \subseteq E_1$ 且 $E_2 \neq E_1$，则称 $G_2$ 为 $G_1$ 的真子图，记为 $G_2 \subset G_1$</li>
-<li>
-<p>如果 $V_2 = V_1$，$E_2 \subseteq E_1$，则称 $G_2$ 为 $G_1$ 的生成子图，记为 $G_1 \subseteq G_2$</p>
-</li>
-<li>
-<p>设图$G_2=\langle V_2, E_2 \rangle$是图$G_1=\langle V_1, E_2 \rangle$的子图，若对$V_2$任意结点$u$和$v$，如果$[u, v] \in E_1$，有$[u,v] \in E_2$，则$G_2$由$V_2$唯一确定，并称$G_2$是结点集合$V_2$的诱导子图，记作$\langle V_2 \rangle$或$G[V_2]$，如果$G_2$无孤立结点，且由$E_2$唯一确定，则称$G_2$是边集$E_2$的诱导子图，记为$\langle E_2 \rangle$或$G[E_2]$</p>
-</li>
-<li>设图 $G_1=\langle  V_1, E_1 \rangle$ 和图 $G_2=\langle  V_2, E_2 \rangle$ 是图 $G=\langle  V, E \rangle$ 的子图，如果 $E_2 = E - E_1$ 且 $G_2=\langle  V, E_2 \rangle$ ，则称图 $G_2$ 是相对于图 $G$ 的子图 $G_1$ 的补图</li>
-<li>给定图 $G=\langle V, E \rangle$，若存在图 $G_1=\langle V, E_1 \rangle$，并且 $E_1 \cap E = \varnothing$ 且图 $\langle V, E_1 \cup E \rangle$ 是完全图，则称 $G_1$ 为相对于完全图的 $G$ 的补图，简称 $G_1$ 是 $G$ 的补图，并记为 $G_1=\overline{G}$</li>
-<li>给定无向图（或有向图） $G_1=\langle V_1, E_1 \rangle$ 和 $G_2=\langle V_2, E_2 \rangle$，若存在双射 $f : V_2^{V_1}$，使得对任意 $u, v \in V_1$，有$[u, v] \in E_1 \Leftrightarrow [f(u), f(v)] \in E_2$或$\langle u, v \rangle \in E_1 \Leftrightarrow \langle f(u), f(v) \rangle \in E_2$，则称 $G_1$ 同构于 $G_2$，记为 $G_1 \cong G_2$</li>
-</ul>
-<h3>链（或路）与圈（或回路）</h3>
-<ul>
-<li>给定无向图（或有向图） $G=\langle V, E \rangle$，若 $v_0, v_1, \ldots, v_m \in V$，边（或弧） $e_1, e_2, \ldots, e_m \in E$，其中 $v_{i-1}$、$v_i$ 是 $e_i$ 的结点，则交替序列$v_0 e_1 v_1 e_2 v_2 \cdots e_m v_m$称为连接 $v_0$ 到 $v_m$ 的链（或路），$v_0$ 和 $v_m$ 分别称为链（或路）的始结点和终结点，边（或弧）的数目称为链（或路）的长度，若 $v_0 = v_m$，该链（或路）称为 圈（或回路）</li>
-<li>一条链中，若出现的边都是不相同的，称该链为简单链，若出现的结点都是不相同的，称该链为基本链，显然每条基本链(或基本路)必定是简单链</li>
-<li>圈中，若出现的每条边恰好一次，称该圈为简单圈，若出现的每个结点恰好一次，称该圈为基本圈，可以看出，对于简单图，链和圈能够仅用结点序列表示</li>
-<li>在一个图中，若从结点$v_i$到结点$v_j$存在一条链，则必有一条从$v_i$到$v_j$ 的基本链</li>
-<li>
-<p>在一个具有$n$个结点的图中，则</p>
-</li>
-<li>
-<p>任何基本链的长度均不大于$n-1$</p>
-</li>
-<li>
-<p>任何基本圈的长度均不大于$n$</p>
-</li>
-<li>
-<p>在一个图中，若从 $v_i$ 到 $v_j$ 存在任何一条链，则称从 $v_i$ 到 $v_j$ 是可达的，或简称 $v_i$ 可达 $v_j$，为完全起见，规定每个结点到其自身是可达的</p>
-</li>
-<li>对于无向图 $G$ 来说，不难证明结点间的可达性是结点集合上的等价关系，因此，它将结点集合给出一个划分，并且划分中的每个元素形成一个诱导子图，两结点之间是可达的，当且仅当它们属于同一个子图，称这种子图为图 $G$ 的连通分图，图 $G$ 的连通分图的个数记为 $\omega(G)$</li>
-<li>若图$G$只有一个连通分图，则称$G$是连通图；否则称图$G$为非连通图或分离图</li>
-<li>从图 $G=\langle V, E \rangle$ 中删去结点集 $S$，是指取结点集 $V-S$，并从 $E$ 中删去所有与 $S$ 中结点相连接的边，从而得到的子图，记作 $G-S$，特别地，当 $S={v}$ 时，简记为 $G-v$</li>
-<li>从图 $G=\langle V, E \rangle$ 中删去边集 $T$，是指取边集 $E-T$，且 $T$ 中全部边所关联的结点仍在 $V$ 中，从而得到的子图，记作 $G-T$，特别地，当 $T={e}$ 时，简记为 $G-e$</li>
-<li>边 $e=(u, v)$ 的收缩，记为 $G \circ e$，是指从图 $G$ 中把 $e$ 删除，再令其两个端点重合为一个结点，并使其与 $e$ 的两端点所关联的边相关联</li>
-<li>若 $u, v \in V$，$u$ 和 $v$ 可能相邻，也可能不相邻，在 $u$ 和 $v$ 之间加入一条边 $(u, v)$ 称为加入新边，记为 $G + (u, v)$，或 $G \cup (u, v)$</li>
-<li>给定连通无向图 $G=\langle V, E \rangle$，$S \subseteq V$，若 $\omega(G - S) &gt; \omega(G)$，但对任意 $T \subset S$，均有 $\omega(G - T) = \omega(G)$，则称子集 $S$ 是图 $G$ 的一个分离结点集，若图 $G$ 的分离结点集 $S={v}$，则称 $v$ 是 $G$ 的割点，类似地，可定义图 $G$ 的分离边集 $T$，若图 $G$ 的分离边集 $T={e}$，则称边 $e$ 是 $G$ 的割边或桥</li>
-<li>连通非平凡图 $G$，称$\gamma(G)=\min_{S \subseteq V} {\, |S| \mid S是G 的分离结点集}$为图 $G$ 的结点连通度，它表明产生不连通图所需删去结点的最少数目，对于分离图 $G$，有 $\gamma(G)=0$，对于存在割点的连通图 $G$，有 $\gamma(G)=1$</li>
-<li>类似地，定义边连通度$\lambda(G)=\min_{T \subseteq E} {|T| \mid T是G的分离边集}$，它表明产生不连通图所需删去边的最少数目，可见，对于分离图 $G$，有$\lambda(G)=0$，对于图 $K_1$，有$\lambda(K_1)=0$，对于存在割边的连通图 $G$，有$\lambda(G)=1$，对于完全图 $K_n$，有 $\lambda(K_n)=n-1$</li>
-<li>对于任何一个无向图$G$，有  $\gamma(G) ≤ \lambda(G) ≤ \delta(G)$</li>
-<li>一个连通无向图$G$中的结点$v$是割点$\Leftrightarrow$存在两个结点$u$和$w$，使得联结$u$和$w$的每条链都经过$v$</li>
-<li>一个连通无向图$G$中的边$e$是割边$\Leftrightarrow$存在两个结点$u$和$w$，使得联结$u$与$w$的每条链都经过$e$</li>
-<li>连通无向图$G$中的一条边$e$是割边$\Leftrightarrow e$不包含在图的任何基本圈中</li>
-<li>简单有向图$G$中，若$G$中任何两个结点间都是可达的，则称$G$是强连通的，若任何两个结点间至少是从一个结点可达另一个结点，则称$G$是单向连通的，若有向图$G$不是单向连通的，但其基础图是连通的，则称$G$是弱连通的</li>
-<li>令$G$是简单有向图，对于某种性质而言，若$G$中再没有其它包含子图$G_1$的真子图，具有这种性质，则称$G_1$是$G$的关于这种性质的极大子图</li>
-<li>在简单有向图中，具有强连通性质的极大子图，称为强分图，具有单向连通性质的极大子图，称为单向分图，具有弱连通性质的极大子图，称为弱分图</li>
-<li>简单有向图中的任一个结点恰位于一个强分图中</li>
-<li>简单有向图中的每个结点和每条弧至少位于一个单向分图中</li>
-<li>简单有向图中的每个结点和每条弧恰位于一个弱分图中</li>
-</ul>
-<h2>几类重要的图</h2>
-<h3>欧拉图</h3>
-<ul>
-<li>图$G$中的一个圈，若它通过图$G$中的每一条边恰好一次，则称该圈为欧拉圈，具有这种圈的图称为欧拉图</li>
-<li>给定连通无向图$G$，$G$有欧拉圈$\Leftrightarrow G$中每个结点都是偶度结点</li>
-<li>图$G$中的一条链，若它通过$G$中的每条边恰好一次，则称该链为欧拉链</li>
-<li>给定连通无向图$G=\langle V，E \rangle，u，v∈V$且$u \neq v$，$u$与$v$间存在欧拉链$\Leftrightarrow G$中仅有$u$和$v$为奇度结点</li>
-</ul>
-<h3>哈密顿图</h3>
-<ul>
-<li>图$G$中的一个圈，若它通过$G$中每个结点恰好一次，则该圈称为哈密顿圈，具有哈密顿圈的图称为哈密顿图</li>
-<li>图G中的一条链，若它通过$G$中的每个结点恰好一次，则该链称为哈密顿链</li>
-<li>若连通图$G=\langle V，E \rangle$是哈密尔顿图，$S$是$V$的任意真子集，则$\omega(G-S) \leq |S|$ (必要条件)</li>
-<li>设$G=\langle V，E \rangle$是$|V|=n \geq 3$阶简单图。若$u,v \in V$有$d(u)+d(v) \geq n-1$，则在$G$中存在一条哈密顿链，若$d(u)+d(v) \geq n$，则$G$是哈密顿图</li>
-<li>给定简单图$G=\langle V，E \rangle$，若$|V| \geq 3，d \geq |V|/2$，则$G$是哈密顿图</li>
-<li>给定连通图 $G=\langle V, E \rangle$，$|V| = n \ge 3$。若 $u, v \in V$，$u$ 与 $v$ 不邻接且$d(u) + d(v) \ge n$，则 $G$ 是哈密顿图当且仅当 $G + [u, v]$ 是哈密顿图</li>
-<li>给定连通图$G=\langle V，E \rangle，|V|=n$，图$G$的闭包是由$G$通过相继地用边连接两个其度之和至少为$n$的不邻接结点，直到不能如此进行为止得到的图，用$C(G)$表示图$G$的闭包</li>
-<li>图$G$的闭包$C(G)$是惟一确定的</li>
-<li>简单连通无向图$G$是哈密尔顿图当且仅当$C(G)$是哈密顿图</li>
-<li>给定简单无向图$G= \langle V，E \rangle，|V|≥3$，若$C(G)$是完全图，则图$G$是哈密顿图</li>
-</ul>
-<h3>二部图</h3>
-<ul>
-<li>给定简单无向图 $G=\langle V, E \rangle$，且 $V = V_1 \cup V_2$，$V_1 \cap V_2 = \emptyset$，若 $V_1$ 和 $V_2$ 的诱导子图 $\langle V_1 \rangle$ 和 $\langle V_2 \rangle$ 都是零图，则称 $G$ 是二部图或偶图，并将二部图记作 $G=\langle V_1, E, V_2 \rangle$，并称 $V_1, V_2$ 是 $V$ 的划分</li>
-<li>在二部图 $G=\langle V_1, E, V_2 \rangle$ 中，若 $|V_1| = m$，$|V_2| = n$，且对任意 $u \in V_1$、$v \in V_2$ 均有$[u, v] \in E$，则称图 $G$ 为完全二部图，记为 $K_{m,n}$</li>
-<li>简单图$G$为二部图当且仅当$G$中无奇圈</li>
-</ul>
+        <script id="markdown-source" type="application/json">"## \u56fe\u7684\u57fa\u672c\u6982\u5ff5\u53ca\u5176\u77e9\u9635\u8868\u793a\r\n\r\n### \u57fa\u672c\u6982\u5ff5\r\n\r\n- \u4e00\u4e2a\u56fe$G$\u5b9a\u4e49\u4e3a\u4e00\u4e2a\u4e8c\u5143\u7ec4$\\langle V, E \\rangle$\uff0c\u8bb0\u4f5c$G=\\langle V, E \\rangle$\uff0c\u5176\u4e2d$V$\u662f\u4e2a\u975e\u7a7a\u6709\u9650\u96c6\u5408\uff0c\u5b83\u7684\u5143\u7d20\u79f0\u4e3a\u7ed3\u70b9\uff0c$E$\u4e5f\u662f\u4e2a\u6709\u9650\u96c6\u5408\uff0c\u5176\u5143\u7d20\u4e3a\u8fb9\uff0c\u82e5$\\vert V \\vert = n$\uff0c\u5219\u79f0$G=\\langle V, E \\rangle$\u662f$n$\u9636\u56fe\r\n- \u5728\u56fe$G=\\langle V, E \\rangle$\u4e2d\uff0c\u5982\u679c\u6bcf\u6761\u8fb9\u90fd\u662f\u5f27\uff0c\u8be5\u56fe\u79f0\u4e3a\u6709\u5411\u56fe\uff0c\u82e5\u6bcf\u6761\u8fb9\u90fd\u662f\u65e0\u5411\u8fb9\uff0c\u8be5\u56fe\u79f0\u4e3a\u65e0\u5411\u56fe\uff0c\u5982\u679c\u6709\u4e9b\u8fb9\u662f\u6709\u5411\u8fb9\uff0c\u53e6\u4e00\u4e9b\u8fb9\u662f\u65e0\u5411\u8fb9\uff0c\u8be5\u56fe\u79f0\u4e3a\u6df7\u5408\u56fe\r\n- \u5728\u56fe$\\langle V, E \\rangle$\u4e2d\uff0c\u5982\u679c\u4efb\u4f55\u4e24\u8282\u70b9\u95f4\u4e0d\u591a\u4e8e\u4e00\u6761\u8fb9\uff0c\u5e76\u4e14\u4efb\u4f55\u8282\u70b9\u65e0\u73af\uff0c\u5219\u79f0\u56fe$G$\u4e3a\u7b80\u5355\u56fe\uff0c\u82e5\u4e24\u7ed3\u70b9\u95f4\u591a\u4e8e\u4e00\u6761\u8fb9\uff0c\u56fe$G$\u79f0\u4e3a\u591a\u91cd\u56fe\uff0c\u5e76\u628a\u8fde\u63a5\u4e24\u8282\u70b9\u4e4b\u95f4\u7684\u591a\u6761\u8fb9\u79f0\u4e3a\u5e73\u884c\u8fb9\uff0c\u5e73\u884c\u8fb9\u6216\u5f27\u7684\u6761\u6570\u79f0\u4e3a\u91cd\u6570\r\n- \u6bcf\u6761\u8fb9\u90fd\u8d4b\u4e88\u6743\u7684\u56fe$G=\\langle V, E \\rangle$\uff0c\u79f0\u4e3a\u52a0\u6743\u56fe\uff0c\u8bb0\u4e3a$G=\\langle V, E, W \\rangle$\uff0c\u5176\u4e2d$W$\u8868\u793a\u5404\u8fb9\u4e4b\u6743\u7684\u96c6\u5408\r\n- \u5728\u7b80\u5355\u65e0\u5411\u56fe\u4e2d\uff0c$G=\\langle V, E \\rangle$\u4e2d\uff0c\u5982\u679c$V$\u4e2d\u7684\u6bcf\u4e00\u4e2a\u8282\u70b9\u90fd\u4e0e\u5176\u4ed6\u6240\u6709\u8282\u70b9\u90bb\u63a5\uff0c\u5373$(\\forall v_i)(\\forall v_j)(v_i, v_j \\in V \\rightarrow [v_i, v_j] \\in E)$\uff0c\u5219\u8be5\u56fe\u79f0\u4e3a\u5b8c\u5168\u65e0\u5411\u56fe\uff0c\u8bb0\u4f5c$K_{|V|}$\uff0c\u82e5$|V|=n$\uff0c\u8be5\u56fe\u8bb0\u4f5c$K_n$\r\n- \u5728\u6709\u5411\u56fe$G=\\langle V\uff0cE \\rangle$\u4e2d\uff0c\u4efb\u610f\u7ed3\u70b9$v\\in V$\uff0c\u4ee5$v$\u4e3a\u59cb\u7ed3\u70b9\u7684\u5f27\u7684\u6761\u6570, \u79f0\u4e3a\u7ed3\u70b9$v$\u7684\u51fa\u5ea6\uff0c\u8bb0\u4e3a$d^+(v)$\uff0c\u4ee5$v$\u4e3a\u7ec8\u7ed3\u70b9\u7684\u5f27\u7684\u6761\u6570, \u79f0\u4e3a\u7ed3\u70b9$v$\u7684\u5165\u5ea6\uff0c\u8bb0\u4f5c$d^-(v)$\uff0c\u7ed3\u70b9$v$\u7684\u51fa\u5ea6\u4e0e\u5165\u5ea6\u4e4b\u548c, \u79f0\u4e3a\u7ed3\u70b9\u7684\u5ea6\u6570\uff0c\u8bb0\u4e3a$d($v$)$\uff0c\u663e\u7136$d(v)=d^+(v)+d^-(v)$\r\n- \u5bf9\u4e8e\u65e0\u5411\u56fe$G=\\langle V\uff0cE \\rangle$\uff0c\u7ed3\u70b9$v \\in V$\u7684\u5ea6\u6570\u7b49\u4e8e\u8054\u7ed3\u5b83\u7684\u8fb9\u6570\uff0c\u4e5f\u8bb0\u4e3a $d(v)$\u3002\u82e5\u7ed3\u70b9$v$\u6709\u73af\uff0c\u89c4\u5b9a\u8be5\u70b9\u5ea6\u56e0\u73af\u800c\u589e\u52a02\r\n- \u663e\u7136\uff0c\u5bf9\u4e8e\u5b64\u7acb\u7ed3\u70b9\u7684\u5ea6\u6570\u4e3a\u96f6\r\n- \u5bf9\u4e8e\u65e0\u5411\u56fe$G=\\langle V\uff0cE \\rangle$\uff0c\u8bb0\r\n\r\n$$\r\n\\Delta(G)\u6216\\Delta=max{d(v) \\mid v \\in V}\r\n$$\r\n\r\n$$\r\n\\delta(G)\u6216\\delta=min{d(v) \\mid v \\in V}\r\n$$\r\n\r\n- \u5b83\u4eec\u5206\u522b\u79f0\u4e3a\u56feG\u7684\u6700\u5927\u5ea6\u548c\u6700\u5c0f\u5ea6\r\n- \u5728\u4efb\u4f55\u65e0\u5411\u56fe\u4e2d\uff0c\u5947\u5ea6\u7ed3\u70b9\u7684\u6570\u76ee\u4e3a\u5076\u6570\r\n- \u5728\u65e0\u5411\u56fe$G=\\langle V, E \\rangle$\u4e2d\uff0c\u5982\u679c\u6bcf\u4e2a\u8282\u70b9\u7684\u5ea6\u662f$k$\uff0c\u5373$(\\forall v)(v \\in V \\rightarrow d(v)=k)$\uff0c\u5219\u56fe$G$\u79f0\u4e3a$k$\u5ea6\u6b63\u5219\u56fe\r\n- \u7ed9\u5b9a\u65e0\u5411\u56fe $G_1=\\langle V_1, E_1 \\rangle$ \u548c $G_2=\\langle  V_2, E_2 \\rangle$\uff0c\r\n\r\n1. \u5982\u679c $V_2 \\subseteq V_1$ \u548c $E_2 \\subseteq E_1$\uff0c\u5219\u79f0 $G_2$ \u4e3a $G_1$ \u7684\u5b50\u56fe\uff0c\u8bb0\u4e3a $G_2 \\subseteq G_1$\r\n2. \u5982\u679c $V_2 \\subseteq V_1,\\; E_2 \\subseteq E_1$ \u4e14 $E_2 \\neq E_1$\uff0c\u5219\u79f0 $G_2$ \u4e3a $G_1$ \u7684\u771f\u5b50\u56fe\uff0c\u8bb0\u4e3a $G_2 \\subset G_1$\r\n3. \u5982\u679c $V_2 = V_1$\uff0c$E_2 \\subseteq E_1$\uff0c\u5219\u79f0 $G_2$ \u4e3a $G_1$ \u7684\u751f\u6210\u5b50\u56fe\uff0c\u8bb0\u4e3a $G_1 \\subseteq G_2$\r\n\r\n- \u8bbe\u56fe$G_2=\\langle V_2, E_2 \\rangle$\u662f\u56fe$G_1=\\langle V_1, E_2 \\rangle$\u7684\u5b50\u56fe\uff0c\u82e5\u5bf9$V_2$\u4efb\u610f\u7ed3\u70b9$u$\u548c$v$\uff0c\u5982\u679c$[u, v] \\in E_1$\uff0c\u6709$[u,v] \\in E_2$\uff0c\u5219$G_2$\u7531$V_2$\u552f\u4e00\u786e\u5b9a\uff0c\u5e76\u79f0$G_2$\u662f\u7ed3\u70b9\u96c6\u5408$V_2$\u7684\u8bf1\u5bfc\u5b50\u56fe\uff0c\u8bb0\u4f5c$\\langle V_2 \\rangle$\u6216$G[V_2]$\uff0c\u5982\u679c$G_2$\u65e0\u5b64\u7acb\u7ed3\u70b9\uff0c\u4e14\u7531$E_2$\u552f\u4e00\u786e\u5b9a\uff0c\u5219\u79f0$G_2$\u662f\u8fb9\u96c6$E_2$\u7684\u8bf1\u5bfc\u5b50\u56fe\uff0c\u8bb0\u4e3a$\\langle E_2 \\rangle$\u6216$G[E_2]$\r\n- \u8bbe\u56fe $G_1=\\langle  V_1, E_1 \\rangle$ \u548c\u56fe $G_2=\\langle  V_2, E_2 \\rangle$ \u662f\u56fe $G=\\langle  V, E \\rangle$ \u7684\u5b50\u56fe\uff0c\u5982\u679c $E_2 = E - E_1$ \u4e14 $G_2=\\langle  V, E_2 \\rangle$ \uff0c\u5219\u79f0\u56fe $G_2$ \u662f\u76f8\u5bf9\u4e8e\u56fe $G$ \u7684\u5b50\u56fe $G_1$ \u7684\u8865\u56fe\r\n- \u7ed9\u5b9a\u56fe $G=\\langle V, E \\rangle$\uff0c\u82e5\u5b58\u5728\u56fe $G_1=\\langle V, E_1 \\rangle$\uff0c\u5e76\u4e14 $E_1 \\cap E = \\varnothing$ \u4e14\u56fe $\\langle V, E_1 \\cup E \\rangle$ \u662f\u5b8c\u5168\u56fe\uff0c\u5219\u79f0 $G_1$ \u4e3a\u76f8\u5bf9\u4e8e\u5b8c\u5168\u56fe\u7684 $G$ \u7684\u8865\u56fe\uff0c\u7b80\u79f0 $G_1$ \u662f $G$ \u7684\u8865\u56fe\uff0c\u5e76\u8bb0\u4e3a $G_1=\\overline{G}$\r\n- \u7ed9\u5b9a\u65e0\u5411\u56fe\uff08\u6216\u6709\u5411\u56fe\uff09 $G_1=\\langle V_1, E_1 \\rangle$ \u548c $G_2=\\langle V_2, E_2 \\rangle$\uff0c\u82e5\u5b58\u5728\u53cc\u5c04 $f : V_2^{V_1}$\uff0c\u4f7f\u5f97\u5bf9\u4efb\u610f $u, v \\in V_1$\uff0c\u6709$[u, v] \\in E_1 \\Leftrightarrow [f(u), f(v)] \\in E_2$\u6216$\\langle u, v \\rangle \\in E_1 \\Leftrightarrow \\langle f(u), f(v) \\rangle \\in E_2$\uff0c\u5219\u79f0 $G_1$ \u540c\u6784\u4e8e $G_2$\uff0c\u8bb0\u4e3a $G_1 \\cong G_2$\r\n\r\n### \u94fe\uff08\u6216\u8def\uff09\u4e0e\u5708\uff08\u6216\u56de\u8def\uff09\r\n\r\n- \u7ed9\u5b9a\u65e0\u5411\u56fe\uff08\u6216\u6709\u5411\u56fe\uff09 $G=\\langle V, E \\rangle$\uff0c\u82e5 $v_0, v_1, \\ldots, v_m \\in V$\uff0c\u8fb9\uff08\u6216\u5f27\uff09 $e_1, e_2, \\ldots, e_m \\in E$\uff0c\u5176\u4e2d $v_{i-1}$\u3001$v_i$ \u662f $e_i$ \u7684\u7ed3\u70b9\uff0c\u5219\u4ea4\u66ff\u5e8f\u5217$v_0 e_1 v_1 e_2 v_2 \\cdots e_m v_m$\u79f0\u4e3a\u8fde\u63a5 $v_0$ \u5230 $v_m$ \u7684\u94fe\uff08\u6216\u8def\uff09\uff0c$v_0$ \u548c $v_m$ \u5206\u522b\u79f0\u4e3a\u94fe\uff08\u6216\u8def\uff09\u7684\u59cb\u7ed3\u70b9\u548c\u7ec8\u7ed3\u70b9\uff0c\u8fb9\uff08\u6216\u5f27\uff09\u7684\u6570\u76ee\u79f0\u4e3a\u94fe\uff08\u6216\u8def\uff09\u7684\u957f\u5ea6\uff0c\u82e5 $v_0 = v_m$\uff0c\u8be5\u94fe\uff08\u6216\u8def\uff09\u79f0\u4e3a \u5708\uff08\u6216\u56de\u8def\uff09\r\n- \u4e00\u6761\u94fe\u4e2d\uff0c\u82e5\u51fa\u73b0\u7684\u8fb9\u90fd\u662f\u4e0d\u76f8\u540c\u7684\uff0c\u79f0\u8be5\u94fe\u4e3a\u7b80\u5355\u94fe\uff0c\u82e5\u51fa\u73b0\u7684\u7ed3\u70b9\u90fd\u662f\u4e0d\u76f8\u540c\u7684\uff0c\u79f0\u8be5\u94fe\u4e3a\u57fa\u672c\u94fe\uff0c\u663e\u7136\u6bcf\u6761\u57fa\u672c\u94fe(\u6216\u57fa\u672c\u8def)\u5fc5\u5b9a\u662f\u7b80\u5355\u94fe\r\n- \u5708\u4e2d\uff0c\u82e5\u51fa\u73b0\u7684\u6bcf\u6761\u8fb9\u6070\u597d\u4e00\u6b21\uff0c\u79f0\u8be5\u5708\u4e3a\u7b80\u5355\u5708\uff0c\u82e5\u51fa\u73b0\u7684\u6bcf\u4e2a\u7ed3\u70b9\u6070\u597d\u4e00\u6b21\uff0c\u79f0\u8be5\u5708\u4e3a\u57fa\u672c\u5708\uff0c\u53ef\u4ee5\u770b\u51fa\uff0c\u5bf9\u4e8e\u7b80\u5355\u56fe\uff0c\u94fe\u548c\u5708\u80fd\u591f\u4ec5\u7528\u7ed3\u70b9\u5e8f\u5217\u8868\u793a\r\n- \u5728\u4e00\u4e2a\u56fe\u4e2d\uff0c\u82e5\u4ece\u7ed3\u70b9$v_i$\u5230\u7ed3\u70b9$v_j$\u5b58\u5728\u4e00\u6761\u94fe\uff0c\u5219\u5fc5\u6709\u4e00\u6761\u4ece$v_i$\u5230$v_j$ \u7684\u57fa\u672c\u94fe\r\n- \u5728\u4e00\u4e2a\u5177\u6709$n$\u4e2a\u7ed3\u70b9\u7684\u56fe\u4e2d\uff0c\u5219\r\n\r\n1. \u4efb\u4f55\u57fa\u672c\u94fe\u7684\u957f\u5ea6\u5747\u4e0d\u5927\u4e8e$n-1$\r\n2. \u4efb\u4f55\u57fa\u672c\u5708\u7684\u957f\u5ea6\u5747\u4e0d\u5927\u4e8e$n$\r\n\r\n- \u5728\u4e00\u4e2a\u56fe\u4e2d\uff0c\u82e5\u4ece $v_i$ \u5230 $v_j$ \u5b58\u5728\u4efb\u4f55\u4e00\u6761\u94fe\uff0c\u5219\u79f0\u4ece $v_i$ \u5230 $v_j$ \u662f\u53ef\u8fbe\u7684\uff0c\u6216\u7b80\u79f0 $v_i$ \u53ef\u8fbe $v_j$\uff0c\u4e3a\u5b8c\u5168\u8d77\u89c1\uff0c\u89c4\u5b9a\u6bcf\u4e2a\u7ed3\u70b9\u5230\u5176\u81ea\u8eab\u662f\u53ef\u8fbe\u7684\r\n- \u5bf9\u4e8e\u65e0\u5411\u56fe $G$ \u6765\u8bf4\uff0c\u4e0d\u96be\u8bc1\u660e\u7ed3\u70b9\u95f4\u7684\u53ef\u8fbe\u6027\u662f\u7ed3\u70b9\u96c6\u5408\u4e0a\u7684\u7b49\u4ef7\u5173\u7cfb\uff0c\u56e0\u6b64\uff0c\u5b83\u5c06\u7ed3\u70b9\u96c6\u5408\u7ed9\u51fa\u4e00\u4e2a\u5212\u5206\uff0c\u5e76\u4e14\u5212\u5206\u4e2d\u7684\u6bcf\u4e2a\u5143\u7d20\u5f62\u6210\u4e00\u4e2a\u8bf1\u5bfc\u5b50\u56fe\uff0c\u4e24\u7ed3\u70b9\u4e4b\u95f4\u662f\u53ef\u8fbe\u7684\uff0c\u5f53\u4e14\u4ec5\u5f53\u5b83\u4eec\u5c5e\u4e8e\u540c\u4e00\u4e2a\u5b50\u56fe\uff0c\u79f0\u8fd9\u79cd\u5b50\u56fe\u4e3a\u56fe $G$ \u7684\u8fde\u901a\u5206\u56fe\uff0c\u56fe $G$ \u7684\u8fde\u901a\u5206\u56fe\u7684\u4e2a\u6570\u8bb0\u4e3a $\\omega(G)$\r\n- \u82e5\u56fe$G$\u53ea\u6709\u4e00\u4e2a\u8fde\u901a\u5206\u56fe\uff0c\u5219\u79f0$G$\u662f\u8fde\u901a\u56fe\uff1b\u5426\u5219\u79f0\u56fe$G$\u4e3a\u975e\u8fde\u901a\u56fe\u6216\u5206\u79bb\u56fe\r\n- \u4ece\u56fe $G=\\langle V, E \\rangle$ \u4e2d\u5220\u53bb\u7ed3\u70b9\u96c6 $S$\uff0c\u662f\u6307\u53d6\u7ed3\u70b9\u96c6 $V-S$\uff0c\u5e76\u4ece $E$ \u4e2d\u5220\u53bb\u6240\u6709\u4e0e $S$ \u4e2d\u7ed3\u70b9\u76f8\u8fde\u63a5\u7684\u8fb9\uff0c\u4ece\u800c\u5f97\u5230\u7684\u5b50\u56fe\uff0c\u8bb0\u4f5c $G-S$\uff0c\u7279\u522b\u5730\uff0c\u5f53 $S=\\{v\\}$ \u65f6\uff0c\u7b80\u8bb0\u4e3a $G-v$\r\n- \u4ece\u56fe $G=\\langle V, E \\rangle$ \u4e2d\u5220\u53bb\u8fb9\u96c6 $T$\uff0c\u662f\u6307\u53d6\u8fb9\u96c6 $E-T$\uff0c\u4e14 $T$ \u4e2d\u5168\u90e8\u8fb9\u6240\u5173\u8054\u7684\u7ed3\u70b9\u4ecd\u5728 $V$ \u4e2d\uff0c\u4ece\u800c\u5f97\u5230\u7684\u5b50\u56fe\uff0c\u8bb0\u4f5c $G-T$\uff0c\u7279\u522b\u5730\uff0c\u5f53 $T=\\{e\\}$ \u65f6\uff0c\u7b80\u8bb0\u4e3a $G-e$\r\n- \u8fb9 $e=(u, v)$ \u7684\u6536\u7f29\uff0c\u8bb0\u4e3a $G \\circ e$\uff0c\u662f\u6307\u4ece\u56fe $G$ \u4e2d\u628a $e$ \u5220\u9664\uff0c\u518d\u4ee4\u5176\u4e24\u4e2a\u7aef\u70b9\u91cd\u5408\u4e3a\u4e00\u4e2a\u7ed3\u70b9\uff0c\u5e76\u4f7f\u5176\u4e0e $e$ \u7684\u4e24\u7aef\u70b9\u6240\u5173\u8054\u7684\u8fb9\u76f8\u5173\u8054\r\n- \u82e5 $u, v \\in V$\uff0c$u$ \u548c $v$ \u53ef\u80fd\u76f8\u90bb\uff0c\u4e5f\u53ef\u80fd\u4e0d\u76f8\u90bb\uff0c\u5728 $u$ \u548c $v$ \u4e4b\u95f4\u52a0\u5165\u4e00\u6761\u8fb9 $(u, v)$ \u79f0\u4e3a\u52a0\u5165\u65b0\u8fb9\uff0c\u8bb0\u4e3a $G + (u, v)$\uff0c\u6216 $G \\cup (u, v)$\r\n- \u7ed9\u5b9a\u8fde\u901a\u65e0\u5411\u56fe $G=\\langle V, E \\rangle$\uff0c$S \\subseteq V$\uff0c\u82e5 $\\omega(G - S) \u003E \\omega(G)$\uff0c\u4f46\u5bf9\u4efb\u610f $T \\subset S$\uff0c\u5747\u6709 $\\omega(G - T) = \\omega(G)$\uff0c\u5219\u79f0\u5b50\u96c6 $S$ \u662f\u56fe $G$ \u7684\u4e00\u4e2a\u5206\u79bb\u7ed3\u70b9\u96c6\uff0c\u82e5\u56fe $G$ \u7684\u5206\u79bb\u7ed3\u70b9\u96c6 $S=\\{v\\}$\uff0c\u5219\u79f0 $v$ \u662f $G$ \u7684\u5272\u70b9\uff0c\u7c7b\u4f3c\u5730\uff0c\u53ef\u5b9a\u4e49\u56fe $G$ \u7684\u5206\u79bb\u8fb9\u96c6 $T$\uff0c\u82e5\u56fe $G$ \u7684\u5206\u79bb\u8fb9\u96c6 $T=\\{e\\}$\uff0c\u5219\u79f0\u8fb9 $e$ \u662f $G$ \u7684\u5272\u8fb9\u6216\u6865\r\n- \u8fde\u901a\u975e\u5e73\u51e1\u56fe $G$\uff0c\u79f0$\\gamma(G)=\\min_{S \\subseteq V} \\{\\, |S| \\mid S\u662fG \u7684\u5206\u79bb\u7ed3\u70b9\u96c6\\}$\u4e3a\u56fe $G$ \u7684\u7ed3\u70b9\u8fde\u901a\u5ea6\uff0c\u5b83\u8868\u660e\u4ea7\u751f\u4e0d\u8fde\u901a\u56fe\u6240\u9700\u5220\u53bb\u7ed3\u70b9\u7684\u6700\u5c11\u6570\u76ee\uff0c\u5bf9\u4e8e\u5206\u79bb\u56fe $G$\uff0c\u6709 $\\gamma(G)=0$\uff0c\u5bf9\u4e8e\u5b58\u5728\u5272\u70b9\u7684\u8fde\u901a\u56fe $G$\uff0c\u6709 $\\gamma(G)=1$\r\n- \u7c7b\u4f3c\u5730\uff0c\u5b9a\u4e49\u8fb9\u8fde\u901a\u5ea6$\\lambda(G)=\\min_{T \\subseteq E} \\{|T| \\mid T\u662fG\u7684\u5206\u79bb\u8fb9\u96c6\\}$\uff0c\u5b83\u8868\u660e\u4ea7\u751f\u4e0d\u8fde\u901a\u56fe\u6240\u9700\u5220\u53bb\u8fb9\u7684\u6700\u5c11\u6570\u76ee\uff0c\u53ef\u89c1\uff0c\u5bf9\u4e8e\u5206\u79bb\u56fe $G$\uff0c\u6709$\\lambda(G)=0$\uff0c\u5bf9\u4e8e\u56fe $K_1$\uff0c\u6709$\\lambda(K_1)=0$\uff0c\u5bf9\u4e8e\u5b58\u5728\u5272\u8fb9\u7684\u8fde\u901a\u56fe $G$\uff0c\u6709$\\lambda(G)=1$\uff0c\u5bf9\u4e8e\u5b8c\u5168\u56fe $K_n$\uff0c\u6709 $\\lambda(K_n)=n-1$\r\n- \u5bf9\u4e8e\u4efb\u4f55\u4e00\u4e2a\u65e0\u5411\u56fe$G$\uff0c\u6709  $\\gamma(G) \u2264 \\lambda(G) \u2264 \\delta(G)$\r\n- \u4e00\u4e2a\u8fde\u901a\u65e0\u5411\u56fe$G$\u4e2d\u7684\u7ed3\u70b9$v$\u662f\u5272\u70b9$\\Leftrightarrow$\u5b58\u5728\u4e24\u4e2a\u7ed3\u70b9$u$\u548c$w$\uff0c\u4f7f\u5f97\u8054\u7ed3$u$\u548c$w$\u7684\u6bcf\u6761\u94fe\u90fd\u7ecf\u8fc7$v$\r\n- \u4e00\u4e2a\u8fde\u901a\u65e0\u5411\u56fe$G$\u4e2d\u7684\u8fb9$e$\u662f\u5272\u8fb9$\\Leftrightarrow$\u5b58\u5728\u4e24\u4e2a\u7ed3\u70b9$u$\u548c$w$\uff0c\u4f7f\u5f97\u8054\u7ed3$u$\u4e0e$w$\u7684\u6bcf\u6761\u94fe\u90fd\u7ecf\u8fc7$e$\r\n- \u8fde\u901a\u65e0\u5411\u56fe$G$\u4e2d\u7684\u4e00\u6761\u8fb9$e$\u662f\u5272\u8fb9$\\Leftrightarrow e$\u4e0d\u5305\u542b\u5728\u56fe\u7684\u4efb\u4f55\u57fa\u672c\u5708\u4e2d\r\n- \u7b80\u5355\u6709\u5411\u56fe$G$\u4e2d\uff0c\u82e5$G$\u4e2d\u4efb\u4f55\u4e24\u4e2a\u7ed3\u70b9\u95f4\u90fd\u662f\u53ef\u8fbe\u7684\uff0c\u5219\u79f0$G$\u662f\u5f3a\u8fde\u901a\u7684\uff0c\u82e5\u4efb\u4f55\u4e24\u4e2a\u7ed3\u70b9\u95f4\u81f3\u5c11\u662f\u4ece\u4e00\u4e2a\u7ed3\u70b9\u53ef\u8fbe\u53e6\u4e00\u4e2a\u7ed3\u70b9\uff0c\u5219\u79f0$G$\u662f\u5355\u5411\u8fde\u901a\u7684\uff0c\u82e5\u6709\u5411\u56fe$G$\u4e0d\u662f\u5355\u5411\u8fde\u901a\u7684\uff0c\u4f46\u5176\u57fa\u7840\u56fe\u662f\u8fde\u901a\u7684\uff0c\u5219\u79f0$G$\u662f\u5f31\u8fde\u901a\u7684\r\n- \u4ee4$G$\u662f\u7b80\u5355\u6709\u5411\u56fe\uff0c\u5bf9\u4e8e\u67d0\u79cd\u6027\u8d28\u800c\u8a00\uff0c\u82e5$G$\u4e2d\u518d\u6ca1\u6709\u5176\u5b83\u5305\u542b\u5b50\u56fe$G_1$\u7684\u771f\u5b50\u56fe\uff0c\u5177\u6709\u8fd9\u79cd\u6027\u8d28\uff0c\u5219\u79f0$G_1$\u662f$G$\u7684\u5173\u4e8e\u8fd9\u79cd\u6027\u8d28\u7684\u6781\u5927\u5b50\u56fe\r\n- \u5728\u7b80\u5355\u6709\u5411\u56fe\u4e2d\uff0c\u5177\u6709\u5f3a\u8fde\u901a\u6027\u8d28\u7684\u6781\u5927\u5b50\u56fe\uff0c\u79f0\u4e3a\u5f3a\u5206\u56fe\uff0c\u5177\u6709\u5355\u5411\u8fde\u901a\u6027\u8d28\u7684\u6781\u5927\u5b50\u56fe\uff0c\u79f0\u4e3a\u5355\u5411\u5206\u56fe\uff0c\u5177\u6709\u5f31\u8fde\u901a\u6027\u8d28\u7684\u6781\u5927\u5b50\u56fe\uff0c\u79f0\u4e3a\u5f31\u5206\u56fe\r\n- \u7b80\u5355\u6709\u5411\u56fe\u4e2d\u7684\u4efb\u4e00\u4e2a\u7ed3\u70b9\u6070\u4f4d\u4e8e\u4e00\u4e2a\u5f3a\u5206\u56fe\u4e2d\r\n- \u7b80\u5355\u6709\u5411\u56fe\u4e2d\u7684\u6bcf\u4e2a\u7ed3\u70b9\u548c\u6bcf\u6761\u5f27\u81f3\u5c11\u4f4d\u4e8e\u4e00\u4e2a\u5355\u5411\u5206\u56fe\u4e2d\r\n- \u7b80\u5355\u6709\u5411\u56fe\u4e2d\u7684\u6bcf\u4e2a\u7ed3\u70b9\u548c\u6bcf\u6761\u5f27\u6070\u4f4d\u4e8e\u4e00\u4e2a\u5f31\u5206\u56fe\u4e2d\r\n\r\n## \u51e0\u7c7b\u91cd\u8981\u7684\u56fe\r\n\r\n### \u6b27\u62c9\u56fe\r\n\r\n- \u56fe$G$\u4e2d\u7684\u4e00\u4e2a\u5708\uff0c\u82e5\u5b83\u901a\u8fc7\u56fe$G$\u4e2d\u7684\u6bcf\u4e00\u6761\u8fb9\u6070\u597d\u4e00\u6b21\uff0c\u5219\u79f0\u8be5\u5708\u4e3a\u6b27\u62c9\u5708\uff0c\u5177\u6709\u8fd9\u79cd\u5708\u7684\u56fe\u79f0\u4e3a\u6b27\u62c9\u56fe\r\n- \u7ed9\u5b9a\u8fde\u901a\u65e0\u5411\u56fe$G$\uff0c$G$\u6709\u6b27\u62c9\u5708$\\Leftrightarrow G$\u4e2d\u6bcf\u4e2a\u7ed3\u70b9\u90fd\u662f\u5076\u5ea6\u7ed3\u70b9\r\n- \u56fe$G$\u4e2d\u7684\u4e00\u6761\u94fe\uff0c\u82e5\u5b83\u901a\u8fc7$G$\u4e2d\u7684\u6bcf\u6761\u8fb9\u6070\u597d\u4e00\u6b21\uff0c\u5219\u79f0\u8be5\u94fe\u4e3a\u6b27\u62c9\u94fe\r\n- \u7ed9\u5b9a\u8fde\u901a\u65e0\u5411\u56fe$G=\\langle V\uff0cE \\rangle\uff0cu\uff0cv\u2208V$\u4e14$u \\neq v$\uff0c$u$\u4e0e$v$\u95f4\u5b58\u5728\u6b27\u62c9\u94fe$\\Leftrightarrow G$\u4e2d\u4ec5\u6709$u$\u548c$v$\u4e3a\u5947\u5ea6\u7ed3\u70b9\r\n\r\n### \u54c8\u5bc6\u987f\u56fe\r\n\r\n- \u56fe$G$\u4e2d\u7684\u4e00\u4e2a\u5708\uff0c\u82e5\u5b83\u901a\u8fc7$G$\u4e2d\u6bcf\u4e2a\u7ed3\u70b9\u6070\u597d\u4e00\u6b21\uff0c\u5219\u8be5\u5708\u79f0\u4e3a\u54c8\u5bc6\u987f\u5708\uff0c\u5177\u6709\u54c8\u5bc6\u987f\u5708\u7684\u56fe\u79f0\u4e3a\u54c8\u5bc6\u987f\u56fe\r\n- \u56feG\u4e2d\u7684\u4e00\u6761\u94fe\uff0c\u82e5\u5b83\u901a\u8fc7$G$\u4e2d\u7684\u6bcf\u4e2a\u7ed3\u70b9\u6070\u597d\u4e00\u6b21\uff0c\u5219\u8be5\u94fe\u79f0\u4e3a\u54c8\u5bc6\u987f\u94fe\r\n- \u82e5\u8fde\u901a\u56fe$G=\\langle V\uff0cE \\rangle$\u662f\u54c8\u5bc6\u5c14\u987f\u56fe\uff0c$S$\u662f$V$\u7684\u4efb\u610f\u771f\u5b50\u96c6\uff0c\u5219$\\omega(G-S) \\leq |S|$ (\u5fc5\u8981\u6761\u4ef6)\r\n- \u8bbe$G=\\langle V\uff0cE \\rangle$\u662f$|V|=n \\geq 3$\u9636\u7b80\u5355\u56fe\u3002\u82e5$u,v \\in V$\u6709$d(u)+d(v) \\geq n-1$\uff0c\u5219\u5728$G$\u4e2d\u5b58\u5728\u4e00\u6761\u54c8\u5bc6\u987f\u94fe\uff0c\u82e5$d(u)+d(v) \\geq n$\uff0c\u5219$G$\u662f\u54c8\u5bc6\u987f\u56fe\r\n- \u7ed9\u5b9a\u7b80\u5355\u56fe$G=\\langle V\uff0cE \\rangle$\uff0c\u82e5$|V| \\geq 3\uff0cd \\geq |V|/2$\uff0c\u5219$G$\u662f\u54c8\u5bc6\u987f\u56fe\r\n- \u7ed9\u5b9a\u8fde\u901a\u56fe $G=\\langle V, E \\rangle$\uff0c$|V| = n \\ge 3$\u3002\u82e5 $u, v \\in V$\uff0c$u$ \u4e0e $v$ \u4e0d\u90bb\u63a5\u4e14$d(u) + d(v) \\ge n$\uff0c\u5219 $G$ \u662f\u54c8\u5bc6\u987f\u56fe\u5f53\u4e14\u4ec5\u5f53 $G + [u, v]$ \u662f\u54c8\u5bc6\u987f\u56fe\r\n- \u7ed9\u5b9a\u8fde\u901a\u56fe$G=\\langle V\uff0cE \\rangle\uff0c|V|=n$\uff0c\u56fe$G$\u7684\u95ed\u5305\u662f\u7531$G$\u901a\u8fc7\u76f8\u7ee7\u5730\u7528\u8fb9\u8fde\u63a5\u4e24\u4e2a\u5176\u5ea6\u4e4b\u548c\u81f3\u5c11\u4e3a$n$\u7684\u4e0d\u90bb\u63a5\u7ed3\u70b9\uff0c\u76f4\u5230\u4e0d\u80fd\u5982\u6b64\u8fdb\u884c\u4e3a\u6b62\u5f97\u5230\u7684\u56fe\uff0c\u7528$C(G)$\u8868\u793a\u56fe$G$\u7684\u95ed\u5305\r\n- \u56fe$G$\u7684\u95ed\u5305$C(G)$\u662f\u60df\u4e00\u786e\u5b9a\u7684\r\n- \u7b80\u5355\u8fde\u901a\u65e0\u5411\u56fe$G$\u662f\u54c8\u5bc6\u5c14\u987f\u56fe\u5f53\u4e14\u4ec5\u5f53$C(G)$\u662f\u54c8\u5bc6\u987f\u56fe\r\n- \u7ed9\u5b9a\u7b80\u5355\u65e0\u5411\u56fe$G= \\langle V\uff0cE \\rangle\uff0c|V|\u22653$\uff0c\u82e5$C(G)$\u662f\u5b8c\u5168\u56fe\uff0c\u5219\u56fe$G$\u662f\u54c8\u5bc6\u987f\u56fe\r\n\r\n### \u4e8c\u90e8\u56fe\r\n\r\n- \u7ed9\u5b9a\u7b80\u5355\u65e0\u5411\u56fe $G=\\langle V, E \\rangle$\uff0c\u4e14 $V = V_1 \\cup V_2$\uff0c$V_1 \\cap V_2 = \\emptyset$\uff0c\u82e5 $V_1$ \u548c $V_2$ \u7684\u8bf1\u5bfc\u5b50\u56fe $\\langle V_1 \\rangle$ \u548c $\\langle V_2 \\rangle$ \u90fd\u662f\u96f6\u56fe\uff0c\u5219\u79f0 $G$ \u662f\u4e8c\u90e8\u56fe\u6216\u5076\u56fe\uff0c\u5e76\u5c06\u4e8c\u90e8\u56fe\u8bb0\u4f5c $G=\\langle V_1, E, V_2 \\rangle$\uff0c\u5e76\u79f0 $V_1, V_2$ \u662f $V$ \u7684\u5212\u5206\r\n- \u5728\u4e8c\u90e8\u56fe $G=\\langle V_1, E, V_2 \\rangle$ \u4e2d\uff0c\u82e5 $|V_1| = m$\uff0c$|V_2| = n$\uff0c\u4e14\u5bf9\u4efb\u610f $u \\in V_1$\u3001$v \\in V_2$ \u5747\u6709$[u, v] \\in E$\uff0c\u5219\u79f0\u56fe $G$ \u4e3a\u5b8c\u5168\u4e8c\u90e8\u56fe\uff0c\u8bb0\u4e3a $K_{m,n}$\r\n- \u7b80\u5355\u56fe$G$\u4e3a\u4e8c\u90e8\u56fe\u5f53\u4e14\u4ec5\u5f53$G$\u4e2d\u65e0\u5947\u5708"</script>
+        <div id="markdown-rendered"></div>
     </div>
 </div>
+
+<script>
+    (function () {
+        const sourceElement = document.getElementById('markdown-source');
+        const targetElement = document.getElementById('markdown-rendered');
+
+        if (!sourceElement || !targetElement || typeof window.markdownit !== 'function') {
+            return;
+        }
+
+        const markdownText = JSON.parse(sourceElement.textContent || '""');
+        const parser = window.markdownit({
+            html: true,
+            linkify: true,
+            typographer: true,
+            breaks: true
+        });
+
+        if (typeof window.texmath === 'function' && typeof window.katex !== 'undefined') {
+            parser.use(window.texmath, {
+                engine: window.katex,
+                delimiters: 'dollars',
+                katexOptions: {
+                    throwOnError: false,
+                    strict: 'ignore'
+                }
+            });
+        }
+
+        const defaultTableOpen = parser.renderer.rules.table_open || function (tokens, idx, options, env, self) {
+            return self.renderToken(tokens, idx, options);
+        };
+
+        parser.renderer.rules.table_open = function (tokens, idx, options, env, self) {
+            const token = tokens[idx];
+            token.attrJoin('class', 'table table-bordered table-striped table-hover');
+            return defaultTableOpen(tokens, idx, options, env, self);
+        };
+
+        targetElement.innerHTML = parser.render(markdownText);
+        if (window.hljs) {
+            window.hljs.highlightAll();
+        }
+    })();
+</script>
 
             </div>
         </div>

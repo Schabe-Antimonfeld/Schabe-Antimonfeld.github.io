@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap">
-
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+    
     <link rel="stylesheet" href="/static/css/style.css">
     <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
 
@@ -26,12 +27,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/github.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.9.0/highlightjs-line-numbers.min.js"></script>
+    
+    <!-- Markdown-it -->
+    <script src="https://cdn.jsdelivr.net/npm/markdown-it@14.1.0/dist/markdown-it.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/markdown-it-texmath@1.0.0/texmath.min.js"></script>
 
     <script src="/static/js/use_hl.js"></script>
 
-    <!-- MathJax 支持 LaTeX -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6" defer></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <!-- KaTeX 支持 LaTeX -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
 
     <!-- 邮箱弹窗 -->
     <script>
@@ -49,23 +54,26 @@
         });
     </script>
 
-    <!-- LaTeX行内公式支持 -->
-    <script>
-        window.MathJax = {
-            tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']],
-                displayMath: [['$$', '$$'], ['\\[', '\\]']],
-                processEscapes: true
-            },
-            svg: {
-                fontCache: 'global'
-            }
-        };
-    </script>
 </head>
 
+<style>
+    .background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("/static/images/background.png");
+        background-size: cover;
+        background-position: center;
+        z-index: -1;
+        opacity: 0.7;
+    }
+</style>
+
 <body>
-    <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border fixed-top">
+    <div class="background"></div>
+    <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border fixed-top" style="opacity: 0.85;">
         <!-- 导航栏名称 -->
         <a class="navbar-brand ms-5" href="/">
             SchabeAntimonfeld</a>
@@ -113,345 +121,105 @@
 
 
 <!--个人资料卡-->
-<div class="card mb-4 text-center">
+<div class="card mb-4 text-center shadow">
     <img src="/static/images/avatar.jpg" class="card-img-top rounded-circle mx-auto mt-3" style="width: 120px; height: 120px; object-fit: cover;" alt="avatar">
     <div class="card-body text-center">
         <h5 class="card-title">Schabe Antimonfeld</h5>
-        <p class="card-text text-muted">AI × Coding × Minecraft</p>
+        
         <hr>
         <p>在读大学生</p>
         <p></p>
-        <p><i class="fab fa-github"></i> <a href="https://github.com/Schabe-Antimonfeld" target="_blank">GitHub</a></p>
+        <p><i class="fab fa-github"></i> <a href="https://github.com/Schabe-Antimonfeld" target="_blank" style="text-decoration: none;">GitHub</a></p>
         <hr>
         <p>友情链接</p>
         <p>
             <img src="/static/images/lonion.png" alt="图标" style="width:32px;height:32px;vertical-align:middle;margin-right:4px;">
-            <a href="https://lonion1124.github.io/" target="_blank">洋葱菌的博客</a>
+            <a href="https://lonion1124.github.io/" target="_blank" style="text-decoration: none;">洋葱菌的博客</a>
         </p>
         <p>
             <img src="/static/images/aaaaa.png" alt="图标" style="width:32px;height:32px;vertical-align:middle;margin-right:4px;">
-            <a href="https://aaaaa114514-1.github.io/" target="_blank">aaaaa online</a>
+            <a href="https://aaaaa114514-1.github.io/" target="_blank" style="text-decoration: none;">aaaaa online</a>
         </p>
     </div>
+</div>
 </div>
             </div>
 
             <!-- 主体内容 -->
             <div class="col-md-9 offset-md-3">
                 
-<h2>离散数学概念整理（二）：集合论</h2>
+<div class="card mb-3 shadow">
+    <div class="card-body">
+        <h2>离散数学概念整理（二）：集合论</h2>
 
-<!-- 主题标签 -->
-<p class="text-muted mb-1">
-    <i class="bi bi-tags text-primary"></i>
-    
-        <a href="/topics/6/" class="btn btn-sm btn-outline-primary text-decoration-none">数学</a>
-    
-</p>
+        <!-- 主题标签 -->
+        <p class="text-muted mb-1">
+            <i class="bi bi-tags text-primary"></i>
+            
+                <a href="/topics/6/" class="btn btn-sm btn-outline-primary text-decoration-none">数学</a>
+            
+        </p>
 
-<p class="card-text text-muted">
-    发布于 2025年11月25日 11:03
-</p>
+        <p class="card-text text-muted">
+            发布于 2025年11月25日 11:03
+        </p>
+    </div>
+</div>
 <hr>
 
                 
 <!-- 博客内容 -->
-<div class="card mb-3 shadow-sm">
+<div class="card mb-3 shadow">
     <div class="card-body">
-        <h2>公理体系</h2>
-<h3>外延公理</h3>
-<ul>
-<li>具有相同元素的集合是相等的</li>
-</ul>
-<p>$$
-(\forall x)(x \in A \leftrightarrow x \in B) \Rightarrow A=B
-$$</p>
-<h3>子集公理模式</h3>
-<ul>
-<li>对于任给一个集合$A$和集合的每一项性质$\phi$，存在一个集合$B$，它的成员恰是$A$中那些具有性质$\phi$的成员</li>
-</ul>
-<p>$$
-(\exists B)(\forall x)(x \in B \leftrightarrow x \in A \land \phi(x))
-$$</p>
-<ul>
-<li>其中，$B$不可在$\phi$中出现</li>
-</ul>
-<h3>偶集公理</h3>
-<ul>
-<li>对于给定的任何两个集合$A, B$，存在一个集合$C$，其成员恰是$A$和$B$</li>
-</ul>
-<p>$$
-(\exists C)(\forall x)(x \in C \leftrightarrow x=A \lor x=B)
-$$</p>
-<ul>
-<li>由外延公理知，$C$是唯一的</li>
-</ul>
-<h3>联集公理</h3>
-<ul>
-<li>对于任何一个集合$A$，存在一个集合$C$，$C$的成员恰是$A$的成员的成员</li>
-</ul>
-<p>$$
-(\exists C)(\forall x)(x \in C \leftrightarrow (\exists B)(B \in A \land x \in B))
-$$</p>
-<ul>
-<li>由外延公理知，$C$是唯一的</li>
-</ul>
-<p>$$
-C=\cup A := {x \vert (\exists B)(B \in A \land x \in B)}
-$$</p>
-<p>$$
-A \cup B := \cup {A, B} = {x \mid x \in A \lor x \in B}
-$$</p>
-<ul>
-<li>类似定义交</li>
-</ul>
-<p>$$
-\cap A := {x \mid (\forall B)(B \in A \rightarrow x \in B)}
-$$</p>
-<p>$$
-A \cap B := {x \mid x \in A \land x \in B}
-$$</p>
-<ul>
-<li>
-<p><strong>重要定理：</strong></p>
-</li>
-<li>
-<p>$x \in \cup A \Leftrightarrow (\exists B)(B \in A \land x \in B)$</p>
-</li>
-<li>$x \in A \cup B \Leftrightarrow x \in A \lor x \in B$</li>
-<li>$\cup(A \cup B) = (\cup A) \cup (\cup B)$</li>
-<li>$A \in B \Rightarrow A \subseteq \cup B$</li>
-<li>$A \cup B = B \cup A$</li>
-<li>$A \cup (B \cup C) = (A \cup B) \cup C$</li>
-<li>$A \subseteq C \land B \subseteq C \Leftrightarrow A \cup B \subseteq C$</li>
-<li>$x \in \cap A \Leftrightarrow (\forall B)(B \in A \rightarrow x \in B) \land (\exists B)(B \in A)$</li>
-<li>$\cap(A \cup B) = (\cap A) \cap (\cap B)$</li>
-<li>$(A \cup B) \cap C = (A \cap C) \cup (B \cap C)$</li>
-<li>$(A \cap B) \cup C = (A \cup C) \cap (B \cup C)$</li>
-<li>$x \in A-B \Leftrightarrow x \in A \land x \not \in B$</li>
-<li>$(A \cup B)-B=A-B$</li>
-<li>$A-(B \cup C)=(A-B) \cap (A-C)$</li>
-<li>$A-(B \cap C)=(A-B) \cup (A-C)$</li>
-</ul>
-<h3>极小元</h3>
-<ul>
-<li>对于任何集合$S_1$与$S_2$，当$S_1 \in S_2$且$S_1 \cap S_2=\emptyset$时，则称$S_1$为$S_2$的一极小元</li>
-</ul>
-<h3>正则公理</h3>
-<ul>
-<li>每个不空的集合都有一极小元</li>
-</ul>
-<p>$$
-A \neq \emptyset \Rightarrow (\exists x \in A \land x \cap A = \emptyset)
-$$</p>
-<h3>后继</h3>
-<ul>
-<li>对任意集合$S$，其后继记为$S^+$，定义为$S \cup {S}$</li>
-<li>$0:=\emptyset, 1:=0^+, 2:=1^+$，一般地，$n+1:=n^+$</li>
-<li>若集合$A$有性质$\emptyset \in A \land (\forall x)(x \in A \rightarrow x^+ \in A)$，则称$A$是一个归纳集</li>
-</ul>
-<h3>无穷公理</h3>
-<ul>
-<li>有一个归纳集的存在</li>
-</ul>
-<p>$$
-(\exists A)(\emptyset \in A \land (\forall x)(x \in A \rightarrow x^+ \in A))
-$$</p>
-<ul>
-<li>若用$Ind(A)$表示$A$是一个归纳集，则$(\exists A)(Ind(A))$</li>
-<li>$(\exists A)(Ind(A) \land (\forall B)(Ind(B) \rightarrow A \subseteq B))$</li>
-<li>称最小归纳集</li>
-</ul>
-<p>$$
-\omega := {x \mid (\forall B)(Ind(B) \rightarrow x \in B)}
-$$</p>
-<ul>
-<li>是自然数集合，$\omega$的元称为自然数</li>
-</ul>
-<h3>幂集公理</h3>
-<ul>
-<li>对于任意一个集合$A$，存在一个集合$B$，它的元恰好是$A$的各个子集</li>
-</ul>
-<p>$$
-(\exists B)(\forall x)(x \in B \leftrightarrow (\forall y)(y \in x \rightarrow y \in A))
-$$</p>
-<ul>
-<li>集合$B$是集合$A$的一个幂集，当且仅当$(\forall x)(x \in B \leftrightarrow x \subseteq A)$，$A$的幂集$B$记作$P(A)$</li>
-<li>对于一个集合$A$，如果存在自然数$n$，使得$A$恰有$n$个元，则称$A$是有限的</li>
-<li>若$A$是一个有限集合，且$B \not \in A$，令$C=A \cup {B}$，则$C$的所有子集的个数恰是$A$的所以子集的个数的两倍</li>
-<li>对于自然数$n$，如果集合$A$恰有$n$个元，则$P(A)$恰有$2^n$个元</li>
-<li>
-<p><strong>幂集的一般性质：</strong></p>
-</li>
-<li>
-<p>$B \in P(A) \Leftrightarrow B \subseteq A$</p>
-</li>
-<li>$A \in P(A)$</li>
-<li>$A \subseteq B \Leftrightarrow P(A) \subseteq B$</li>
-<li>$P(A-B) \subseteq (P(A)-P(B)) \cup {\emptyset}$</li>
-<li>
-<p>$P(A) \in P(B) \Rightarrow A \in B$</p>
-</li>
-<li>
-<p>给定集合$A$，对于任何集合$x$和$y$，若$x \in y$且$y \in A$，则$x \in A$，称$A$为传递集</p>
-</li>
-<li>对于传递集$A$，有$\cup(A^+)=A$</li>
-<li>集合$A$是传递集当且仅当$A \subseteq P(A)$</li>
-<li>集合$A$是传递集当且仅当$P(A)$是传递集</li>
-<li>每个自然数是个传递集</li>
-<li>$\omega$是个传递集</li>
-</ul>
-<h2>关系与函数</h2>
-<h3>关系的性质</h3>
-<ul>
-<li>$R$在$A$中自反$:=(\forall x)(x \in A \rightarrow xRx)$</li>
-<li>$R$在$A$中非自反$:=(\forall x)(x \in A \rightarrow \lnot (xRx))$</li>
-<li>$R$在$A$中对称$:=(\forall x)(\forall y)(x, y \in A \land xRy \rightarrow yRx)$</li>
-<li>$R$在$A$中非对称$:=(\forall x)(\forall y)(x, y \in A \land xRy \rightarrow \lnot (yRx)$</li>
-<li>$R$在$A$中反对称$:=(\forall x)(\forall y)(x, y \in A \land xRy \land x \neq y \rightarrow \lnot (yRx)$</li>
-<li>$R$在$A$中传递$:= (\forall x)(\forall y)(\forall z)(x, y, z \in A \land xRy \land yRz \rightarrow xRz)$</li>
-<li>$I_A={<x, x> \mid x \in A}$</li>
-<li>$xI_Ax \Leftrightarrow x \in A$</li>
-<li>$I_A * I_A = I_A$</li>
-<li>$R$为关系$\Leftrightarrow I_{dm}(R) * R = R$</li>
-<li>$R$自反$\Leftrightarrow I_{fl(R)} \subseteq R$</li>
-<li>$R$非自反$\Leftrightarrow R \cap I_{fl(R)} = \emptyset$</li>
-<li>$R$对称$\Leftrightarrow R^{-1} = R$</li>
-<li>$R$非对称$\Leftrightarrow R \cap R^{-1} = \emptyset$</li>
-<li>$R$反对称$\Leftrightarrow  R \cap R^{-1} \subseteq I_{dm(R)}$</li>
-<li>$R$传递$\Leftrightarrow R * R \subseteq R$</li>
-<li><strong>闭包：</strong>通过添加最少数量的有序对，使原关系具备自反性、对称性或传递性而形成的新集合</li>
-<li>自反闭包：$r(R)$，对称闭包$s(R)$，传递闭包：$t(R)$</li>
-<li>
-<p><strong>构造性定理：</strong></p>
-</li>
-<li>
-<p>$r(R) = R \cup I_{fl(R)}$</p>
-</li>
-<li>$s(R) = R \cup R^{-1}$</li>
-<li>$t(R) = \bigcup^{\infty}_{i=1}R^i$</li>
-<li>
-<p>$t(R) = \bigcup^k_{i=1}R^i$，其中$k \leq \vert fl(R) \vert$</p>
-</li>
-<li>
-<p>$R$为自反$\Rightarrow s(R), t(R)$ 是自反的</p>
-</li>
-<li>$R$为对称$\Rightarrow r(R), t(R)$是对称的</li>
-<li>$R$为传递$\Rightarrow r(R)$是传递的</li>
-<li>$rs(R) = sr(R)$</li>
-<li>$rt(R) = tr(R)$</li>
-<li>$st(r) \subseteq ts(R)$</li>
-</ul>
-<h3>等价关系与划分</h3>
-<ul>
-<li>$R$为等价关系$:= R$为关系且$R$自反、对称和传递</li>
-<li>$R$为$A$上等价关系$:= R$为等价关系且$A=fl(R)$</li>
-<li>若$R$为$fl(R)$上的关系，则$R$为等价关系$\Leftrightarrow R * R^{-1} = R$</li>
-<li>设$R$是$A$上的等价关系，由$A$中元$x$产生$R$的等价类，记为$[x]_R$，它是由$A$中那些使$xRy$成立的所有$y \in A$组成的子集</li>
-</ul>
-<p>$$
-[x]_R := {y \mid xRy}
-$$</p>
-<ul>
-<li>并且称$x$是等价类$[x]_R$的一个代表，有时也记作$x/R$</li>
-<li>$y \in [x]_R \Leftrightarrow xRy$</li>
-<li>若$x, y \in fl(R)$且$R$为等价关系，则$[x]_R = [y]_R \Leftrightarrow xRy$</li>
-<li>$R$为等价关系$\Leftrightarrow [x]_R = [y]_R \lor [x]_R \cap [y]_R = \emptyset$</li>
-</ul>
-<h3>函数</h3>
-<ul>
-<li>
-<p>$f$为函数$:= f$为关系$\land (\forall x)(\forall y)(\forall z)(xfy \land xfz \rightarrow y=z)$</p>
-</li>
-<li>
-<p>$f \circ g = g*f$</p>
-</li>
-<li>
-<p>$f$为$1-1$函数$:= f$和$f^{-1}$皆为函数</p>
-</li>
-<li>
-<p>若$f$为$1-1$函数且$x_1, x_2 \in dm(f)$，则$f(x_1)=f(x_2) \Leftrightarrow x_1=x_2$</p>
-</li>
-<li>
-<p>若$f$为$1-1$函数，则称$f^{-1}$为反函数</p>
-</li>
-<li>
-<p>若$f$为$1-1$函数，则$f^{-1}(y)=x \Leftrightarrow f(x)=y$</p>
-</li>
-<li>
-<p>$f$为$1-1$函数$\land x \in dm(f) \Rightarrow f^{-1}(f(x))=x$</p>
-</li>
-<li>
-<p>$f, g$为$1-1$函数$\Rightarrow f \cap g$为$1-1$函数</p>
-</li>
-<li>
-<p>$f$为从$A$到$B$的函数$:=f$为函数 $\land$ $dm(f) = A \land rn(f) \subseteq B$</p>
-</li>
-<li>
-<p>$f$为从$A$到$B$中的函数$:=f$为函数 $\land$ $dm(f) = A \land rn(f) \subset B$</p>
-</li>
-<li>
-<p>$f$为从$A$到$B$上的函数或$f$为满射$:=f$为函数 $\land$ $dm(f) = A \land rn(f) = B$</p>
-</li>
-<li>
-<p>$f$为单射或$f$为一对一映射$:=f$为函数 $\land$ $(\forall x)(\forall y)(x, y \in A \land x \neq y \rightarrow f(x) \neq f(y))$</p>
-</li>
-<li>
-<p>$f$为双射或$f$为一一对应$:=f$既为单射又为满射或$f$为1-1函数</p>
-</li>
-<li>
-<p>实数$x$的底函数，记为$\lfloor x \rfloor$，指的是小于或等于$x$的最大整数</p>
-</li>
-<li>
-<p>实数$x$的顶函数，记为$\lceil x \rceil$，指的是大于或等于$x$的最小整数</p>
-</li>
-<li>
-<p>散列函数$h: K \rightarrow D$，$h(k) = d$，其中$K$为大键码集合，$D$为地址集合。常用幂列函数是用除法求余、中平方方法和折叠叠方法得到</p>
-</li>
-<li>
-<p>恒等函数，设$A \subseteq B$，若$id_A: A \rightarrow B$，使$id_A(x) = x$，则称$id_A$为$A$上的一个恒等函数。恒等函数自然是个单射函数，而且仅当$A = B$时，恒等函数才是满射，并且$id_A = I_A$</p>
-</li>
-<li>
-<p>特征函数，设$A \subseteq B$，函数$f_A: B \rightarrow {0, 1}$定义为
-  $$
-  f_A(x) = \begin{cases} 1, &amp; 若 x \in A \cr 0, &amp; 若 x \notin A \end{cases}
-  $$</p>
-</li>
-<li>
-<p>则称$f_A: B \rightarrow {0, 1}$是集合$A$的一个特征函数</p>
-</li>
-<li>
-<p>$B^A := {f \mid f$为函数 $\land$ $dm(f) = A \land rn(f) \subseteq B}$，并称$B^A$是由集合$A$到集合$B$的幂集</p>
-</li>
-<li>
-<p>$f \in B^A \Leftrightarrow f$为函数 $\land$ $dm(f) = A \land rn(f) \subseteq B$</p>
-</li>
-<li>
-<p>$B^{(A)} = {\,(x, y) \mid y \in B\,}$</p>
-</li>
-<li>
-<p>$B \subseteq C \Rightarrow B^A \subseteq C^A$</p>
-</li>
-<li>
-<p>设$F, P(B) \rightarrow {0, 1}^A$，并令$F(A) := f_A$，其中$A \in P(B)$，则$F$是双射。</p>
-</li>
-<li>
-<p>一个集合$A$与其上的一个二元关系$R$（即$R \subseteq A \times A$）组成的有序对$<A, R>$称为一个结构</p>
-</li>
-<li>
-<p>若两个给定的结构$<A, R>$和$<B, S>$，存在一个双射函数$f:A \rightarrow B$，对于$x, y \in A$有$xRy  \Leftrightarrow f(x)SF(y)$，则称$f$是从结构$<A, R>$到结构$<B, S>$的同构映射，记作$<A, R> \cong <B, S>$</p>
-</li>
-<li>
-<p>设$<A, R>, <B, S>, <C, T>$是任意三个结构则它们满足自反、对称和传递，即</p>
-</li>
-<li>
-<p>$<A, R> \cong <A, R>$</p>
-</li>
-<li>$<A, R> \cong <B, S> \Rightarrow <B, S> \cong <A, R>$</li>
-<li>$<A, R> \cong <B, S>, <B, S> \cong <C, T> \Rightarrow <A, R> \cong <C, T>$</li>
-</ul>
+        <script id="markdown-source" type="application/json">"## \u516c\u7406\u4f53\u7cfb\r\n\r\n### \u5916\u5ef6\u516c\u7406\r\n\r\n- \u5177\u6709\u76f8\u540c\u5143\u7d20\u7684\u96c6\u5408\u662f\u76f8\u7b49\u7684\r\n\r\n$$\r\n(\\forall x)(x \\in A \\leftrightarrow x \\in B) \\Rightarrow A=B\r\n$$\r\n\r\n\r\n\r\n### \u5b50\u96c6\u516c\u7406\u6a21\u5f0f\r\n\r\n- \u5bf9\u4e8e\u4efb\u7ed9\u4e00\u4e2a\u96c6\u5408$A$\u548c\u96c6\u5408\u7684\u6bcf\u4e00\u9879\u6027\u8d28$\\phi$\uff0c\u5b58\u5728\u4e00\u4e2a\u96c6\u5408$B$\uff0c\u5b83\u7684\u6210\u5458\u6070\u662f$A$\u4e2d\u90a3\u4e9b\u5177\u6709\u6027\u8d28$\\phi$\u7684\u6210\u5458\r\n\r\n$$\r\n(\\exists B)(\\forall x)(x \\in B \\leftrightarrow x \\in A \\land \\phi(x))\r\n$$\r\n\r\n- \u5176\u4e2d\uff0c$B$\u4e0d\u53ef\u5728$\\phi$\u4e2d\u51fa\u73b0\r\n\r\n### \u5076\u96c6\u516c\u7406\r\n\r\n- \u5bf9\u4e8e\u7ed9\u5b9a\u7684\u4efb\u4f55\u4e24\u4e2a\u96c6\u5408$A, B$\uff0c\u5b58\u5728\u4e00\u4e2a\u96c6\u5408$C$\uff0c\u5176\u6210\u5458\u6070\u662f$A$\u548c$B$\r\n\r\n$$\r\n(\\exists C)(\\forall x)(x \\in C \\leftrightarrow x=A \\lor x=B)\r\n$$\r\n\r\n- \u7531\u5916\u5ef6\u516c\u7406\u77e5\uff0c$C$\u662f\u552f\u4e00\u7684\r\n\r\n### \u8054\u96c6\u516c\u7406\r\n\r\n- \u5bf9\u4e8e\u4efb\u4f55\u4e00\u4e2a\u96c6\u5408$A$\uff0c\u5b58\u5728\u4e00\u4e2a\u96c6\u5408$C$\uff0c$C$\u7684\u6210\u5458\u6070\u662f$A$\u7684\u6210\u5458\u7684\u6210\u5458\r\n\r\n$$\r\n(\\exists C)(\\forall x)(x \\in C \\leftrightarrow (\\exists B)(B \\in A \\land x \\in B))\r\n$$\r\n\r\n- \u7531\u5916\u5ef6\u516c\u7406\u77e5\uff0c$C$\u662f\u552f\u4e00\u7684\r\n\r\n$$\r\nC=\\cup A := \\{x \\vert (\\exists B)(B \\in A \\land x \\in B)\\}\r\n$$\r\n\r\n$$\r\nA \\cup B := \\cup \\{A, B\\} = \\{x \\mid x \\in A \\lor x \\in B\\}\r\n$$\r\n\r\n- \u7c7b\u4f3c\u5b9a\u4e49\u4ea4\r\n\r\n$$\r\n\\cap A := \\{x \\mid (\\forall B)(B \\in A \\rightarrow x \\in B)\\}\r\n$$\r\n\r\n$$\r\nA \\cap B := \\{x \\mid x \\in A \\land x \\in B\\}\r\n$$\r\n\r\n- **\u91cd\u8981\u5b9a\u7406\uff1a**\r\n\r\n1. $x \\in \\cup A \\Leftrightarrow (\\exists B)(B \\in A \\land x \\in B)$\r\n2. $x \\in A \\cup B \\Leftrightarrow x \\in A \\lor x \\in B$\r\n3. $\\cup(A \\cup B) = (\\cup A) \\cup (\\cup B)$\r\n4. $A \\in B \\Rightarrow A \\subseteq \\cup B$\r\n5. $A \\cup B = B \\cup A$\r\n6. $A \\cup (B \\cup C) = (A \\cup B) \\cup C$\r\n7. $A \\subseteq C \\land B \\subseteq C \\Leftrightarrow A \\cup B \\subseteq C$\r\n8. $x \\in \\cap A \\Leftrightarrow (\\forall B)(B \\in A \\rightarrow x \\in B) \\land (\\exists B)(B \\in A)$\r\n9. $\\cap(A \\cup B) = (\\cap A) \\cap (\\cap B)$\r\n10. $(A \\cup B) \\cap C = (A \\cap C) \\cup (B \\cap C)$\r\n11. $(A \\cap B) \\cup C = (A \\cup C) \\cap (B \\cup C)$\r\n12. $x \\in A-B \\Leftrightarrow x \\in A \\land x \\not \\in B$\r\n13. $(A \\cup B)-B=A-B$\r\n14. $A-(B \\cup C)=(A-B) \\cap (A-C)$\r\n15. $A-(B \\cap C)=(A-B) \\cup (A-C)$\r\n\r\n### \u6781\u5c0f\u5143\r\n\r\n- \u5bf9\u4e8e\u4efb\u4f55\u96c6\u5408$S_1$\u4e0e$S_2$\uff0c\u5f53$S_1 \\in S_2$\u4e14$S_1 \\cap S_2=\\emptyset$\u65f6\uff0c\u5219\u79f0$S_1$\u4e3a$S_2$\u7684\u4e00\u6781\u5c0f\u5143\r\n\r\n### \u6b63\u5219\u516c\u7406\r\n\r\n- \u6bcf\u4e2a\u4e0d\u7a7a\u7684\u96c6\u5408\u90fd\u6709\u4e00\u6781\u5c0f\u5143\r\n\r\n$$\r\nA \\neq \\emptyset \\Rightarrow (\\exists x \\in A \\land x \\cap A = \\emptyset)\r\n$$\r\n\r\n### \u540e\u7ee7\r\n\r\n- \u5bf9\u4efb\u610f\u96c6\u5408$S$\uff0c\u5176\u540e\u7ee7\u8bb0\u4e3a$S^+$\uff0c\u5b9a\u4e49\u4e3a$S \\cup \\{S\\}$\r\n- $0:=\\emptyset, 1:=0^+, 2:=1^+$\uff0c\u4e00\u822c\u5730\uff0c$n+1:=n^+$\r\n- \u82e5\u96c6\u5408$A$\u6709\u6027\u8d28$\\emptyset \\in A \\land (\\forall x)(x \\in A \\rightarrow x^+ \\in A)$\uff0c\u5219\u79f0$A$\u662f\u4e00\u4e2a\u5f52\u7eb3\u96c6\r\n\r\n### \u65e0\u7a77\u516c\u7406\r\n\r\n- \u6709\u4e00\u4e2a\u5f52\u7eb3\u96c6\u7684\u5b58\u5728\r\n\r\n$$\r\n(\\exists A)(\\emptyset \\in A \\land (\\forall x)(x \\in A \\rightarrow x^+ \\in A))\r\n$$\r\n\r\n- \u82e5\u7528$Ind(A)$\u8868\u793a$A$\u662f\u4e00\u4e2a\u5f52\u7eb3\u96c6\uff0c\u5219$(\\exists A)(Ind(A))$\r\n- $(\\exists A)(Ind(A) \\land (\\forall B)(Ind(B) \\rightarrow A \\subseteq B))$\r\n- \u79f0\u6700\u5c0f\u5f52\u7eb3\u96c6\r\n\r\n$$\r\n\\omega := \\{x \\mid (\\forall B)(Ind(B) \\rightarrow x \\in B)\\}\r\n$$\r\n\r\n- \u662f\u81ea\u7136\u6570\u96c6\u5408\uff0c$\\omega$\u7684\u5143\u79f0\u4e3a\u81ea\u7136\u6570\r\n\r\n### \u5e42\u96c6\u516c\u7406\r\n\r\n- \u5bf9\u4e8e\u4efb\u610f\u4e00\u4e2a\u96c6\u5408$A$\uff0c\u5b58\u5728\u4e00\u4e2a\u96c6\u5408$B$\uff0c\u5b83\u7684\u5143\u6070\u597d\u662f$A$\u7684\u5404\u4e2a\u5b50\u96c6\r\n\r\n$$\r\n(\\exists B)(\\forall x)(x \\in B \\leftrightarrow (\\forall y)(y \\in x \\rightarrow y \\in A))\r\n$$\r\n\r\n- \u96c6\u5408$B$\u662f\u96c6\u5408$A$\u7684\u4e00\u4e2a\u5e42\u96c6\uff0c\u5f53\u4e14\u4ec5\u5f53$(\\forall x)(x \\in B \\leftrightarrow x \\subseteq A)$\uff0c$A$\u7684\u5e42\u96c6$B$\u8bb0\u4f5c$P(A)$\r\n- \u5bf9\u4e8e\u4e00\u4e2a\u96c6\u5408$A$\uff0c\u5982\u679c\u5b58\u5728\u81ea\u7136\u6570$n$\uff0c\u4f7f\u5f97$A$\u6070\u6709$n$\u4e2a\u5143\uff0c\u5219\u79f0$A$\u662f\u6709\u9650\u7684\r\n- \u82e5$A$\u662f\u4e00\u4e2a\u6709\u9650\u96c6\u5408\uff0c\u4e14$B \\not \\in A$\uff0c\u4ee4$C=A \\cup \\{B\\}$\uff0c\u5219$C$\u7684\u6240\u6709\u5b50\u96c6\u7684\u4e2a\u6570\u6070\u662f$A$\u7684\u6240\u4ee5\u5b50\u96c6\u7684\u4e2a\u6570\u7684\u4e24\u500d\r\n- \u5bf9\u4e8e\u81ea\u7136\u6570$n$\uff0c\u5982\u679c\u96c6\u5408$A$\u6070\u6709$n$\u4e2a\u5143\uff0c\u5219$P(A)$\u6070\u6709$2^n$\u4e2a\u5143\r\n- **\u5e42\u96c6\u7684\u4e00\u822c\u6027\u8d28\uff1a**\r\n\r\n1. $B \\in P(A) \\Leftrightarrow B \\subseteq A$\r\n2. $A \\in P(A)$\r\n3. $A \\subseteq B \\Leftrightarrow P(A) \\subseteq B$\r\n4. $P(A-B) \\subseteq (P(A)-P(B)) \\cup \\{\\emptyset\\}$\r\n5. $P(A) \\in P(B) \\Rightarrow A \\in B$\r\n\r\n- \u7ed9\u5b9a\u96c6\u5408$A$\uff0c\u5bf9\u4e8e\u4efb\u4f55\u96c6\u5408$x$\u548c$y$\uff0c\u82e5$x \\in y$\u4e14$y \\in A$\uff0c\u5219$x \\in A$\uff0c\u79f0$A$\u4e3a\u4f20\u9012\u96c6\r\n- \u5bf9\u4e8e\u4f20\u9012\u96c6$A$\uff0c\u6709$\\cup(A^+)=A$\r\n- \u96c6\u5408$A$\u662f\u4f20\u9012\u96c6\u5f53\u4e14\u4ec5\u5f53$A \\subseteq P(A)$\r\n- \u96c6\u5408$A$\u662f\u4f20\u9012\u96c6\u5f53\u4e14\u4ec5\u5f53$P(A)$\u662f\u4f20\u9012\u96c6\r\n- \u6bcf\u4e2a\u81ea\u7136\u6570\u662f\u4e2a\u4f20\u9012\u96c6\r\n- $\\omega$\u662f\u4e2a\u4f20\u9012\u96c6\r\n\r\n## \u5173\u7cfb\u4e0e\u51fd\u6570\r\n\r\n### \u5173\u7cfb\u7684\u6027\u8d28\r\n\r\n- $R$\u5728$A$\u4e2d\u81ea\u53cd$:=(\\forall x)(x \\in A \\rightarrow xRx)$\r\n- $R$\u5728$A$\u4e2d\u975e\u81ea\u53cd$:=(\\forall x)(x \\in A \\rightarrow \\lnot (xRx))$\r\n- $R$\u5728$A$\u4e2d\u5bf9\u79f0$:=(\\forall x)(\\forall y)(x, y \\in A \\land xRy \\rightarrow yRx)$\r\n- $R$\u5728$A$\u4e2d\u975e\u5bf9\u79f0$:=(\\forall x)(\\forall y)(x, y \\in A \\land xRy \\rightarrow \\lnot (yRx)$\r\n- $R$\u5728$A$\u4e2d\u53cd\u5bf9\u79f0$:=(\\forall x)(\\forall y)(x, y \\in A \\land xRy \\land x \\neq y \\rightarrow \\lnot (yRx)$\r\n- $R$\u5728$A$\u4e2d\u4f20\u9012$:= (\\forall x)(\\forall y)(\\forall z)(x, y, z \\in A \\land xRy \\land yRz \\rightarrow xRz)$\r\n- $I_A=\\{\u003Cx, x\u003E \\mid x \\in A\\}$\r\n- $xI_Ax \\Leftrightarrow x \\in A$\r\n- $I_A * I_A = I_A$\r\n- $R$\u4e3a\u5173\u7cfb$\\Leftrightarrow I_{dm}(R) * R = R$\r\n- $R$\u81ea\u53cd$\\Leftrightarrow I_{fl(R)} \\subseteq R$\r\n- $R$\u975e\u81ea\u53cd$\\Leftrightarrow R \\cap I_{fl(R)} = \\emptyset$\r\n- $R$\u5bf9\u79f0$\\Leftrightarrow R^{-1} = R$\r\n- $R$\u975e\u5bf9\u79f0$\\Leftrightarrow R \\cap R^{-1} = \\emptyset$\r\n- $R$\u53cd\u5bf9\u79f0$\\Leftrightarrow  R \\cap R^{-1} \\subseteq I_{dm(R)}$\r\n- $R$\u4f20\u9012$\\Leftrightarrow R * R \\subseteq R$\r\n- **\u95ed\u5305\uff1a**\u901a\u8fc7\u6dfb\u52a0\u6700\u5c11\u6570\u91cf\u7684\u6709\u5e8f\u5bf9\uff0c\u4f7f\u539f\u5173\u7cfb\u5177\u5907\u81ea\u53cd\u6027\u3001\u5bf9\u79f0\u6027\u6216\u4f20\u9012\u6027\u800c\u5f62\u6210\u7684\u65b0\u96c6\u5408\r\n- \u81ea\u53cd\u95ed\u5305\uff1a$r(R)$\uff0c\u5bf9\u79f0\u95ed\u5305$s(R)$\uff0c\u4f20\u9012\u95ed\u5305\uff1a$t(R)$\r\n- **\u6784\u9020\u6027\u5b9a\u7406\uff1a**\r\n\r\n1. $r(R) = R \\cup I_{fl(R)}$\r\n2. $s(R) = R \\cup R^{-1}$\r\n3. $t(R) = \\bigcup^{\\infty}_{i=1}R^i$\r\n4. $t(R) = \\bigcup^k_{i=1}R^i$\uff0c\u5176\u4e2d$k \\leq \\vert fl(R) \\vert$\r\n\r\n- $R$\u4e3a\u81ea\u53cd$\\Rightarrow s(R), t(R)$ \u662f\u81ea\u53cd\u7684\r\n- $R$\u4e3a\u5bf9\u79f0$\\Rightarrow r(R), t(R)$\u662f\u5bf9\u79f0\u7684\r\n- $R$\u4e3a\u4f20\u9012$\\Rightarrow r(R)$\u662f\u4f20\u9012\u7684\r\n- $rs(R) = sr(R)$\r\n- $rt(R) = tr(R)$\r\n- $st(r) \\subseteq ts(R)$\r\n\r\n### \u7b49\u4ef7\u5173\u7cfb\u4e0e\u5212\u5206\r\n\r\n- $R$\u4e3a\u7b49\u4ef7\u5173\u7cfb$:= R$\u4e3a\u5173\u7cfb\u4e14$R$\u81ea\u53cd\u3001\u5bf9\u79f0\u548c\u4f20\u9012\r\n- $R$\u4e3a$A$\u4e0a\u7b49\u4ef7\u5173\u7cfb$:= R$\u4e3a\u7b49\u4ef7\u5173\u7cfb\u4e14$A=fl(R)$\r\n- \u82e5$R$\u4e3a$fl(R)$\u4e0a\u7684\u5173\u7cfb\uff0c\u5219$R$\u4e3a\u7b49\u4ef7\u5173\u7cfb$\\Leftrightarrow R * R^{-1} = R$\r\n- \u8bbe$R$\u662f$A$\u4e0a\u7684\u7b49\u4ef7\u5173\u7cfb\uff0c\u7531$A$\u4e2d\u5143$x$\u4ea7\u751f$R$\u7684\u7b49\u4ef7\u7c7b\uff0c\u8bb0\u4e3a$[x]_R$\uff0c\u5b83\u662f\u7531$A$\u4e2d\u90a3\u4e9b\u4f7f$xRy$\u6210\u7acb\u7684\u6240\u6709$y \\in A$\u7ec4\u6210\u7684\u5b50\u96c6\r\n\r\n$$\r\n[x]_R := \\{y \\mid xRy\\}\r\n$$\r\n\r\n- \u5e76\u4e14\u79f0$x$\u662f\u7b49\u4ef7\u7c7b$[x]_R$\u7684\u4e00\u4e2a\u4ee3\u8868\uff0c\u6709\u65f6\u4e5f\u8bb0\u4f5c$x/R$\r\n- $y \\in [x]_R \\Leftrightarrow xRy$\r\n- \u82e5$x, y \\in fl(R)$\u4e14$R$\u4e3a\u7b49\u4ef7\u5173\u7cfb\uff0c\u5219$[x]_R = [y]_R \\Leftrightarrow xRy$\r\n- $R$\u4e3a\u7b49\u4ef7\u5173\u7cfb$\\Leftrightarrow [x]_R = [y]_R \\lor [x]_R \\cap [y]_R = \\emptyset$\r\n\r\n### \u51fd\u6570\r\n\r\n- $f$\u4e3a\u51fd\u6570$:= f$\u4e3a\u5173\u7cfb$\\land (\\forall x)(\\forall y)(\\forall z)(xfy \\land xfz \\rightarrow y=z)$\r\n\r\n- $f \\circ g = g*f$\r\n\r\n- $f$\u4e3a$1-1$\u51fd\u6570$:= f$\u548c$f^{-1}$\u7686\u4e3a\u51fd\u6570\r\n\r\n- \u82e5$f$\u4e3a$1-1$\u51fd\u6570\u4e14$x_1, x_2 \\in dm(f)$\uff0c\u5219$f(x_1)=f(x_2) \\Leftrightarrow x_1=x_2$\r\n\r\n- \u82e5$f$\u4e3a$1-1$\u51fd\u6570\uff0c\u5219\u79f0$f^{-1}$\u4e3a\u53cd\u51fd\u6570\r\n\r\n- \u82e5$f$\u4e3a$1-1$\u51fd\u6570\uff0c\u5219$f^{-1}(y)=x \\Leftrightarrow f(x)=y$\r\n\r\n- $f$\u4e3a$1-1$\u51fd\u6570$\\land x \\in dm(f) \\Rightarrow f^{-1}(f(x))=x$\r\n\r\n- $f, g$\u4e3a$1-1$\u51fd\u6570$\\Rightarrow f \\cap g$\u4e3a$1-1$\u51fd\u6570\r\n\r\n- $f$\u4e3a\u4ece$A$\u5230$B$\u7684\u51fd\u6570$:=f$\u4e3a\u51fd\u6570 $\\land$ $dm(f) = A \\land rn(f) \\subseteq B$\r\n\r\n- $f$\u4e3a\u4ece$A$\u5230$B$\u4e2d\u7684\u51fd\u6570$:=f$\u4e3a\u51fd\u6570 $\\land$ $dm(f) = A \\land rn(f) \\subset B$\r\n\r\n- $f$\u4e3a\u4ece$A$\u5230$B$\u4e0a\u7684\u51fd\u6570\u6216$f$\u4e3a\u6ee1\u5c04$:=f$\u4e3a\u51fd\u6570 $\\land$ $dm(f) = A \\land rn(f) = B$\r\n\r\n- $f$\u4e3a\u5355\u5c04\u6216$f$\u4e3a\u4e00\u5bf9\u4e00\u6620\u5c04$:=f$\u4e3a\u51fd\u6570 $\\land$ $(\\forall x)(\\forall y)(x, y \\in A \\land x \\neq y \\rightarrow f(x) \\neq f(y))$\r\n\r\n- $f$\u4e3a\u53cc\u5c04\u6216$f$\u4e3a\u4e00\u4e00\u5bf9\u5e94$:=f$\u65e2\u4e3a\u5355\u5c04\u53c8\u4e3a\u6ee1\u5c04\u6216$f$\u4e3a1-1\u51fd\u6570\r\n\r\n- \u5b9e\u6570$x$\u7684\u5e95\u51fd\u6570\uff0c\u8bb0\u4e3a$\\lfloor x \\rfloor$\uff0c\u6307\u7684\u662f\u5c0f\u4e8e\u6216\u7b49\u4e8e$x$\u7684\u6700\u5927\u6574\u6570\r\n\r\n- \u5b9e\u6570$x$\u7684\u9876\u51fd\u6570\uff0c\u8bb0\u4e3a$\\lceil x \\rceil$\uff0c\u6307\u7684\u662f\u5927\u4e8e\u6216\u7b49\u4e8e$x$\u7684\u6700\u5c0f\u6574\u6570\r\n\r\n- \u6563\u5217\u51fd\u6570$h: K \\rightarrow D$\uff0c$h(k) = d$\uff0c\u5176\u4e2d$K$\u4e3a\u5927\u952e\u7801\u96c6\u5408\uff0c$D$\u4e3a\u5730\u5740\u96c6\u5408\u3002\u5e38\u7528\u5e42\u5217\u51fd\u6570\u662f\u7528\u9664\u6cd5\u6c42\u4f59\u3001\u4e2d\u5e73\u65b9\u65b9\u6cd5\u548c\u6298\u53e0\u53e0\u65b9\u6cd5\u5f97\u5230\r\n\r\n- \u6052\u7b49\u51fd\u6570\uff0c\u8bbe$A \\subseteq B$\uff0c\u82e5$id_A: A \\rightarrow B$\uff0c\u4f7f$id_A(x) = x$\uff0c\u5219\u79f0$id_A$\u4e3a$A$\u4e0a\u7684\u4e00\u4e2a\u6052\u7b49\u51fd\u6570\u3002\u6052\u7b49\u51fd\u6570\u81ea\u7136\u662f\u4e2a\u5355\u5c04\u51fd\u6570\uff0c\u800c\u4e14\u4ec5\u5f53$A = B$\u65f6\uff0c\u6052\u7b49\u51fd\u6570\u624d\u662f\u6ee1\u5c04\uff0c\u5e76\u4e14$id_A = I_A$\r\n\r\n- \u7279\u5f81\u51fd\u6570\uff0c\u8bbe$A \\subseteq B$\uff0c\u51fd\u6570$f_A: B \\rightarrow \\{0, 1\\}$\u5b9a\u4e49\u4e3a\r\n  $$\r\n  f_A(x) = \\begin{cases} 1, \u0026 \u82e5 x \\in A \\cr 0, \u0026 \u82e5 x \\notin A \\end{cases}\r\n  $$\r\n\r\n- \u5219\u79f0$f_A: B \\rightarrow \\{0, 1\\}$\u662f\u96c6\u5408$A$\u7684\u4e00\u4e2a\u7279\u5f81\u51fd\u6570\r\n\r\n- $B^A := \\{f \\mid f$\u4e3a\u51fd\u6570 $\\land$ $dm(f) = A \\land rn(f) \\subseteq B\\}$\uff0c\u5e76\u79f0$B^A$\u662f\u7531\u96c6\u5408$A$\u5230\u96c6\u5408$B$\u7684\u5e42\u96c6\r\n\r\n- $f \\in B^A \\Leftrightarrow f$\u4e3a\u51fd\u6570 $\\land$ $dm(f) = A \\land rn(f) \\subseteq B$\r\n\r\n- $B^{(A)} = \\{\\,(x, y) \\mid y \\in B\\,\\}$\r\n\r\n- $B \\subseteq C \\Rightarrow B^A \\subseteq C^A$\r\n\r\n- \u8bbe$F, P(B) \\rightarrow \\{0, 1\\}^A$\uff0c\u5e76\u4ee4$F(A) := f_A$\uff0c\u5176\u4e2d$A \\in P(B)$\uff0c\u5219$F$\u662f\u53cc\u5c04\u3002\r\n\r\n- \u4e00\u4e2a\u96c6\u5408$A$\u4e0e\u5176\u4e0a\u7684\u4e00\u4e2a\u4e8c\u5143\u5173\u7cfb$R$\uff08\u5373$R \\subseteq A \\times A$\uff09\u7ec4\u6210\u7684\u6709\u5e8f\u5bf9$\u003CA, R\u003E$\u79f0\u4e3a\u4e00\u4e2a\u7ed3\u6784\r\n\r\n- \u82e5\u4e24\u4e2a\u7ed9\u5b9a\u7684\u7ed3\u6784$\u003CA, R\u003E$\u548c$\u003CB, S\u003E$\uff0c\u5b58\u5728\u4e00\u4e2a\u53cc\u5c04\u51fd\u6570$f:A \\rightarrow B$\uff0c\u5bf9\u4e8e$x, y \\in A$\u6709$xRy  \\Leftrightarrow f(x)SF(y)$\uff0c\u5219\u79f0$f$\u662f\u4ece\u7ed3\u6784$\u003CA, R\u003E$\u5230\u7ed3\u6784$\u003CB, S\u003E$\u7684\u540c\u6784\u6620\u5c04\uff0c\u8bb0\u4f5c$\u003CA, R\u003E \\cong \u003CB, S\u003E$\r\n\r\n- \u8bbe$\u003CA, R\u003E, \u003CB, S\u003E, \u003CC, T\u003E$\u662f\u4efb\u610f\u4e09\u4e2a\u7ed3\u6784\u5219\u5b83\u4eec\u6ee1\u8db3\u81ea\u53cd\u3001\u5bf9\u79f0\u548c\u4f20\u9012\uff0c\u5373\r\n\r\n1. $\u003CA, R\u003E \\cong \u003CA, R\u003E$\r\n2. $\u003CA, R\u003E \\cong \u003CB, S\u003E \\Rightarrow \u003CB, S\u003E \\cong \u003CA, R\u003E$\r\n3. $\u003CA, R\u003E \\cong \u003CB, S\u003E, \u003CB, S\u003E \\cong \u003CC, T\u003E \\Rightarrow \u003CA, R\u003E \\cong \u003CC, T\u003E$"</script>
+        <div id="markdown-rendered"></div>
     </div>
 </div>
+
+<script>
+    (function () {
+        const sourceElement = document.getElementById('markdown-source');
+        const targetElement = document.getElementById('markdown-rendered');
+
+        if (!sourceElement || !targetElement || typeof window.markdownit !== 'function') {
+            return;
+        }
+
+        const markdownText = JSON.parse(sourceElement.textContent || '""');
+        const parser = window.markdownit({
+            html: true,
+            linkify: true,
+            typographer: true,
+            breaks: true
+        });
+
+        if (typeof window.texmath === 'function' && typeof window.katex !== 'undefined') {
+            parser.use(window.texmath, {
+                engine: window.katex,
+                delimiters: 'dollars',
+                katexOptions: {
+                    throwOnError: false,
+                    strict: 'ignore'
+                }
+            });
+        }
+
+        const defaultTableOpen = parser.renderer.rules.table_open || function (tokens, idx, options, env, self) {
+            return self.renderToken(tokens, idx, options);
+        };
+
+        parser.renderer.rules.table_open = function (tokens, idx, options, env, self) {
+            const token = tokens[idx];
+            token.attrJoin('class', 'table table-bordered table-striped table-hover');
+            return defaultTableOpen(tokens, idx, options, env, self);
+        };
+
+        targetElement.innerHTML = parser.render(markdownText);
+        if (window.hljs) {
+            window.hljs.highlightAll();
+        }
+    })();
+</script>
 
             </div>
         </div>

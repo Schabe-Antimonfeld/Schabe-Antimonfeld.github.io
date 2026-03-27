@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap">
-
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+    
     <link rel="stylesheet" href="/static/css/style.css">
     <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
 
@@ -26,12 +27,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/github.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.9.0/highlightjs-line-numbers.min.js"></script>
+    
+    <!-- Markdown-it -->
+    <script src="https://cdn.jsdelivr.net/npm/markdown-it@14.1.0/dist/markdown-it.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/markdown-it-texmath@1.0.0/texmath.min.js"></script>
 
     <script src="/static/js/use_hl.js"></script>
 
-    <!-- MathJax 支持 LaTeX -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6" defer></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <!-- KaTeX 支持 LaTeX -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
 
     <!-- 邮箱弹窗 -->
     <script>
@@ -49,23 +54,26 @@
         });
     </script>
 
-    <!-- LaTeX行内公式支持 -->
-    <script>
-        window.MathJax = {
-            tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']],
-                displayMath: [['$$', '$$'], ['\\[', '\\]']],
-                processEscapes: true
-            },
-            svg: {
-                fontCache: 'global'
-            }
-        };
-    </script>
 </head>
 
+<style>
+    .background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("/static/images/background.png");
+        background-size: cover;
+        background-position: center;
+        z-index: -1;
+        opacity: 0.7;
+    }
+</style>
+
 <body>
-    <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border fixed-top">
+    <div class="background"></div>
+    <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border fixed-top" style="opacity: 0.85;">
         <!-- 导航栏名称 -->
         <a class="navbar-brand ms-5" href="/">
             SchabeAntimonfeld</a>
@@ -113,254 +121,107 @@
 
 
 <!--个人资料卡-->
-<div class="card mb-4 text-center">
+<div class="card mb-4 text-center shadow">
     <img src="/static/images/avatar.jpg" class="card-img-top rounded-circle mx-auto mt-3" style="width: 120px; height: 120px; object-fit: cover;" alt="avatar">
     <div class="card-body text-center">
         <h5 class="card-title">Schabe Antimonfeld</h5>
-        <p class="card-text text-muted">AI × Coding × Minecraft</p>
+        
         <hr>
         <p>在读大学生</p>
         <p></p>
-        <p><i class="fab fa-github"></i> <a href="https://github.com/Schabe-Antimonfeld" target="_blank">GitHub</a></p>
+        <p><i class="fab fa-github"></i> <a href="https://github.com/Schabe-Antimonfeld" target="_blank" style="text-decoration: none;">GitHub</a></p>
         <hr>
         <p>友情链接</p>
         <p>
             <img src="/static/images/lonion.png" alt="图标" style="width:32px;height:32px;vertical-align:middle;margin-right:4px;">
-            <a href="https://lonion1124.github.io/" target="_blank">洋葱菌的博客</a>
+            <a href="https://lonion1124.github.io/" target="_blank" style="text-decoration: none;">洋葱菌的博客</a>
         </p>
         <p>
             <img src="/static/images/aaaaa.png" alt="图标" style="width:32px;height:32px;vertical-align:middle;margin-right:4px;">
-            <a href="https://aaaaa114514-1.github.io/" target="_blank">aaaaa online</a>
+            <a href="https://aaaaa114514-1.github.io/" target="_blank" style="text-decoration: none;">aaaaa online</a>
         </p>
     </div>
+</div>
 </div>
             </div>
 
             <!-- 主体内容 -->
             <div class="col-md-9 offset-md-3">
                 
-<h2>ACM-ICPC基础 STL</h2>
+<div class="card mb-3 shadow">
+    <div class="card-body">
+        <h2>ACM-ICPC基础 STL</h2>
 
-<!-- 主题标签 -->
-<p class="text-muted mb-1">
-    <i class="bi bi-tags text-primary"></i>
-    
-        <a href="/topics/2/" class="btn btn-sm btn-outline-primary text-decoration-none">代码</a>
-    
-        <a href="/topics/3/" class="btn btn-sm btn-outline-primary text-decoration-none">算法</a>
-    
-</p>
+        <!-- 主题标签 -->
+        <p class="text-muted mb-1">
+            <i class="bi bi-tags text-primary"></i>
+            
+                <a href="/topics/2/" class="btn btn-sm btn-outline-primary text-decoration-none">代码</a>
+            
+                <a href="/topics/3/" class="btn btn-sm btn-outline-primary text-decoration-none">算法</a>
+            
+        </p>
 
-<p class="card-text text-muted">
-    发布于 2025年08月04日 11:30
-</p>
+        <p class="card-text text-muted">
+            发布于 2025年08月04日 11:30
+        </p>
+    </div>
+</div>
 <hr>
 
                 
 <!-- 博客内容 -->
-<div class="card mb-3 shadow-sm">
+<div class="card mb-3 shadow">
     <div class="card-body">
-        <h2>vector 动态数组</h2>
-<pre class="highlight"><code class="language-cpp">#include&lt;vector&gt;
-using namespace std;
-
-vector&lt;int&gt; vec;
-vec.begin();
-vec.clear();
-vec.empty();
-vec.end();
-vec.push_back(elem);
-vec.size();
-vec.resize();
-
-vec.push_back(2);
-vec.push_back(4);
-
-//下标遍历
-for (int i = 0; i &lt; vec.size(); ++i)cout &lt;&lt; vec[i] &lt;&lt; &quot; &quot;;
-cout &lt;&lt; endl;
-
-//迭代器遍历
-vector&lt;int&gt;::iterator it;
-for (it = vec.begin(); it != vec.end(); ++it) cout &lt;&lt; *it &lt;&lt; &quot; &quot;;
-cout &lt;&lt; endl;
-
-vec.insert(vec.begin() + 1, 6);//第二个位置插入6 vec = [2, 6, 4]
-vec.erase(vec.begin() + 1);//删除第二个位置的元素 vec = [2, 4]
-
-vec.clear();
-</code></pre>
-
-<p><a href="https://vjudge.net/contest/698956#problem/A">例题：POJ1208</a></p>
-<pre class="highlight"><code class="language-cpp">#include&lt;iostream&gt;
-#include&lt;cstdio&gt;
-#include&lt;vector&gt;
-#include&lt;string&gt;
-using namespace std;
-
-const int maxn = 30;
-int n;
-vector&lt;int&gt; pile[maxn];
-
-//找木块a所在的pile和height以引用形式返回调用者
-void find_block(int a, int &amp;p, int &amp;h){
-    for (p = 0; p &lt; n; p++) for (h = 0; h &lt; pile[p].size(); h++) if (pile[p][h] == a) return;
-}
-
-//把第p堆高度为h的木块上方的所有木块移回原位
-void clear_above(int p, int h){
-    for (int i = h + 1; i &lt; pile[p].size(); i++){
-        int b = pile[p][i];
-        pile[b].push_back(b);
-    }
-    pile[p].resize(h + 1);//只保留下标0-h的元素节省内存
-}
-
-//把第p堆高度为h及其上方的木块整体移动到p2堆的顶端
-void place(int p, int h; int p2){
-    for (int i = h; i &lt; pile[p].size(); i++) pile[p2].push_back(pile[p][i]);
-    pile[i].resize(h);
-}
-
-void print(){
-    for (int i = 0; i &lt; n; i++){
-        printf(&quot;%d:&quot;, i);
-        for (int j = 0; j &lt; pile[i].size(); j++) printf(&quot; %d&quot;, pile[i][j]);
-        printf(&quot;\n&quot;);
-    }
-}
-
-int main(){
-    //freopen(&quot;in.txt&quot;, &quot;r&quot;, stdin);
-    int a, b;
-    cin &gt;&gt; n;
-    string s1, s2;
-    for (int i = 0; i &lt; n; i++) pile[i].push_back(i);
-    while (cin &gt;&gt; s1 &gt;&gt; a &gt;&gt; s2 &gt;&gt; b){
-        int pa, pb, ha, hb;
-        if (s1 == &quot;quit&quot;) break;
-        find_block(a, pa, ha);
-        find_block(b, pb, hb);
-        if (pa == pb) continue;
-        if (s2 == &quot;onto&quot;) clear_above(pb, hb);
-        if (s1 == &quot;move&quot;) clear_above(pa, ha);
-
-        place(pa, ha, pb);
-    }
-    print();
-    return 0;
-}
-</code></pre>
-
-<h2>stack 栈</h2>
-<p>后进先出 LIFO</p>
-<pre class="highlight"><code class="language-cpp">#include&lt;stack&gt;
-using namespace std;
-
-stack&lt;int&gt; S;
-S.push();
-S.pop();
-S.top;
-</code></pre>
-
-<p><a href="https://vjudge.net/contest/698956#problem/B">例题：POJ1363</a></p>
-<pre class="highlight"><code class="language-cpp">#include&lt;stack&gt;
-#include&lt;cstdio&gt;
-using namespace std;
-typedef long long LL;
-
-const int mx = 1010;
-int n, a[mx], i;
-bool nfi;
-
-int main(){
-    while (~scanf(&quot;%d&quot;, &amp;n) &amp;&amp; n){
-        if (nfi) printf(&quot;\n&quot;);
-        while (~scanf(&quot;%d&quot;, &amp;a[1]) &amp;&amp; a[1]){
-            for (i = 2; i &lt;= n; ++i) scanf(&quot;%d&quot;, &amp;a[i]);
-            stack&lt;int&gt; S;
-            i = 1;
-            for (int j = 1; j &lt;= n; ++j){
-                S.push(j);
-                while (!S.empty() &amp;&amp; S.top() == a[i]){
-                    S.pop();
-                    i++;
-                }
-            }
-            if (S.empty()) printf(&quot;Yes\n&quot;);
-            else printf(&quot;No\n&quot;);
-        }
-        nfi = true;
-    }
-    return 0;
-}
-</code></pre>
-
-<h2>queue 队列</h2>
-<pre class="highlight"><code class="language-cpp">#include&lt;queue&gt;
-using namespace std;
-
-queue&lt;int&gt; que;
-que.back();
-que.empty();
-que.front();
-que.pop();
-que.push(elem);
-que.size();
-</code></pre>
-
-<p><a href="https://vjudge.net/contest/698956#problem/C">例题：POJ2259</a></p>
-<pre class="highlight"><code class="language-cpp">#include&lt;cstdio&gt;
-#include&lt;queue&gt;
-#include&lt;string&gt;
-#define maxn 1010
-using namespace std;
-
-int belong[1000000];
-
-int main(){
-    int T, n, a, t = 0;
-    while (~scanf(&quot;%d&quot;, &amp;T)){
-        if (T == 0) break;
-        else{
-            queue&lt;int&gt; team[maxn];
-            queue&lt;int&gt; que;
-            for (int i - 1; i &lt;= T; i++){
-                scanf(&quot;%d&quot;, &amp;n);
-                while(n--){
-                    scanf(&quot;%d&quot;, &amp;a);
-                    belong[a] = i;
-                }
-            }
-            printf(&quot;Scenario #%d\n&quot;, ++t);
-            char command[200];
-            while (~scanf(&quot;%s&quot;, command)){
-                if (command[0] == 'S') break;
-                if (command[0] == 'E'){
-                    int elements, b;
-                    scanf(&quot;%d&quot;, &amp;elements);
-                    b = belong[elements];
-
-                    if (team[b].empty()){
-                        que.push(b);
-                        team[b].push(elements);
-                    }
-                    else team[b].push(elements);
-                    else if (command == 'D'){
-                        int ans = que.front();
-                        printf(&quot;%d\n&quot;, team[ans].front());
-                        team[ans].pop();
-                        if (team[ans].empty()) que.pop();
-                    }
-                }
-            }
-            printf(&quot;\n&quot;)
-        }
-        return 0;
-    }
-</code></pre>
+        <script id="markdown-source" type="application/json">"## vector \u52a8\u6001\u6570\u7ec4\r\n\r\n```cpp\r\n#include\u003Cvector\u003E\r\nusing namespace std;\r\n\r\nvector\u003Cint\u003E vec;\r\nvec.begin();\r\nvec.clear();\r\nvec.empty();\r\nvec.end();\r\nvec.push_back(elem);\r\nvec.size();\r\nvec.resize();\r\n\r\nvec.push_back(2);\r\nvec.push_back(4);\r\n\r\n//\u4e0b\u6807\u904d\u5386\r\nfor (int i = 0; i \u003C vec.size(); ++i)cout \u003C\u003C vec[i] \u003C\u003C \" \";\r\ncout \u003C\u003C endl;\r\n\r\n//\u8fed\u4ee3\u5668\u904d\u5386\r\nvector\u003Cint\u003E::iterator it;\r\nfor (it = vec.begin(); it != vec.end(); ++it) cout \u003C\u003C *it \u003C\u003C \" \";\r\ncout \u003C\u003C endl;\r\n\r\nvec.insert(vec.begin() + 1, 6);//\u7b2c\u4e8c\u4e2a\u4f4d\u7f6e\u63d2\u51656 vec = [2, 6, 4]\r\nvec.erase(vec.begin() + 1);//\u5220\u9664\u7b2c\u4e8c\u4e2a\u4f4d\u7f6e\u7684\u5143\u7d20 vec = [2, 4]\r\n\r\nvec.clear();\r\n```\r\n\r\n[\u4f8b\u9898\uff1aPOJ1208](https://vjudge.net/contest/698956#problem/A)\r\n\r\n``` cpp\r\n#include\u003Ciostream\u003E\r\n#include\u003Ccstdio\u003E\r\n#include\u003Cvector\u003E\r\n#include\u003Cstring\u003E\r\nusing namespace std;\r\n\r\nconst int maxn = 30;\r\nint n;\r\nvector\u003Cint\u003E pile[maxn];\r\n\r\n//\u627e\u6728\u5757a\u6240\u5728\u7684pile\u548cheight\u4ee5\u5f15\u7528\u5f62\u5f0f\u8fd4\u56de\u8c03\u7528\u8005\r\nvoid find_block(int a, int \u0026p, int \u0026h){\r\n    for (p = 0; p \u003C n; p++) for (h = 0; h \u003C pile[p].size(); h++) if (pile[p][h] == a) return;\r\n}\r\n\r\n//\u628a\u7b2cp\u5806\u9ad8\u5ea6\u4e3ah\u7684\u6728\u5757\u4e0a\u65b9\u7684\u6240\u6709\u6728\u5757\u79fb\u56de\u539f\u4f4d\r\nvoid clear_above(int p, int h){\r\n    for (int i = h + 1; i \u003C pile[p].size(); i++){\r\n        int b = pile[p][i];\r\n        pile[b].push_back(b);\r\n    }\r\n    pile[p].resize(h + 1);//\u53ea\u4fdd\u7559\u4e0b\u68070-h\u7684\u5143\u7d20\u8282\u7701\u5185\u5b58\r\n}\r\n\r\n//\u628a\u7b2cp\u5806\u9ad8\u5ea6\u4e3ah\u53ca\u5176\u4e0a\u65b9\u7684\u6728\u5757\u6574\u4f53\u79fb\u52a8\u5230p2\u5806\u7684\u9876\u7aef\r\nvoid place(int p, int h; int p2){\r\n    for (int i = h; i \u003C pile[p].size(); i++) pile[p2].push_back(pile[p][i]);\r\n    pile[i].resize(h);\r\n}\r\n\r\nvoid print(){\r\n    for (int i = 0; i \u003C n; i++){\r\n        printf(\"%d:\", i);\r\n        for (int j = 0; j \u003C pile[i].size(); j++) printf(\" %d\", pile[i][j]);\r\n        printf(\"\\n\");\r\n    }\r\n}\r\n\r\nint main(){\r\n    //freopen(\"in.txt\", \"r\", stdin);\r\n    int a, b;\r\n    cin \u003E\u003E n;\r\n    string s1, s2;\r\n    for (int i = 0; i \u003C n; i++) pile[i].push_back(i);\r\n    while (cin \u003E\u003E s1 \u003E\u003E a \u003E\u003E s2 \u003E\u003E b){\r\n        int pa, pb, ha, hb;\r\n        if (s1 == \"quit\") break;\r\n        find_block(a, pa, ha);\r\n        find_block(b, pb, hb);\r\n        if (pa == pb) continue;\r\n        if (s2 == \"onto\") clear_above(pb, hb);\r\n        if (s1 == \"move\") clear_above(pa, ha);\r\n\r\n        place(pa, ha, pb);\r\n    }\r\n    print();\r\n    return 0;\r\n}\r\n```\r\n\r\n## stack \u6808\r\n\r\n\u540e\u8fdb\u5148\u51fa LIFO\r\n\r\n``` cpp\r\n#include\u003Cstack\u003E\r\nusing namespace std;\r\n\r\nstack\u003Cint\u003E S;\r\nS.push();\r\nS.pop();\r\nS.top;\r\n```\r\n\r\n[\u4f8b\u9898\uff1aPOJ1363](https://vjudge.net/contest/698956#problem/B)\r\n\r\n```cpp\r\n#include\u003Cstack\u003E\r\n#include\u003Ccstdio\u003E\r\nusing namespace std;\r\ntypedef long long LL;\r\n\r\nconst int mx = 1010;\r\nint n, a[mx], i;\r\nbool nfi;\r\n\r\nint main(){\r\n    while (~scanf(\"%d\", \u0026n) \u0026\u0026 n){\r\n        if (nfi) printf(\"\\n\");\r\n        while (~scanf(\"%d\", \u0026a[1]) \u0026\u0026 a[1]){\r\n            for (i = 2; i \u003C= n; ++i) scanf(\"%d\", \u0026a[i]);\r\n            stack\u003Cint\u003E S;\r\n            i = 1;\r\n            for (int j = 1; j \u003C= n; ++j){\r\n                S.push(j);\r\n                while (!S.empty() \u0026\u0026 S.top() == a[i]){\r\n                    S.pop();\r\n                    i++;\r\n                }\r\n            }\r\n            if (S.empty()) printf(\"Yes\\n\");\r\n            else printf(\"No\\n\");\r\n        }\r\n        nfi = true;\r\n    }\r\n    return 0;\r\n}\r\n```\r\n\r\n## queue \u961f\u5217\r\n\r\n```cpp\r\n#include\u003Cqueue\u003E\r\nusing namespace std;\r\n\r\nqueue\u003Cint\u003E que;\r\nque.back();\r\nque.empty();\r\nque.front();\r\nque.pop();\r\nque.push(elem);\r\nque.size();\r\n```\r\n\r\n[\u4f8b\u9898\uff1aPOJ2259](https://vjudge.net/contest/698956#problem/C)\r\n\r\n```cpp\r\n#include\u003Ccstdio\u003E\r\n#include\u003Cqueue\u003E\r\n#include\u003Cstring\u003E\r\n#define maxn 1010\r\nusing namespace std;\r\n\r\nint belong[1000000];\r\n\r\nint main(){\r\n    int T, n, a, t = 0;\r\n    while (~scanf(\"%d\", \u0026T)){\r\n        if (T == 0) break;\r\n        else{\r\n            queue\u003Cint\u003E team[maxn];\r\n            queue\u003Cint\u003E que;\r\n            for (int i - 1; i \u003C= T; i++){\r\n                scanf(\"%d\", \u0026n);\r\n                while(n--){\r\n                    scanf(\"%d\", \u0026a);\r\n                    belong[a] = i;\r\n                }\r\n            }\r\n            printf(\"Scenario #%d\\n\", ++t);\r\n            char command[200];\r\n            while (~scanf(\"%s\", command)){\r\n                if (command[0] == 'S') break;\r\n                if (command[0] == 'E'){\r\n                    int elements, b;\r\n                    scanf(\"%d\", \u0026elements);\r\n                    b = belong[elements];\r\n\r\n                    if (team[b].empty()){\r\n                        que.push(b);\r\n                        team[b].push(elements);\r\n                    }\r\n                    else team[b].push(elements);\r\n                    else if (command == 'D'){\r\n                        int ans = que.front();\r\n                        printf(\"%d\\n\", team[ans].front());\r\n                        team[ans].pop();\r\n                        if (team[ans].empty()) que.pop();\r\n                    }\r\n                }\r\n            }\r\n            printf(\"\\n\")\r\n        }\r\n        return 0;\r\n    }\r\n```"</script>
+        <div id="markdown-rendered"></div>
     </div>
 </div>
+
+<script>
+    (function () {
+        const sourceElement = document.getElementById('markdown-source');
+        const targetElement = document.getElementById('markdown-rendered');
+
+        if (!sourceElement || !targetElement || typeof window.markdownit !== 'function') {
+            return;
+        }
+
+        const markdownText = JSON.parse(sourceElement.textContent || '""');
+        const parser = window.markdownit({
+            html: true,
+            linkify: true,
+            typographer: true,
+            breaks: true
+        });
+
+        if (typeof window.texmath === 'function' && typeof window.katex !== 'undefined') {
+            parser.use(window.texmath, {
+                engine: window.katex,
+                delimiters: 'dollars',
+                katexOptions: {
+                    throwOnError: false,
+                    strict: 'ignore'
+                }
+            });
+        }
+
+        const defaultTableOpen = parser.renderer.rules.table_open || function (tokens, idx, options, env, self) {
+            return self.renderToken(tokens, idx, options);
+        };
+
+        parser.renderer.rules.table_open = function (tokens, idx, options, env, self) {
+            const token = tokens[idx];
+            token.attrJoin('class', 'table table-bordered table-striped table-hover');
+            return defaultTableOpen(tokens, idx, options, env, self);
+        };
+
+        targetElement.innerHTML = parser.render(markdownText);
+        if (window.hljs) {
+            window.hljs.highlightAll();
+        }
+    })();
+</script>
 
             </div>
         </div>

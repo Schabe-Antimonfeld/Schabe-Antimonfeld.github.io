@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap">
-
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+    
     <link rel="stylesheet" href="/static/css/style.css">
     <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
 
@@ -26,12 +27,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/github.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.9.0/highlightjs-line-numbers.min.js"></script>
+    
+    <!-- Markdown-it -->
+    <script src="https://cdn.jsdelivr.net/npm/markdown-it@14.1.0/dist/markdown-it.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/markdown-it-texmath@1.0.0/texmath.min.js"></script>
 
     <script src="/static/js/use_hl.js"></script>
 
-    <!-- MathJax 支持 LaTeX -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6" defer></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <!-- KaTeX 支持 LaTeX -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
 
     <!-- 邮箱弹窗 -->
     <script>
@@ -49,23 +54,26 @@
         });
     </script>
 
-    <!-- LaTeX行内公式支持 -->
-    <script>
-        window.MathJax = {
-            tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']],
-                displayMath: [['$$', '$$'], ['\\[', '\\]']],
-                processEscapes: true
-            },
-            svg: {
-                fontCache: 'global'
-            }
-        };
-    </script>
 </head>
 
+<style>
+    .background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("/static/images/background.png");
+        background-size: cover;
+        background-position: center;
+        z-index: -1;
+        opacity: 0.7;
+    }
+</style>
+
 <body>
-    <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border fixed-top">
+    <div class="background"></div>
+    <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border fixed-top" style="opacity: 0.85;">
         <!-- 导航栏名称 -->
         <a class="navbar-brand ms-5" href="/">
             SchabeAntimonfeld</a>
@@ -113,100 +121,107 @@
 
 
 <!--个人资料卡-->
-<div class="card mb-4 text-center">
+<div class="card mb-4 text-center shadow">
     <img src="/static/images/avatar.jpg" class="card-img-top rounded-circle mx-auto mt-3" style="width: 120px; height: 120px; object-fit: cover;" alt="avatar">
     <div class="card-body text-center">
         <h5 class="card-title">Schabe Antimonfeld</h5>
-        <p class="card-text text-muted">AI × Coding × Minecraft</p>
+        
         <hr>
         <p>在读大学生</p>
         <p></p>
-        <p><i class="fab fa-github"></i> <a href="https://github.com/Schabe-Antimonfeld" target="_blank">GitHub</a></p>
+        <p><i class="fab fa-github"></i> <a href="https://github.com/Schabe-Antimonfeld" target="_blank" style="text-decoration: none;">GitHub</a></p>
         <hr>
         <p>友情链接</p>
         <p>
             <img src="/static/images/lonion.png" alt="图标" style="width:32px;height:32px;vertical-align:middle;margin-right:4px;">
-            <a href="https://lonion1124.github.io/" target="_blank">洋葱菌的博客</a>
+            <a href="https://lonion1124.github.io/" target="_blank" style="text-decoration: none;">洋葱菌的博客</a>
         </p>
         <p>
             <img src="/static/images/aaaaa.png" alt="图标" style="width:32px;height:32px;vertical-align:middle;margin-right:4px;">
-            <a href="https://aaaaa114514-1.github.io/" target="_blank">aaaaa online</a>
+            <a href="https://aaaaa114514-1.github.io/" target="_blank" style="text-decoration: none;">aaaaa online</a>
         </p>
     </div>
+</div>
 </div>
             </div>
 
             <!-- 主体内容 -->
             <div class="col-md-9 offset-md-3">
                 
-<h2>PyTorch学习笔记01（数据集）</h2>
+<div class="card mb-3 shadow">
+    <div class="card-body">
+        <h2>PyTorch学习笔记01（数据集）</h2>
 
-<!-- 主题标签 -->
-<p class="text-muted mb-1">
-    <i class="bi bi-tags text-primary"></i>
-    
-        <a href="/topics/2/" class="btn btn-sm btn-outline-primary text-decoration-none">代码</a>
-    
-        <a href="/topics/5/" class="btn btn-sm btn-outline-primary text-decoration-none">深度学习</a>
-    
-</p>
+        <!-- 主题标签 -->
+        <p class="text-muted mb-1">
+            <i class="bi bi-tags text-primary"></i>
+            
+                <a href="/topics/2/" class="btn btn-sm btn-outline-primary text-decoration-none">代码</a>
+            
+                <a href="/topics/5/" class="btn btn-sm btn-outline-primary text-decoration-none">深度学习</a>
+            
+        </p>
 
-<p class="card-text text-muted">
-    发布于 2025年09月09日 12:46
-</p>
+        <p class="card-text text-muted">
+            发布于 2025年09月09日 12:46
+        </p>
+    </div>
+</div>
 <hr>
 
                 
 <!-- 博客内容 -->
-<div class="card mb-3 shadow-sm">
+<div class="card mb-3 shadow">
     <div class="card-body">
-        <h2>数据集处理</h2>
-<pre class="highlight"><code class="language-python">import pandas as pd
-import torch
-
-# 读取数据集
-train_data = pd.read_csv('./data/train.csv')
-test_data = pd.read_csv('./data/test.csv')  # 此处test没有SalePrice
-
-# 拼接以预处理数据
-all_features = pd.concat((train_data.iloc[:, 1:-1], test_data.iloc[:, 1:]))
-
-# 处理数字特征
-numeric_features = all_features.dtypes[all_features.dtypes != 'object'].index
-all_features[numeric_features] = all_features[numeric_features].apply(
-    lambda x: (x - x.mean()) / (x.std()))   # 正则化
-all_features[numeric_features] = all_features[numeric_features].fillna(0)   # 处理nan
-
-# 处理字符串特征（自动创建OneHot编码）
-all_features = pd.get_dummies(all_features, dummy_na=True, dtype=int)
-
-# 重新划分数据集
-n_train = train_data.shape[0]
-train_features = torch.tensor(all_features[:n_train].values, dtype=torch.float32)
-test_features = torch.tensor(all_features[n_train:].values, dtype=torch.float32)
-train_labels = torch.tensor(train_data.SalePrice.values.reshape(-1, 1), dtype=torch.float32)
-</code></pre>
-
-<h2>K折交叉验证</h2>
-<p>当训练数据稀缺时，我们甚至可能无法提供足够的数据来构成一个合适的验证集。 这个问题的一个流行的解决方案是采用$K$折交叉验证。 这里，原始训练数据被分成K个不重叠的子集。 然后执行$K$次模型训练和验证，每次在$K - 1$个子集上进行训练， 并在剩余的一个子集（在该轮中没有用于训练的子集）上进行验证。 最后，通过对$K$次实验的结果取平均来估计训练和验证误差。</p>
-<pre class="highlight"><code class="language-python">def get_k_fold_data(k, i, X, y):
-    assert k &gt; 1
-    fold_size = X.shape[0] // k
-    X_train, y_train = None, None
-    for j in range(k):
-        idx = slice(j * fold_size, (j + 1) * fold_size)
-        X_part, y_part = X[idx, :], y[idx]
-        if j == i:
-            X_valid, y_valid = X_part, y_part
-        elif X_train is None:
-            X_train, y_train = X_part, y_part
-        else:
-            X_train = torch.cat([X_train, X_part], 0)
-            y_train = torch.cat([y_train, y_part], 0)
-    return X_train, y_train, X_valid, y_valid
-</code></pre>
+        <script id="markdown-source" type="application/json">"## \u6570\u636e\u96c6\u5904\u7406\r\n\r\n```python\r\nimport pandas as pd\r\nimport torch\r\n\r\n# \u8bfb\u53d6\u6570\u636e\u96c6\r\ntrain_data = pd.read_csv('./data/train.csv')\r\ntest_data = pd.read_csv('./data/test.csv')\t# \u6b64\u5904test\u6ca1\u6709SalePrice\r\n\r\n# \u62fc\u63a5\u4ee5\u9884\u5904\u7406\u6570\u636e\r\nall_features = pd.concat((train_data.iloc[:, 1:-1], test_data.iloc[:, 1:]))\r\n\r\n# \u5904\u7406\u6570\u5b57\u7279\u5f81\r\nnumeric_features = all_features.dtypes[all_features.dtypes != 'object'].index\r\nall_features[numeric_features] = all_features[numeric_features].apply(\r\n    lambda x: (x - x.mean()) / (x.std()))\t# \u6b63\u5219\u5316\r\nall_features[numeric_features] = all_features[numeric_features].fillna(0)\t# \u5904\u7406nan\r\n\r\n# \u5904\u7406\u5b57\u7b26\u4e32\u7279\u5f81\uff08\u81ea\u52a8\u521b\u5efaOneHot\u7f16\u7801\uff09\r\nall_features = pd.get_dummies(all_features, dummy_na=True, dtype=int)\r\n\r\n# \u91cd\u65b0\u5212\u5206\u6570\u636e\u96c6\r\nn_train = train_data.shape[0]\r\ntrain_features = torch.tensor(all_features[:n_train].values, dtype=torch.float32)\r\ntest_features = torch.tensor(all_features[n_train:].values, dtype=torch.float32)\r\ntrain_labels = torch.tensor(train_data.SalePrice.values.reshape(-1, 1), dtype=torch.float32)\r\n```\r\n\r\n## K\u6298\u4ea4\u53c9\u9a8c\u8bc1\r\n\r\n\u5f53\u8bad\u7ec3\u6570\u636e\u7a00\u7f3a\u65f6\uff0c\u6211\u4eec\u751a\u81f3\u53ef\u80fd\u65e0\u6cd5\u63d0\u4f9b\u8db3\u591f\u7684\u6570\u636e\u6765\u6784\u6210\u4e00\u4e2a\u5408\u9002\u7684\u9a8c\u8bc1\u96c6\u3002 \u8fd9\u4e2a\u95ee\u9898\u7684\u4e00\u4e2a\u6d41\u884c\u7684\u89e3\u51b3\u65b9\u6848\u662f\u91c7\u7528$K$\u6298\u4ea4\u53c9\u9a8c\u8bc1\u3002 \u8fd9\u91cc\uff0c\u539f\u59cb\u8bad\u7ec3\u6570\u636e\u88ab\u5206\u6210K\u4e2a\u4e0d\u91cd\u53e0\u7684\u5b50\u96c6\u3002 \u7136\u540e\u6267\u884c$K$\u6b21\u6a21\u578b\u8bad\u7ec3\u548c\u9a8c\u8bc1\uff0c\u6bcf\u6b21\u5728$K - 1$\u4e2a\u5b50\u96c6\u4e0a\u8fdb\u884c\u8bad\u7ec3\uff0c \u5e76\u5728\u5269\u4f59\u7684\u4e00\u4e2a\u5b50\u96c6\uff08\u5728\u8be5\u8f6e\u4e2d\u6ca1\u6709\u7528\u4e8e\u8bad\u7ec3\u7684\u5b50\u96c6\uff09\u4e0a\u8fdb\u884c\u9a8c\u8bc1\u3002 \u6700\u540e\uff0c\u901a\u8fc7\u5bf9$K$\u6b21\u5b9e\u9a8c\u7684\u7ed3\u679c\u53d6\u5e73\u5747\u6765\u4f30\u8ba1\u8bad\u7ec3\u548c\u9a8c\u8bc1\u8bef\u5dee\u3002\r\n\r\n```python\r\ndef get_k_fold_data(k, i, X, y):\r\n    assert k \u003E 1\r\n    fold_size = X.shape[0] // k\r\n    X_train, y_train = None, None\r\n    for j in range(k):\r\n        idx = slice(j * fold_size, (j + 1) * fold_size)\r\n        X_part, y_part = X[idx, :], y[idx]\r\n        if j == i:\r\n            X_valid, y_valid = X_part, y_part\r\n        elif X_train is None:\r\n            X_train, y_train = X_part, y_part\r\n        else:\r\n            X_train = torch.cat([X_train, X_part], 0)\r\n            y_train = torch.cat([y_train, y_part], 0)\r\n    return X_train, y_train, X_valid, y_valid\r\n```"</script>
+        <div id="markdown-rendered"></div>
     </div>
 </div>
+
+<script>
+    (function () {
+        const sourceElement = document.getElementById('markdown-source');
+        const targetElement = document.getElementById('markdown-rendered');
+
+        if (!sourceElement || !targetElement || typeof window.markdownit !== 'function') {
+            return;
+        }
+
+        const markdownText = JSON.parse(sourceElement.textContent || '""');
+        const parser = window.markdownit({
+            html: true,
+            linkify: true,
+            typographer: true,
+            breaks: true
+        });
+
+        if (typeof window.texmath === 'function' && typeof window.katex !== 'undefined') {
+            parser.use(window.texmath, {
+                engine: window.katex,
+                delimiters: 'dollars',
+                katexOptions: {
+                    throwOnError: false,
+                    strict: 'ignore'
+                }
+            });
+        }
+
+        const defaultTableOpen = parser.renderer.rules.table_open || function (tokens, idx, options, env, self) {
+            return self.renderToken(tokens, idx, options);
+        };
+
+        parser.renderer.rules.table_open = function (tokens, idx, options, env, self) {
+            const token = tokens[idx];
+            token.attrJoin('class', 'table table-bordered table-striped table-hover');
+            return defaultTableOpen(tokens, idx, options, env, self);
+        };
+
+        targetElement.innerHTML = parser.render(markdownText);
+        if (window.hljs) {
+            window.hljs.highlightAll();
+        }
+    })();
+</script>
 
             </div>
         </div>

@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap">
-
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+    
     <link rel="stylesheet" href="/static/css/style.css">
     <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
 
@@ -26,12 +27,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/github.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.9.0/highlightjs-line-numbers.min.js"></script>
+    
+    <!-- Markdown-it -->
+    <script src="https://cdn.jsdelivr.net/npm/markdown-it@14.1.0/dist/markdown-it.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/markdown-it-texmath@1.0.0/texmath.min.js"></script>
 
     <script src="/static/js/use_hl.js"></script>
 
-    <!-- MathJax 支持 LaTeX -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6" defer></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <!-- KaTeX 支持 LaTeX -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
 
     <!-- 邮箱弹窗 -->
     <script>
@@ -49,23 +54,26 @@
         });
     </script>
 
-    <!-- LaTeX行内公式支持 -->
-    <script>
-        window.MathJax = {
-            tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']],
-                displayMath: [['$$', '$$'], ['\\[', '\\]']],
-                processEscapes: true
-            },
-            svg: {
-                fontCache: 'global'
-            }
-        };
-    </script>
 </head>
 
+<style>
+    .background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("/static/images/background.png");
+        background-size: cover;
+        background-position: center;
+        z-index: -1;
+        opacity: 0.7;
+    }
+</style>
+
 <body>
-    <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border fixed-top">
+    <div class="background"></div>
+    <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border fixed-top" style="opacity: 0.85;">
         <!-- 导航栏名称 -->
         <a class="navbar-brand ms-5" href="/">
             SchabeAntimonfeld</a>
@@ -113,285 +121,107 @@
 
 
 <!--个人资料卡-->
-<div class="card mb-4 text-center">
+<div class="card mb-4 text-center shadow">
     <img src="/static/images/avatar.jpg" class="card-img-top rounded-circle mx-auto mt-3" style="width: 120px; height: 120px; object-fit: cover;" alt="avatar">
     <div class="card-body text-center">
         <h5 class="card-title">Schabe Antimonfeld</h5>
-        <p class="card-text text-muted">AI × Coding × Minecraft</p>
+        
         <hr>
         <p>在读大学生</p>
         <p></p>
-        <p><i class="fab fa-github"></i> <a href="https://github.com/Schabe-Antimonfeld" target="_blank">GitHub</a></p>
+        <p><i class="fab fa-github"></i> <a href="https://github.com/Schabe-Antimonfeld" target="_blank" style="text-decoration: none;">GitHub</a></p>
         <hr>
         <p>友情链接</p>
         <p>
             <img src="/static/images/lonion.png" alt="图标" style="width:32px;height:32px;vertical-align:middle;margin-right:4px;">
-            <a href="https://lonion1124.github.io/" target="_blank">洋葱菌的博客</a>
+            <a href="https://lonion1124.github.io/" target="_blank" style="text-decoration: none;">洋葱菌的博客</a>
         </p>
         <p>
             <img src="/static/images/aaaaa.png" alt="图标" style="width:32px;height:32px;vertical-align:middle;margin-right:4px;">
-            <a href="https://aaaaa114514-1.github.io/" target="_blank">aaaaa online</a>
+            <a href="https://aaaaa114514-1.github.io/" target="_blank" style="text-decoration: none;">aaaaa online</a>
         </p>
     </div>
+</div>
 </div>
             </div>
 
             <!-- 主体内容 -->
             <div class="col-md-9 offset-md-3">
                 
-<h2>ACM-ICPC基础 搜索算法的解空间</h2>
+<div class="card mb-3 shadow">
+    <div class="card-body">
+        <h2>ACM-ICPC基础 搜索算法的解空间</h2>
 
-<!-- 主题标签 -->
-<p class="text-muted mb-1">
-    <i class="bi bi-tags text-primary"></i>
-    
-        <a href="/topics/2/" class="btn btn-sm btn-outline-primary text-decoration-none">代码</a>
-    
-        <a href="/topics/3/" class="btn btn-sm btn-outline-primary text-decoration-none">算法</a>
-    
-</p>
+        <!-- 主题标签 -->
+        <p class="text-muted mb-1">
+            <i class="bi bi-tags text-primary"></i>
+            
+                <a href="/topics/2/" class="btn btn-sm btn-outline-primary text-decoration-none">代码</a>
+            
+                <a href="/topics/3/" class="btn btn-sm btn-outline-primary text-decoration-none">算法</a>
+            
+        </p>
 
-<p class="card-text text-muted">
-    发布于 2025年08月04日 11:32
-</p>
+        <p class="card-text text-muted">
+            发布于 2025年08月04日 11:32
+        </p>
+    </div>
+</div>
 <hr>
 
                 
 <!-- 博客内容 -->
-<div class="card mb-3 shadow-sm">
+<div class="card mb-3 shadow">
     <div class="card-body">
-        <h2>BFS</h2>
-<p>从初态S，利用规则生成所有可能的状态，构成下一层节点，检查是否出现目标状态G</p>
-<p>若未出现，对该层再次生成、检查，直到出现目标节点</p>
-<ol>
-<li>
-<p>将初始节点添加到队列Q</p>
-</li>
-<li>
-<p>if Q的第一个节点q是目标节点，Then 停止</p>
-</li>
-<li>
-<p>从Q中删除q，把q的尚未访问的子节点加入Q的末尾</p>
-</li>
-<li>
-<p>if Q为空 Then 失败，Else goto 步骤2</p>
-</li>
-</ol>
-<p><a href="https://vjudge.net/contest/701114#problem/A">例题：POJ3984</a></p>
-<pre class="highlight"><code class="language-cpp">#include&lt;cstdio&gt;
-#include&lt;queue&gt;
-using namespace std;
-
-int mp[5][5], vis[5][5];
-int dir[4][2] = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
-struct node{
-    int x, y;
-}; 
-node pre[10][10];
-
-void bfs(){
-    queue&lt;node&gt; que;
-    node str;
-    str.x = str.y = 0;
-    que.push(str);
-    vis[0][0] = 1;
-    while (!que.empty()){
-        node now = que.front();
-        que.pop();
-        if (now.x == 4 &amp;&amp; now.y == 4) return;
-        for (int i = 0; i &lt; 4; i++){
-            node next ;
-            next.x = now.x + dir[i][0];
-            next.y = now.y + dir[i][1];
-            if (next.x &gt;= 0 &amp;&amp; next.x &lt; 5 &amp;&amp;
-                next.y &gt;= 0 &amp;&amp; next.y &lt; 5 &amp;&amp;
-                !mp[next.x][next.y] &amp;&amp; !vis[next.x][next.y]){
-                vis[next.x][next.y] = 1;
-                que.push(next);
-                pre[next.x][next.y] = now;
-            }
-        }
-    } 
-}
-
-void print(node cur){
-    if (cur.x == 0 &amp;&amp; cur.y == 0){
-        printf(&quot;(0, 0)\n&quot;);
-        return;
-    }
-    print(pre[cur.x][cur.y]);
-    printf(&quot;(%d, %d)\n&quot;, cur.x, cur.y);
-}
-
-int main(){
-    for (int i = 0; i &lt; 5; i++) for (int j = 0; j &lt; 5; j++) scanf(&quot;%d&quot;, &amp;mp[i][j]);
-    bfs();
-    node ed;
-    ed.x = ed.y = 4;
-    print(ed);
-    return 0;
-}
-</code></pre>
-
-<p><a href="https://vjudge.net/contest/701114#problem/B">例题：POJ1915</a></p>
-<pre class="highlight"><code class="language-cpp">#include&lt;cstdio&gt;
-#include&lt;queue&gt;
-#include&lt;string.h&gt;
-using namespace std;
-
-int length, sx, dx, sy, dy;
-struct node{
-    int x, y, step;
-}; 
-int visit[310][310];
-int po[8][2] = {2, 1, 2, -1, 1, 2, 1, -2, -2, 1, -2, -1, -1, 2, -1, -2};
-
-int check(int x, int y){
-    if (x &lt; 0 || x &gt;= length || y &lt; 0 || y &gt;= length) return 1;
-    return visit[x][y];
-}
-
-void bfs(){
-    memset(visit, 0, sizeof(visit));
-    node a, b;
-    queue&lt;node&gt; Q;
-    a.x = sx;
-    a.y = sy;
-    a.step = 0;
-    visit[sx][sy] = 1;
-    Q.push(a);
-    while (!Q.empty()){
-        a = Q.front();
-        Q.pop();
-        if (a.x == dx &amp;&amp; a.y == dy){
-            printf(&quot;%d\n&quot;, a.step);
-            return;
-        }
-        for (int i = 0; i &lt; 8; i++){
-            b.x = a.x + po[i][0];
-            b.y = a.y + po[i][1];
-            if (check(b.x, b.y)) continue;
-            b.step = a.step + 1;
-            visit[b.x][b.y] = 1;
-            Q.push(b);
-        }
-    } 
-}
-
-int main(){
-    int T;
-    scanf(&quot;%d&quot;, &amp;T);
-    while (T--){
-        scanf(&quot;%d&quot;, &amp;length);
-        scanf(&quot;%d%d%d%d&quot;, &amp;sx, &amp;sy, &amp;dx, &amp;dy);
-        bfs();
-    }
-    return 0;
-}
-</code></pre>
-
-<h2>DFS</h2>
-<p>对每一个可能的分支深入到不能再转移为止，然后回溯到前一步的状态，继续转移到前一步的状态，直到找到最终的解</p>
-<ol>
-<li>把起始点放入stack </li>
-<li>重复下述3步骤，直到stack为空为止：</li>
-<li>从stack中访问栈顶的点</li>
-<li>找出与此点邻接的且尚未遍历的点，进行标记，然后全部放入stack中</li>
-<li>如果此点没有尚未遍历的邻接点，则将此点从stack中弹出。</li>
-</ol>
-<p><a href="https://vjudge.net/contest/701114#problem/C">例题：POJ2386</a></p>
-<pre class="highlight"><code class="language-cpp">#include&lt;iostream&gt;
-using namespace std;
-
-int N, M;
-const int  MAX_N = 103;
-char field[MAX_N][MAX_N];
-
-void dfs(int x, int y){
-    field[x][y] = '.';
-    for (int dx = -1; dx &lt;= 1; dx++){
-        for (int dy = -1; dy &lt;= 1; dy++){
-            int nx = x + dx, ny = y + dy;
-            if (0 &lt;= nx &amp;&amp; nx &lt; N &amp;&amp; 0 &lt;= ny &amp;&amp; ny &lt; M &amp;&amp; field[nx][ny] == 'W') dfs(nx, ny);
-        } 
-    }
-    return;
-}
-
-void solve(){
-    int res = 0;
-    for (int i = 0; i &lt; N; i++){
-        for (int j = 0; j &lt; M; j++){
-            if (field[i][j] == 'W'){
-                dfs(i, j);
-                res++;
-            }
-        }
-    }
-    cout &lt;&lt; res;
-}
-
-int main(){
-    cin &gt;&gt; N &gt;&gt; M;
-    for (int i = 0; i &lt; N; i++) for (int j = 0; j &lt; M; j++) cin &gt;&gt; field[i][j];
-    solve();
-} 
-</code></pre>
-
-<p><a href="https://vjudge.net/contest/701114#problem/D">例题：POJ2488</a></p>
-<pre class="highlight"><code class="language-cpp">#include&lt;iostream&gt;
-#include&lt;cstdio&gt;
-#include&lt;cstring&gt;
-using namespace std;
-
-const int DN = 8;
-const int dx[] = {-1, 1, -2, 2, -2, 2, -1, 1};
-const int dy[] = {-2, -2, -1, -1, 1, 1, 2, 2};
-const int N = 27;
-bool visit[N][N];
-struct Step{
-    char x, y;
-} path[N];
-int p, q, success;
-
-void dfs(int x, int y, int step){
-    path[step].y = y + 'A' - 1;
-    path[step].x = x + '0';
-    if (step == p * q) success = true;
-    else {
-        for (int i = 0; i &lt; DN &amp;&amp; !success; i++){
-            int nx = x + dx[i];
-            int ny = y + dy[i];
-            if (0 &lt; nx &amp;&amp; nx &lt;= p &amp;&amp; 0 &lt; ny &amp;&amp; ny &lt;= q &amp;&amp; !visit[nx][ny] &amp;&amp; !success){
-                visit[nx][ny] = true;
-                dfs(nx, ny, step + 1);
-                visit[nx][ny] = false;
-            }
-        }
-    }
-}
-
-int main(){
-    int t;
-    scanf(&quot;%d&quot;, &amp;t);
-    for (int k = 1; k &lt;= t; k++){
-        scanf(&quot;%d%d&quot;, &amp;p, &amp;q);
-        memset(visit, false, sizeof(visit));
-        visit[1][1] = true;
-        success = false;
-        dfs(1, 1, 1);
-        printf(&quot;Scenario #%d:\n&quot;, k);
-        if (success){
-            for (int i = 1; i &lt;= p * q; i++) printf(&quot;%c%c&quot;, path[i].y, path[i].x);
-            printf(&quot;\n&quot;);
-        } else printf(&quot;impossible\n&quot;);
-        if (k != t) printf(&quot;\n&quot;);
-    }
-    return 0;
-}
-</code></pre>
+        <script id="markdown-source" type="application/json">"## BFS\r\n\r\n\u4ece\u521d\u6001S\uff0c\u5229\u7528\u89c4\u5219\u751f\u6210\u6240\u6709\u53ef\u80fd\u7684\u72b6\u6001\uff0c\u6784\u6210\u4e0b\u4e00\u5c42\u8282\u70b9\uff0c\u68c0\u67e5\u662f\u5426\u51fa\u73b0\u76ee\u6807\u72b6\u6001G\r\n\r\n\u82e5\u672a\u51fa\u73b0\uff0c\u5bf9\u8be5\u5c42\u518d\u6b21\u751f\u6210\u3001\u68c0\u67e5\uff0c\u76f4\u5230\u51fa\u73b0\u76ee\u6807\u8282\u70b9\r\n\r\n1. \u5c06\u521d\u59cb\u8282\u70b9\u6dfb\u52a0\u5230\u961f\u5217Q\r\n\r\n2. if Q\u7684\u7b2c\u4e00\u4e2a\u8282\u70b9q\u662f\u76ee\u6807\u8282\u70b9\uff0cThen \u505c\u6b62\r\n\r\n3. \u4eceQ\u4e2d\u5220\u9664q\uff0c\u628aq\u7684\u5c1a\u672a\u8bbf\u95ee\u7684\u5b50\u8282\u70b9\u52a0\u5165Q\u7684\u672b\u5c3e\r\n\r\n4. if Q\u4e3a\u7a7a Then \u5931\u8d25\uff0cElse goto \u6b65\u9aa42\r\n\r\n[\u4f8b\u9898\uff1aPOJ3984](https://vjudge.net/contest/701114#problem/A)\r\n\r\n```cpp\r\n#include\u003Ccstdio\u003E\r\n#include\u003Cqueue\u003E\r\nusing namespace std;\r\n\r\nint mp[5][5], vis[5][5];\r\nint dir[4][2] = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};\r\nstruct node{\r\n    int x, y;\r\n}; \r\nnode pre[10][10];\r\n\r\nvoid bfs(){\r\n    queue\u003Cnode\u003E que;\r\n    node str;\r\n    str.x = str.y = 0;\r\n    que.push(str);\r\n    vis[0][0] = 1;\r\n    while (!que.empty()){\r\n        node now = que.front();\r\n        que.pop();\r\n        if (now.x == 4 \u0026\u0026 now.y == 4) return;\r\n        for (int i = 0; i \u003C 4; i++){\r\n            node next ;\r\n            next.x = now.x + dir[i][0];\r\n            next.y = now.y + dir[i][1];\r\n            if (next.x \u003E= 0 \u0026\u0026 next.x \u003C 5 \u0026\u0026\r\n                next.y \u003E= 0 \u0026\u0026 next.y \u003C 5 \u0026\u0026\r\n                !mp[next.x][next.y] \u0026\u0026 !vis[next.x][next.y]){\r\n                vis[next.x][next.y] = 1;\r\n                que.push(next);\r\n                pre[next.x][next.y] = now;\r\n            }\r\n        }\r\n    } \r\n}\r\n\r\nvoid print(node cur){\r\n    if (cur.x == 0 \u0026\u0026 cur.y == 0){\r\n        printf(\"(0, 0)\\n\");\r\n        return;\r\n    }\r\n    print(pre[cur.x][cur.y]);\r\n    printf(\"(%d, %d)\\n\", cur.x, cur.y);\r\n}\r\n\r\nint main(){\r\n    for (int i = 0; i \u003C 5; i++) for (int j = 0; j \u003C 5; j++) scanf(\"%d\", \u0026mp[i][j]);\r\n    bfs();\r\n    node ed;\r\n    ed.x = ed.y = 4;\r\n    print(ed);\r\n    return 0;\r\n}\r\n```\r\n\r\n\r\n\r\n[\u4f8b\u9898\uff1aPOJ1915](https://vjudge.net/contest/701114#problem/B)\r\n\r\n```cpp\r\n#include\u003Ccstdio\u003E\r\n#include\u003Cqueue\u003E\r\n#include\u003Cstring.h\u003E\r\nusing namespace std;\r\n\r\nint length, sx, dx, sy, dy;\r\nstruct node{\r\n    int x, y, step;\r\n}; \r\nint visit[310][310];\r\nint po[8][2] = {2, 1, 2, -1, 1, 2, 1, -2, -2, 1, -2, -1, -1, 2, -1, -2};\r\n\r\nint check(int x, int y){\r\n    if (x \u003C 0 || x \u003E= length || y \u003C 0 || y \u003E= length) return 1;\r\n    return visit[x][y];\r\n}\r\n\r\nvoid bfs(){\r\n    memset(visit, 0, sizeof(visit));\r\n    node a, b;\r\n    queue\u003Cnode\u003E Q;\r\n    a.x = sx;\r\n    a.y = sy;\r\n    a.step = 0;\r\n    visit[sx][sy] = 1;\r\n    Q.push(a);\r\n    while (!Q.empty()){\r\n        a = Q.front();\r\n        Q.pop();\r\n        if (a.x == dx \u0026\u0026 a.y == dy){\r\n            printf(\"%d\\n\", a.step);\r\n            return;\r\n        }\r\n        for (int i = 0; i \u003C 8; i++){\r\n            b.x = a.x + po[i][0];\r\n            b.y = a.y + po[i][1];\r\n            if (check(b.x, b.y)) continue;\r\n            b.step = a.step + 1;\r\n            visit[b.x][b.y] = 1;\r\n            Q.push(b);\r\n        }\r\n    } \r\n}\r\n\r\nint main(){\r\n    int T;\r\n    scanf(\"%d\", \u0026T);\r\n    while (T--){\r\n        scanf(\"%d\", \u0026length);\r\n        scanf(\"%d%d%d%d\", \u0026sx, \u0026sy, \u0026dx, \u0026dy);\r\n        bfs();\r\n    }\r\n    return 0;\r\n}\r\n```\r\n\r\n## DFS\r\n\r\n\u5bf9\u6bcf\u4e00\u4e2a\u53ef\u80fd\u7684\u5206\u652f\u6df1\u5165\u5230\u4e0d\u80fd\u518d\u8f6c\u79fb\u4e3a\u6b62\uff0c\u7136\u540e\u56de\u6eaf\u5230\u524d\u4e00\u6b65\u7684\u72b6\u6001\uff0c\u7ee7\u7eed\u8f6c\u79fb\u5230\u524d\u4e00\u6b65\u7684\u72b6\u6001\uff0c\u76f4\u5230\u627e\u5230\u6700\u7ec8\u7684\u89e3\r\n\r\n1. \u628a\u8d77\u59cb\u70b9\u653e\u5165stack \r\n2. \u91cd\u590d\u4e0b\u8ff03\u6b65\u9aa4\uff0c\u76f4\u5230stack\u4e3a\u7a7a\u4e3a\u6b62\uff1a\r\n   - \u4ecestack\u4e2d\u8bbf\u95ee\u6808\u9876\u7684\u70b9\r\n   - \u627e\u51fa\u4e0e\u6b64\u70b9\u90bb\u63a5\u7684\u4e14\u5c1a\u672a\u904d\u5386\u7684\u70b9\uff0c\u8fdb\u884c\u6807\u8bb0\uff0c\u7136\u540e\u5168\u90e8\u653e\u5165stack\u4e2d\r\n   - \u5982\u679c\u6b64\u70b9\u6ca1\u6709\u5c1a\u672a\u904d\u5386\u7684\u90bb\u63a5\u70b9\uff0c\u5219\u5c06\u6b64\u70b9\u4ecestack\u4e2d\u5f39\u51fa\u3002\r\n\r\n[\u4f8b\u9898\uff1aPOJ2386](https://vjudge.net/contest/701114#problem/C)\r\n\r\n```cpp\r\n#include\u003Ciostream\u003E\r\nusing namespace std;\r\n\r\nint N, M;\r\nconst int  MAX_N = 103;\r\nchar field[MAX_N][MAX_N];\r\n\r\nvoid dfs(int x, int y){\r\n    field[x][y] = '.';\r\n    for (int dx = -1; dx \u003C= 1; dx++){\r\n        for (int dy = -1; dy \u003C= 1; dy++){\r\n            int nx = x + dx, ny = y + dy;\r\n            if (0 \u003C= nx \u0026\u0026 nx \u003C N \u0026\u0026 0 \u003C= ny \u0026\u0026 ny \u003C M \u0026\u0026 field[nx][ny] == 'W') dfs(nx, ny);\r\n        } \r\n    }\r\n    return;\r\n}\r\n\r\nvoid solve(){\r\n    int res = 0;\r\n    for (int i = 0; i \u003C N; i++){\r\n        for (int j = 0; j \u003C M; j++){\r\n            if (field[i][j] == 'W'){\r\n                dfs(i, j);\r\n                res++;\r\n            }\r\n        }\r\n    }\r\n    cout \u003C\u003C res;\r\n}\r\n\r\nint main(){\r\n    cin \u003E\u003E N \u003E\u003E M;\r\n    for (int i = 0; i \u003C N; i++) for (int j = 0; j \u003C M; j++) cin \u003E\u003E field[i][j];\r\n    solve();\r\n} \r\n```\r\n\r\n[\u4f8b\u9898\uff1aPOJ2488](https://vjudge.net/contest/701114#problem/D)\r\n\r\n```cpp\r\n#include\u003Ciostream\u003E\r\n#include\u003Ccstdio\u003E\r\n#include\u003Ccstring\u003E\r\nusing namespace std;\r\n\r\nconst int DN = 8;\r\nconst int dx[] = {-1, 1, -2, 2, -2, 2, -1, 1};\r\nconst int dy[] = {-2, -2, -1, -1, 1, 1, 2, 2};\r\nconst int N = 27;\r\nbool visit[N][N];\r\nstruct Step{\r\n    char x, y;\r\n} path[N];\r\nint p, q, success;\r\n\r\nvoid dfs(int x, int y, int step){\r\n    path[step].y = y + 'A' - 1;\r\n    path[step].x = x + '0';\r\n    if (step == p * q) success = true;\r\n    else {\r\n        for (int i = 0; i \u003C DN \u0026\u0026 !success; i++){\r\n            int nx = x + dx[i];\r\n            int ny = y + dy[i];\r\n            if (0 \u003C nx \u0026\u0026 nx \u003C= p \u0026\u0026 0 \u003C ny \u0026\u0026 ny \u003C= q \u0026\u0026 !visit[nx][ny] \u0026\u0026 !success){\r\n                visit[nx][ny] = true;\r\n                dfs(nx, ny, step + 1);\r\n                visit[nx][ny] = false;\r\n            }\r\n        }\r\n    }\r\n}\r\n\r\nint main(){\r\n    int t;\r\n    scanf(\"%d\", \u0026t);\r\n    for (int k = 1; k \u003C= t; k++){\r\n        scanf(\"%d%d\", \u0026p, \u0026q);\r\n        memset(visit, false, sizeof(visit));\r\n        visit[1][1] = true;\r\n        success = false;\r\n        dfs(1, 1, 1);\r\n        printf(\"Scenario #%d:\\n\", k);\r\n        if (success){\r\n            for (int i = 1; i \u003C= p * q; i++) printf(\"%c%c\", path[i].y, path[i].x);\r\n            printf(\"\\n\");\r\n        } else printf(\"impossible\\n\");\r\n        if (k != t) printf(\"\\n\");\r\n    }\r\n    return 0;\r\n}\r\n```"</script>
+        <div id="markdown-rendered"></div>
     </div>
 </div>
+
+<script>
+    (function () {
+        const sourceElement = document.getElementById('markdown-source');
+        const targetElement = document.getElementById('markdown-rendered');
+
+        if (!sourceElement || !targetElement || typeof window.markdownit !== 'function') {
+            return;
+        }
+
+        const markdownText = JSON.parse(sourceElement.textContent || '""');
+        const parser = window.markdownit({
+            html: true,
+            linkify: true,
+            typographer: true,
+            breaks: true
+        });
+
+        if (typeof window.texmath === 'function' && typeof window.katex !== 'undefined') {
+            parser.use(window.texmath, {
+                engine: window.katex,
+                delimiters: 'dollars',
+                katexOptions: {
+                    throwOnError: false,
+                    strict: 'ignore'
+                }
+            });
+        }
+
+        const defaultTableOpen = parser.renderer.rules.table_open || function (tokens, idx, options, env, self) {
+            return self.renderToken(tokens, idx, options);
+        };
+
+        parser.renderer.rules.table_open = function (tokens, idx, options, env, self) {
+            const token = tokens[idx];
+            token.attrJoin('class', 'table table-bordered table-striped table-hover');
+            return defaultTableOpen(tokens, idx, options, env, self);
+        };
+
+        targetElement.innerHTML = parser.render(markdownText);
+        if (window.hljs) {
+            window.hljs.highlightAll();
+        }
+    })();
+</script>
 
             </div>
         </div>

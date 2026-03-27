@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap">
-
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+    
     <link rel="stylesheet" href="/static/css/style.css">
     <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
 
@@ -26,12 +27,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/github.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.9.0/highlightjs-line-numbers.min.js"></script>
+    
+    <!-- Markdown-it -->
+    <script src="https://cdn.jsdelivr.net/npm/markdown-it@14.1.0/dist/markdown-it.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/markdown-it-texmath@1.0.0/texmath.min.js"></script>
 
     <script src="/static/js/use_hl.js"></script>
 
-    <!-- MathJax 支持 LaTeX -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6" defer></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <!-- KaTeX 支持 LaTeX -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
 
     <!-- 邮箱弹窗 -->
     <script>
@@ -49,23 +54,26 @@
         });
     </script>
 
-    <!-- LaTeX行内公式支持 -->
-    <script>
-        window.MathJax = {
-            tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']],
-                displayMath: [['$$', '$$'], ['\\[', '\\]']],
-                processEscapes: true
-            },
-            svg: {
-                fontCache: 'global'
-            }
-        };
-    </script>
 </head>
 
+<style>
+    .background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("/static/images/background.png");
+        background-size: cover;
+        background-position: center;
+        z-index: -1;
+        opacity: 0.7;
+    }
+</style>
+
 <body>
-    <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border fixed-top">
+    <div class="background"></div>
+    <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border fixed-top" style="opacity: 0.85;">
         <!-- 导航栏名称 -->
         <a class="navbar-brand ms-5" href="/">
             SchabeAntimonfeld</a>
@@ -113,427 +121,107 @@
 
 
 <!--个人资料卡-->
-<div class="card mb-4 text-center">
+<div class="card mb-4 text-center shadow">
     <img src="/static/images/avatar.jpg" class="card-img-top rounded-circle mx-auto mt-3" style="width: 120px; height: 120px; object-fit: cover;" alt="avatar">
     <div class="card-body text-center">
         <h5 class="card-title">Schabe Antimonfeld</h5>
-        <p class="card-text text-muted">AI × Coding × Minecraft</p>
+        
         <hr>
         <p>在读大学生</p>
         <p></p>
-        <p><i class="fab fa-github"></i> <a href="https://github.com/Schabe-Antimonfeld" target="_blank">GitHub</a></p>
+        <p><i class="fab fa-github"></i> <a href="https://github.com/Schabe-Antimonfeld" target="_blank" style="text-decoration: none;">GitHub</a></p>
         <hr>
         <p>友情链接</p>
         <p>
             <img src="/static/images/lonion.png" alt="图标" style="width:32px;height:32px;vertical-align:middle;margin-right:4px;">
-            <a href="https://lonion1124.github.io/" target="_blank">洋葱菌的博客</a>
+            <a href="https://lonion1124.github.io/" target="_blank" style="text-decoration: none;">洋葱菌的博客</a>
         </p>
         <p>
             <img src="/static/images/aaaaa.png" alt="图标" style="width:32px;height:32px;vertical-align:middle;margin-right:4px;">
-            <a href="https://aaaaa114514-1.github.io/" target="_blank">aaaaa online</a>
+            <a href="https://aaaaa114514-1.github.io/" target="_blank" style="text-decoration: none;">aaaaa online</a>
         </p>
     </div>
+</div>
 </div>
             </div>
 
             <!-- 主体内容 -->
             <div class="col-md-9 offset-md-3">
                 
-<h2>ACM-ICPC基础 动态规划方法</h2>
+<div class="card mb-3 shadow">
+    <div class="card-body">
+        <h2>ACM-ICPC基础 动态规划方法</h2>
 
-<!-- 主题标签 -->
-<p class="text-muted mb-1">
-    <i class="bi bi-tags text-primary"></i>
-    
-        <a href="/topics/2/" class="btn btn-sm btn-outline-primary text-decoration-none">代码</a>
-    
-        <a href="/topics/3/" class="btn btn-sm btn-outline-primary text-decoration-none">算法</a>
-    
-</p>
+        <!-- 主题标签 -->
+        <p class="text-muted mb-1">
+            <i class="bi bi-tags text-primary"></i>
+            
+                <a href="/topics/2/" class="btn btn-sm btn-outline-primary text-decoration-none">代码</a>
+            
+                <a href="/topics/3/" class="btn btn-sm btn-outline-primary text-decoration-none">算法</a>
+            
+        </p>
 
-<p class="card-text text-muted">
-    发布于 2025年08月04日 11:33
-</p>
+        <p class="card-text text-muted">
+            发布于 2025年08月04日 11:33
+        </p>
+    </div>
+</div>
 <hr>
 
                 
 <!-- 博客内容 -->
-<div class="card mb-3 shadow-sm">
+<div class="card mb-3 shadow">
     <div class="card-body">
-        <h2>DP</h2>
-<p>将大问题分为小问题进行解决，从而一步步获取最优解</p>
-<ul>
-<li>刻画一个最优解的特征结构</li>
-<li>递归定义最优解的值</li>
-<li>计算最优解的值，通常采用自底而上的方法</li>
-<li>利用计算出的信息构造一个最优解</li>
-</ul>
-<p>数字三角形搜索树</p>
-<ul>
-<li>定义状态$(i, j)$的函数$f(x, y)$为从格子$(i, j)$出发时能得到的最大和，包括$(i, j)$本身</li>
-<li>原问题的解是$(i, j)$</li>
-<li>状态转移方程：$f(i, j) = a(i, j) +max(f(i + 1, j), f(i + 1, j + 1))$</li>
-</ul>
-<pre class="highlight"><code class="language-cpp">int i, j;
-for (j = 1; j &lt;=n; j++) f[n][j] = a[n][j];
-for (i = n - 1; i &gt;= 1; i--) for (j = 1; j &lt;= i; j ++) f[i][j] = a[i][j] + max(f[i + 1][j], f[i + 1][j + 1])
-</code></pre>
-
-<p><a href="https://vjudge.net/contest/703263#problem/A">例题：POJ3176</a></p>
-<pre class="highlight"><code class="language-cpp">#include&lt;iostream&gt;
-#include&lt;cstdio&gt;
-#define MAXN 351
-using namespace std;
-int way[MAXN][MAXN], dp[MAXN][MAXN];
-int N;
-
-int main(){
-    cin &gt;&gt; N;
-    for (int i = 1; i &lt;= N; i++) for (int j = 1; j &lt;= i; j++) cin &gt;&gt; way[i][j];
-    for (int j = 1; j &lt;= N; j++) dp[N][j] = way[N][j];
-    for (int i = N - 1; i &gt;= 1; i--) {
-        for (int j = 1; j &lt;= i; j ++) dp[i][j] = way[i][j] + max(dp[i + 1][j], dp[i + 1][j + 1]);
-    }
-    cout &lt;&lt; dp[1][1] &lt;&lt; endl;
-    return 0;
-}
-</code></pre>
-
-<h2>01背包</h2>
-<p>n个重量价值为$w_i, v_i$的物品，选出总重量不超过W的物品，求价值总和最大值</p>
-<p>状态转移方程（正推）：
-$$
-dp[i][j] = 
-\begin{cases}
-    0, i = n;\cr
-    dp[i + 1][j], i &lt; w[i];\cr
-    max(dp[i + 1][j], dp[i + 1][j - w[i]] + v[i]), else;
-\end{cases}
-$$</p>
-<p>状态转移方程（正推）：
-$$
-dp[i + 1][j] = 
-\begin{cases}
-    0, i = 0;\cr
-    dp[i][j], i &lt; w[i];\cr
-    max(dp[i][j], dp[i][j - w[i]] + v[i]), else;
-\end{cases}
-$$</p>
-<pre class="highlight"><code class="language-cpp">int n, w;
-int w[MAX_N], v[MAX_N];
-int mem[MAX_N + 1][MAX_W + 1], dp[MAX_N + 1][MAX_W + 1], dp1[MAX_W + 1];
-
-//暴搜
-int rec(int i, int j){
-    if (i == n) return 0;
-    else if (j &lt; w[i]) return rec(i + 1, j);
-    else return max(rec(i + 1, j), rec(i + 1, j - w[i]) + v[i]);
-}
-
-//记忆化搜索
-int rec_mem(int i, int j){
-    if (mem[i][j] &gt;= 0) return mem[i][j]
-    if (i == n) return 0;
-    else if (j &lt; w[i]) return rec(i + 1, j);
-    else return max(rec(i + 1, j), rec(i + 1, j - w[i]) + v[i]);
-}
-
-void solve(){
-    memset(mem, -1, sizeof(mem));
-    printf(&quot;%d\n&quot;, rec(0, w));
-    printf(&quot;%d\n&quot;, rec_mem(0, w));
-    //dp反推
-    for (int i = n - 1; i &gt;= 0; i--){
-        for (int j = 0; j &lt; W; j++){
-            if (j &lt; w[i]) dp[i][j] = dp[i + 1][j];
-            else dp[i][j] = max(dp[i + 1][j], dp[i + 1][j - w[i]] + v[i]);
-        }
-    }
-    printf(&quot;%d\n&quot;, dp[n][W]);
-
-    memset(dp, 0, sizeof(dp));
-    //dp正推
-    for (int i = 0; i &lt; n; i++){
-        for (int j = 0; j &lt; W; j++){
-            if (j &lt; w[i]) dp[i + 1][j] = dp[i][j];
-            else dp[i + 1][j] = max(dp[i][j], dp[i][j - w[i]] + v[i]);
-        }
-    }
-    printf(&quot;%d\n&quot;, dp[n][W]);
-    //一维dp
-    for (int i = 0; i &lt; n; i) for (int j = W; j &gt;= w[i]; j--) dp1[j] = max(dp1[j], dp1[j - w[i]] + v[i]);
-    printf(&quot;%d\n&quot;, dp[W]);
-}
-</code></pre>
-
-<p><a href="https://vjudge.net/contest/703263#problem/B">例题：POJ3624</a></p>
-<pre class="highlight"><code class="language-cpp">#include&lt;iostream&gt;
-#include&lt;cstring&gt;
-#include&lt;cstdio&gt;
-#define N 3410
-#define M 13000
-using namespace std;
-
-int dp[M];
-
-int main(){
-    int n, m;
-    int v[M], w[N];
-    while (~scanf(&quot;%d%d&quot;, &amp;n, &amp;m)) {
-        memset(dp, 0, sizeof(dp));
-        for (int i = 1; i &lt;= n; i++) scanf(&quot;%d%d&quot;, &amp;w[i], &amp;v[i]);
-        for (int i = 1; i &lt;= n; i++) for (int j = m; j &gt;= w[i]; j--) dp[j] = max(dp[j - w[i]] + v[i], dp[j]);
-        printf(&quot;%d\n&quot;, dp[m]);
-    }
-    return 0;
-}
-</code></pre>
-
-<p><a href="https://vjudge.net/contest/703263#problem/C">例题：POJ1837</a></p>
-<pre class="highlight"><code class="language-cpp">#include&lt;iostream&gt;
-using namespace std;
-int C, G;
-int dp[21][15001];
-int loc[21];
-int w[21];
-
-int main(){
-    cin &gt;&gt; C &gt;&gt; G;
-    for (int i = 1; i &lt;= C; i++) cin &gt;&gt; loc[i];
-    for (int i = 1; i &lt;= G; i++) cin &gt;&gt; w[i];
-    dp[0][7500] = 1;
-    for (int i = 1; i &lt;= G; i++){
-        for (int j = 1; j &lt;= 15000; j++){
-            for (int k = 1; k &lt;= C; k++) dp[i][j] += dp[i - 1][j - w[i] * loc[k]];
-        }
-    }
-    cout &lt;&lt; dp[G][7500] &lt;&lt; endl;
-}
-</code></pre>
-
-<h2>完全背包</h2>
-<p>递推关系：$dp[i + 1][j]$：从前i种物品中挑选总重量不超过j时总价值的最大值
-$$
-dp[i + 1][j] = 
-\begin{cases}
-    0, i = 0;\cr
-    max(dp[i][j], dp[i][j - k \cdot w[i]] + k \cdot v[i]), else
-\end{cases}
-$$</p>
-<pre class="highlight"><code class="language-cpp">int dp[MAX_N + 1][MAX_W + 1];
-
-void solve(){
-    for (int j = 0; i &lt; n; i++){
-        for (int j = 0; j &lt;= W; j++){
-            for (int k = 0; k * w[i] &lt;= j; k++) dp[i + 1][j] = max(dp[i][j], dp[i][j - k * w[i]] + k * v[i]);
-        }
-    }
-    printf(&quot;%d\n&quot;, dp[n][W]);
-}
-</code></pre>
-
-<p>当$j &gt; w[i]$时， $dp[i + 1][j] = dp[i + 1][j - w[i]] + v[i]$</p>
-<pre class="highlight"><code class="language-cpp">void solve(){
-    for (int j = 0; i &lt; n; i++){
-        for (int j = 0; j &lt;= W; j++){
-            if (j &lt; w[i]) dp[i + 1][j] = dp[i][j];
-            else dp[i + 1][j] = max(dp[i][j], dp[i][j - w[i]] + v[i]);
-        }
-    }
-    printf(&quot;%d\n&quot;, dp[n][W]);
-}
-//一维
-void solve(){
-    for (int i = 0; i &lt; n; i++) for (int j = w[i]; j &lt;= W; j++) dp[j] = max(dp[j], dp[j - w[i]] + v[i]);
-    printf(&quot;%d\n&quot;, dp[W]);
-}
-</code></pre>
-
-<p>使用同一数组实现时，01背包：从后往前推；完全背包：从前往后推</p>
-<p><a href="">例题：POJ1384</a></p>
-<pre class="highlight"><code class="language-cpp">#include&lt;stdio.h&gt;
-#include&lt;algorithm&gt;
-#define inf 100000000   
-using namespace std;
-
-int dp[11000];
-int p[600];
-int w[600];
-
-int main(){
-    int k, n, e, f;
-    scanf(&quot;%d&quot;, &amp;k);
-    while (k--){
-        scanf(&quot;%d&quot;, &amp;e);
-        scanf(&quot;%d&quot;, &amp;f);
-        int diff = f - e;
-        scanf(&quot;%d&quot;, &amp;n);
-        for (int i = 1; i &lt;= n; i++){
-            scanf(&quot;%d&quot;, &amp;p[i]);
-            scanf(&quot;%d&quot;, &amp;w[i]);
-        }
-        for(int i = 0; i &lt;= diff; i++) dp[i] = inf;
-        dp[0] = 0;
-        for (int i = 1; i &lt;= n; i++) for (int j = w[i]; j &lt;= diff; j++) dp[j] = min(dp[j], dp[j - w[i]] + p[i]);
-        if (dp[diff] == inf) printf(&quot;This is impossible.\n&quot;);
-        else printf(&quot;The minimum amount of money in the piggy-bank is %d.\n&quot;,dp[diff]);
-    }
-}
-</code></pre>
-
-<p>以w为dp对象：</p>
-<p>$dp[i + 1][j]$表示前i个物品中挑出总价值为j时总重量的最小值</p>
-<pre class="highlight"><code class="language-cpp">int dp[MAX_N + 1][MAX_N * MAX_V + 1];
-const int INF = 0xffffff
-
-void solve(){
-    fill(dp[0], dp[0] + MAX_N * MAX_V + 1, INF);
-    dp[0][0] = 0;
-    for (int j = 0; i &lt; n; i++){
-        for (int j = 0; j &lt;= MAX_N * MAX_V; j++){
-            if (j &lt; v[i]) dp[i + 1][j] = dp[i][j];
-            else dp[i + 1][j] = min(dp[i][j], dp[i][j - v[i]] + w[i]);
-        }
-    }
-    int res = 0;
-    for (int i = 0; i &lt;= MAX_N * MAX_V; i++) if (dp[n][i] &lt;= W) res = i;
-    printf(&quot;%d&quot;, res);
-}
-</code></pre>
-
-<h2>最长公共子序列</h2>
-<p>$dp[i][j] = s_1, ... , S_i, t_1, ... , t_j$对应LCS长度</p>
-<ol>
-<li>$s_{i + 1} = t_{j + 1}$, 末尾dp</li>
-</ol>
-<p>$$
-dp[i + 1][j + 1] = 
-\begin{cases}
-    dp[i][j] + 1, s1[i] = s2[j];\cr
-    max(dp[i + 1][j], dp[i][j + 1]), else
-\end{cases}
-$$</p>
-<p><a href="">例题：POJ1458</a></p>
-<pre class="highlight"><code class="language-cpp">#include&lt;cstdio&gt;
-#include&lt;algorithm&gt;
-#include&lt;cstring&gt;
-using namespace std;
-const int maxn = 1000 + 5;
-int n, m;
-int dp[maxn][maxn];
-char s1[maxn], s2[maxn];
-
-int main(){
-    while (scanf(&quot;%s%s&quot;, s1, s2) == 2){
-        n = strlen(s1);
-        m = strlen(s2);
-        memset(dp, 0, sizeof(dp));
-        for (int i = 0; i &lt;= n; i++){
-            for (int j = 0; j &lt;=m; j++){
-                if (s1[i] == s2[j]) dp[i + 1][j + 1] = dp[i][j] + 1;
-                else dp[i + 1][j + 1] = max(dp[i + 1][j], dp[i][j + 1]);
-            }
-        }
-        printf(&quot;%d\n&quot;, dp[n][m]);
-    }
-    return 0;
-}
-</code></pre>
-
-<h2>最长上升子序列</h2>
-<p>$dp[i] = max(1, dp[i - 1])$</p>
-<p><a href="">例题：POJ3903</a></p>
-<pre class="highlight"><code class="language-cpp">#include&lt;cstdio&gt;
-#include&lt;algorithm&gt;
-using namespace std;
-
-int dp[100010];
-int a[100010];
-
-int main(){
-    int N;
-    while (scanf(&quot;%d&quot;, &amp;N) != EOF){
-        int ans = 0;
-        for (int i = 0; i &lt; N; i++) scanf(&quot;%d&quot;, &amp;a[i]);
-        for (int i = 0; i &lt; N; i++){
-            dp[i] = 1;
-            for (int j = 0; j &lt; i; j++) if (a[i] &gt; a[j]) dp[i] = max(dp[i], dp[j] + 1);
-            ans = max(ans, dp[i])
-        }
-        printf(&quot;%d\n&quot;, ans);
-    }
-}
-</code></pre>
-
-<h2>多重部分和</h2>
-<pre class="highlight"><code class="language-cpp">int n; 
-int K;
-int a[MAX_N];
-int m[MAX_N];
-bool dp[MAX_N + 1][MAX_K + 1];
-void solve(){
-    dp[0][0] = 1;
-    for (int i = 0; i &lt; n; i++){
-        for (int j = 0; j &lt; K; j++){
-            for (int k = 0; k &lt;= m[i] &amp;&amp; k * a[i] &lt;= j; K++) dp[i + 1][j] |= dp[i][j - k * a[i]];
-        } 
-    }
-    if (dp[n][k]) printf(&quot;yes\n&quot;);
-    else printf(&quot;no\n&quot;);
-}
-</code></pre>
-
-<pre class="highlight"><code class="language-cpp">int n; 
-int a[MAX_N];
-int m[MAX_N];
-bool dp[MAX_K + 1];
-void solve(){
-    memset(dp, -1, sizeof(dp));
-    dp[0] = 1;
-    for (int i = 0; i &lt; n; i++){
-        for (int j = 0; j &lt; K; j++){
-            if (dp[j] &gt;= 0) dp[j] = m[i];
-            else if (j &lt; a[i] || dp[j - a[i]] &lt;= 0) dp[j] = 0;
-            else dp[j = dp[j - a[i]]] - 1;
-        } 
-    }
-    if (dp[k] &gt;= 0) printf(&quot;yes\n&quot;);
-    else printf(&quot;no\n&quot;);
-}
-</code></pre>
-
-<p><a href="">例题：POJ1742</a></p>
-<pre class="highlight"><code class="language-cpp">#include&lt;iostream&gt;
-#include&lt;cstring&gt;
-using namespace std;
-
-int num[105]; 
-int price[105];
-int dp[100005];
-
-int main(){
-    int n, m;
-    while (cin &gt;&gt; n &gt;&gt; m &amp;&amp; (n || m)){
-        memset(dp, -1, sizeof(dp));
-        for (int i = 0; i &lt; n; i++) cin &gt;&gt; price[i];
-        for (int i = 0; i &lt; n; i++) cin &gt;&gt; num[i];
-        dp[0] = 0;
-        for (int i = 0; i &lt; n; i++){
-            for (int j = 0; j &lt;= m; j++){
-                if (dp[j] &gt;= 0) dp[j] = num[i];
-                else if (j &lt; price[i] || dp[j - price[i]] &lt;= 0) dp[j] = -1;
-                else dp[j] = dp[j - price[i]] - 1;
-            }
-        }
-        int sum = 0;
-        for (int i = 1; i &lt;= m; i++) if (dp[i] &gt;= 0) sum++;
-        cout &lt;&lt; sum &lt;&lt; endl;
-    }
-    return 0;
-}
-</code></pre>
+        <script id="markdown-source" type="application/json">"## DP\r\n\r\n\u5c06\u5927\u95ee\u9898\u5206\u4e3a\u5c0f\u95ee\u9898\u8fdb\u884c\u89e3\u51b3\uff0c\u4ece\u800c\u4e00\u6b65\u6b65\u83b7\u53d6\u6700\u4f18\u89e3\r\n\r\n- \u523b\u753b\u4e00\u4e2a\u6700\u4f18\u89e3\u7684\u7279\u5f81\u7ed3\u6784\r\n- \u9012\u5f52\u5b9a\u4e49\u6700\u4f18\u89e3\u7684\u503c\r\n- \u8ba1\u7b97\u6700\u4f18\u89e3\u7684\u503c\uff0c\u901a\u5e38\u91c7\u7528\u81ea\u5e95\u800c\u4e0a\u7684\u65b9\u6cd5\r\n- \u5229\u7528\u8ba1\u7b97\u51fa\u7684\u4fe1\u606f\u6784\u9020\u4e00\u4e2a\u6700\u4f18\u89e3\r\n\r\n\u6570\u5b57\u4e09\u89d2\u5f62\u641c\u7d22\u6811\r\n\r\n- \u5b9a\u4e49\u72b6\u6001$(i, j)$\u7684\u51fd\u6570$f(x, y)$\u4e3a\u4ece\u683c\u5b50$(i, j)$\u51fa\u53d1\u65f6\u80fd\u5f97\u5230\u7684\u6700\u5927\u548c\uff0c\u5305\u62ec$(i, j)$\u672c\u8eab\r\n- \u539f\u95ee\u9898\u7684\u89e3\u662f$(i, j)$\r\n- \u72b6\u6001\u8f6c\u79fb\u65b9\u7a0b\uff1a$f(i, j) = a(i, j) +max(f(i + 1, j), f(i + 1, j + 1))$\r\n\r\n```cpp\r\nint i, j;\r\nfor (j = 1; j \u003C=n; j++) f[n][j] = a[n][j];\r\nfor (i = n - 1; i \u003E= 1; i--) for (j = 1; j \u003C= i; j ++) f[i][j] = a[i][j] + max(f[i + 1][j], f[i + 1][j + 1])\r\n```\r\n\r\n[\u4f8b\u9898\uff1aPOJ3176](https://vjudge.net/contest/703263#problem/A)\r\n\r\n```cpp\r\n#include\u003Ciostream\u003E\r\n#include\u003Ccstdio\u003E\r\n#define MAXN 351\r\nusing namespace std;\r\nint way[MAXN][MAXN], dp[MAXN][MAXN];\r\nint N;\r\n\r\nint main(){\r\n    cin \u003E\u003E N;\r\n    for (int i = 1; i \u003C= N; i++) for (int j = 1; j \u003C= i; j++) cin \u003E\u003E way[i][j];\r\n    for (int j = 1; j \u003C= N; j++) dp[N][j] = way[N][j];\r\n    for (int i = N - 1; i \u003E= 1; i--) {\r\n        for (int j = 1; j \u003C= i; j ++) dp[i][j] = way[i][j] + max(dp[i + 1][j], dp[i + 1][j + 1]);\r\n    }\r\n    cout \u003C\u003C dp[1][1] \u003C\u003C endl;\r\n    return 0;\r\n}\r\n```\r\n\r\n## 01\u80cc\u5305\r\n\r\nn\u4e2a\u91cd\u91cf\u4ef7\u503c\u4e3a$w_i, v_i$\u7684\u7269\u54c1\uff0c\u9009\u51fa\u603b\u91cd\u91cf\u4e0d\u8d85\u8fc7W\u7684\u7269\u54c1\uff0c\u6c42\u4ef7\u503c\u603b\u548c\u6700\u5927\u503c\r\n\r\n\u72b6\u6001\u8f6c\u79fb\u65b9\u7a0b\uff08\u6b63\u63a8\uff09\uff1a\r\n$$\r\ndp[i][j] = \r\n\\begin{cases}\r\n\t0, i = n;\\cr\r\n\tdp[i + 1][j], i \u003C w[i];\\cr\r\n\tmax(dp[i + 1][j], dp[i + 1][j - w[i]] + v[i]), else;\r\n\\end{cases}\r\n$$\r\n\r\n\r\n\u72b6\u6001\u8f6c\u79fb\u65b9\u7a0b\uff08\u6b63\u63a8\uff09\uff1a\r\n$$\r\ndp[i + 1][j] = \r\n\\begin{cases}\r\n\t0, i = 0;\\cr\r\n\tdp[i][j], i \u003C w[i];\\cr\r\n\tmax(dp[i][j], dp[i][j - w[i]] + v[i]), else;\r\n\\end{cases}\r\n$$\r\n\r\n```cpp\r\nint n, w;\r\nint w[MAX_N], v[MAX_N];\r\nint mem[MAX_N + 1][MAX_W + 1], dp[MAX_N + 1][MAX_W + 1], dp1[MAX_W + 1];\r\n\r\n//\u66b4\u641c\r\nint rec(int i, int j){\r\n    if (i == n) return 0;\r\n    else if (j \u003C w[i]) return rec(i + 1, j);\r\n    else return max(rec(i + 1, j), rec(i + 1, j - w[i]) + v[i]);\r\n}\r\n\r\n//\u8bb0\u5fc6\u5316\u641c\u7d22\r\nint rec_mem(int i, int j){\r\n    if (mem[i][j] \u003E= 0) return mem[i][j]\r\n    if (i == n) return 0;\r\n    else if (j \u003C w[i]) return rec(i + 1, j);\r\n    else return max(rec(i + 1, j), rec(i + 1, j - w[i]) + v[i]);\r\n}\r\n\r\nvoid solve(){\r\n    memset(mem, -1, sizeof(mem));\r\n    printf(\"%d\\n\", rec(0, w));\r\n    printf(\"%d\\n\", rec_mem(0, w));\r\n    //dp\u53cd\u63a8\r\n    for (int i = n - 1; i \u003E= 0; i--){\r\n        for (int j = 0; j \u003C W; j++){\r\n            if (j \u003C w[i]) dp[i][j] = dp[i + 1][j];\r\n            else dp[i][j] = max(dp[i + 1][j], dp[i + 1][j - w[i]] + v[i]);\r\n        }\r\n    }\r\n    printf(\"%d\\n\", dp[n][W]);\r\n    \r\n    memset(dp, 0, sizeof(dp));\r\n    //dp\u6b63\u63a8\r\n    for (int i = 0; i \u003C n; i++){\r\n        for (int j = 0; j \u003C W; j++){\r\n            if (j \u003C w[i]) dp[i + 1][j] = dp[i][j];\r\n            else dp[i + 1][j] = max(dp[i][j], dp[i][j - w[i]] + v[i]);\r\n        }\r\n    }\r\n    printf(\"%d\\n\", dp[n][W]);\r\n    //\u4e00\u7ef4dp\r\n    for (int i = 0; i \u003C n; i) for (int j = W; j \u003E= w[i]; j--) dp1[j] = max(dp1[j], dp1[j - w[i]] + v[i]);\r\n    printf(\"%d\\n\", dp[W]);\r\n}\r\n```\r\n\r\n[\u4f8b\u9898\uff1aPOJ3624](https://vjudge.net/contest/703263#problem/B)\r\n\r\n```cpp\r\n#include\u003Ciostream\u003E\r\n#include\u003Ccstring\u003E\r\n#include\u003Ccstdio\u003E\r\n#define N 3410\r\n#define M 13000\r\nusing namespace std;\r\n\r\nint dp[M];\r\n\r\nint main(){\r\n    int n, m;\r\n    int v[M], w[N];\r\n    while (~scanf(\"%d%d\", \u0026n, \u0026m)) {\r\n        memset(dp, 0, sizeof(dp));\r\n        for (int i = 1; i \u003C= n; i++) scanf(\"%d%d\", \u0026w[i], \u0026v[i]);\r\n        for (int i = 1; i \u003C= n; i++) for (int j = m; j \u003E= w[i]; j--) dp[j] = max(dp[j - w[i]] + v[i], dp[j]);\r\n        printf(\"%d\\n\", dp[m]);\r\n    }\r\n    return 0;\r\n}\r\n```\r\n\r\n[\u4f8b\u9898\uff1aPOJ1837](https://vjudge.net/contest/703263#problem/C)\r\n\r\n```cpp\r\n#include\u003Ciostream\u003E\r\nusing namespace std;\r\nint C, G;\r\nint dp[21][15001];\r\nint loc[21];\r\nint w[21];\r\n\r\nint main(){\r\n    cin \u003E\u003E C \u003E\u003E G;\r\n    for (int i = 1; i \u003C= C; i++) cin \u003E\u003E loc[i];\r\n    for (int i = 1; i \u003C= G; i++) cin \u003E\u003E w[i];\r\n    dp[0][7500] = 1;\r\n    for (int i = 1; i \u003C= G; i++){\r\n        for (int j = 1; j \u003C= 15000; j++){\r\n            for (int k = 1; k \u003C= C; k++) dp[i][j] += dp[i - 1][j - w[i] * loc[k]];\r\n        }\r\n    }\r\n    cout \u003C\u003C dp[G][7500] \u003C\u003C endl;\r\n}\r\n```\r\n\r\n## \u5b8c\u5168\u80cc\u5305\r\n\r\n\u9012\u63a8\u5173\u7cfb\uff1a$dp[i + 1][j]$\uff1a\u4ece\u524di\u79cd\u7269\u54c1\u4e2d\u6311\u9009\u603b\u91cd\u91cf\u4e0d\u8d85\u8fc7j\u65f6\u603b\u4ef7\u503c\u7684\u6700\u5927\u503c\r\n$$\r\ndp[i + 1][j] = \r\n\\begin{cases}\r\n\t0, i = 0;\\cr\r\n\tmax(dp[i][j], dp[i][j - k \\cdot w[i]] + k \\cdot v[i]), else\r\n\\end{cases}\r\n$$\r\n\r\n```cpp\r\nint dp[MAX_N + 1][MAX_W + 1];\r\n\r\nvoid solve(){\r\n    for (int j = 0; i \u003C n; i++){\r\n        for (int j = 0; j \u003C= W; j++){\r\n            for (int k = 0; k * w[i] \u003C= j; k++) dp[i + 1][j] = max(dp[i][j], dp[i][j - k * w[i]] + k * v[i]);\r\n        }\r\n    }\r\n    printf(\"%d\\n\", dp[n][W]);\r\n}\r\n```\r\n\r\n\u5f53$j \u003E w[i]$\u65f6\uff0c $dp[i + 1][j] = dp[i + 1][j - w[i]] + v[i]$\r\n\r\n```cpp\r\nvoid solve(){\r\n    for (int j = 0; i \u003C n; i++){\r\n        for (int j = 0; j \u003C= W; j++){\r\n            if (j \u003C w[i]) dp[i + 1][j] = dp[i][j];\r\n            else dp[i + 1][j] = max(dp[i][j], dp[i][j - w[i]] + v[i]);\r\n        }\r\n    }\r\n    printf(\"%d\\n\", dp[n][W]);\r\n}\r\n//\u4e00\u7ef4\r\nvoid solve(){\r\n    for (int i = 0; i \u003C n; i++) for (int j = w[i]; j \u003C= W; j++) dp[j] = max(dp[j], dp[j - w[i]] + v[i]);\r\n    printf(\"%d\\n\", dp[W]);\r\n}\r\n```\r\n\r\n\u4f7f\u7528\u540c\u4e00\u6570\u7ec4\u5b9e\u73b0\u65f6\uff0c01\u80cc\u5305\uff1a\u4ece\u540e\u5f80\u524d\u63a8\uff1b\u5b8c\u5168\u80cc\u5305\uff1a\u4ece\u524d\u5f80\u540e\u63a8\r\n\r\n[\u4f8b\u9898\uff1aPOJ1384]()\r\n\r\n```cpp\r\n#include\u003Cstdio.h\u003E\r\n#include\u003Calgorithm\u003E\r\n#define inf 100000000\t\r\nusing namespace std;\r\n\r\nint dp[11000];\r\nint p[600];\r\nint w[600];\r\n\r\nint main(){\r\n    int k, n, e, f;\r\n    scanf(\"%d\", \u0026k);\r\n    while (k--){\r\n        scanf(\"%d\", \u0026e);\r\n        scanf(\"%d\", \u0026f);\r\n        int diff = f - e;\r\n        scanf(\"%d\", \u0026n);\r\n        for (int i = 1; i \u003C= n; i++){\r\n            scanf(\"%d\", \u0026p[i]);\r\n            scanf(\"%d\", \u0026w[i]);\r\n        }\r\n        for(int i = 0; i \u003C= diff; i++) dp[i] = inf;\r\n        dp[0] = 0;\r\n        for (int i = 1; i \u003C= n; i++) for (int j = w[i]; j \u003C= diff; j++) dp[j] = min(dp[j], dp[j - w[i]] + p[i]);\r\n        if (dp[diff] == inf) printf(\"This is impossible.\\n\");\r\n        else printf(\"The minimum amount of money in the piggy-bank is %d.\\n\",dp[diff]);\r\n    }\r\n}\r\n```\r\n\r\n\u4ee5w\u4e3adp\u5bf9\u8c61\uff1a\r\n\r\n$dp[i + 1][j]$\u8868\u793a\u524di\u4e2a\u7269\u54c1\u4e2d\u6311\u51fa\u603b\u4ef7\u503c\u4e3aj\u65f6\u603b\u91cd\u91cf\u7684\u6700\u5c0f\u503c\r\n\r\n```cpp\r\nint dp[MAX_N + 1][MAX_N * MAX_V + 1];\r\nconst int INF = 0xffffff\r\n\r\nvoid solve(){\r\n    fill(dp[0], dp[0] + MAX_N * MAX_V + 1, INF);\r\n    dp[0][0] = 0;\r\n    for (int j = 0; i \u003C n; i++){\r\n        for (int j = 0; j \u003C= MAX_N * MAX_V; j++){\r\n            if (j \u003C v[i]) dp[i + 1][j] = dp[i][j];\r\n            else dp[i + 1][j] = min(dp[i][j], dp[i][j - v[i]] + w[i]);\r\n        }\r\n    }\r\n    int res = 0;\r\n    for (int i = 0; i \u003C= MAX_N * MAX_V; i++) if (dp[n][i] \u003C= W) res = i;\r\n    printf(\"%d\", res);\r\n}\r\n```\r\n\r\n## \u6700\u957f\u516c\u5171\u5b50\u5e8f\u5217\r\n\r\n$dp[i][j] = s_1, ... , S_i, t_1, ... , t_j$\u5bf9\u5e94LCS\u957f\u5ea6\r\n\r\n1. $s_{i + 1} = t_{j + 1}$, \u672b\u5c3edp\r\n\r\n$$\r\ndp[i + 1][j + 1] = \r\n\\begin{cases}\r\n\tdp[i][j] + 1, s1[i] = s2[j];\\cr\r\n\tmax(dp[i + 1][j], dp[i][j + 1]), else\r\n\\end{cases}\r\n$$\r\n\r\n\r\n\r\n[\u4f8b\u9898\uff1aPOJ1458]()\r\n\r\n```cpp\r\n#include\u003Ccstdio\u003E\r\n#include\u003Calgorithm\u003E\r\n#include\u003Ccstring\u003E\r\nusing namespace std;\r\nconst int maxn = 1000 + 5;\r\nint n, m;\r\nint dp[maxn][maxn];\r\nchar s1[maxn], s2[maxn];\r\n\r\nint main(){\r\n    while (scanf(\"%s%s\", s1, s2) == 2){\r\n        n = strlen(s1);\r\n        m = strlen(s2);\r\n        memset(dp, 0, sizeof(dp));\r\n        for (int i = 0; i \u003C= n; i++){\r\n            for (int j = 0; j \u003C=m; j++){\r\n                if (s1[i] == s2[j]) dp[i + 1][j + 1] = dp[i][j] + 1;\r\n                else dp[i + 1][j + 1] = max(dp[i + 1][j], dp[i][j + 1]);\r\n            }\r\n        }\r\n        printf(\"%d\\n\", dp[n][m]);\r\n    }\r\n    return 0;\r\n}\r\n```\r\n\r\n## \u6700\u957f\u4e0a\u5347\u5b50\u5e8f\u5217\r\n\r\n$dp[i] = max(1, dp[i - 1])$\r\n\r\n[\u4f8b\u9898\uff1aPOJ3903]()\r\n\r\n```cpp\r\n#include\u003Ccstdio\u003E\r\n#include\u003Calgorithm\u003E\r\nusing namespace std;\r\n\r\nint dp[100010];\r\nint a[100010];\r\n\r\nint main(){\r\n\tint N;\r\n\twhile (scanf(\"%d\", \u0026N) != EOF){\r\n\t\tint ans = 0;\r\n\t\tfor (int i = 0; i \u003C N; i++) scanf(\"%d\", \u0026a[i]);\r\n\t\tfor (int i = 0; i \u003C N; i++){\r\n\t\t\tdp[i] = 1;\r\n\t\t\tfor (int j = 0; j \u003C i; j++) if (a[i] \u003E a[j]) dp[i] = max(dp[i], dp[j] + 1);\r\n\t\t\tans = max(ans, dp[i])\r\n\t\t}\r\n\t\tprintf(\"%d\\n\", ans);\r\n\t}\r\n}\r\n```\r\n\r\n## \u591a\u91cd\u90e8\u5206\u548c\r\n\r\n```cpp\r\nint n; \r\nint K;\r\nint a[MAX_N];\r\nint m[MAX_N];\r\nbool dp[MAX_N + 1][MAX_K + 1];\r\nvoid solve(){\r\n\tdp[0][0] = 1;\r\n\tfor (int i = 0; i \u003C n; i++){\r\n\t\tfor (int j = 0; j \u003C K; j++){\r\n\t\t\tfor (int k = 0; k \u003C= m[i] \u0026\u0026 k * a[i] \u003C= j; K++) dp[i + 1][j] |= dp[i][j - k * a[i]];\r\n\t\t} \r\n\t}\r\n\tif (dp[n][k]) printf(\"yes\\n\");\r\n\telse printf(\"no\\n\");\r\n}\r\n```\r\n\r\n```cpp\r\nint n; \r\nint a[MAX_N];\r\nint m[MAX_N];\r\nbool dp[MAX_K + 1];\r\nvoid solve(){\r\n\tmemset(dp, -1, sizeof(dp));\r\n\tdp[0] = 1;\r\n\tfor (int i = 0; i \u003C n; i++){\r\n\t\tfor (int j = 0; j \u003C K; j++){\r\n\t\t\tif (dp[j] \u003E= 0) dp[j] = m[i];\r\n\t\t\telse if (j \u003C a[i] || dp[j - a[i]] \u003C= 0) dp[j] = 0;\r\n\t\t\telse dp[j = dp[j - a[i]]] - 1;\r\n \t\t} \r\n\t}\r\n\tif (dp[k] \u003E= 0) printf(\"yes\\n\");\r\n\telse printf(\"no\\n\");\r\n}\r\n```\r\n\r\n[\u4f8b\u9898\uff1aPOJ1742]()\r\n\r\n```cpp\r\n#include\u003Ciostream\u003E\r\n#include\u003Ccstring\u003E\r\nusing namespace std;\r\n\r\nint num[105]; \r\nint price[105];\r\nint dp[100005];\r\n\r\nint main(){\r\n\tint n, m;\r\n\twhile (cin \u003E\u003E n \u003E\u003E m \u0026\u0026 (n || m)){\r\n\t\tmemset(dp, -1, sizeof(dp));\r\n\t\tfor (int i = 0; i \u003C n; i++) cin \u003E\u003E price[i];\r\n\t\tfor (int i = 0; i \u003C n; i++) cin \u003E\u003E num[i];\r\n\t\tdp[0] = 0;\r\n\t\tfor (int i = 0; i \u003C n; i++){\r\n\t\t\tfor (int j = 0; j \u003C= m; j++){\r\n\t\t\t\tif (dp[j] \u003E= 0) dp[j] = num[i];\r\n\t\t\t\telse if (j \u003C price[i] || dp[j - price[i]] \u003C= 0) dp[j] = -1;\r\n\t\t\t\telse dp[j] = dp[j - price[i]] - 1;\r\n\t\t\t}\r\n\t\t}\r\n\t\tint sum = 0;\r\n\t\tfor (int i = 1; i \u003C= m; i++) if (dp[i] \u003E= 0) sum++;\r\n\t\tcout \u003C\u003C sum \u003C\u003C endl;\r\n\t}\r\n\treturn 0;\r\n}\r\n```"</script>
+        <div id="markdown-rendered"></div>
     </div>
 </div>
+
+<script>
+    (function () {
+        const sourceElement = document.getElementById('markdown-source');
+        const targetElement = document.getElementById('markdown-rendered');
+
+        if (!sourceElement || !targetElement || typeof window.markdownit !== 'function') {
+            return;
+        }
+
+        const markdownText = JSON.parse(sourceElement.textContent || '""');
+        const parser = window.markdownit({
+            html: true,
+            linkify: true,
+            typographer: true,
+            breaks: true
+        });
+
+        if (typeof window.texmath === 'function' && typeof window.katex !== 'undefined') {
+            parser.use(window.texmath, {
+                engine: window.katex,
+                delimiters: 'dollars',
+                katexOptions: {
+                    throwOnError: false,
+                    strict: 'ignore'
+                }
+            });
+        }
+
+        const defaultTableOpen = parser.renderer.rules.table_open || function (tokens, idx, options, env, self) {
+            return self.renderToken(tokens, idx, options);
+        };
+
+        parser.renderer.rules.table_open = function (tokens, idx, options, env, self) {
+            const token = tokens[idx];
+            token.attrJoin('class', 'table table-bordered table-striped table-hover');
+            return defaultTableOpen(tokens, idx, options, env, self);
+        };
+
+        targetElement.innerHTML = parser.render(markdownText);
+        if (window.hljs) {
+            window.hljs.highlightAll();
+        }
+    })();
+</script>
 
             </div>
         </div>

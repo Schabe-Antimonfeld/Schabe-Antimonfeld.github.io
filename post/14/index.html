@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap">
-
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet">
+    
     <link rel="stylesheet" href="/static/css/style.css">
     <link rel="icon" href="/static/images/favicon.ico" type="image/x-icon">
 
@@ -26,12 +27,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/github.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.9.0/highlightjs-line-numbers.min.js"></script>
+    
+    <!-- Markdown-it -->
+    <script src="https://cdn.jsdelivr.net/npm/markdown-it@14.1.0/dist/markdown-it.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/markdown-it-texmath@1.0.0/texmath.min.js"></script>
 
     <script src="/static/js/use_hl.js"></script>
 
-    <!-- MathJax 支持 LaTeX -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6" defer></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <!-- KaTeX 支持 LaTeX -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
 
     <!-- 邮箱弹窗 -->
     <script>
@@ -49,23 +54,26 @@
         });
     </script>
 
-    <!-- LaTeX行内公式支持 -->
-    <script>
-        window.MathJax = {
-            tex: {
-                inlineMath: [['$', '$'], ['\\(', '\\)']],
-                displayMath: [['$$', '$$'], ['\\[', '\\]']],
-                processEscapes: true
-            },
-            svg: {
-                fontCache: 'global'
-            }
-        };
-    </script>
 </head>
 
+<style>
+    .background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url("/static/images/background.png");
+        background-size: cover;
+        background-position: center;
+        z-index: -1;
+        opacity: 0.7;
+    }
+</style>
+
 <body>
-    <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border fixed-top">
+    <div class="background"></div>
+    <nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border fixed-top" style="opacity: 0.85;">
         <!-- 导航栏名称 -->
         <a class="navbar-brand ms-5" href="/">
             SchabeAntimonfeld</a>
@@ -113,158 +121,105 @@
 
 
 <!--个人资料卡-->
-<div class="card mb-4 text-center">
+<div class="card mb-4 text-center shadow">
     <img src="/static/images/avatar.jpg" class="card-img-top rounded-circle mx-auto mt-3" style="width: 120px; height: 120px; object-fit: cover;" alt="avatar">
     <div class="card-body text-center">
         <h5 class="card-title">Schabe Antimonfeld</h5>
-        <p class="card-text text-muted">AI × Coding × Minecraft</p>
+        
         <hr>
         <p>在读大学生</p>
         <p></p>
-        <p><i class="fab fa-github"></i> <a href="https://github.com/Schabe-Antimonfeld" target="_blank">GitHub</a></p>
+        <p><i class="fab fa-github"></i> <a href="https://github.com/Schabe-Antimonfeld" target="_blank" style="text-decoration: none;">GitHub</a></p>
         <hr>
         <p>友情链接</p>
         <p>
             <img src="/static/images/lonion.png" alt="图标" style="width:32px;height:32px;vertical-align:middle;margin-right:4px;">
-            <a href="https://lonion1124.github.io/" target="_blank">洋葱菌的博客</a>
+            <a href="https://lonion1124.github.io/" target="_blank" style="text-decoration: none;">洋葱菌的博客</a>
         </p>
         <p>
             <img src="/static/images/aaaaa.png" alt="图标" style="width:32px;height:32px;vertical-align:middle;margin-right:4px;">
-            <a href="https://aaaaa114514-1.github.io/" target="_blank">aaaaa online</a>
+            <a href="https://aaaaa114514-1.github.io/" target="_blank" style="text-decoration: none;">aaaaa online</a>
         </p>
     </div>
+</div>
 </div>
             </div>
 
             <!-- 主体内容 -->
             <div class="col-md-9 offset-md-3">
                 
-<h2>常用Fourier变换速查</h2>
+<div class="card mb-3 shadow">
+    <div class="card-body">
+        <h2>常用Fourier变换速查</h2>
 
-<!-- 主题标签 -->
-<p class="text-muted mb-1">
-    <i class="bi bi-tags text-primary"></i>
-    
-        <a href="/topics/6/" class="btn btn-sm btn-outline-primary text-decoration-none">数学</a>
-    
-</p>
+        <!-- 主题标签 -->
+        <p class="text-muted mb-1">
+            <i class="bi bi-tags text-primary"></i>
+            
+                <a href="/topics/6/" class="btn btn-sm btn-outline-primary text-decoration-none">数学</a>
+            
+        </p>
 
-<p class="card-text text-muted">
-    发布于 2025年11月04日 12:27
-</p>
+        <p class="card-text text-muted">
+            发布于 2025年11月04日 12:27
+        </p>
+    </div>
+</div>
 <hr>
 
                 
 <!-- 博客内容 -->
-<div class="card mb-3 shadow-sm">
+<div class="card mb-3 shadow">
     <div class="card-body">
-        <h2>Fourier变换性质</h2>
-<p><strong>对偶性 (Duality)</strong>：如果 $\mathcal{F}[f(t)] = F(\omega)$，那么 $\mathcal{F}[F(t)] = 2\pi f(-\omega)$。</p>
-<p><strong>线性性 (Linearity)</strong>：$\mathcal{F}[af_1(t) + bf_2(t)] = aF_1(\omega) + bF_2(\omega)$。</p>
-<p><strong>时移性 (Time Shifting)</strong>：$\mathcal{F}[f(t - t_0)] = F(\omega) e^{-j\omega t_0}$。</p>
-<p><strong>频移性 (Frequency Shifting)</strong>：$\mathcal{F}[f(t) e^{j\omega_0 t}] = F(\omega - \omega_0)$。</p>
-<p><strong>微分性 (Differentiation)</strong>：$\mathcal{F}[\frac{d}{dt} f(t)] = j\omega F(\omega)$。</p>
-<p><strong>卷积定理 (Convolution Theorem)</strong>：
-$$
-\mathcal{F}[f_1(t) * f_2(t)] = F_1(\omega) \cdot F_2(\omega)
-$$</p>
-<p>$$
-\mathcal{F}[f_1(t) \cdot f_2(t)] = \frac{1}{2\pi}F_1(\omega) * F_2(\omega)
-$$</p>
-<p>$$
-\mathcal{F^{-1}}[F_1(\omega) * F_2(\omega)] = 2\pi f_1(t) \cdot f_2(t)
-$$</p>
-<p>$$
-\mathcal{F^{-1}}[F_1(\omega) \cdot F_2(\omega)] = f_1(t) * f_2(t)
-$$</p>
-<table class="table table-bordered table-striped table-hover">
-<thead>
-<tr>
-<th style="text-align: center;">$f(t)$</th>
-<th style="text-align: center;">$ \mathcal{F}[f(t)]$</th>
-<th style="text-align: center;">备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: center;">$\delta(t)$</td>
-<td style="text-align: center;">$1$</td>
-<td style="text-align: center;">狄拉克$\delta$函数</td>
-</tr>
-<tr>
-<td style="text-align: center;">$\delta(t-t_0)$</td>
-<td style="text-align: center;">$e^{-j\omega t}$</td>
-<td style="text-align: center;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">$1$</td>
-<td style="text-align: center;">$2\pi \delta(\omega)$</td>
-<td style="text-align: center;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">$e^{j\omega_0 t}$</td>
-<td style="text-align: center;">$2\pi \delta(\omega-\omega_0)$</td>
-<td style="text-align: center;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">$cos(\omega_0t)$</td>
-<td style="text-align: center;">$\pi[\delta(\omega+\omega_0)+\delta(\omega-\omega_0)]$</td>
-<td style="text-align: center;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">$sin(\omega_0t)$</td>
-<td style="text-align: center;">$j\pi[\delta(\omega+\omega_0)-\delta(\omega-\omega_0)]$</td>
-<td style="text-align: center;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">$e^{-a\vert t \vert}, a&gt;0$</td>
-<td style="text-align: center;">$\frac{2a}{a^2+\omega^2}$</td>
-<td style="text-align: center;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">$e^{-at} \cdot H(t), a&gt;0$</td>
-<td style="text-align: center;">$\frac{1}{a+j\omega}$</td>
-<td style="text-align: center;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">$H(t)=\begin{cases}1, &amp; t\ge0 \cr0, &amp; t&lt; 0\end{cases}$</td>
-<td style="text-align: center;">$\pi \delta(\omega) + \frac{1}{j\omega}$</td>
-<td style="text-align: center;">$Heaviside$函数(单位越阶函数)</td>
-</tr>
-<tr>
-<td style="text-align: center;">$rect(\frac{t}{T})=\begin{cases}1, &amp; \vert t \vert\le \dfrac{T}{2} \cr0, &amp; \vert t \vert&gt; \dfrac{T}{2}\end{cases}$</td>
-<td style="text-align: center;">$Tsinc(\frac{\omega T}{2})$</td>
-<td style="text-align: center;">矩形脉冲</td>
-</tr>
-<tr>
-<td style="text-align: center;">$sinc(t) = \frac{sin\pi t}{\pi t}$</td>
-<td style="text-align: center;">$rect(\frac{\omega}{2\pi})$</td>
-<td style="text-align: center;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">$Ae^{-at^2}, a&gt;0$</td>
-<td style="text-align: center;">$\sqrt{\frac{\pi}{a}}Ae^{-\frac{\omega^2}{4a}}$</td>
-<td style="text-align: center;">高斯函数</td>
-</tr>
-<tr>
-<td style="text-align: center;">$te^{-a\vert t \vert}, a&gt;0$</td>
-<td style="text-align: center;">$\frac{2ja\omega}{(a^2+\omega^2)^2}$</td>
-<td style="text-align: center;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">$\frac{1}{t^2+a^2}$</td>
-<td style="text-align: center;">$\frac{\pi}{a}e^{-a\vert \omega \vert}$</td>
-<td style="text-align: center;"></td>
-</tr>
-<tr>
-<td style="text-align: center;">$sgn(x)=\begin{cases}1, &amp; x&gt;0 \cr 0, &amp; x=0 \cr -1, &amp; x&lt;0 \end{cases}$</td>
-<td style="text-align: center;">$\frac{2}{j\omega}$</td>
-<td style="text-align: center;">符号函数</td>
-</tr>
-</tbody>
-</table>
+        <script id="markdown-source" type="application/json">"## Fourier\u53d8\u6362\u6027\u8d28\r\n\r\n**\u5bf9\u5076\u6027 (Duality)**\uff1a\u5982\u679c $\\mathcal{F}[f(t)] = F(\\omega)$\uff0c\u90a3\u4e48 $\\mathcal{F}[F(t)] = 2\\pi f(-\\omega)$\u3002\r\n\r\n**\u7ebf\u6027\u6027 (Linearity)**\uff1a$\\mathcal{F}[af_1(t) + bf_2(t)] = aF_1(\\omega) + bF_2(\\omega)$\u3002\r\n\r\n**\u65f6\u79fb\u6027 (Time Shifting)**\uff1a$\\mathcal{F}[f(t - t_0)] = F(\\omega) e^{-j\\omega t_0}$\u3002\r\n\r\n**\u9891\u79fb\u6027 (Frequency Shifting)**\uff1a$\\mathcal{F}[f(t) e^{j\\omega_0 t}] = F(\\omega - \\omega_0)$\u3002\r\n\r\n**\u5fae\u5206\u6027 (Differentiation)**\uff1a$\\mathcal{F}[\\frac{d}{dt} f(t)] = j\\omega F(\\omega)$\u3002\r\n\r\n**\u5377\u79ef\u5b9a\u7406 (Convolution Theorem)**\uff1a\r\n$$\r\n\\mathcal{F}[f_1(t) * f_2(t)] = F_1(\\omega) \\cdot F_2(\\omega)\r\n$$\r\n\r\n$$\r\n\\mathcal{F}[f_1(t) \\cdot f_2(t)] = \\frac{1}{2\\pi}F_1(\\omega) * F_2(\\omega)\r\n$$\r\n\r\n$$\r\n\\mathcal{F^{-1}}[F_1(\\omega) * F_2(\\omega)] = 2\\pi f_1(t) \\cdot f_2(t)\r\n$$\r\n\r\n$$\r\n\\mathcal{F^{-1}}[F_1(\\omega) \\cdot F_2(\\omega)] = f_1(t) * f_2(t)\r\n$$\r\n\r\n\r\n\r\n|                            $f(t)$                            |                  $\\mathcal{F}[f(t)]$                   |             \u5907\u6ce8              |\r\n| :----------------------------------------------------------: | :-----------------------------------------------------: | :---------------------------: |\r\n|                         $\\delta(t)$                          |                           $1$                           |      \u72c4\u62c9\u514b$\\delta$\u51fd\u6570       |\r\n|                       $\\delta(t-t_0)$                        |                    $e^{-j\\omega t}$                     |                               |\r\n|                             $1$                              |                  $2\\pi \\delta(\\omega)$                  |                               |\r\n|                      $e^{j\\omega_0 t}$                       |             $2\\pi \\delta(\\omega-\\omega_0)$              |                               |\r\n|                       $cos(\\omega_0t)$                       | $\\pi[\\delta(\\omega+\\omega_0)+\\delta(\\omega-\\omega_0)]$  |                               |\r\n|                       $sin(\\omega_0t)$                       | $j\\pi[\\delta(\\omega+\\omega_0)-\\delta(\\omega-\\omega_0)]$ |                               |\r\n|                  $e^{-a\\vert t \\vert}, a\u003E0$                  |                $\\frac{2a}{a^2+\\omega^2}$                |                               |\r\n|                  $e^{-at} \\cdot H(t), a\u003E0$                   |                  $\\frac{1}{a+j\\omega}$                  |                               |\r\n|    $H(t)=\\begin{cases}1, \u0026 t\\ge0 \\cr0, \u0026 t\u003C 0\\end{cases}$    |        $\\pi \\delta(\\omega) + \\frac{1}{j\\omega}$         | $Heaviside$\u51fd\u6570(\u5355\u4f4d\u8d8a\u9636\u51fd\u6570) |\r\n| $rect(\\frac{t}{T})=\\begin{cases}1, \u0026 \\vert t \\vert\\le \\dfrac{T}{2} \\cr0, \u0026 \\vert t \\vert\\\u003E \\dfrac{T}{2}\\end{cases}$ |               $Tsinc(\\frac{\\omega T}{2})$               |           \u77e9\u5f62\u8109\u51b2            |\r\n|              $sinc(t) = \\frac{sin\\pi t}{\\pi t}$              |               $rect(\\frac{\\omega}{2\\pi})$               |                               |\r\n|                      $Ae^{-at^2}, a\u003E0$                       |     $\\sqrt{\\frac{\\pi}{a}}Ae^{-\\frac{\\omega^2}{4a}}$     |           \u9ad8\u65af\u51fd\u6570            |\r\n|                 $te^{-a\\vert t \\vert}, a\u003E0$                  |          $\\frac{2ja\\omega}{(a^2+\\omega^2)^2}$           |                               |\r\n|                     $\\frac{1}{t^2+a^2}$                      |         $\\frac{\\pi}{a}e^{-a\\vert \\omega \\vert}$         |                               |\r\n| $sgn(x)=\\begin{cases}1, \u0026 x\u003E0 \\cr 0, \u0026 x=0 \\cr -1, \u0026 x\u003C0 \\end{cases}$ |                   $\\frac{2}{j\\omega}$                   |           \u7b26\u53f7\u51fd\u6570            |"</script>
+        <div id="markdown-rendered"></div>
     </div>
 </div>
+
+<script>
+    (function () {
+        const sourceElement = document.getElementById('markdown-source');
+        const targetElement = document.getElementById('markdown-rendered');
+
+        if (!sourceElement || !targetElement || typeof window.markdownit !== 'function') {
+            return;
+        }
+
+        const markdownText = JSON.parse(sourceElement.textContent || '""');
+        const parser = window.markdownit({
+            html: true,
+            linkify: true,
+            typographer: true,
+            breaks: true
+        });
+
+        if (typeof window.texmath === 'function' && typeof window.katex !== 'undefined') {
+            parser.use(window.texmath, {
+                engine: window.katex,
+                delimiters: 'dollars',
+                katexOptions: {
+                    throwOnError: false,
+                    strict: 'ignore'
+                }
+            });
+        }
+
+        const defaultTableOpen = parser.renderer.rules.table_open || function (tokens, idx, options, env, self) {
+            return self.renderToken(tokens, idx, options);
+        };
+
+        parser.renderer.rules.table_open = function (tokens, idx, options, env, self) {
+            const token = tokens[idx];
+            token.attrJoin('class', 'table table-bordered table-striped table-hover');
+            return defaultTableOpen(tokens, idx, options, env, self);
+        };
+
+        targetElement.innerHTML = parser.render(markdownText);
+        if (window.hljs) {
+            window.hljs.highlightAll();
+        }
+    })();
+</script>
 
             </div>
         </div>
